@@ -29,7 +29,8 @@ export default function HomePage() {
                 "@type": "Product",
                 "name": "SMART 4K Premium IPTV Subscription",
                 "description": "Get instant access to 22,000+ live TV channels, 4K movies, and global sports.",
-                "brand": { "@type": "Organization", "name": "SMART 4K" },
+                "image": "https://smart4k.io/og-image.jpg",
+                "brand": { "@type": "Brand", "name": "SMART 4K" },
                 "offers": {
                   "@type": "Offer",
                   "url": "https://smart4k.io/#pricing",
