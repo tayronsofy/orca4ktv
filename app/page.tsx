@@ -5,7 +5,7 @@ import HomePageClient from './HomePageClient'
 
 export const metadata: Metadata = {
   title: 'Best Premium IPTV Service 2026 - 4K Sports & Movies',
-  description: 'Get instant access to 22,000+ live TV channels, 4K movies, and global sports (EPL, NBA, UFC). The #1 rated IPTV provider for Firestick, Android & iOS. Start your free trial.',
+  description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
   keywords: 'buy iptv, iptv free trial, best iptv 2026, 4k iptv subscription, premium iptv, buffer-free streaming, live sports iptv',
   alternates: { canonical: 'https://smart4k.io/' },
   openGraph: {

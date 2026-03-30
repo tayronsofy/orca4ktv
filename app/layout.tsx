@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'SMART 4K | Premium 4K IPTV Service',
     template: '%s | SMART 4K',
   },
-  description: 'Premium IPTV service with 22,000+ live TV channels, 4K sports, and on-demand content. Compatible with Firestick, Android TV, Apple TV, and all devices.',
+  description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
   icons: {
     icon: '/favicon.ico',
   },
