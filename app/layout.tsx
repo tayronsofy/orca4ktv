@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   },
   description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.png',
   },
 }
 
