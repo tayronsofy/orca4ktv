@@ -16,9 +16,10 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
+            export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_deploy -o StrictHostKeyChecking=no"
             cd /var/www/smart4k
             git config --global --add safe.directory /var/www/smart4k
-            git remote set-url origin https://github.com/yenesim/smart4k.git
+            git remote set-url origin git@github.com:yenesim/smart4k.git
             git fetch origin main
             git reset --hard origin/main
             npm install
