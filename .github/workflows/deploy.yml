@@ -16,6 +16,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
+            set -e
             export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_deploy -o StrictHostKeyChecking=no"
             cd /var/www/smart4k
             git config --global --add safe.directory /var/www/smart4k
