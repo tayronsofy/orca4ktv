@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import UKHero from '@/components/uk/UKHero'
 import UKHomePage from '@/page-components/uk/UKHomePage'
 
 export const metadata: Metadata = {
@@ -50,6 +51,8 @@ export default function UKPage() {
           })
         }}
       />
+      <UKHero />
+
       {/* SEO Content Block - server rendered for crawlers */}
       <section className="bg-[#1f2326] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import CanadaHero from '@/components/canada/CanadaHero'
 import CanadaHomePage from '@/page-components/canada/CanadaHomePage'
 
 export const metadata: Metadata = {
@@ -50,6 +51,8 @@ export default function CanadaPage() {
           })
         }}
       />
+      <CanadaHero />
+
       {/* SEO Content Block - server rendered for crawlers */}
       <section className="bg-[#1f2326] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">

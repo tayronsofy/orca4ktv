@@ -1,7 +1,6 @@
 'use client'
 
 import React, { Suspense, lazy } from 'react'
-import CanadaHero from '@/components/canada/CanadaHero'
 
 const LiveTicker = lazy(() => import('@/components/LiveTicker'))
 const MovieShowcase = lazy(() => import('@/components/MovieShowcase'))
@@ -29,7 +28,6 @@ const scrollToPricing = () => {
 const CanadaHomePage: React.FC = () => {
   return (
     <>
-      <CanadaHero />
       <Suspense fallback={<div className="h-10" />}>
         <LiveTicker />
         <CanadaVideoSection onScrollToPricing={scrollToPricing} />
