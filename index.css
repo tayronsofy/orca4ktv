@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+@media (max-width: 768px) {
+  /* Disable heavy space animations */
+  .space-layer, 
+  .animate-space-float,
+  .animate-pulse-slow,
+  .animate-pulse-slow-reverse {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    display: none !important; /* Hides the layers entirely on mobile */
+  }
+
+  /* Disable heavy blurs (Backdrop filters kill mobile FPS) */
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Replace complex Galaxy background with a simple fast gradient */
+  section.relative.min-h-screen {
+    background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%) !important;
+  }
+}

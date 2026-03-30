@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1f2326;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Custom Animations */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .space-layer,
+  .animate-space-float,
+  .animate-pulse-slow,
+  .animate-pulse-slow-reverse {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    display: none !important;
+  }
+
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  section.relative.min-h-screen {
+    background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%) !important;
+  }
+}

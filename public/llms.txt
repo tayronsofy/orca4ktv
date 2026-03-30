@@ -1,0 +1,40 @@
+# SMART 4K
+
+> SMART 4K is a premium IPTV streaming service providing access to 22,000+ live TV channels, 4K sports, and an extensive VOD library. Compatible with all major devices including Firestick, Android TV, Apple TV, Smart TVs, and iOS/Android phones.
+
+## Service Highlights
+- 22,000+ live channels in HD and 4K
+- 100,000+ VOD titles (movies & series)
+- Live sports: Premier League, NFL, NBA, UFC, LaLiga, Champions League
+- Anti-freeze / buffer-free CDN technology
+- 24/7 customer support via Telegram
+- No contracts — monthly prepay only
+- Instant activation after payment
+
+## Plans & Pricing
+- Monthly plan: from $14.99/month
+- Quarterly and annual plans available
+- Up to 4 simultaneous connections
+- Free trial available
+
+## Pages
+- [Homepage](https://smart4k.io/)
+- [IPTV for USA](https://smart4k.io/iptv-usa)
+- [IPTV for UK](https://smart4k.io/iptv-uk)
+- [IPTV for Canada](https://smart4k.io/iptv-canada)
+- [Channel List](https://smart4k.io/channels)
+- [Free Trial](https://smart4k.io/trial)
+- [Resellers Program](https://smart4k.io/resellers)
+- [About Us](https://smart4k.io/about)
+
+## Blog
+- [Ultimate Guide: Setup IPTV on Firestick (2026)](https://smart4k.io/blog/ultimate-iptv-firestick-setup-guide-2026)
+- [All Blog Posts](https://smart4k.io/blog)
+
+## Contact & Support
+- Website: https://smart4k.io
+- Email: support@smart4k.io
+- Telegram Support: available 24/7
+
+## Optional
+- [llms-full.txt](https://smart4k.io/llms-full.txt)

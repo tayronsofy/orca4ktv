@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block build artifacts and API internals
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://smart4k.io/sitemap.xml
