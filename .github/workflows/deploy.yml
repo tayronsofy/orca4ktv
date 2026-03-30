@@ -17,7 +17,10 @@ jobs:
           port: 22
           script: |
             cd /var/www/smart4k
-            git pull origin main
+            git config --global --add safe.directory /var/www/smart4k
+            git remote set-url origin https://github.com/yenesim/smart4k.git
+            git fetch origin main
+            git reset --hard origin/main
             npm install
             npm run build
             pm2 restart smart4k || pm2 start npm --name "smart4k" -- start
