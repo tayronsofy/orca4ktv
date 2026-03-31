@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ScrollToTopButton from '@/components/ScrollToTopButton'
 import SetupWizard from '@/components/SetupWizard'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
@@ -36,22 +35,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Font Awesome — non-blocking async */}
+        {/* Font Awesome */}
         <link
-          rel="preload"
+          rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          as="style"
           crossOrigin="anonymous"
-          // @ts-ignore
-          onLoad="this.onload=null;this.rel='stylesheet'"
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            crossOrigin="anonymous"
-          />
-        </noscript>
+
         {/* Organization Schema */}
         <script
           type="application/ld+json"
@@ -77,7 +67,6 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <SetupWizard />
-        <ScrollToTopButton />
       </body>
     </html>
   )

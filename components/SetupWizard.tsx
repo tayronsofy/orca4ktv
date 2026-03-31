@@ -41,12 +41,12 @@ const SetupWizard: React.FC = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-4 rounded-full shadow-2xl font-bold flex items-center gap-3 hover:scale-105 transition-all border border-white/20"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full shadow-2xl font-bold flex items-center hover:scale-105 transition-all border border-white/20 px-4 py-3 gap-2 md:px-6 md:py-4 md:gap-3"
       >
-        <span className="text-2xl">🛠️</span>
+        <span className="text-xl md:text-2xl">🛠️</span>
         <div className="text-left leading-tight">
           <div className="text-xs uppercase opacity-80">Need Help?</div>
-          <div>Setup & Support</div>
+          <div className="hidden md:block">Setup &amp; Support</div>
         </div>
       </button>
     );
