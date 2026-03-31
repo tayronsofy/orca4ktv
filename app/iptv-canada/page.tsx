@@ -35,7 +35,8 @@ export default function CanadaPage() {
             "@type": "Product",
             "name": "Best IPTV Canada 2026",
             "description": "The Best IPTV Canada 2026. NHL Center Ice IPTV alternative. Watch TSN and Sportsnet IPTV Canada.",
-            "brand": { "@type": "Organization", "name": "SMART 4K" },
+            "image": "https://smart4k.io/og-image.jpg",
+            "brand": { "@type": "Brand", "name": "SMART 4K" },
             "offers": {
               "@type": "Offer",
               "url": "https://smart4k.io/iptv-canada",

@@ -35,7 +35,8 @@ export default function USAPage() {
             "@type": "Product",
             "name": "Best IPTV USA 2026",
             "description": "The Best IPTV USA 2026 for Cord Cutters. Watch USA Local Channels, NFL, and American Sports IPTV HD.",
-            "brand": { "@type": "Organization", "name": "SMART 4K" },
+            "image": "https://smart4k.io/og-image.jpg",
+            "brand": { "@type": "Brand", "name": "SMART 4K" },
             "offers": {
               "@type": "Offer",
               "url": "https://smart4k.io/iptv-usa",

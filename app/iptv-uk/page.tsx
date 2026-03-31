@@ -35,7 +35,8 @@ export default function UKPage() {
             "@type": "Product",
             "name": "Best IPTV UK 2026",
             "description": "The Best IPTV UK 2026 provider. The ultimate Sky Sports IPTV alternative.",
-            "brand": { "@type": "Organization", "name": "SMART 4K" },
+            "image": "https://smart4k.io/og-image.jpg",
+            "brand": { "@type": "Brand", "name": "SMART 4K" },
             "offers": {
               "@type": "Offer",
               "url": "https://smart4k.io/iptv-uk",
