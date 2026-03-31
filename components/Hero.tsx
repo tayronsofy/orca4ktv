@@ -11,16 +11,23 @@ const Hero: React.FC = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // OPTIMIZATION: Throttled scroll listener
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const handleScroll = () => {
       requestAnimationFrame(() => setScrollY(window.scrollY));
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobile]);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,8 +52,8 @@ const Hero: React.FC = () => {
       <div
         className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
         style={{
-          transform: `translateY(${scrollY * 0.2}px)`,
-          willChange: 'transform' // 🚀 GPU Acceleration
+          transform: isMobile ? 'none' : `translateY(${scrollY * 0.2}px)`,
+          willChange: isMobile ? 'auto' : 'transform',
         }}
       >
         {/* Galaxy Layers (Hardware Accelerated) */}
@@ -54,9 +61,9 @@ const Hero: React.FC = () => {
         <div className="space-layer space-layer-2 will-change-transform"></div>
         <div className="space-layer space-layer-3 will-change-transform"></div>
 
-        {/* Nebula Glows */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
+        {/* Nebula Glows — desktop only (heavy GPU cost on mobile) */}
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
         {/* Floating Channel Logos (With Anti-CLS Wrappers) */}
         {FLOATING_LOGOS.map((logo, idx) => (
@@ -158,6 +165,10 @@ const Hero: React.FC = () => {
           height: 200%;
           background-repeat: repeat;
           will-change: transform;
+        }
+
+        @media (max-width: 768px) {
+          .space-layer { display: none; }
         }
 
         .space-layer-1 {
