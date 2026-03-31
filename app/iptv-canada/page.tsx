@@ -4,7 +4,7 @@ import CanadaHomePage from '@/page-components/canada/CanadaHomePage'
 
 export const metadata: Metadata = {
   title: 'Best IPTV Canada 2026 - NHL, TSN & Sportsnet Alternative',
-  description: 'The Best IPTV Canada 2026. Get the ultimate NHL Center Ice IPTV alternative. Watch TSN and Sportsnet IPTV Canada, Canadian Local News, and French Canadian IPTV channels.',
+  description: 'Best IPTV Canada 2026. Watch NHL, TSN, Sportsnet, CBC & French Canadian channels in 4K. Buffer-free streaming on Firestick, Android & Apple TV.',
   keywords: 'best iptv canada 2026, nhl center ice iptv alternative, tsn sportsnet iptv canada, canadian local news iptv, french canadian iptv channels',
   alternates: {
     canonical: 'https://smart4k.io/iptv-canada',
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best IPTV Canada 2026 - NHL, TSN & Sportsnet Alternative',
     description: 'Watch NHL, TSN, Sportsnet, CBC, and all Canadian channels. Buffer-free 4K streaming.',
+    type: 'website',
     url: 'https://smart4k.io/iptv-canada',
     images: [{ url: 'https://smart4k.io/images/canada-coverage.jpg', width: 1200, height: 630 }],
   },

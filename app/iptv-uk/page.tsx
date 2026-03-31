@@ -4,7 +4,7 @@ import UKHomePage from '@/page-components/uk/UKHomePage'
 
 export const metadata: Metadata = {
   title: 'Best IPTV UK 2026 - Premier League, Sky Sports Alternative',
-  description: 'The Best IPTV UK 2026 provider. The ultimate Sky Sports IPTV alternative. Watch UK TV Channels (BBC, ITV, Channel 4) and TNT Sports IPTV UK with zero buffering.',
+  description: 'Best IPTV UK 2026. Sky Sports alternative with Premier League, BBC, ITV & Channel 4. Zero buffering in 4K on Firestick, Android & Apple TV.',
   keywords: 'best iptv uk 2026, sky sports iptv alternative, premier league iptv no buffering, uk tv channels iptv hd, tnt sports iptv uk',
   alternates: {
     canonical: 'https://smart4k.io/iptv-uk',
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best IPTV UK 2026 - Premier League & Sky Sports Alternative',
     description: 'Watch Premier League, BBC, ITV, Channel 4 and all UK channels with zero buffering.',
+    type: 'website',
     url: 'https://smart4k.io/iptv-uk',
     images: [{ url: 'https://smart4k.io/images/uk-coverage.jpg', width: 1200, height: 630 }],
   },

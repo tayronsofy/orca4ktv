@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best Premium IPTV Service 2026 - 4K Sports & Movies',
     description: 'Get instant access to 22,000+ live TV channels, 4K movies, and global sports. Start your free trial.',
+    type: 'website',
     url: 'https://smart4k.io/',
     images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],
   },

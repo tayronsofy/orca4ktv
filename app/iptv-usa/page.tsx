@@ -4,7 +4,7 @@ import USAHomePage from '@/page-components/usa/USAHomePage'
 
 export const metadata: Metadata = {
   title: 'Best IPTV USA 2026 - USA Local Channels, NFL & Sports',
-  description: 'The Best IPTV USA 2026 for Cord Cutters. Watch USA Local Channels, NFL Sunday Ticket IPTV alternative, and American Sports IPTV HD. Servers in New York, Los Angeles, and Chicago.',
+  description: 'Best IPTV USA 2026 for cord cutters. Watch NFL, NBA, USA local channels & sports in 4K. Buffer-free streaming on Firestick, Android & Apple TV.',
   keywords: 'best iptv usa 2026, usa local channels iptv, nfl sunday ticket iptv alternative, american sports iptv hd, iptv service for firestick usa',
   alternates: {
     canonical: 'https://smart4k.io/iptv-usa',
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Best IPTV USA 2026 - USA Local Channels, NFL & Sports',
     description: 'Watch 22,000+ USA live channels, NFL, NBA, and local networks. Buffer-free 4K streaming.',
+    type: 'website',
     url: 'https://smart4k.io/iptv-usa',
     images: [{ url: 'https://smart4k.io/images/usa-coverage.jpg', width: 1200, height: 630 }],
   },
