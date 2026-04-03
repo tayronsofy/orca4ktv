@@ -1,19 +1,17 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { blogPosts } from '@/data/blogData'
+import { getPost, getPublishedPosts } from '@/lib/posts'
 import BlogPostContent from '@/page-components/BlogPost'
+
+export const dynamic = 'force-dynamic'
 
 interface Props {
   params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }))
-}
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
+  const post = getPost(slug)
   if (!post) return {}
   return {
     title: `${post.title} - SMART 4K Blog`,
@@ -31,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
-  if (!post) notFound()
+  const post = getPost(slug)
+  if (!post || post.status === 'draft') notFound()
   return <BlogPostContent post={post} />
 }

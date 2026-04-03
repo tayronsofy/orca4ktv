@@ -5,7 +5,7 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
-import type { BlogPost as BlogPostType } from '@/data/blogData'
+import type { BlogPost as BlogPostType } from '@/lib/posts'
 import { ChevronLeft } from 'lucide-react'
 
 interface Heading {
@@ -39,7 +39,27 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
     window.scrollTo(0, 0)
   }, [post.slug])
 
-  const toc = extractHeadings(post.content)
+  // Initialize FAQ toggles (data-faq-toggle blocks inserted from editor)
+  useEffect(() => {
+    const toggles = document.querySelectorAll('[data-faq-toggle]')
+    const handlers: Array<{ el: Element; fn: EventListener }> = []
+    toggles.forEach((toggle) => {
+      const fn = () => {
+        const body = toggle.nextElementSibling as HTMLElement | null
+        const icon = toggle.querySelector('[data-faq-icon]') as HTMLElement | null
+        if (body) {
+          const isOpen = body.style.display === 'block'
+          body.style.display = isOpen ? 'none' : 'block'
+          if (icon) icon.textContent = isOpen ? '+' : '−'
+        }
+      }
+      toggle.addEventListener('click', fn)
+      handlers.push({ el: toggle, fn })
+    })
+    return () => { handlers.forEach(({ el, fn }) => el.removeEventListener('click', fn)) }
+  }, [post.slug])
+
+  const toc = post.contentFormat === 'html' ? [] : extractHeadings(post.content)
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -71,13 +91,15 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
           </Link>
         </div>
 
-        <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 border border-white/5">
-          <img
-            src={post.imageUrl}
-            alt={`${post.title} - ${post.seoKeywords.split(',')[0]}`}
-            title={post.excerpt}
-            className="w-full h-full object-cover"
-          />
+        <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 border border-white/5 bg-[#1a1d20]">
+          {post.imageUrl && (
+            <img
+              src={post.imageUrl}
+              alt={`${post.title} - ${post.seoKeywords.split(',')[0]}`}
+              title={post.excerpt}
+              className="w-full h-full object-cover"
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#020204] to-transparent"></div>
           <div className="absolute bottom-6 left-8 flex items-center gap-4">
             <div className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
@@ -129,9 +151,13 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
         )}
 
         <div className="prose prose-invert prose-lg md:prose-xl max-w-none prose-headings:font-black prose-headings:text-white prose-a:text-red-500 prose-blockquote:border-red-500 prose-blockquote:bg-red-500/5 prose-blockquote:not-italic prose-blockquote:py-2">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
-            {post.content}
-          </ReactMarkdown>
+          {post.contentFormat === 'html' ? (
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          ) : (
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
+              {post.content}
+            </ReactMarkdown>
+          )}
         </div>
       </div>
 
@@ -139,7 +165,8 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
         .prose h1 { font-size: 2.5rem; margin-bottom: 2rem; margin-top: 3rem; line-height: 1.2; background: linear-gradient(to right, #ef4444, #ffffff); -webkit-background-clip: text; color: transparent; }
         .prose h2 { font-size: 2rem; margin-top: 3rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; }
         .prose h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
-        .prose p { line-height: 1.8; margin-bottom: 1.5rem; color: #d1d5db; }
+        .prose p { line-height: 1.8; margin-bottom: 0; color: #d1d5db; padding-bottom: 1.5rem; }
+        .prose p + p { border-top: 1px solid transparent; background-image: linear-gradient(to right, transparent, rgba(239,68,68,0.25) 20%, rgba(239,68,68,0.25) 80%, transparent); background-size: 100% 1px; background-repeat: no-repeat; background-position: top; padding-top: 1.5rem; }
         .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
         .prose li { margin-bottom: 0.5rem; color: #d1d5db; }
         .prose strong { color: white; font-weight: 800; }

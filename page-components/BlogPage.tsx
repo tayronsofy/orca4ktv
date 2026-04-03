@@ -2,9 +2,13 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { blogPosts } from '@/data/blogData'
+import type { BlogPost } from '@/lib/posts'
 
-const BlogPage: React.FC = () => {
+interface BlogPageProps {
+  posts: BlogPost[]
+}
+
+const BlogPage: React.FC<BlogPageProps> = ({ posts: blogPosts }) => {
   return (
     <div className="min-h-screen bg-[#020204] py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto mt-16">
@@ -24,12 +28,14 @@ const BlogPage: React.FC = () => {
               key={post.id}
               className="group bg-[#1a1d20] rounded-3xl overflow-hidden hover:scale-105 transition-all duration-300 border border-white/5 hover:border-red-500/50 shadow-2xl flex flex-col"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+              <div className="relative h-56 overflow-hidden bg-[#0a0a0a]">
+                {post.imageUrl && (
+                  <img
+                    src={post.imageUrl}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1d20] to-transparent"></div>
                 <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                   {post.category}

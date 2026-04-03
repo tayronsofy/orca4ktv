@@ -26,28 +26,28 @@ const UKPricing = () => {
 
   const PRICING_TIERS = {
     1: [
-      { title: "1 Month", price: 21.00, duration: "month", savings: null, isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/1-month-iptv", formUrl: FORM_URL_1_MONTH },
-      { title: "3 Months", price: 45.00, duration: "quarter", savings: "Save 30%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/3-months-iptv", formUrl: FORM_URL_3_MONTHS },
-      { title: "6 Months", price: 69.00, duration: "half-year", savings: "Save 45%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/6-months-iptv", formUrl: FORM_URL_6_MONTHS },
-      { title: "12 Months", price: 95.00, duration: "year", savings: "Save 62%", isPopular: true, link: "https://smart4k.io/billing/store/yearly-plan/1-year-iptv-subscription", formUrl: FORM_URL_12_MONTHS },
+      { title: "1 Month", price: 21.00, duration: "month", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=20", formUrl: FORM_URL_1_MONTH },
+      { title: "3 Months", price: 45.00, duration: "quarter", savings: "Save 30%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=46", formUrl: FORM_URL_3_MONTHS },
+      { title: "6 Months", price: 69.00, duration: "half-year", savings: "Save 45%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=52", formUrl: FORM_URL_6_MONTHS },
+      { title: "12 Months", price: 95.00, duration: "year", savings: "Save 62%", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=53", formUrl: FORM_URL_12_MONTHS },
     ],
     2: [
-      { title: "1 Month", price: 36.00, duration: "month", savings: null, isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/1-month-iptv" },
-      { title: "3 Months", price: 72.00, duration: "quarter", savings: "Save 30%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/3-months-iptv" },
-      { title: "6 Months", price: 110.00, duration: "half-year", savings: "Save 47%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/6-months-iptv" },
-      { title: "12 Months", price: 152.00, duration: "year", savings: "Save 63%", isPopular: true, link: "https://smart4k.io/billing/store/yearly-plan/1-year-iptv-subscription" },
+      { title: "1 Month", price: 36.00, duration: "month", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=54" },
+      { title: "3 Months", price: 72.00, duration: "quarter", savings: "Save 30%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=55" },
+      { title: "6 Months", price: 110.00, duration: "half-year", savings: "Save 47%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=56" },
+      { title: "12 Months", price: 152.00, duration: "year", savings: "Save 63%", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=57" },
     ],
     3: [
-      { title: "1 Month", price: 49.00, duration: "month", savings: null, isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/1-month-iptv" },
-      { title: "3 Months", price: 99.00, duration: "quarter", savings: "Save 28%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/3-months-iptv" },
-      { title: "6 Months", price: 150.00, duration: "half-year", savings: "Save 46%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/6-months-iptv" },
-      { title: "12 Months", price: 210.00, duration: "year", savings: "Save 62%", isPopular: true, link: "https://smart4k.io/billing/store/yearly-plan/1-year-iptv-subscription" },
+      { title: "1 Month", price: 49.00, duration: "month", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=58" },
+      { title: "3 Months", price: 99.00, duration: "quarter", savings: "Save 28%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=59" },
+      { title: "6 Months", price: 150.00, duration: "half-year", savings: "Save 46%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=60" },
+      { title: "12 Months", price: 210.00, duration: "year", savings: "Save 62%", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=61" },
     ],
     4: [
-      { title: "1 Month", price: 64.00, duration: "month", savings: null, isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/1-month-iptv" },
-      { title: "3 Months", price: 125.00, duration: "quarter", savings: "Save 28%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/3-months-iptv" },
-      { title: "6 Months", price: 190.00, duration: "half-year", savings: "Save 45%", isPopular: false, link: "https://smart4k.io/billing/store/monthly-plan/6-months-iptv" },
-      { title: "12 Months", price: 260.00, duration: "year", savings: "Save 63%", isPopular: true, link: "https://smart4k.io/billing/store/yearly-plan/1-year-iptv-subscription" },
+      { title: "1 Month", price: 64.00, duration: "month", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=62" },
+      { title: "3 Months", price: 125.00, duration: "quarter", savings: "Save 28%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=63" },
+      { title: "6 Months", price: 190.00, duration: "half-year", savings: "Save 45%", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=64" },
+      { title: "12 Months", price: 260.00, duration: "year", savings: "Save 63%", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=65" },
     ],
   };
 
@@ -142,7 +142,7 @@ const UKPricing = () => {
 
                 <a
                   href={plan.link}
-                  target="_blank"
+                  target="_self"
                   rel="noopener noreferrer"
                   className={`
                     w-full py-4 rounded-xl font-bold text-sm tracking-wide uppercase transition-all duration-300 shadow-xl flex items-center justify-center

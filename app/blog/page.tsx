@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import BlogPage from '@/page-components/BlogPage'
+import { getPublishedPosts } from '@/lib/posts'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'SMART 4K Blog - Streaming Guides & IPTV Tips 2026',
@@ -15,5 +18,6 @@ export const metadata: Metadata = {
 }
 
 export default function BlogListPage() {
-  return <BlogPage />
+  const posts = getPublishedPosts()
+  return <BlogPage posts={posts} />
 }
