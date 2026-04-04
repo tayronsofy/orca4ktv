@@ -181,7 +181,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             <span className="text-gray-400 text-sm font-semibold">rated <span className="text-white font-bold">4.8</span> on Trustpilot</span>
           </div>
           <a
-            href="/pricing"
+            href="/#pricing"
             className="inline-block rounded-xl bg-green-500 px-8 py-3.5 text-sm font-black uppercase tracking-widest text-white transition-colors hover:bg-green-400"
           >
             Claim World Cup Deal →
