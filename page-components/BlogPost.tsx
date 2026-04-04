@@ -162,6 +162,34 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             </ReactMarkdown>
           )}
         </div>
+
+        {/* World Cup 2026 CTA */}
+        <div className="mt-16 rounded-2xl border border-white/10 bg-[#0d1117] p-8 md:p-10">
+          <div className="mb-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-green-400">
+              ⚽ World Cup 2026 Offer
+            </span>
+          </div>
+          <h3 className="mb-3 text-2xl font-black text-white md:text-3xl">
+            Smart 4K is the most stable IPTV – watch every match without buffering
+          </h3>
+          <p className="mb-4 text-gray-400 font-semibold">
+            3M +1 FREE &bull; 6M +2 FREE &bull; 12M +3 FREE
+          </p>
+          <div className="mb-6 flex items-center gap-2">
+            <span className="text-yellow-400 text-lg">★★★★★</span>
+            <span className="text-gray-400 text-sm font-semibold">rated <span className="text-white font-bold">4.8</span> on Trustpilot</span>
+          </div>
+          <a
+            href="/pricing"
+            className="inline-block rounded-xl bg-green-500 px-8 py-3.5 text-sm font-black uppercase tracking-widest text-white transition-colors hover:bg-green-400"
+          >
+            Claim World Cup Deal →
+          </a>
+          <p className="mt-4 text-xs text-gray-600">
+            Offer valid for new subscribers and single-device plans only.
+          </p>
+        </div>
       </div>
 
       <style>{`
