@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
   const imageUrl = post.imageUrl ? `https://smart4k.io${post.imageUrl}` : 'https://smart4k.io/og-default.jpg'
   return {
-    title: `${post.title} - SMART 4K Blog`,
+    title: `${post.title} - Smart4K`,
     description: post.excerpt,
     keywords: post.seoKeywords,
     alternates: { canonical: `https://smart4k.io/blog/${post.slug}` },
