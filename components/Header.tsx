@@ -56,13 +56,13 @@ const Header: React.FC = () => {
           {/* Region Flags */}
           <div className="flex items-center gap-2 border-r border-gray-700 pr-3 md:pr-6">
             <Link href="/iptv-usa" title="USA IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-usa' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
-              <img src="https://flagcdn.com/w40/us.png" alt="USA" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
+              <img src="https://flagcdn.com/w40/us.png" alt="USA" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
             <Link href="/iptv-uk" title="UK IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-uk' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
-              <img src="https://flagcdn.com/w40/gb.png" alt="UK" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
+              <img src="https://flagcdn.com/w40/gb.png" alt="UK" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
             <Link href="/iptv-canada" title="Canada IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-canada' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
-              <img src="https://flagcdn.com/w40/ca.png" alt="Canada" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
+              <img src="https://flagcdn.com/w40/ca.png" alt="Canada" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
           </div>
 
@@ -129,15 +129,15 @@ const Header: React.FC = () => {
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 px-4">Regions</p>
               <div className="flex flex-col gap-1">
                 <Link href="/iptv-usa" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
-                  <img src="https://flagcdn.com/w40/us.png" alt="USA" className="w-6 h-4 object-cover rounded-[2px]" />
+                  <img src="https://flagcdn.com/w40/us.png" alt="USA" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
                   IPTV USA
                 </Link>
                 <Link href="/iptv-uk" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
-                  <img src="https://flagcdn.com/w40/gb.png" alt="UK" className="w-6 h-4 object-cover rounded-[2px]" />
+                  <img src="https://flagcdn.com/w40/gb.png" alt="UK" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
                   IPTV UK
                 </Link>
                 <Link href="/iptv-canada" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
-                  <img src="https://flagcdn.com/w40/ca.png" alt="Canada" className="w-6 h-4 object-cover rounded-[2px]" />
+                  <img src="https://flagcdn.com/w40/ca.png" alt="Canada" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
                   IPTV Canada
                 </Link>
               </div>

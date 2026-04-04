@@ -28,8 +28,9 @@
 - [About Us](https://smart4k.io/about)
 
 ## Blog
-- [Ultimate Guide: Setup IPTV on Firestick (2026)](https://smart4k.io/blog/ultimate-iptv-firestick-setup-guide-2026)
 - [All Blog Posts](https://smart4k.io/blog)
+- [How to Fix IPTV Buffering](https://smart4k.io/blog/how-to-fix-iptv-buffering)
+- [Ultimate Guide: Setup IPTV on Firestick (2026)](https://smart4k.io/blog/ultimate-iptv-firestick-setup-guide-2026)
 
 ## Contact & Support
 - Website: https://smart4k.io
