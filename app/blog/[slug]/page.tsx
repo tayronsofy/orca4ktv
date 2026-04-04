@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getPost, getPublishedPosts } from '@/lib/posts'
+import { getPost } from '@/lib/posts'
 import BlogPostContent from '@/page-components/BlogPost'
 
 export const dynamic = 'force-dynamic'
@@ -13,16 +13,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = getPost(slug)
   if (!post) return {}
+  const imageUrl = post.imageUrl ? `https://smart4k.io${post.imageUrl}` : 'https://smart4k.io/og-default.jpg'
   return {
     title: `${post.title} - SMART 4K Blog`,
     description: post.excerpt,
     keywords: post.seoKeywords,
     alternates: { canonical: `https://smart4k.io/blog/${post.slug}` },
     openGraph: {
+      type: 'article',
       title: post.title,
       description: post.excerpt,
       url: `https://smart4k.io/blog/${post.slug}`,
-      images: [{ url: `https://smart4k.io${post.imageUrl}`, width: 1200, height: 630 }],
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [post.author],
+      images: [{ url: imageUrl, width: 1408, height: 768, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [imageUrl],
     },
   }
 }
