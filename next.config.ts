@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
     ]
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { protocol: 'https', hostname: 'flagcdn.com' },
       { protocol: 'https', hostname: 'smart4k.io' },

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
@@ -93,11 +94,13 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
 
         <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 border border-white/5 bg-[#1a1d20]">
           {post.imageUrl && (
-            <img
+            <Image
               src={post.imageUrl}
               alt={`${post.title} - ${post.seoKeywords.split(',')[0]}`}
               title={post.excerpt}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#020204] to-transparent"></div>
