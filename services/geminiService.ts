@@ -1,7 +1,5 @@
 
-const API_URL = process.env.NODE_ENV === 'production'
-  ? "https://smart4k.io/api/chat.php"
-  : "/api/chat";
+const API_URL = "/api/chat";
 
 async function callOpenAI(systemPrompt: string, userPrompt: string): Promise<string> {
   try {
