@@ -4,7 +4,7 @@
 import React from 'react';
 
 const TelegramWidget: React.FC = () => {
-    const telegramUsername = 'SMART4K_support';
+    const telegramUsername = 'Smart4ksupport';
 
     return (
         <a
