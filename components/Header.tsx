@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const Header: React.FC = () => {
@@ -37,9 +38,10 @@ const Header: React.FC = () => {
         {/* Logo */}
         <Link
           href="/"
-          className="text-xl md:text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity flex items-center shrink-0"
+          className="hover:opacity-80 transition-opacity flex items-center shrink-0"
+          aria-label="Smart 4K Home"
         >
-          SMART <span className="text-[#a855f7]">4K</span>
+          <Image src="/logo.png" alt="smart 4k iptv" width={1672} height={460} className="h-10 md:h-12 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
@@ -103,7 +105,7 @@ const Header: React.FC = () => {
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <span className="text-xl font-black text-white">SMART <span className="text-[#a855f7]">4K</span></span>
+            <Image src="/logo.png" alt="smart 4k iptv" width={1672} height={460} className="h-9 w-auto" />
             <button
               onClick={() => setMobileOpen(false)}
               className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-all"

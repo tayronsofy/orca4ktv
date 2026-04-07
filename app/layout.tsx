@@ -16,9 +16,11 @@ export const metadata: Metadata = {
   description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
   icons: {
     icon: [
-      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
     shortcut: '/favicon.png',
   },
 }
@@ -51,7 +53,13 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "SMART 4K",
               "url": "https://smart4k.io/",
-              "logo": "https://smart4k.io/logo.png",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://smart4k.io/logo.png",
+                "width": 1672,
+                "height": 460
+              },
+              "image": "https://smart4k.io/logo.png",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+447426440524",
