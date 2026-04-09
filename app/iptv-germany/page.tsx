@@ -3,7 +3,7 @@ import GermanyHero from '@/components/germany/GermanyHero'
 import GermanyHomePage from '@/page-components/germany/GermanyHomePage'
 
 export const metadata: Metadata = {
-  title: 'Bestes IPTV Deutschland 2026 – Bundesliga, ARD, ZDF & Sky Alternative',
+  title: 'IPTV Deutschland 2026 – Bundesliga, ARD & Kabel TV Alternative',
   description: 'Bestes IPTV Deutschland 2026. Sky Sport Alternative mit Bundesliga, ARD, ZDF, RTL & Formel 1. Pufferungsfrei in 4K auf Firestick, Android & Apple TV.',
   keywords: 'bestes iptv deutschland 2026, bundesliga iptv, sky sport alternative deutschland, ard zdf iptv, iptv anbieter deutschland, iptv deutsch 4k',
   alternates: {
