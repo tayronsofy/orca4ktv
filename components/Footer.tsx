@@ -55,6 +55,7 @@ const Footer: React.FC = () => {
             <Link href="/iptv-usa" className="hover:text-gray-400 transition-colors">IPTV USA</Link>
             <Link href="/iptv-uk" className="hover:text-gray-400 transition-colors">IPTV UK</Link>
             <Link href="/iptv-canada" className="hover:text-gray-400 transition-colors">IPTV Canada</Link>
+            <Link href="/iptv-germany" className="hover:text-gray-400 transition-colors">IPTV Deutschland</Link>
           </div>
         </div>
       </div>
