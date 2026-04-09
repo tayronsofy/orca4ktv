@@ -69,6 +69,19 @@ export default function RootLayout({
             })
           }}
         />
+
+        {/* WebSite Schema — controls Google site name in search results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "SMART 4K",
+              "url": "https://smart4k.io/"
+            })
+          }}
+        />
       </head>
       <body className="bg-[#1f2326] text-white overflow-x-hidden">
         <Header />
