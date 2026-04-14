@@ -41,13 +41,13 @@ const TrialPageContent: React.FC = () => {
             No Credit Card Required
           </div>
 
-          {/* H1 */}
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-6 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
+          {/* Decorative display heading — H1 is server-rendered in page.tsx */}
+          <div className="text-5xl md:text-8xl lg:text-9xl font-black mb-6 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]" aria-hidden="true">
             FREE IPTV<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#a855f7] to-[#6d28d9] bg-[length:200%_auto] animate-shimmer">
               TRIAL 2026
             </span>
-          </h1>
+          </div>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
             Test 22,000+ live channels, 4K sports &amp; VOD — completely free.

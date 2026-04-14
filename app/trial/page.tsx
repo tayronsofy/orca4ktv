@@ -118,6 +118,20 @@ export default function TrialPage() {
         }}
       />
 
+      {/* Server-rendered hero H1 — in static HTML, guaranteed visible to Bing/Google */}
+      <section className="relative bg-gradient-to-br from-[#020204] via-[#1a1d20] to-[#020204] pt-28 pb-4 px-4 text-center overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="inline-block px-5 py-2 mb-6 rounded-full bg-white/5 border border-white/10 text-[#a855f7] text-[10px] font-black uppercase tracking-[0.3em]">
+            <span className="mr-2 inline-block w-2 h-2 bg-[#a855f7] rounded-full"></span>
+            No Credit Card Required
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter mb-4">
+            Free IPTV Trial 2026 –<br />
+            <span className="text-[#a855f7]">Test 22,000+ Channels Free</span>
+          </h1>
+        </div>
+      </section>
+
       <TrialPageContent />
     </>
   )
