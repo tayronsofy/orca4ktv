@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           className="hover:opacity-80 transition-opacity flex items-center shrink-0"
           aria-label="Smart 4K Home"
         >
-          <Image src="/logo.png" alt="smart 4k iptv" width={1672} height={460} className="h-10 md:h-12 w-auto" priority />
+          <Image src="/logo.png" alt="SMART 4K IPTV" width={1263} height={399} className="h-10 md:h-12 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
@@ -111,7 +111,7 @@ const Header: React.FC = () => {
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <Image src="/logo.png" alt="smart 4k iptv" width={1672} height={460} className="h-9 w-auto" />
+            <Image src="/logo.png" alt="SMART 4K IPTV" width={1263} height={399} className="h-9 w-auto" />
             <button
               onClick={() => setMobileOpen(false)}
               className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-all"

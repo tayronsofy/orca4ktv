@@ -10,18 +10,18 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' })
 export const metadata: Metadata = {
   metadataBase: new URL('https://smart4k.io'),
   title: {
-    default: 'SMART 4K | Premium 4K IPTV Service',
-    template: '%s | SMART 4K',
+    default: 'SMART 4K IPTV | Premium 4K IPTV Service',
+    template: '%s | SMART 4K IPTV',
   },
-  description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
+  description: 'The #1 IPTV subscription 2026. Stream 22,000+ channels, 4K sports & movies buffer-free on Firestick, Smart TV & mobile. No contract, cancel anytime.',
   icons: {
     icon: [
-      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
       { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
-    shortcut: '/favicon.png',
+    apple: [{ url: '/apple-touch-icon.png', sizes: '192x192', type: 'image/png' }],
+    shortcut: '/favicon-32.png',
   },
 }
 
@@ -51,13 +51,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "SMART 4K",
+              "name": "SMART 4K IPTV",
               "url": "https://smart4k.io/",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://smart4k.io/logo.png",
-                "width": 1672,
-                "height": 460
+                "width": 1263,
+                "height": 399
               },
               "image": "https://smart4k.io/logo.png",
               "contactPoint": {
@@ -77,7 +77,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "SMART 4K",
+              "name": "SMART 4K IPTV",
               "url": "https://smart4k.io/"
             })
           }}

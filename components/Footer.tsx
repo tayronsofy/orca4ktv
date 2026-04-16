@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex flex-col gap-4 text-center md:text-left">
             <Link href="/" className="hover:opacity-80 transition-opacity inline-block" aria-label="Smart 4K Home">
-              <img src="/logo.png" alt="Smart 4K" className="h-12 w-auto" />
+              <img src="/logo.png" alt="SMART 4K IPTV" className="h-12 w-auto" />
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed">
               Premium IPTV service with 22,000+ channels in HD &amp; 4K. Trusted by cord-cutters worldwide.
