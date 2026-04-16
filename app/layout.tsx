@@ -55,7 +55,7 @@ export default function RootLayout({
               "url": "https://smart4k.io/",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://smart4k.io/logo.png",
+                "url": "https://smart4k.io/logo.png?v=2",
                 "width": 1263,
                 "height": 399
               },
