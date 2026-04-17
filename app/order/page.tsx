@@ -31,10 +31,6 @@ const COUNTRIES = [
   'Venezuela','Vietnam','Yemen','Zimbabwe','Other',
 ]
 
-function generatePassword() {
-  return Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2).toUpperCase() + '!9'
-}
-
 type AuthStep = 'email' | 'password' | 'otp-sent' | 'done'
 
 function OrderForm() {
@@ -73,24 +69,22 @@ function OrderForm() {
     })
   }, [])
 
-  // Handle email step: try to auto-register; if already exists, prompt password
+  // Handle registration form: sign up new users, or sign in existing ones
   const handleEmailContinue = async (e: { preventDefault(): void }) => {
     e.preventDefault()
     setAuthError('')
-    if (!emailInput.trim()) return
     setAuthLoading(true)
 
     const supabase = createClient()
-    const tempPassword = generatePassword()
 
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: emailInput.trim().toLowerCase(),
-      password: tempPassword,
+      password: passwordInput,
       options: { data: { full_name: fullName.trim() } },
     })
 
     if (!signUpError && data.user && data.session) {
-      // New user — created and logged in immediately (email confirmation disabled)
+      // New user — registered and logged in with their chosen password
       if (fullName.trim()) {
         await supabase.from('profiles').update({ full_name: fullName.trim() }).eq('id', data.user.id)
       }
@@ -101,17 +95,32 @@ function OrderForm() {
     }
 
     if (!signUpError && data.user && !data.session) {
-      // Email confirmation is enabled — unlikely given our config, but handle it
       setAuthStep('otp-sent')
       setAuthLoading(false)
       return
     }
 
-    // User already exists — ask for their password
-    if (signUpError?.message?.toLowerCase().includes('already registered') ||
-        signUpError?.message?.toLowerCase().includes('already been registered') ||
-        signUpError?.status === 400) {
+    // Email already registered — try signing in with the password they entered
+    const isAlreadyRegistered =
+      signUpError?.message?.toLowerCase().includes('already registered') ||
+      signUpError?.message?.toLowerCase().includes('already been registered') ||
+      signUpError?.status === 400
+
+    if (isAlreadyRegistered) {
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+        email: emailInput.trim().toLowerCase(),
+        password: passwordInput,
+      })
+      if (!signInError && signInData.user) {
+        setUserEmail(signInData.user.email || emailInput)
+        setAuthStep('done')
+        setAuthLoading(false)
+        return
+      }
+      // Wrong password — show the dedicated password step
       setAuthStep('password')
+      setPasswordInput('')
+      setAuthError('This email already has an account. Please enter your password below.')
       setAuthLoading(false)
       return
     }
@@ -307,29 +316,39 @@ function OrderForm() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-gray-400 mb-2">Your email address</label>
-                    <div className="flex gap-2">
-                      <input
-                        type="email"
-                        required
-                        value={emailInput}
-                        onChange={e => setEmailInput(e.target.value)}
-                        placeholder="you@example.com"
-                        className="flex-1 bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
-                      />
-                      <button
-                        type="submit"
-                        disabled={authLoading}
-                        className="px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 whitespace-nowrap"
-                      >
-                        {authLoading ? '…' : 'Continue'}
-                      </button>
-                    </div>
+                    <label className="block text-sm text-gray-400 mb-2">Email address</label>
+                    <input
+                      type="email"
+                      required
+                      value={emailInput}
+                      onChange={e => setEmailInput(e.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Password</label>
+                    <input
+                      type="password"
+                      required
+                      minLength={6}
+                      value={passwordInput}
+                      onChange={e => setPasswordInput(e.target.value)}
+                      placeholder="Min. 6 characters"
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                    />
                   </div>
                   {authError && (
                     <p className="text-sm text-red-400">{authError}</p>
                   )}
-                  <p className="text-xs text-gray-600">Already have an account? Enter your email and we&apos;ll sign you in.</p>
+                  <button
+                    type="submit"
+                    disabled={authLoading}
+                    className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50"
+                  >
+                    {authLoading ? 'Please wait…' : 'Continue to Order'}
+                  </button>
+                  <p className="text-xs text-gray-600 text-center">Already have an account? Enter your email &amp; password to sign in.</p>
                 </form>
               ) : authStep === 'password' ? (
                 <div className="mb-5">
