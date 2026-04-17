@@ -1,10 +1,12 @@
 'use client'
 
-
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { generateSetupGuide } from '../services/geminiService';
 
 const SetupWizard: React.FC = () => {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/dashboard')) return null;
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState<'setup' | 'fix' | null>(null);
   const [step, setStep] = useState(0);
