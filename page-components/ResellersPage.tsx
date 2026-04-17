@@ -69,7 +69,7 @@ const ResellersPage: React.FC = () => {
                                 <div className="absolute inset-0 bg-purple-600/20 rounded-3xl blur-[40px] group-hover:bg-purple-600/30 transition-all duration-500"></div>
                                 <img
                                     src={resellersHero}
-                                    alt="SMART 4K Reseller Control Panel"
+                                    alt="IPTV Reselling Program - Start Your Profitable Business with SMART 4K IPTV - Custom Branding, High Margins, Easy Setup"
                                     className="relative w-full rounded-3xl shadow-2xl border border-white/10 group-hover:scale-[1.02] transition-transform duration-500"
                                 />
                             </div>
