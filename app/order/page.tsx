@@ -13,6 +13,12 @@ const CONNECTIONS_PRICES: Record<string, number[]> = {
   '12-months': [95, 159, 220, 279],
 }
 
+function generatePassword() {
+  return Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2).toUpperCase() + '!9'
+}
+
+type AuthStep = 'email' | 'password' | 'otp-sent' | 'done'
+
 function OrderForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -29,27 +35,115 @@ function OrderForm() {
   const [loading, setLoading] = useState(false)
   const [userEmail, setUserEmail] = useState('')
 
+  // Auth flow state
+  const [authStep, setAuthStep] = useState<AuthStep>('email')
+  const [emailInput, setEmailInput] = useState('')
+  const [passwordInput, setPasswordInput] = useState('')
+  const [authLoading, setAuthLoading] = useState(false)
+  const [authError, setAuthError] = useState('')
+
   const amount = prices[connections - 1]
 
   useEffect(() => {
     const supabase = createClient()
     supabase.auth.getUser().then(({ data: { user } }) => {
-      if (user) setUserEmail(user.email || '')
+      if (user) {
+        setUserEmail(user.email || '')
+        setAuthStep('done')
+      }
     })
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Handle email step: try to auto-register; if already exists, prompt password
+  const handleEmailContinue = async (e: { preventDefault(): void }) => {
+    e.preventDefault()
+    setAuthError('')
+    if (!emailInput.trim()) return
+    setAuthLoading(true)
+
+    const supabase = createClient()
+    const tempPassword = generatePassword()
+
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email: emailInput.trim().toLowerCase(),
+      password: tempPassword,
+    })
+
+    if (!signUpError && data.user && data.session) {
+      // New user — created and logged in immediately (email confirmation disabled)
+      setUserEmail(data.user.email || emailInput)
+      setAuthStep('done')
+      setAuthLoading(false)
+      return
+    }
+
+    if (!signUpError && data.user && !data.session) {
+      // Email confirmation is enabled — unlikely given our config, but handle it
+      setAuthStep('otp-sent')
+      setAuthLoading(false)
+      return
+    }
+
+    // User already exists — ask for their password
+    if (signUpError?.message?.toLowerCase().includes('already registered') ||
+        signUpError?.message?.toLowerCase().includes('already been registered') ||
+        signUpError?.status === 400) {
+      setAuthStep('password')
+      setAuthLoading(false)
+      return
+    }
+
+    setAuthError(signUpError?.message || 'Something went wrong. Please try again.')
+    setAuthLoading(false)
+  }
+
+  // Handle password step: sign in with email + password
+  const handlePasswordSignIn = async (e: { preventDefault(): void }) => {
+    e.preventDefault()
+    setAuthError('')
+    setAuthLoading(true)
+
+    const supabase = createClient()
+    const { data, error: signInError } = await supabase.auth.signInWithPassword({
+      email: emailInput.trim().toLowerCase(),
+      password: passwordInput,
+    })
+
+    if (!signInError && data.user) {
+      setUserEmail(data.user.email || emailInput)
+      setAuthStep('done')
+      setAuthLoading(false)
+      return
+    }
+
+    setAuthError(signInError?.message || 'Incorrect password. Please try again.')
+    setAuthLoading(false)
+  }
+
+  // Send magic link as fallback for forgotten password
+  const handleSendMagicLink = async () => {
+    setAuthError('')
+    setAuthLoading(true)
+    const supabase = createClient()
+    const { error: otpError } = await supabase.auth.signInWithOtp({
+      email: emailInput.trim().toLowerCase(),
+      options: {
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`/order?plan=${planSlug}&connections=${connections}`)}`,
+      },
+    })
+    if (otpError) {
+      setAuthError(otpError.message)
+      setAuthLoading(false)
+      return
+    }
+    setAuthStep('otp-sent')
+    setAuthLoading(false)
+  }
+
+  const handleSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault()
     setError('')
     setLoading(true)
-
-    const supabase = createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-
-    if (!user) {
-      router.push(`/auth/register?next=${encodeURIComponent(`/order?plan=${planSlug}&connections=${connections}`)}`)
-      return
-    }
 
     const res = await fetch('/api/orders', {
       method: 'POST',
@@ -152,65 +246,157 @@ function OrderForm() {
           <div>
             <h2 className="text-2xl font-black text-white mb-6">Your Details</h2>
             <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
-              {userEmail ? (
+
+              {/* Auth section */}
+              {authStep === 'done' ? (
                 <div className="mb-5 bg-[#1f2326] rounded-xl px-4 py-3 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-500">Logged in as</p>
                     <p className="text-white text-sm font-medium">{userEmail}</p>
                   </div>
-                  <form action="/api/auth/logout" method="POST">
-                    <button type="submit" className="text-xs text-gray-500 hover:text-gray-300">Logout</button>
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      const supabase = createClient()
+                      await supabase.auth.signOut()
+                      setUserEmail('')
+                      setEmailInput('')
+                      setPasswordInput('')
+                      setAuthStep('email')
+                    }}
+                    className="text-xs text-gray-500 hover:text-gray-300"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : authStep === 'email' ? (
+                <form onSubmit={handleEmailContinue} className="mb-5">
+                  <label className="block text-sm text-gray-400 mb-2">Your email address</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      value={emailInput}
+                      onChange={e => setEmailInput(e.target.value)}
+                      placeholder="you@example.com"
+                      className="flex-1 bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      disabled={authLoading}
+                      className="px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 whitespace-nowrap"
+                    >
+                      {authLoading ? '…' : 'Continue'}
+                    </button>
+                  </div>
+                  {authError && (
+                    <p className="mt-2 text-sm text-red-400">{authError}</p>
+                  )}
+                  <p className="mt-2 text-xs text-gray-600">New? We&apos;ll create your account automatically.</p>
+                </form>
+              ) : authStep === 'password' ? (
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <button
+                      type="button"
+                      onClick={() => { setAuthStep('email'); setPasswordInput(''); setAuthError('') }}
+                      className="text-gray-500 hover:text-gray-300"
+                    >
+                      <i className="fas fa-arrow-left text-xs"></i>
+                    </button>
+                    <p className="text-sm text-gray-300">Welcome back, <span className="text-white font-medium">{emailInput}</span></p>
+                  </div>
+                  <form onSubmit={handlePasswordSignIn} className="space-y-3">
+                    <div>
+                      <label className="block text-sm text-gray-400 mb-2">Password</label>
+                      <input
+                        type="password"
+                        required
+                        autoFocus
+                        value={passwordInput}
+                        onChange={e => setPasswordInput(e.target.value)}
+                        placeholder="Enter your password"
+                        className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      />
+                    </div>
+                    {authError && (
+                      <p className="text-sm text-red-400">{authError}</p>
+                    )}
+                    <button
+                      type="submit"
+                      disabled={authLoading}
+                      className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50"
+                    >
+                      {authLoading ? 'Signing in…' : 'Sign In'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleSendMagicLink}
+                      disabled={authLoading}
+                      className="w-full text-sm text-gray-500 hover:text-gray-300 transition-colors disabled:opacity-50"
+                    >
+                      Forgot password? Send me a login link
+                    </button>
                   </form>
                 </div>
-              ) : (
-                <div className="mb-5 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-3 text-sm text-blue-300">
-                  <Link href={`/auth/login?next=${encodeURIComponent(`/order?plan=${planSlug}&connections=${connections}`)}`} className="font-semibold underline">Sign in</Link>
-                  {' '}or{' '}
-                  <Link href={`/auth/register?next=${encodeURIComponent(`/order?plan=${planSlug}&connections=${connections}`)}`} className="font-semibold underline">create an account</Link>
-                  {' '}to place your order.
+              ) : authStep === 'otp-sent' ? (
+                <div className="mb-5 bg-blue-500/10 border border-blue-500/20 rounded-xl px-4 py-4 text-sm">
+                  <p className="text-blue-300 font-semibold mb-1">Check your inbox</p>
+                  <p className="text-gray-400">We sent a login link to <span className="text-white">{emailInput}</span>. Click the link to continue.</p>
                 </div>
+              ) : null}
+
+              {/* Order form — only shown when logged in */}
+              {authStep === 'done' && (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Phone number <span className="text-gray-600">(optional)</span></label>
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={e => setPhone(e.target.value)}
+                      placeholder="+1 555 000 0000"
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Country <span className="text-gray-600">(optional)</span></label>
+                    <input
+                      type="text"
+                      value={country}
+                      onChange={e => setCountry(e.target.value)}
+                      placeholder="United States"
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                    />
+                  </div>
+
+                  {error && (
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">
+                      {error}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
+                  >
+                    {loading ? 'Placing order…' : `Place Order — $${amount}`}
+                  </button>
+
+                  <p className="text-xs text-gray-600 text-center">
+                    No payment now. We&apos;ll send you the payment link within 24 hours.
+                  </p>
+                </form>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">Phone number <span className="text-gray-600">(optional)</span></label>
-                  <input
-                    type="tel"
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
-                    placeholder="+1 555 000 0000"
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">Country <span className="text-gray-600">(optional)</span></label>
-                  <input
-                    type="text"
-                    value={country}
-                    onChange={e => setCountry(e.target.value)}
-                    placeholder="United States"
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
-                  />
-                </div>
-
-                {error && (
-                  <div className="bg-red-500/10 border border-red-500/30 rounded-xl px-4 py-3 text-red-400 text-sm">
-                    {error}
-                  </div>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading || !userEmail}
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
-                >
-                  {loading ? 'Placing order…' : `Place Order — $${amount}`}
-                </button>
-
-                <p className="text-xs text-gray-600 text-center">
-                  No payment now. We&apos;ll send you the payment link within 24 hours.
+              {/* Show a hint when waiting for OTP */}
+              {authStep === 'otp-sent' && (
+                <p className="text-xs text-gray-600 text-center mt-4">
+                  After clicking the email link, you&apos;ll be returned here to complete your order.
                 </p>
-              </form>
+              )}
+
             </div>
           </div>
         </div>
