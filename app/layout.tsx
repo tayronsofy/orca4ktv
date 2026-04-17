@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://smart4k.io'),
   title: {
     default: 'SMART 4K IPTV | Premium 4K IPTV Service',
-    template: '%s | SMART 4K IPTV',
+    template: '%s - SMART 4K IPTV',
   },
   description: 'The #1 IPTV subscription 2026. Stream 22,000+ channels, 4K sports & movies buffer-free on Firestick, Smart TV & mobile. No contract, cancel anytime.',
   icons: {

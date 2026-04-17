@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { SHOP_PLANS, getPlanBySlug } from '@/data/shopPlans'
+import ShareButtons from '@/components/ShareButtons'
 
 export async function generateStaticParams() {
   return SHOP_PLANS.map(plan => ({ slug: plan.slug }))
@@ -151,6 +152,12 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 <span className="text-white font-black">{plan.ratingValue}</span>
                 <span className="text-gray-400 text-sm">({plan.reviewCount.toLocaleString()} verified reviews)</span>
               </div>
+
+              {/* Share Buttons */}
+              <ShareButtons
+                url={`https://smart4k.io/iptv-shop/${plan.slug}`}
+                title={`SMART 4K IPTV - ${plan.name}`}
+              />
             </div>
 
             {/* Right: Price Card */}

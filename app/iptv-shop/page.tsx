@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SHOP_PLANS } from '@/data/shopPlans'
+import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
-  title: 'IPTV Shop — Buy IPTV Subscription 2026 | SMART 4K IPTV',
-  description: 'Buy the best IPTV subscription in 2026. Choose from 1, 3, 6 or 12-month plans — 22,000+ channels, 4K sports & movies, buffer-free. Instant activation. No contract.',
+  title: 'IPTV Shop - Buy IPTV Subscription 2026',
+  description: 'Buy the best IPTV subscription in 2026. Plans from 1–12 months — 22,000+ channels, 4K sports & movies, buffer-free streaming. Instant activation. No contract.',
   keywords: 'buy iptv subscription, iptv shop, iptv plans 2026, best iptv subscription, iptv pricing, 4k iptv buy, iptv monthly quarterly annual plan',
   alternates: { canonical: 'https://smart4k.io/iptv-shop' },
   openGraph: {
-    title: 'IPTV Shop — Buy IPTV Subscription 2026 | SMART 4K IPTV',
+    title: 'IPTV Shop - Buy IPTV Subscription 2026',
     description: 'Buy the best IPTV subscription in 2026. 22,000+ channels, 4K sports & movies from $7.92/mo. Instant activation.',
     type: 'website',
     url: 'https://smart4k.io/iptv-shop',
@@ -103,13 +104,21 @@ export default function IPTVShopPage() {
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400 mb-8">
               {['Instant Activation', 'No Contract', '99.9% Uptime', '24/7 Support', '4K Quality'].map(badge => (
                 <span key={badge} className="flex items-center gap-1.5">
                   <i className="fas fa-check-circle text-purple-400 text-xs" />
                   {badge}
                 </span>
               ))}
+            </div>
+
+            {/* Share Buttons */}
+            <div className="flex justify-center">
+              <ShareButtons
+                url="https://smart4k.io/iptv-shop"
+                title="SMART 4K IPTV Shop - Best IPTV Plans 2026"
+              />
             </div>
           </div>
         </div>
@@ -196,7 +205,7 @@ export default function IPTVShopPage() {
                         : 'bg-white/10 text-white hover:bg-white/20 border border-white/10'
                     }`}
                   >
-                    View Plan →
+                    View {plan.shortName} Plan →
                   </Link>
                 </div>
               </article>
