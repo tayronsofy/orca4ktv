@@ -125,7 +125,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 </span>
               )}
               <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-                {plan.name}
+                {plan.name} — Premium 4K IPTV
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-6">{plan.description}</p>
 

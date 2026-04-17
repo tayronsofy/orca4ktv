@@ -14,14 +14,14 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-10">
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Company</h4>
+            <h3 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Company</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Support</h4>
+            <h3 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Support</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li>
                 <button onClick={scrollToFAQ} className="hover:text-white transition-colors text-left">
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Legal</h4>
+            <h3 className="font-bold text-white mb-6 uppercase text-xs tracking-widest">Legal</h3>
             <ul className="space-y-4 text-sm text-gray-400">
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
