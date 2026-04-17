@@ -119,22 +119,29 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
               <p className="text-gray-500 text-xs mb-4">
                 Placed {new Date(latestOrder.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
               </p>
-              {latestOrder.status === 'pending_payment' && (
-                <p className="text-yellow-400/80 text-sm bg-yellow-500/10 rounded-xl px-3 py-2">
-                  <i className="fas fa-clock mr-2"></i>
-                  Waiting for payment link — we&apos;ll email you shortly.
-                </p>
-              )}
-              {(latestOrder as any).invoices?.[0]?.payment_link && latestOrder.status !== 'active' && (
-                <a
-                  href={(latestOrder as any).invoices[0].payment_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-3 bg-green-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-green-500 transition-colors"
-                >
-                  <i className="fas fa-credit-card mr-2"></i>Pay Now
-                </a>
-              )}
+              {latestOrder.status === 'pending_payment' && (() => {
+                const paymentLink = (latestOrder as any).invoices?.[0]?.payment_link
+                return paymentLink ? (
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3">
+                    <p className="text-green-300 text-sm font-semibold mb-2">
+                      <i className="fas fa-check-circle mr-2"></i>Your invoice is ready — complete your payment to activate
+                    </p>
+                    <a
+                      href={paymentLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-green-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-green-500 transition-colors"
+                    >
+                      <i className="fas fa-credit-card mr-2"></i>Pay Now
+                    </a>
+                  </div>
+                ) : (
+                  <p className="text-yellow-400/80 text-sm bg-yellow-500/10 rounded-xl px-3 py-2">
+                    <i className="fas fa-clock mr-2"></i>
+                    Waiting for payment link — we&apos;ll email you shortly.
+                  </p>
+                )
+              })()}
             </>
           ) : (
             <p className="text-gray-400 text-sm">No orders yet.</p>
