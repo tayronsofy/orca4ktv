@@ -20,6 +20,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown'
+
   const body = await request.json()
   const { planSlug, planName, connections, amount, phone, country } = body
 
@@ -54,6 +59,7 @@ export async function POST(request: NextRequest) {
       connections: Number(connections),
       amount: Number(amount),
       status: 'pending_payment',
+      customer_ip: ip,
     })
     .select()
     .single()

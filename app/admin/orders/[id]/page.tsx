@@ -12,6 +12,7 @@ interface OrderData {
   amount: number
   status: string
   notes: string | null
+  customer_ip: string | null
   created_at: string
   profiles: {
     id: string
@@ -227,6 +228,15 @@ export default function OrderDetailPage() {
             <div className="flex justify-between"><dt className="text-gray-500">Email</dt><dd className="text-blue-400">{order.profiles?.email}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Phone</dt><dd className="text-white">{order.profiles?.phone || '—'}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Country</dt><dd className="text-white">{order.profiles?.country || '—'}</dd></div>
+            <div className="flex justify-between items-center gap-2">
+              <dt className="text-gray-500">IP Address</dt>
+              <dd className="flex items-center gap-2">
+                <span className="text-white font-mono text-xs">{order.customer_ip || '—'}</span>
+                {order.customer_ip && order.customer_ip !== 'unknown' && (
+                  <a href={`https://whatismyipaddress.com/ip/${order.customer_ip}`} target="_blank" rel="noopener noreferrer" className="text-purple-400 text-xs hover:underline">Lookup →</a>
+                )}
+              </dd>
+            </div>
           </dl>
           <Link href={`/admin/clients/${order.profiles?.id}`} className="mt-4 inline-block text-xs text-purple-400 hover:text-purple-300">
             View client profile →

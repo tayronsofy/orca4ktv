@@ -13,6 +13,24 @@ const CONNECTIONS_PRICES: Record<string, number[]> = {
   '12-months': [95, 159, 220, 279],
 }
 
+const COUNTRIES = [
+  'Afghanistan','Albania','Algeria','Andorra','Angola','Argentina','Armenia','Australia',
+  'Austria','Azerbaijan','Bahrain','Bangladesh','Belarus','Belgium','Bolivia','Bosnia and Herzegovina',
+  'Brazil','Bulgaria','Cambodia','Cameroon','Canada','Chile','China','Colombia','Costa Rica',
+  'Croatia','Cuba','Cyprus','Czech Republic','Denmark','Dominican Republic','Ecuador','Egypt',
+  'El Salvador','Estonia','Ethiopia','Finland','France','Georgia','Germany','Ghana','Greece',
+  'Guatemala','Honduras','Hong Kong','Hungary','India','Indonesia','Iran','Iraq','Ireland',
+  'Israel','Italy','Ivory Coast','Jamaica','Japan','Jordan','Kazakhstan','Kenya','Kuwait',
+  'Latvia','Lebanon','Libya','Lithuania','Luxembourg','Malaysia','Malta','Mexico','Moldova',
+  'Morocco','Mozambique','Myanmar','Nepal','Netherlands','New Zealand','Nigeria','North Macedonia',
+  'Norway','Oman','Pakistan','Palestine','Panama','Paraguay','Peru','Philippines','Poland',
+  'Portugal','Qatar','Romania','Russia','Saudi Arabia','Senegal','Serbia','Singapore',
+  'Slovakia','Slovenia','Somalia','South Africa','South Korea','Spain','Sri Lanka','Sudan',
+  'Sweden','Switzerland','Syria','Taiwan','Tanzania','Thailand','Tunisia','Turkey','Uganda',
+  'Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay','Uzbekistan',
+  'Venezuela','Vietnam','Yemen','Zimbabwe','Other',
+]
+
 function generatePassword() {
   return Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2).toUpperCase() + '!9'
 }
@@ -37,6 +55,7 @@ function OrderForm() {
 
   // Auth flow state
   const [authStep, setAuthStep] = useState<AuthStep>('email')
+  const [fullName, setFullName] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
   const [authLoading, setAuthLoading] = useState(false)
@@ -67,10 +86,14 @@ function OrderForm() {
     const { data, error: signUpError } = await supabase.auth.signUp({
       email: emailInput.trim().toLowerCase(),
       password: tempPassword,
+      options: { data: { full_name: fullName.trim() } },
     })
 
     if (!signUpError && data.user && data.session) {
       // New user — created and logged in immediately (email confirmation disabled)
+      if (fullName.trim()) {
+        await supabase.from('profiles').update({ full_name: fullName.trim() }).eq('id', data.user.id)
+      }
       setUserEmail(data.user.email || emailInput)
       setAuthStep('done')
       setAuthLoading(false)
@@ -260,6 +283,7 @@ function OrderForm() {
                       const supabase = createClient()
                       await supabase.auth.signOut()
                       setUserEmail('')
+                      setFullName('')
                       setEmailInput('')
                       setPasswordInput('')
                       setAuthStep('email')
@@ -270,29 +294,42 @@ function OrderForm() {
                   </button>
                 </div>
               ) : authStep === 'email' ? (
-                <form onSubmit={handleEmailContinue} className="mb-5">
-                  <label className="block text-sm text-gray-400 mb-2">Your email address</label>
-                  <div className="flex gap-2">
+                <form onSubmit={handleEmailContinue} className="mb-5 space-y-3">
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Full name</label>
                     <input
-                      type="email"
+                      type="text"
                       required
-                      value={emailInput}
-                      onChange={e => setEmailInput(e.target.value)}
-                      placeholder="you@example.com"
-                      className="flex-1 bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      value={fullName}
+                      onChange={e => setFullName(e.target.value)}
+                      placeholder="John Smith"
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                     />
-                    <button
-                      type="submit"
-                      disabled={authLoading}
-                      className="px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 whitespace-nowrap"
-                    >
-                      {authLoading ? '…' : 'Continue'}
-                    </button>
+                  </div>
+                  <div>
+                    <label className="block text-sm text-gray-400 mb-2">Your email address</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="email"
+                        required
+                        value={emailInput}
+                        onChange={e => setEmailInput(e.target.value)}
+                        placeholder="you@example.com"
+                        className="flex-1 bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      />
+                      <button
+                        type="submit"
+                        disabled={authLoading}
+                        className="px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 whitespace-nowrap"
+                      >
+                        {authLoading ? '…' : 'Continue'}
+                      </button>
+                    </div>
                   </div>
                   {authError && (
-                    <p className="mt-2 text-sm text-red-400">{authError}</p>
+                    <p className="text-sm text-red-400">{authError}</p>
                   )}
-                  <p className="mt-2 text-xs text-gray-600">New? We&apos;ll create your account automatically.</p>
+                  <p className="text-xs text-gray-600">Already have an account? Enter your email and we&apos;ll sign you in.</p>
                 </form>
               ) : authStep === 'password' ? (
                 <div className="mb-5">
@@ -361,13 +398,16 @@ function OrderForm() {
                   </div>
                   <div>
                     <label className="block text-sm text-gray-400 mb-2">Country <span className="text-gray-600">(optional)</span></label>
-                    <input
-                      type="text"
+                    <select
                       value={country}
                       onChange={e => setCountry(e.target.value)}
-                      placeholder="United States"
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
-                    />
+                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none cursor-pointer"
+                    >
+                      <option value="">Select your country</option>
+                      {COUNTRIES.map(c => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
                   </div>
 
                   {error && (
@@ -385,7 +425,7 @@ function OrderForm() {
                   </button>
 
                   <p className="text-xs text-gray-600 text-center">
-                    No payment now. We&apos;ll send you the payment link within 24 hours.
+                    No payment now. We&apos;ll send you the payment link within 1 hour.
                   </p>
                 </form>
               )}

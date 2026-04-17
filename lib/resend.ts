@@ -110,7 +110,7 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
               <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:12px 0 6px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:20px;text-align:right;">${amount}</td></tr>
             </table>
           </div>
-          <p style="color:#d1d5db;">We will contact you within <strong style="color:#fff;">24 hours</strong> with your payment instructions.</p>
+          <p style="color:#d1d5db;">We will contact you within <strong style="color:#fff;">1 hour</strong> with your payment instructions.</p>
           <div style="text-align:center;margin-top:32px;">
             <a href="https://smart4k.io/dashboard" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
           </div>
