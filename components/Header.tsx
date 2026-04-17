@@ -23,6 +23,7 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { href: '/#pricing', label: 'Pricing' },
+    { href: '/iptv-shop', label: 'Shop' },
     { href: '/channels', label: 'Channels' },
     { href: '/blog', label: 'Blog' },
     { href: '/resellers', label: 'Reseller' },
