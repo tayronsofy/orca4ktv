@@ -4,16 +4,29 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { createClient } from '@/lib/supabase/client'
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const supabase = createClient()
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session)
+    })
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsLoggedIn(!!session)
+    })
+    return () => subscription.unsubscribe()
   }, [])
 
   // Close mobile menu on route change
@@ -74,6 +87,23 @@ const Header: React.FC = () => {
               <img src="https://flagcdn.com/w40/nl.png" alt="Netherlands" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
           </div>
+
+          {/* My Account / Login - desktop only */}
+          {isLoggedIn ? (
+            <Link
+              href="/dashboard"
+              className="hidden md:inline-flex items-center gap-2 text-gray-300 hover:text-white text-sm font-bold transition-colors"
+            >
+              <i className="fas fa-user-circle text-purple-400"></i> My Account
+            </Link>
+          ) : (
+            <Link
+              href="/auth/login"
+              className="hidden md:inline-flex items-center gap-2 text-gray-300 hover:text-white text-sm font-bold transition-colors"
+            >
+              <i className="fas fa-sign-in-alt text-purple-400"></i> Login
+            </Link>
+          )}
 
           {/* Free Trial - desktop only */}
           <Link
@@ -162,7 +192,24 @@ const Header: React.FC = () => {
           </nav>
 
           {/* CTA */}
-          <div className="px-6 py-6 border-t border-white/10">
+          <div className="px-6 py-6 border-t border-white/10 space-y-3">
+            {isLoggedIn ? (
+              <Link
+                href="/dashboard"
+                className="flex items-center justify-center gap-2 w-full bg-white/10 text-white py-3 rounded-full font-bold text-sm hover:bg-white/15 transition-all border border-white/10"
+              >
+                <i className="fas fa-user-circle text-purple-400"></i>
+                My Account
+              </Link>
+            ) : (
+              <Link
+                href="/auth/login"
+                className="flex items-center justify-center gap-2 w-full bg-white/10 text-white py-3 rounded-full font-bold text-sm hover:bg-white/15 transition-all border border-white/10"
+              >
+                <i className="fas fa-sign-in-alt text-purple-400"></i>
+                Login
+              </Link>
+            )}
             <Link
               href="/trial"
               className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white py-4 rounded-full font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-lg shadow-[#a855f7]/20"

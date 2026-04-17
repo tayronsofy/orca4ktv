@@ -38,9 +38,21 @@ export default function AdminDashboardClient({ posts: initialPosts }: { posts: B
           <span className="text-xl font-black text-white">
             SMART <span className="text-red-500">4K</span>
           </span>
-          <span className="text-gray-500 text-sm font-semibold">/ Blog Admin</span>
+          <span className="text-gray-500 text-sm font-semibold">/ Admin</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 flex-wrap">
+          <Link
+            href="/admin/orders"
+            className="text-gray-400 hover:text-white text-sm font-semibold px-4 py-2 rounded-xl border border-white/10 hover:border-white/20 transition-colors"
+          >
+            Orders
+          </Link>
+          <Link
+            href="/admin/clients"
+            className="text-gray-400 hover:text-white text-sm font-semibold px-4 py-2 rounded-xl border border-white/10 hover:border-white/20 transition-colors"
+          >
+            Clients
+          </Link>
           <Link
             href="/admin/new"
             className="bg-red-600 hover:bg-red-700 text-white text-sm font-black px-5 py-2 rounded-xl uppercase tracking-wider transition-colors"
