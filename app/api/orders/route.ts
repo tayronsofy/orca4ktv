@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { sendOrderConfirmation } from '@/lib/resend'
+import { sendOrderConfirmation, sendAdminNewOrderAlert } from '@/lib/resend'
 
 function generateInvoiceNumber(): string {
   const now = new Date()
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     console.error('Invoice insert error:', invoiceError)
   }
 
-  // Send confirmation email (non-blocking)
+  // Send confirmation email to customer (non-blocking)
   if (profile?.email) {
     sendOrderConfirmation({
       to: profile.email,
@@ -90,6 +90,17 @@ export async function POST(request: NextRequest) {
       amount: `$${Number(amount).toFixed(2)}`,
     }).catch(console.error)
   }
+
+  // Notify admin of new order (non-blocking)
+  sendAdminNewOrderAlert({
+    customerEmail: profile?.email || user.email || '',
+    customerName: profile?.full_name || 'New Customer',
+    orderNumber: invoiceNumber,
+    planName,
+    connections: Number(connections),
+    amount: Number(amount).toFixed(2),
+    orderId: order.id,
+  }).catch(console.error)
 
   return NextResponse.json({ orderId: order.id, invoiceNumber }, { status: 201 })
 }

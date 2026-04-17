@@ -37,6 +37,55 @@ interface SendCredentialsProps {
   portalUrl?: string
 }
 
+interface AdminNewOrderAlertProps {
+  customerEmail: string
+  customerName: string
+  orderNumber: string
+  planName: string
+  connections: number
+  amount: string
+  orderId: string
+}
+
+export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
+  const { customerEmail, customerName, orderNumber, planName, connections, amount, orderId } = props
+  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
+  return getResend().emails.send({
+    from: FROM,
+    to: adminEmail,
+    subject: `🛒 New Order: ${orderNumber} — ${planName} ($${amount})`,
+    html: `
+      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
+          <h1 style="margin:0;font-size:22px;font-weight:900;">🛒 New Order Received</h1>
+          <p style="margin:6px 0 0;opacity:.85;font-size:14px;">${orderNumber}</p>
+        </div>
+        <div style="padding:32px;">
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Customer</p>
+            <p style="margin:0 0 4px;color:#fff;font-size:16px;font-weight:700;">${customerName}</p>
+            <p style="margin:0;color:#a855f7;">${customerEmail}</p>
+          </div>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Order Details</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">Plan</td><td style="color:#fff;text-align:right;font-weight:700;">${planName}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Connections</td><td style="color:#fff;text-align:right;">${connections}</td></tr>
+              <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:10px 0 4px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:22px;text-align:right;">$${amount}</td></tr>
+            </table>
+          </div>
+          <div style="text-align:center;">
+            <a href="https://smart4k.io/admin/orders/${orderId}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Manage Order →</a>
+          </div>
+        </div>
+        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
+          SMART 4K IPTV Admin Alert · <a href="https://smart4k.io/admin/orders" style="color:#a855f7;">View all orders</a>
+        </div>
+      </div>
+    `,
+  })
+}
+
 export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
   const { to, customerName, orderNumber, planName, connections, amount } = props
   return getResend().emails.send({
