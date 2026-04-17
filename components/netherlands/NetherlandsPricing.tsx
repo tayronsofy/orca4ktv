@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import BrevoIframeForm from '../BrevoIframeForm';
 
 const NetherlandsPricing = () => {
@@ -138,14 +139,12 @@ const NetherlandsPricing = () => {
                   ))}
                 </ul>
 
-                <a
-                  href={plan.link}
-                  target="_self"
-                  rel="noopener noreferrer"
+                <Link
+                  href={`/order?plan=${plan.title.toLowerCase().replace(' ', '-')}&connections=${activeDeviceCount}`}
                   className="w-full py-4 rounded-xl font-bold text-sm tracking-wide uppercase transition-all duration-300 shadow-xl flex items-center justify-center bg-gradient-to-r from-[#AE1C28] to-[#21468B] text-white hover:shadow-lg hover:shadow-[#AE1C28]/40 hover:scale-105"
                 >
                   {plan.isPopular ? 'Nederland-aanbieding pakken' : 'Pass kiezen'}
-                </a>
+                </Link>
 
                 <div className="mt-4 flex items-center justify-center gap-2 text-[10px] text-gray-600">
                   <i className="fas fa-shield-alt"></i>
