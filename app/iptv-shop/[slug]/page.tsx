@@ -53,7 +53,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
         category: 'IPTV Subscription',
         offers: {
           '@type': 'Offer',
-          url: plan.deviceTiers[0].checkoutLink,
+          url: `https://smart4k.io${plan.deviceTiers[0].checkoutLink}`,
           priceCurrency: 'USD',
           price: plan.basePrice.toFixed(2),
           availability: 'https://schema.org/InStock',
@@ -182,8 +182,6 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 <p className="text-xs text-gray-500 uppercase tracking-widest">For 1 connection</p>
                 <Link
                   href={plan.deviceTiers[0].checkoutLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block w-full text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-black py-4 rounded-xl uppercase tracking-wide transition-all hover:scale-105 shadow-lg shadow-purple-500/30"
                 >
                   Buy Now — ${plan.basePrice.toFixed(0)}
@@ -271,8 +269,6 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 {!tier.savings && <div className="mb-4" />}
                 <Link
                   href={tier.checkoutLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="block w-full text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-black py-3 rounded-xl text-sm uppercase tracking-wide transition-all hover:scale-105 mt-auto"
                 >
                   Buy Now
@@ -387,8 +383,6 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={plan.deviceTiers[0].checkoutLink}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-black py-4 px-10 rounded-full uppercase tracking-wide transition-all hover:scale-105 shadow-xl shadow-purple-500/30 text-lg"
             >
               <i className="fas fa-bolt" />

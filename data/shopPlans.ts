@@ -55,10 +55,10 @@ export const SHOP_PLANS: ShopPlan[] = [
     monthlyEquivalent: 21.00,
     savings: null,
     deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 21.00, monthlyEquivalent: 21.00, savings: null, checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=20' },
-      { devices: 2, label: '2 Connections', price: 36.00, monthlyEquivalent: 36.00, savings: null, checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=54' },
-      { devices: 3, label: '3 Connections', price: 49.00, monthlyEquivalent: 49.00, savings: null, checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=58' },
-      { devices: 4, label: '4 Connections', price: 64.00, monthlyEquivalent: 64.00, savings: null, checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=62' },
+      { devices: 1, label: '1 Connection', price: 21.00, monthlyEquivalent: 21.00, savings: null, checkoutLink: '/order?plan=1-month&connections=1' },
+      { devices: 2, label: '2 Connections', price: 36.00, monthlyEquivalent: 36.00, savings: null, checkoutLink: '/order?plan=1-month&connections=2' },
+      { devices: 3, label: '3 Connections', price: 49.00, monthlyEquivalent: 49.00, savings: null, checkoutLink: '/order?plan=1-month&connections=3' },
+      { devices: 4, label: '4 Connections', price: 64.00, monthlyEquivalent: 64.00, savings: null, checkoutLink: '/order?plan=1-month&connections=4' },
     ],
     features: [
       '22,000+ Live TV Channels',
@@ -128,10 +128,10 @@ export const SHOP_PLANS: ShopPlan[] = [
     monthlyEquivalent: 15.00,
     savings: 'Save 30%',
     deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 45.00, monthlyEquivalent: 15.00, savings: 'Save 30%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=46' },
-      { devices: 2, label: '2 Connections', price: 72.00, monthlyEquivalent: 24.00, savings: 'Save 30%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=55' },
-      { devices: 3, label: '3 Connections', price: 99.00, monthlyEquivalent: 33.00, savings: 'Save 28%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=59' },
-      { devices: 4, label: '4 Connections', price: 125.00, monthlyEquivalent: 41.66, savings: 'Save 28%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=63' },
+      { devices: 1, label: '1 Connection', price: 45.00, monthlyEquivalent: 15.00, savings: 'Save 30%', checkoutLink: '/order?plan=3-months&connections=1' },
+      { devices: 2, label: '2 Connections', price: 72.00, monthlyEquivalent: 24.00, savings: 'Save 30%', checkoutLink: '/order?plan=3-months&connections=2' },
+      { devices: 3, label: '3 Connections', price: 99.00, monthlyEquivalent: 33.00, savings: 'Save 28%', checkoutLink: '/order?plan=3-months&connections=3' },
+      { devices: 4, label: '4 Connections', price: 125.00, monthlyEquivalent: 41.66, savings: 'Save 28%', checkoutLink: '/order?plan=3-months&connections=4' },
     ],
     features: [
       '22,000+ Live TV Channels',
@@ -197,10 +197,10 @@ export const SHOP_PLANS: ShopPlan[] = [
     monthlyEquivalent: 11.50,
     savings: 'Save 45%',
     deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 69.00, monthlyEquivalent: 11.50, savings: 'Save 45%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=52' },
-      { devices: 2, label: '2 Connections', price: 110.00, monthlyEquivalent: 18.33, savings: 'Save 47%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=56' },
-      { devices: 3, label: '3 Connections', price: 150.00, monthlyEquivalent: 25.00, savings: 'Save 46%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=60' },
-      { devices: 4, label: '4 Connections', price: 190.00, monthlyEquivalent: 31.66, savings: 'Save 45%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=64' },
+      { devices: 1, label: '1 Connection', price: 69.00, monthlyEquivalent: 11.50, savings: 'Save 45%', checkoutLink: '/order?plan=6-months&connections=1' },
+      { devices: 2, label: '2 Connections', price: 110.00, monthlyEquivalent: 18.33, savings: 'Save 47%', checkoutLink: '/order?plan=6-months&connections=2' },
+      { devices: 3, label: '3 Connections', price: 150.00, monthlyEquivalent: 25.00, savings: 'Save 46%', checkoutLink: '/order?plan=6-months&connections=3' },
+      { devices: 4, label: '4 Connections', price: 190.00, monthlyEquivalent: 31.66, savings: 'Save 45%', checkoutLink: '/order?plan=6-months&connections=4' },
     ],
     features: [
       '22,000+ Live TV Channels',
@@ -266,10 +266,10 @@ export const SHOP_PLANS: ShopPlan[] = [
     monthlyEquivalent: 7.92,
     savings: 'Save 62%',
     deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 95.00, monthlyEquivalent: 7.92, savings: 'Save 62%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=53' },
-      { devices: 2, label: '2 Connections', price: 152.00, monthlyEquivalent: 12.66, savings: 'Save 63%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=57' },
-      { devices: 3, label: '3 Connections', price: 210.00, monthlyEquivalent: 17.50, savings: 'Save 62%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=61' },
-      { devices: 4, label: '4 Connections', price: 260.00, monthlyEquivalent: 21.66, savings: 'Save 63%', checkoutLink: 'https://checkout.smart4k.io/checkout/?add-to-cart=65' },
+      { devices: 1, label: '1 Connection', price: 95.00, monthlyEquivalent: 7.92, savings: 'Save 62%', checkoutLink: '/order?plan=12-months&connections=1' },
+      { devices: 2, label: '2 Connections', price: 152.00, monthlyEquivalent: 12.66, savings: 'Save 63%', checkoutLink: '/order?plan=12-months&connections=2' },
+      { devices: 3, label: '3 Connections', price: 210.00, monthlyEquivalent: 17.50, savings: 'Save 62%', checkoutLink: '/order?plan=12-months&connections=3' },
+      { devices: 4, label: '4 Connections', price: 260.00, monthlyEquivalent: 21.66, savings: 'Save 63%', checkoutLink: '/order?plan=12-months&connections=4' },
     ],
     features: [
       '22,000+ Live TV Channels',
