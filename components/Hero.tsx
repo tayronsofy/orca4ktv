@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { searchAI } from '../services/geminiService'; // Ensure this path is correct
 
 // OPTIMIZATION: Use WebP images and add explicit aspect ratios to prevent jumping
 const FLOATING_LOGOS = [];
@@ -36,6 +35,7 @@ const Hero: React.FC = () => {
     setIsSearching(true);
     setAiResponse(null);
     try {
+      const { searchAI } = await import('../services/geminiService')
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {

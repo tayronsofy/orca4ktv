@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { searchAI } from '../../services/geminiService';
 
 const FLOATING_LOGOS: any[] = [];
 
@@ -26,6 +25,7 @@ const UKHero: React.FC = () => {
     setIsSearching(true);
     setAiResponse(null);
     try {
+      const { searchAI } = await import('../../services/geminiService')
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {

@@ -29,10 +29,14 @@ const Features: React.FC = () => {
               </div>
               <div className="flex-1 w-full">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#2c3034] p-2 border border-white/5">
-                   <img 
-                    src={feature.imageUrl} 
-                    alt={feature.title} 
+                   <img
+                    src={feature.imageUrl}
+                    alt={feature.title}
                     className="w-full h-auto rounded-xl object-cover"
+                    width={640}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#a855f7]/10 to-transparent"></div>
                 </div>
