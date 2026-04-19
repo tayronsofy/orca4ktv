@@ -29,7 +29,7 @@ export default function MatchHero({ match, state }: Props) {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
             {match.leagueLogo && (
-              <img src={match.leagueLogo} alt={match.league} className="w-4 h-4 object-contain" />
+              <img src={match.leagueLogo} alt={match.league} className="w-4 h-4 object-contain" width={16} height={16} />
             )}
             <span className="text-gray-400 text-xs font-semibold tracking-wide">{match.league}</span>
             <span className="text-gray-600">·</span>
@@ -152,6 +152,8 @@ function TeamBlock({ name, logo }: { name: string; logo: string }) {
           alt={name}
           className="w-14 h-14 md:w-20 md:h-20 object-contain drop-shadow-lg"
           loading="eager"
+          width={80}
+          height={80}
         />
       ) : (
         <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl font-black text-gray-600">

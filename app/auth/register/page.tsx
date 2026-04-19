@@ -55,7 +55,7 @@ function RegisterForm() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/">
-            <img src="/logo.png?v=2" alt="SMART 4K IPTV" className="h-10 w-auto mx-auto mb-6" />
+            <img src="/logo.png?v=2" alt="SMART 4K IPTV" className="h-10 w-auto mx-auto mb-6" width={1263} height={399} loading="lazy" />
           </Link>
           <h1 className="text-2xl font-black text-white">Create your account</h1>
           <p className="text-gray-400 mt-2 text-sm">Start your SMART 4K IPTV subscription</p>

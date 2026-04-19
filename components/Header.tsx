@@ -129,6 +129,7 @@ const Header: React.FC = () => {
       {/* Mobile Menu Drawer */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        aria-hidden={!mobileOpen}
       >
         {/* Backdrop */}
         <div
@@ -165,7 +166,7 @@ const Header: React.FC = () => {
             ))}
 
             <div className="border-t border-white/10 mt-4 pt-6">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 px-4">Regions</p>
+              <p className="text-xs text-gray-400 uppercase tracking-widest mb-3 px-4">Regions</p>
               <div className="flex flex-col gap-1">
                 <Link href="/iptv-usa" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
                   <img src="https://flagcdn.com/w40/us.png" alt="USA" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
