@@ -62,7 +62,7 @@ export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
   return getResend().emails.send({
     from: FROM,
     to: adminEmail,
-    reply_to: REPLY_TO,
+    replyTo: REPLY_TO,
     subject: `New order received: ${orderNumber}`,
     text: `New order received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}\n\nManage: https://smart4k.io/admin/orders/${orderId}`,
     html: `
@@ -102,7 +102,7 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
   return getResend().emails.send({
     from: FROM,
     to,
-    reply_to: REPLY_TO,
+    replyTo: REPLY_TO,
     // Clean subject — no "IPTV", no exclamation spam
     subject: `We received your order — ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
@@ -143,7 +143,7 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
   return getResend().emails.send({
     from: FROM,
     to,
-    reply_to: REPLY_TO,
+    replyTo: REPLY_TO,
     // No "Pay Now" in subject — reads like a scam email
     subject: `Next step for your order — ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
@@ -181,7 +181,7 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
   return getResend().emails.send({
     from: FROM,
     to,
-    reply_to: REPLY_TO,
+    replyTo: REPLY_TO,
     // "Credentials" and "Ready!" are phishing triggers — rewritten
     subject: `Your Smart 4K subscription is now active`,
     headers: CUSTOMER_HEADERS,
