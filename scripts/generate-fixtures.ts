@@ -11,7 +11,7 @@
 
 import { writeFileSync } from 'fs'
 import { join } from 'path'
-import { fetchUpcomingFixtures, generateSlug } from '../lib/sports-api'
+import { fetchUpcomingFixtures } from '../lib/sports-api'
 import type { Fixture } from '../lib/sports-api'
 
 // ─── Load .env manually (tsx doesn't auto-load it) ───────────────────────────
@@ -54,7 +54,7 @@ function generateTags(f: Fixture): string[] {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  console.log('⚡ Fetching fixtures from API-Football…')
+  console.log('⚡ Fetching fixtures from AllSportsAPI…')
 
   const fixtures = await fetchUpcomingFixtures(30)
   console.log(`   Found ${fixtures.length} fixtures`)
