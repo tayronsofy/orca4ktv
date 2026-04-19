@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -11,6 +11,7 @@ const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const pathname = usePathname()
+  const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -33,6 +34,17 @@ const Header: React.FC = () => {
   useEffect(() => {
     setMobileOpen(false)
   }, [pathname])
+
+  // inert on drawer when closed — removes focusable children from tab order + a11y tree
+  useEffect(() => {
+    const el = drawerRef.current
+    if (!el) return
+    if (!mobileOpen) {
+      el.setAttribute('inert', '')
+    } else {
+      el.removeAttribute('inert')
+    }
+  }, [mobileOpen])
 
   const navLinks = [
     { href: '/#pricing', label: 'Pricing' },
@@ -128,8 +140,8 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu Drawer */}
       <div
+        ref={drawerRef}
         className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        aria-hidden={!mobileOpen}
       >
         {/* Backdrop */}
         <div

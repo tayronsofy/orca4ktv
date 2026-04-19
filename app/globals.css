@@ -40,6 +40,12 @@ body {
     display: none !important;
   }
 
+  /* Kill shimmer animation but keep the element visible */
+  .animate-shimmer {
+    animation: none !important;
+    background-position: 0 0 !important;
+  }
+
   * {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
