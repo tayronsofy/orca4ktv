@@ -83,6 +83,7 @@ const USAHero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-blue-600 rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
+              aria-label="Search for US channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search US networks (e.g., 'Do you have ESPN and Fox News?')"

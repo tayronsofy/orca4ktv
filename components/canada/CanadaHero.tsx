@@ -81,6 +81,7 @@ const CanadaHero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-white rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
+              aria-label="Search for Canadian channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search Canadian networks (e.g., 'Do you have Live Sports and Local News?')"

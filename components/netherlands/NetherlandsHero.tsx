@@ -81,6 +81,7 @@ const NetherlandsHero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#AE1C28] to-[#21468B] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
+              aria-label="Zoeken naar zenders of inhoud"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Zender zoeken (bijv. 'Hebben jullie Eredivisie en RTL 4?')"

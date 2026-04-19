@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
         {/* 🚀 SEO UPGRADE: Keyword-Rich H1 Tag */}
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
           SMART 4K<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">
+          <span className="hero-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">
             PREMIUM 4K IPTV
           </span>
         </h1>
@@ -125,6 +125,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
+              aria-label="Search for channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Discover your network (e.g., 'Is Sky Sports available?')"

@@ -46,6 +46,14 @@ body {
     background-position: 0 0 !important;
   }
 
+  /* LCP fix: replace gradient text with solid color — avoids bg-clip-text composite paint */
+  .hero-gradient-text {
+    color: #a855f7 !important;
+    background-image: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+  }
+
   * {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;

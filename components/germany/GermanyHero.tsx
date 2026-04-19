@@ -81,6 +81,7 @@ const GermanyHero: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-yellow-500 rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
+              aria-label="Sender oder Inhalte suchen"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Sender suchen (z.B. 'Habt ihr Bundesliga und RTL?')"
