@@ -50,6 +50,7 @@ const Header: React.FC = () => {
     { href: '/#pricing', label: 'Pricing' },
     { href: '/iptv-shop', label: 'Shop' },
     { href: '/channels', label: 'Channels' },
+    { href: '/live-matches', label: 'Live' },
     { href: '/blog', label: 'Blog' },
     { href: '/resellers', label: 'Reseller' },
   ]
