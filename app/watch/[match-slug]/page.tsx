@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, MapPin, Trophy } from 'lucide-react'
 import matchesData from '@/data/matches.json'
@@ -161,11 +162,11 @@ function RelatedMatches({ current, all }: { current: Fixture; all: Fixture[] }) 
             className="flex items-center justify-between gap-4 bg-[#111] border border-white/6 hover:border-white/15 rounded-xl px-5 py-4 transition-colors group"
           >
             <div className="flex items-center gap-3 min-w-0">
-              {m.homeLogo && <img src={m.homeLogo} alt={m.homeTeam} className="w-7 h-7 object-contain flex-shrink-0" />}
+              {m.homeLogo && <Image src={m.homeLogo} alt={m.homeTeam} className="w-7 h-7 object-contain flex-shrink-0" width={28} height={28} />}
               <span className="text-white text-sm font-bold truncate">{m.homeTeam}</span>
               <span className="text-gray-600 text-xs font-bold">vs</span>
               <span className="text-white text-sm font-bold truncate">{m.awayTeam}</span>
-              {m.awayLogo && <img src={m.awayLogo} alt={m.awayTeam} className="w-7 h-7 object-contain flex-shrink-0" />}
+              {m.awayLogo && <Image src={m.awayLogo} alt={m.awayTeam} className="w-7 h-7 object-contain flex-shrink-0" width={28} height={28} />}
             </div>
             <span className="text-gray-600 text-xs whitespace-nowrap group-hover:text-gray-400 transition-colors">
               {new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(new Date(m.kickoff))}

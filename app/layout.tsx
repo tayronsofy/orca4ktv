@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 import SetupWizard from '@/components/SetupWizard'
 import FontAwesomeLoader from '@/components/FontAwesomeLoader'
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' })
+const inter = Inter({ subsets: ['latin'], display: 'optional' })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://smart4k.io'),
