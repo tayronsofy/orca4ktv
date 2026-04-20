@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import matchesData from '@/data/matches.json'
 
-const KEY = 'f6dcce60db2349098cb182c8af452cf3'
+const KEY = '30ae5a89de2541f78502a0111a939c1e'
 const HOST = 'smart4k.io'
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
 
