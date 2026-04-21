@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { sendTrialCredentials } from '@/lib/resend'
+import { createTrialM3U } from '@/lib/iptv-panel'
 
 function checkAdminAuth(request: NextRequest): boolean {
   const token = request.cookies.get('admin_token')?.value
@@ -13,14 +14,13 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { iptv_username, iptv_password, m3u_url, portal_url, duration_hours, account_id } = body
+  const { duration_hours, mode, pack_id, iptv_username, iptv_password, m3u_url, portal_url, account_id } = body
 
-  // Validate required fields
-  if (!iptv_username?.trim() || !iptv_password?.trim() || !m3u_url?.trim()) {
-    return NextResponse.json({ error: 'validation', message: 'IPTV username, password, and M3U URL are required.' }, { status: 400 })
-  }
   if (![24, 48, 72].includes(Number(duration_hours))) {
     return NextResponse.json({ error: 'validation', message: 'Duration must be 24, 48, or 72 hours.' }, { status: 400 })
+  }
+  if (!['panel', 'pool', 'manual'].includes(mode)) {
+    return NextResponse.json({ error: 'validation', message: 'Invalid mode.' }, { status: 400 })
   }
 
   const admin = createAdminClient()
@@ -37,47 +37,86 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const expires_at = new Date(Date.now() + Number(duration_hours) * 3600 * 1000).toISOString()
 
-  // Send email first — only update DB if it succeeds
-  try {
-    await sendTrialCredentials({
-      to: trial.email,
-      name: trial.name,
+  // ── Resolve credentials based on mode ────────────────────────────────────────
+
+  let creds: { iptv_username: string; iptv_password: string; m3u_url: string; portal_url?: string }
+
+  if (mode === 'panel') {
+    // Create trial account via IPTV panel API
+    if (!pack_id) {
+      return NextResponse.json({ error: 'validation', message: 'Package is required for panel mode.' }, { status: 400 })
+    }
+    try {
+      const created = await createTrialM3U(pack_id, `Trial: ${trial.name} <${trial.email}>`)
+      creds = {
+        iptv_username: created.username,
+        iptv_password: created.password,
+        m3u_url: created.m3uUrl,
+      }
+    } catch (err) {
+      console.error('Panel create trial error:', err)
+      return NextResponse.json(
+        { error: 'panel_error', message: 'Failed to create trial on IPTV panel. Check your panel connection and try again.' },
+        { status: 502 }
+      )
+    }
+  } else if (mode === 'pool' || mode === 'manual') {
+    if (!iptv_username?.trim() || !iptv_password?.trim() || !m3u_url?.trim()) {
+      return NextResponse.json({ error: 'validation', message: 'IPTV username, password, and M3U URL are required.' }, { status: 400 })
+    }
+    creds = {
       iptv_username: iptv_username.trim(),
       iptv_password: iptv_password.trim(),
       m3u_url: m3u_url.trim(),
       portal_url: portal_url?.trim() || undefined,
+    }
+  } else {
+    return NextResponse.json({ error: 'validation', message: 'Invalid mode.' }, { status: 400 })
+  }
+
+  // ── Send email first — only update DB if it succeeds ─────────────────────────
+
+  try {
+    await sendTrialCredentials({
+      to: trial.email,
+      name: trial.name,
+      iptv_username: creds.iptv_username,
+      iptv_password: creds.iptv_password,
+      m3u_url: creds.m3u_url,
+      portal_url: creds.portal_url,
       expires_at,
     })
   } catch (err) {
     console.error('Trial email send error:', err)
     return NextResponse.json(
-      { error: 'email_failed', message: 'Failed to send email. Please check credentials and try again.' },
+      { error: 'email_failed', message: 'Failed to send email. Please try again.' },
       { status: 500 }
     )
   }
 
-  // Email sent — update trial record
+  // ── Persist to DB ─────────────────────────────────────────────────────────────
+
   await admin
     .from('trials')
     .update({
       status: 'sent',
-      iptv_username: iptv_username.trim(),
-      iptv_password: iptv_password.trim(),
-      m3u_url: m3u_url.trim(),
-      portal_url: portal_url?.trim() || null,
+      iptv_username: creds.iptv_username,
+      iptv_password: creds.iptv_password,
+      m3u_url: creds.m3u_url,
+      portal_url: creds.portal_url || null,
       duration_hours: Number(duration_hours),
       sent_at: new Date().toISOString(),
       expires_at,
     })
     .eq('id', id)
 
-  // Mark the pool account as in_use (if one was used from the pool)
-  if (account_id) {
+  // Mark pool account as in_use if applicable
+  if (mode === 'pool' && account_id) {
     await admin
       .from('trial_accounts')
       .update({ status: 'in_use', assigned_trial_id: id })
       .eq('id', account_id)
   }
 
-  return NextResponse.json({ success: true, expires_at })
+  return NextResponse.json({ success: true, expires_at, credentials: creds })
 }
