@@ -180,8 +180,7 @@ export default function AdminTrialsPage() {
     const body: Record<string, string | number> = { duration_hours: duration, mode: sendMode }
 
     if (sendMode === 'panel') {
-      if (!selectedPackId) { setModalError('Please select a package.'); setSending(false); return }
-      body.pack_id = selectedPackId
+      // Panel auto-creates the account — no package selection needed
     } else if (sendMode === 'pool') {
       const acc = accounts.find(a => a.id === selectedAccountId)
       if (!acc) { setModalError('Please select a trial account.'); setSending(false); return }
