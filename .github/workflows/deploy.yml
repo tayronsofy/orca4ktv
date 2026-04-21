@@ -26,3 +26,4 @@ jobs:
             npm install
             npm run build
             pm2 restart smart4k || pm2 start npm --name "smart4k" -- start
+            curl -s https://smart4k.io/api/indexnow || true
