@@ -4,18 +4,40 @@
  * All requests are GET with api_key query param.
  */
 
-function panelUrl(params: Record<string, string>): string {
+function getPanelBase(): string {
   const base = process.env.IPTV_PANEL_URL
   const apiKey = process.env.IPTV_API_KEY
   if (!base || !apiKey) throw new Error('IPTV_PANEL_URL and IPTV_API_KEY env vars are required')
+  return base
+}
 
+function panelUrl(params: Record<string, string>): string {
+  const base = getPanelBase()
+  const apiKey = process.env.IPTV_API_KEY!
   const qs = new URLSearchParams({ ...params, api_key: apiKey })
   return `${base}/api/api.php?${qs.toString()}`
 }
 
-export interface Bouquet {
-  id: string
-  name: string
+/**
+ * Fix the M3U URL returned by the panel.
+ * The panel sometimes returns http:///get.php?... (empty host).
+ * In that case, use the panel base URL as the host.
+ */
+function fixM3uUrl(rawUrl: string): string {
+  try {
+    const parsed = new URL(rawUrl)
+    // If host is empty, build URL from panel base
+    if (!parsed.host) {
+      const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
+      return `${base}${parsed.pathname}${parsed.search}`
+    }
+    return rawUrl
+  } catch {
+    // rawUrl is not a valid URL — build from panel base + path portion
+    const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
+    const pathPart = rawUrl.replace(/^https?:\/\/[^/]*/, '')
+    return `${base}${pathPart}`
+  }
 }
 
 export interface CreatedTrialAccount {
@@ -26,30 +48,16 @@ export interface CreatedTrialAccount {
 }
 
 /**
- * Fetch all available bouquets/packages from the panel.
- */
-export async function getPanelBouquets(): Promise<Bouquet[]> {
-  const url = panelUrl({ action: 'bouquet' })
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Panel bouquet fetch failed: ${res.status}`)
-
-  const data = await res.json()
-  // API returns array of { id, name }
-  if (!Array.isArray(data)) throw new Error('Unexpected bouquet response format')
-  return data as Bouquet[]
-}
-
-/**
  * Create a demo/trial M3U account on the panel.
- * sub=99 = demo mode
- * Returns parsed username, password and the full M3U URL.
+ * sub=99 = demo mode (12h trial, set by the panel).
+ * Uses pack=all since no custom bouquets are configured.
  */
-export async function createTrialM3U(packId: string, note?: string): Promise<CreatedTrialAccount> {
+export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount> {
   const params: Record<string, string> = {
     action: 'new',
     type: 'm3u',
-    sub: '99',   // 99 = demo/trial
-    pack: packId,
+    sub: '99',    // 99 = demo/trial (12h, fixed by panel)
+    pack: 'all',  // no custom bouquets — give access to everything
   }
   if (note) params.note = note
 
@@ -59,20 +67,41 @@ export async function createTrialM3U(packId: string, note?: string): Promise<Cre
 
   const data = await res.json()
 
-  if (!data.url) throw new Error(data.message || 'Panel did not return an M3U URL')
+  if (data.status === 'false' || data.status === false) {
+    throw new Error(data.message || 'Panel rejected the trial creation request')
+  }
 
-  // Parse username and password from the returned M3U URL
-  // Format: http://server.cc/get.php?username=X&password=Y&type=m3u_plus
-  const parsed = new URL(data.url)
-  const username = parsed.searchParams.get('username') || ''
-  const password = parsed.searchParams.get('password') || ''
+  // Support both formats: data.url or data.username+data.password
+  let username = data.username || ''
+  let password = data.password || ''
+  let m3uUrl = ''
 
-  if (!username || !password) throw new Error('Could not parse credentials from panel M3U URL')
+  if (data.url) {
+    m3uUrl = fixM3uUrl(data.url)
+    // Also parse username/password from URL if not returned separately
+    if (!username || !password) {
+      try {
+        const parsed = new URL(m3uUrl)
+        username = parsed.searchParams.get('username') || username
+        password = parsed.searchParams.get('password') || password
+      } catch { /* ignore */ }
+    }
+  }
+
+  if (!username || !password) {
+    throw new Error('Could not get credentials from panel response')
+  }
+
+  // Build clean M3U URL if not already set
+  if (!m3uUrl) {
+    const base = getPanelBase().replace(/\/$/, '')
+    m3uUrl = `${base}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
+  }
 
   return {
     username,
     password,
-    m3uUrl: data.url,
+    m3uUrl,
     userId: String(data.user_id || ''),
   }
 }

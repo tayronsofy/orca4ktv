@@ -16,7 +16,9 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   const body = await request.json()
   const { duration_hours, mode, pack_id, iptv_username, iptv_password, m3u_url, portal_url, account_id } = body
 
-  if (![24, 48, 72].includes(Number(duration_hours))) {
+  // Panel mode is fixed at 12h (set by the panel for demo accounts)
+  const effectiveDuration = mode === 'panel' ? 12 : Number(duration_hours)
+  if (mode !== 'panel' && ![24, 48, 72].includes(effectiveDuration)) {
     return NextResponse.json({ error: 'validation', message: 'Duration must be 24, 48, or 72 hours.' }, { status: 400 })
   }
   if (!['panel', 'pool', 'manual'].includes(mode)) {
@@ -35,19 +37,15 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   if (!trial) return NextResponse.json({ error: 'not_found' }, { status: 404 })
   if (trial.status === 'sent') return NextResponse.json({ error: 'already_sent', message: 'This trial has already been sent.' }, { status: 409 })
 
-  const expires_at = new Date(Date.now() + Number(duration_hours) * 3600 * 1000).toISOString()
+  const expires_at = new Date(Date.now() + effectiveDuration * 3600 * 1000).toISOString()
 
   // ── Resolve credentials based on mode ────────────────────────────────────────
 
   let creds: { iptv_username: string; iptv_password: string; m3u_url: string; portal_url?: string }
 
   if (mode === 'panel') {
-    // Create trial account via IPTV panel API
-    if (!pack_id) {
-      return NextResponse.json({ error: 'validation', message: 'Package is required for panel mode.' }, { status: 400 })
-    }
     try {
-      const created = await createTrialM3U(pack_id, `Trial: ${trial.name} <${trial.email}>`)
+      const created = await createTrialM3U(`Trial: ${trial.name} <${trial.email}>`)
       creds = {
         iptv_username: created.username,
         iptv_password: created.password,
@@ -104,7 +102,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       iptv_password: creds.iptv_password,
       m3u_url: creds.m3u_url,
       portal_url: creds.portal_url || null,
-      duration_hours: Number(duration_hours),
+      duration_hours: effectiveDuration,
       sent_at: new Date().toISOString(),
       expires_at,
     })

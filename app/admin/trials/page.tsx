@@ -533,33 +533,14 @@ export default function AdminTrialsPage() {
                 </div>
               </div>
 
-              {/* Panel mode: package selector */}
+              {/* Panel mode: info box */}
               {sendMode === 'panel' && (
-                <div>
-                  <label className="block text-gray-300 text-xs font-semibold mb-2 uppercase tracking-wide">Package / Bouquet</label>
-                  {bouquetsLoading ? (
-                    <div className="text-gray-500 text-sm py-3 text-center">Loading packages from panel…</div>
-                  ) : bouquetsError ? (
-                    <div className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
-                      {bouquetsError}
-                      <button onClick={fetchBouquets} className="ml-2 underline">Retry</button>
-                    </div>
-                  ) : bouquets.length === 0 ? (
-                    <div className="text-gray-400 text-sm">No packages found on the panel.</div>
-                  ) : (
-                    <select
-                      value={selectedPackId}
-                      onChange={e => setSelectedPackId(e.target.value)}
-                      className="w-full bg-[#2c3034] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500"
-                    >
-                      {bouquets.map(b => (
-                        <option key={b.id} value={b.id}>{b.name}</option>
-                      ))}
-                    </select>
-                  )}
-                  <p className="text-gray-600 text-xs mt-2">
-                    The panel will create a demo account (sub=99) and return credentials automatically.
-                  </p>
+                <div className="bg-[#2c3034] rounded-xl px-4 py-3 flex items-start gap-3">
+                  <span className="text-2xl leading-none mt-0.5">⚡</span>
+                  <div>
+                    <p className="text-white text-sm font-semibold">Auto-create via ActivationPanel</p>
+                    <p className="text-gray-400 text-xs mt-1">A demo account (all channels) will be created automatically. Trial duration is <strong className="text-white">12 hours</strong>, set by your panel.</p>
+                  </div>
                 </div>
               )}
 
@@ -604,18 +585,20 @@ export default function AdminTrialsPage() {
                 </div>
               )}
 
-              {/* Duration */}
-              <div>
-                <label className="block text-gray-300 text-xs font-semibold mb-2 uppercase tracking-wide">Trial Duration</label>
-                <div className="flex gap-3">
-                  {[24, 48, 72].map(h => (
-                    <label key={h} className="flex items-center gap-2 cursor-pointer">
-                      <input type="radio" name="duration" value={h} checked={duration === h} onChange={() => setDuration(h)} className="accent-purple-500" />
-                      <span className="text-gray-300 text-sm">{h}h</span>
-                    </label>
-                  ))}
+              {/* Duration — hidden for panel mode (fixed at 12h by panel) */}
+              {sendMode !== 'panel' && (
+                <div>
+                  <label className="block text-gray-300 text-xs font-semibold mb-2 uppercase tracking-wide">Trial Duration</label>
+                  <div className="flex gap-3">
+                    {[24, 48, 72].map(h => (
+                      <label key={h} className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="duration" value={h} checked={duration === h} onChange={() => setDuration(h)} className="accent-purple-500" />
+                        <span className="text-gray-300 text-sm">{h}h</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {modalError && (
                 <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">{modalError}</p>
