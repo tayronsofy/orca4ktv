@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import matchesData from '@/data/matches.json'
+import { getPublishedPosts } from '@/lib/posts'
 
 const KEY = '30ae5a89de2541f78502a0111a939c1e'
 const HOST = 'smart4k.io'
@@ -26,12 +27,17 @@ const STATIC_URLS = [
   '/refund-policy',
 ].map(path => `https://${HOST}${path}`)
 
+// Blog post pages
+const BLOG_URLS = getPublishedPosts().map(
+  p => `https://${HOST}/blog/${p.slug}`
+)
+
 // Match pages
 const MATCH_URLS = matchesData.matches.map(
   m => `https://${HOST}/watch/${m.slug}`
 )
 
-const ALL_URLS = [...STATIC_URLS, ...MATCH_URLS]
+const ALL_URLS = [...STATIC_URLS, ...BLOG_URLS, ...MATCH_URLS]
 
 // IndexNow supports max 10,000 URLs per request
 const BATCH_SIZE = 500

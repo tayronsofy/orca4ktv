@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import matchesData from '@/data/matches.json'
+import { getPublishedPosts } from '@/lib/posts'
 import type { Fixture } from '@/lib/sports-api'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,10 +16,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/iptv-netherlands`,  priority: 0.9 },
     { url: `${base}/trial`,             priority: 0.8 },
     { url: `${base}/iptv-shop`,         priority: 0.8 },
+    { url: `${base}/live-matches`,      priority: 0.8 },
     { url: `${base}/channels`,          priority: 0.7 },
     { url: `${base}/resellers`,         priority: 0.7 },
-    { url: `${base}/blog`,              priority: 0.6 },
+    { url: `${base}/blog`,              priority: 0.7 },
+    { url: `${base}/about`,             priority: 0.5 },
+    { url: `${base}/privacy`,           priority: 0.3 },
+    { url: `${base}/terms`,             priority: 0.3 },
+    { url: `${base}/dmca`,              priority: 0.3 },
+    { url: `${base}/refund-policy`,     priority: 0.3 },
   ].map(r => ({ ...r, lastModified: now, changeFrequency: 'weekly' as const }))
+
+  const blogRoutes: MetadataRoute.Sitemap = getPublishedPosts().map(post => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
 
   const matchRoutes: MetadataRoute.Sitemap = (matchesData.matches as Fixture[]).map(m => ({
     url: `${base}/watch/${m.slug}`,
@@ -27,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...matchRoutes]
+  return [...staticRoutes, ...blogRoutes, ...matchRoutes]
 }
