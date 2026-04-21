@@ -280,7 +280,7 @@ export default function AdminTrialsPage() {
   const availableCount = availableAccounts.length
 
   const canSend =
-    sendMode === 'panel' ? !!selectedPackId :
+    sendMode === 'panel' ? true :
     sendMode === 'pool' ? !!selectedAccountId :
     !!(manualForm.iptv_username && manualForm.iptv_password && manualForm.m3u_url)
 
