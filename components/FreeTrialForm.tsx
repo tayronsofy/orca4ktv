@@ -1,9 +1,6 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-
-
-
 import React, { useState } from 'react';
 
 interface FreeTrialFormProps {
@@ -13,28 +10,32 @@ interface FreeTrialFormProps {
 const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
   const router = useRouter()
   const handleBack = onBackToHome || (() => router.push('/'))
-  // FormSubmit.co Endpoint
-  const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "https://formsubmit.co/tayron.sof@gmail.com";
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setAlreadySubmitted(false);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch('/api/trial', {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          device: formData.get('device'),
+          country: formData.get('country'),
+          message: formData.get('message'),
+        }),
       });
 
       if (response.ok) {
@@ -42,10 +43,10 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
         form.reset();
       } else {
         const data = await response.json();
-        if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-          setError(data.errors.map((err: any) => err.message).join(", "));
+        if (data.error === 'already_submitted') {
+          setAlreadySubmitted(true);
         } else {
-          setError("Oops! There was a problem submitting your form");
+          setError("Something went wrong. Please try again or contact us at contact@smart4k.io.");
         }
       }
     } catch (err) {
@@ -74,13 +75,19 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
               Back to Home
             </button>
           </div>
+        ) : alreadySubmitted ? (
+          <div className="text-center p-8 bg-yellow-600/20 border border-yellow-500/50 rounded-xl animate-fade-in">
+            <i className="fas fa-clock text-yellow-400 text-6xl mb-4"></i>
+            <h3 className="text-2xl font-bold text-white mb-3">Already Submitted</h3>
+            <p className="text-yellow-200 mb-6">
+              We already have a trial request from this email. Please allow 7 days between requests, or contact us directly.
+            </p>
+            <a href="mailto:contact@smart4k.io" className="bg-white text-black px-8 py-3 rounded-full font-bold uppercase hover:bg-gray-200 transition-colors inline-block">
+              Contact Us
+            </a>
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* FormSubmit.co Configuration */}
-            <input type="hidden" name="_subject" value="New SMART 4K Free Trial Request" />
-            <input type="hidden" name="_template" value="table" />
-            {/* Disable Captcha for smoother experience (optional) */}
-            <input type="hidden" name="_captcha" value="false" />
             {/* NAME */}
             <div>
               <label htmlFor="name" className="block text-gray-300 text-sm font-semibold mb-2">Name</label>
@@ -97,7 +104,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
               />
             </div>
 
-            {/* EMAIL (Formspree uses this to Reply-To automatically) */}
+            {/* EMAIL */}
             <div>
               <label htmlFor="email" className="block text-gray-300 text-sm font-semibold mb-2">Email Address</label>
               <input
@@ -133,7 +140,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
               </select>
             </div>
 
-            {/* COUNTRY - Now a text input */}
+            {/* COUNTRY */}
             <div>
               <label htmlFor="country" className="block text-gray-300 text-sm font-semibold mb-2">Country</label>
               <input
@@ -163,11 +170,6 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
             </div>
 
             {error && <p className="text-red-400 text-center">{error}</p>}
-
-            {/* reCAPTCHA Enterprise Widget */}
-            <div className="flex justify-center mb-4">
-              <div className="g-recaptcha" data-sitekey="6LeBJWIsAAAAAO8tw3miVMCZUbNv3P16DVw9ZMlK" data-action="FREE_TRIAL"></div>
-            </div>
 
             <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl disabled:opacity-50">
               {loading ? 'Sending...' : 'Get Free Trial'}
