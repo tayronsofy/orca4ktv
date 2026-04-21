@@ -13,7 +13,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { iptv_username, iptv_password, m3u_url, portal_url, duration_hours } = body
+  const { iptv_username, iptv_password, m3u_url, portal_url, duration_hours, account_id } = body
 
   // Validate required fields
   if (!iptv_username?.trim() || !iptv_password?.trim() || !m3u_url?.trim()) {
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     )
   }
 
-  // Email sent — now persist credentials and mark as sent
+  // Email sent — update trial record
   await admin
     .from('trials')
     .update({
@@ -70,6 +70,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       expires_at,
     })
     .eq('id', id)
+
+  // Mark the pool account as in_use (if one was used from the pool)
+  if (account_id) {
+    await admin
+      .from('trial_accounts')
+      .update({ status: 'in_use', assigned_trial_id: id })
+      .eq('id', account_id)
+  }
 
   return NextResponse.json({ success: true, expires_at })
 }
