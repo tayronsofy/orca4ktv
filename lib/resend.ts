@@ -5,7 +5,7 @@ function getResend() {
 }
 
 // "Smart 4K" — no "IPTV" in sender name (spam trigger)
-const FROM = process.env.RESEND_FROM_EMAIL || 'Smart 4K <noreply@smart4k.io>'
+const FROM = process.env.RESEND_FROM_EMAIL || 'Smart 4K <hello@smart4k.io>'
 const REPLY_TO = process.env.RESEND_REPLY_TO || 'contact@smart4k.io'
 
 // Shared headers for all customer-facing emails
@@ -288,7 +288,7 @@ interface AdminNewTrialAlertProps {
 }
 
 export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
-  const { name, email, device, country, trialId } = props
+  const { name, email, device, country } = props
   const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
   return getResend().emails.send({
     from: FROM,
