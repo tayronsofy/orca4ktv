@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   const payload = await request.json()
 
   // 2. Only handle successful charge completions
-  console.log('FLW webhook received:', JSON.stringify({ event: payload.event, status: payload.data?.status, tx_ref: payload.data?.tx_ref, amount: payload.data?.amount }))
+  console.log('FLW webhook FULL payload:', JSON.stringify(payload))
 
   if (payload.event !== 'charge.completed') {
     console.log('FLW webhook: ignoring event', payload.event)
