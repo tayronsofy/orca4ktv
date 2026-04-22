@@ -107,7 +107,7 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
     subject: `We received your order — ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
     // Plain text version (critical for inbox delivery)
-    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nComplete your payment using the secure form. Your subscription activates instantly once payment is confirmed.\n\nView your dashboard: https://smart4k.io/dashboard\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://smart4k.io/dashboard\n\n— The Smart 4K Team\nhttps://smart4k.io`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -116,7 +116,7 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
-          <p style="color:#d1d5db;">We received your order. Complete your payment using the secure form — your subscription activates <strong style="color:#fff;">instantly</strong> once payment is confirmed.</p>
+          <p style="color:#d1d5db;">We received your order and are currently reviewing it. You will receive your payment details within <strong style="color:#fff;">1 hour</strong>.</p>
           <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
             <p style="margin:0 0 8px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Order Summary</p>
             <table style="width:100%;border-collapse:collapse;">

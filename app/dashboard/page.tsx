@@ -22,14 +22,13 @@ function StatusBadge({ status }: { status: string }) {
   )
 }
 
-export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ ordered?: string; payment?: string }> }) {
+export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ ordered?: string }> }) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/auth/login')
 
   const params = await searchParams
   const justOrdered = params.ordered === '1'
-  const justPaid = params.payment === 'success'
 
   const [{ data: profile }, { data: subscription }, { data: latestOrder }] = await Promise.all([
     supabase.from('profiles').select('full_name').eq('id', user.id).single(),
@@ -50,20 +49,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         <p className="text-gray-400 mt-1">Welcome to your SMART 4K dashboard</p>
       </div>
 
-      {justPaid && (
-        <div className="mb-6 bg-green-500/10 border border-green-500/30 rounded-2xl px-6 py-4 flex items-start gap-3">
-          <i className="fas fa-check-circle text-green-400 mt-0.5"></i>
-          <div>
-            <p className="text-green-300 font-semibold">Payment received — activating your subscription!</p>
-            <p className="text-green-400/70 text-sm mt-1">
-              Your credentials will arrive by email within a few minutes. Check your{' '}
-              <Link href="/dashboard/subscription" className="underline">subscription page</Link> shortly.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {justOrdered && !justPaid && (
+      {justOrdered && (
         <div className="mb-6 bg-green-500/10 border border-green-500/30 rounded-2xl px-6 py-4 flex items-start gap-3">
           <i className="fas fa-check-circle text-green-400 mt-0.5"></i>
           <div>
