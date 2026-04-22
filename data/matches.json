@@ -1,64 +1,6 @@
 {
   "matches": [
     {
-      "fixtureId": 13980099,
-      "slug": "lecce-vs-fiorentina-live-4k-stream-2026-04-20",
-      "homeTeam": "Lecce",
-      "awayTeam": "Fiorentina",
-      "homeLogo": "https://img.sofascore.com/api/v1/team/2689/image",
-      "awayLogo": "https://img.sofascore.com/api/v1/team/2693/image",
-      "homeScore": 1,
-      "awayScore": 1,
-      "kickoff": "2026-04-20T18:45:00.000Z",
-      "league": "Serie A",
-      "leagueId": 33,
-      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/33/image",
-      "venue": "",
-      "city": "",
-      "round": "Round 33",
-      "status": "FT",
-      "elapsed": 90,
-      "description": "A top-tier Serie A encounter — Lecce vs Fiorentina is live this week. The match is scheduled for Monday, April 20, 2026 at 06:45 PM UTC. Watch Lecce vs Fiorentina live in 4K Ultra-HD on Smart 4K — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
-      "tags": [
-        "Serie A",
-        "Round 33",
-        "Lecce",
-        "Fiorentina",
-        "live stream",
-        "4K IPTV",
-        "watch online"
-      ]
-    },
-    {
-      "fixtureId": 14025034,
-      "slug": "crystal-palace-vs-west-ham-united-live-4k-stream-2026-04-20",
-      "homeTeam": "Crystal Palace",
-      "awayTeam": "West Ham United",
-      "homeLogo": "https://img.sofascore.com/api/v1/team/7/image",
-      "awayLogo": "https://img.sofascore.com/api/v1/team/37/image",
-      "homeScore": 0,
-      "awayScore": 0,
-      "kickoff": "2026-04-20T19:00:00.000Z",
-      "league": "Premier League",
-      "leagueId": 1,
-      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/1/image",
-      "venue": "",
-      "city": "",
-      "round": "Round 33",
-      "status": "FT",
-      "elapsed": 90,
-      "description": "All eyes are on this Premier League fixture as Crystal Palace meet West Ham United. The match is scheduled for Monday, April 20, 2026 at 07:00 PM UTC. Watch Crystal Palace vs West Ham United live in 4K Ultra-HD on Smart 4K — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
-      "tags": [
-        "Premier League",
-        "Round 33",
-        "Crystal Palace",
-        "West Ham United",
-        "live stream",
-        "4K IPTV",
-        "watch online"
-      ]
-    },
-    {
       "fixtureId": 14083258,
       "slug": "athletic-club-vs-osasuna-live-4k-stream-2026-04-21",
       "homeTeam": "Athletic Club",
@@ -5187,7 +5129,7 @@
       "awayLogo": "https://img.sofascore.com/api/v1/team/1659/image",
       "homeScore": null,
       "awayScore": null,
-      "kickoff": "2026-05-13T18:00:00.000Z",
+      "kickoff": "2026-05-13T17:00:00.000Z",
       "league": "Ligue 1",
       "leagueId": 4,
       "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/4/image",
@@ -5196,7 +5138,7 @@
       "round": "Round 29",
       "status": "NS",
       "elapsed": null,
-      "description": "All eyes are on this Ligue 1 fixture as Stade Brestois meet RC Strasbourg. The match is scheduled for Wednesday, May 13, 2026 at 06:00 PM UTC. Watch Stade Brestois vs RC Strasbourg live in 4K Ultra-HD on Smart 4K — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
+      "description": "All eyes are on this Ligue 1 fixture as Stade Brestois meet RC Strasbourg. The match is scheduled for Wednesday, May 13, 2026 at 05:00 PM UTC. Watch Stade Brestois vs RC Strasbourg live in 4K Ultra-HD on Smart 4K — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
       "tags": [
         "Ligue 1",
         "Round 29",
@@ -6774,6 +6716,6 @@
       ]
     }
   ],
-  "generatedAt": "2026-04-21T23:57:22.481Z",
-  "count": 233
+  "generatedAt": "2026-04-22T05:17:38.058Z",
+  "count": 231
 }
