@@ -233,18 +233,28 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
   const expiryFormatted = new Date(expires_at).toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
   })
+
+  // Derive host and EPG URL from the M3U URL
+  let hostUrl = ''
+  let epgUrl = ''
+  try {
+    const parsed = new URL(m3u_url)
+    hostUrl = parsed.origin // e.g. http://backup.activationpanel.ru
+    epgUrl = `${hostUrl}/xmltv.php?username=${iptv_username}&password=${iptv_password}`
+  } catch { /* ignore if URL is malformed */ }
+
   return getResend().emails.send({
     from: FROM,
     to,
     replyTo: REPLY_TO,
     subject: `Your Smart 4K Free Trial Is Ready`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${name},\n\nYour Smart 4K free trial is now active!\n\nSetup information:\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nM3U URL: ${m3u_url}${portal_url ? `\nPortal URL: ${portal_url}` : ''}\n\nIMPORTANT: Your trial access expires on ${expiryFormatted}.\n\nNeed help setting up? Visit https://smart4k.io or reply to this email.\n\nLove it? Upgrade for full access: https://smart4k.io/#pricing\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${name},\n\nYour Smart 4K free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Smart 4K\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Visit https://smart4k.io or reply to this email.\n\nLove it? Upgrade for full access: https://smart4k.io/#pricing\n\n— The Smart 4K Team\nhttps://smart4k.io`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
           <h1 style="margin:0;font-size:24px;font-weight:900;">Your Free Trial Is Ready!</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Smart 4K — 22,000+ live channels, 4K sports & VOD</p>
+          <p style="margin:8px 0 0;opacity:.85;">Smart 4K — 22,000+ live channels, 4K sports &amp; VOD</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${name}</strong>,</p>
@@ -255,13 +265,25 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
             <p style="margin:0;color:#fef3c7;font-size:15px;font-weight:700;">${expiryFormatted}</p>
           </div>
 
+          <!-- Xtream Codes -->
           <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
-            <p style="margin:0 0 16px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Setup Information</p>
+            <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Xtream Codes</p>
+            <p style="margin:0 0 16px;color:#6b7280;font-size:11px;">For TiviMate, IPTV Smarters, Smart IPTV, etc.</p>
             <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_username}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_password}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3u_url}</td></tr>
-              ${portal_url ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${portal_url}</td></tr>` : ''}
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Playlist Name</td><td style="color:#fff;font-family:monospace;text-align:right;">Smart 4K</td></tr>
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_username}</td></tr>
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_password}</td></tr>
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Host / URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;word-break:break-all;">${hostUrl}</td></tr>
+            </table>
+          </div>
+
+          <!-- M3U + EPG -->
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
+            <p style="margin:0 0 16px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Links</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3u_url}</td></tr>
+              ${epgUrl ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">EPG URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${epgUrl}</td></tr>` : ''}
+              ${portal_url ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${portal_url}</td></tr>` : ''}
             </table>
           </div>
 
