@@ -47,6 +47,74 @@ export interface CreatedTrialAccount {
   userId: string
 }
 
+export interface SubscriptionAccountOptions {
+  planSlug: string
+  connections: number
+  note?: string
+}
+
+export const PLAN_MONTHS: Record<string, number> = {
+  '1-month': 1, '3-months': 3, '6-months': 6, '12-months': 12,
+}
+
+/**
+ * Create a full paid M3U account on the panel.
+ * sub = duration in months: 1, 3, 6, or 12 (maps directly from plan slug).
+ * The panel does not support exp_date or max_connections via API.
+ */
+export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): Promise<CreatedTrialAccount> {
+  const sub = PLAN_MONTHS[opts.planSlug] ?? 1 // 1 | 3 | 6 | 12
+
+  const params: Record<string, string> = {
+    action: 'new',
+    type: 'm3u',
+    sub: String(sub),
+    pack: 'all',
+  }
+  if (opts.note) params.note = opts.note
+
+  const url = panelUrl(params)
+  const res = await fetch(url, { cache: 'no-store' })
+  if (!res.ok) throw new Error(`Panel create subscription failed: ${res.status}`)
+
+  const data = await res.json()
+
+  if (data.status === 'false' || data.status === false) {
+    throw new Error(data.message || 'Panel rejected the subscription creation request')
+  }
+
+  let username = data.username || ''
+  let password = data.password || ''
+  let m3uUrl = ''
+
+  if (data.url) {
+    m3uUrl = fixM3uUrl(data.url)
+    if (!username || !password) {
+      try {
+        const parsed = new URL(m3uUrl)
+        username = parsed.searchParams.get('username') || username
+        password = parsed.searchParams.get('password') || password
+      } catch { /* ignore */ }
+    }
+  }
+
+  if (!username || !password) {
+    throw new Error('Could not get credentials from panel response')
+  }
+
+  if (!m3uUrl) {
+    const base = getPanelBase().replace(/\/$/, '')
+    m3uUrl = `${base}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
+  }
+
+  return {
+    username,
+    password,
+    m3uUrl,
+    userId: String(data.user_id || ''),
+  }
+}
+
 /**
  * Create a demo/trial M3U account on the panel.
  * sub=99 = demo mode (12h trial, set by the panel).

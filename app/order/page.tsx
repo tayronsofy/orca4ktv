@@ -48,6 +48,8 @@ function OrderForm() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [userEmail, setUserEmail] = useState('')
+  const [pendingOrderId, setPendingOrderId] = useState<string | null>(null)
+  const [paymentCancelled, setPaymentCancelled] = useState(false)
 
   // Auth flow state
   const [authStep, setAuthStep] = useState<AuthStep>('email')
@@ -68,6 +70,42 @@ function OrderForm() {
       }
     })
   }, [])
+
+  // Load Flutterwave inline SDK
+  useEffect(() => {
+    const s = document.createElement('script')
+    s.src = 'https://checkout.flutterwave.com/v3.js'
+    s.async = true
+    document.body.appendChild(s)
+    return () => { document.body.removeChild(s) }
+  }, [])
+
+  const openFlutterwaveModal = (oid: string) => {
+    const flw = (window as any).FlutterwaveCheckout
+    if (!flw) {
+      setError('Payment system failed to load. Please refresh the page and try again.')
+      return
+    }
+    flw({
+      public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY,
+      tx_ref: oid,
+      amount,
+      currency: 'USD',
+      customer: { email: userEmail, name: fullName || userEmail },
+      customizations: {
+        title: 'Smart 4K IPTV',
+        description: `${plan.name} — ${connections} connection${connections > 1 ? 's' : ''}`,
+      },
+      callback: (data: { status: string }) => {
+        if (data.status === 'successful' || data.status === 'completed') {
+          router.push('/dashboard?payment=success')
+        } else {
+          setPaymentCancelled(true)
+        }
+      },
+      onclose: () => setPaymentCancelled(true),
+    })
+  }
 
   // Handle registration form: sign up new users, or sign in existing ones
   const handleEmailContinue = async (e: { preventDefault(): void }) => {
@@ -190,7 +228,11 @@ function OrderForm() {
       return
     }
 
-    router.push('/dashboard?ordered=1')
+    const { orderId } = await res.json()
+    setLoading(false)
+    setPendingOrderId(orderId)
+    setPaymentCancelled(false)
+    openFlutterwaveModal(orderId)
   }
 
   return (
@@ -435,17 +477,35 @@ function OrderForm() {
                     </div>
                   )}
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
-                  >
-                    {loading ? 'Placing order…' : `Place Order — $${amount}`}
-                  </button>
-
-                  <p className="text-xs text-gray-600 text-center">
-                    No payment now. We&apos;ll send you the payment link within 1 hour.
-                  </p>
+                  {paymentCancelled ? (
+                    <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-4 py-3 text-sm">
+                      <p className="text-yellow-300 font-semibold mb-1">Payment not completed</p>
+                      <p className="text-yellow-400/80 mb-2">
+                        Your order is saved. Complete payment from your{' '}
+                        <Link href="/dashboard/invoices" className="text-yellow-300 underline">invoices page</Link>, or:
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => { setPaymentCancelled(false); pendingOrderId && openFlutterwaveModal(pendingOrderId) }}
+                        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-3 rounded-xl hover:opacity-90 transition-opacity text-sm"
+                      >
+                        Try Payment Again
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
+                      >
+                        {loading ? 'Preparing order…' : `Proceed to Payment — $${amount}`}
+                      </button>
+                      <p className="text-xs text-gray-600 text-center">
+                        Secure payment via Flutterwave. Your subscription activates instantly.
+                      </p>
+                    </>
+                  )}
                 </form>
               )}
 
