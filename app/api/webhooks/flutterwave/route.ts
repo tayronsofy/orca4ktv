@@ -13,8 +13,16 @@ export async function POST(request: NextRequest) {
   const payload = await request.json()
 
   // 2. Only handle successful charge completions
-  if (payload.event !== 'charge.completed') return NextResponse.json({ ok: true })
-  if (payload.data?.status !== 'successful') return NextResponse.json({ ok: true })
+  console.log('FLW webhook received:', JSON.stringify({ event: payload.event, status: payload.data?.status, tx_ref: payload.data?.tx_ref, amount: payload.data?.amount }))
+
+  if (payload.event !== 'charge.completed') {
+    console.log('FLW webhook: ignoring event', payload.event)
+    return NextResponse.json({ ok: true })
+  }
+  if (payload.data?.status !== 'successful') {
+    console.log('FLW webhook: ignoring status', payload.data?.status)
+    return NextResponse.json({ ok: true })
+  }
 
   const { tx_ref, amount: paidAmount } = payload.data
 
@@ -28,13 +36,15 @@ export async function POST(request: NextRequest) {
     .single()
 
   if (!order) {
-    // Unknown order — return 200 so Flutterwave doesn't keep retrying
-    console.error('Flutterwave webhook: order not found for tx_ref', tx_ref)
+    console.error('FLW webhook: order not found for tx_ref', tx_ref)
     return NextResponse.json({ ok: true })
   }
 
+  console.log('FLW webhook: found order', order.id, 'status:', order.status)
+
   // 4. Idempotency guard — skip if already processed
   if (order.status === 'active') {
+    console.log('FLW webhook: order already active, skipping')
     return NextResponse.json({ ok: true })
   }
 
@@ -110,6 +120,8 @@ export async function POST(request: NextRequest) {
     .select('full_name, email')
     .eq('id', order.user_id)
     .single()
+
+  console.log('FLW webhook: order activated, sending email to', profile?.email)
 
   if (profile?.email) {
     sendCredentialsReady({
