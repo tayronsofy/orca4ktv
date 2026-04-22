@@ -26,11 +26,19 @@ function panelUrl(params: Record<string, string>): string {
 function fixM3uUrl(rawUrl: string): string {
   try {
     const parsed = new URL(rawUrl)
-    // If host is empty, build URL from panel base
+    const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
+
+    // Host is empty — e.g. http:///get.php?...
     if (!parsed.host) {
-      const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
       return `${base}${parsed.pathname}${parsed.search}`
     }
+
+    // Host looks like a PHP filename, not a real domain — e.g. http://get.php?...
+    // The panel dropped the real host and left only the filename as the "host".
+    if (/\.php$/i.test(parsed.host)) {
+      return `${base}/${parsed.host}${parsed.search}`
+    }
+
     return rawUrl
   } catch {
     // rawUrl is not a valid URL — build from panel base + path portion
