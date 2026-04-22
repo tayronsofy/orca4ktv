@@ -93,7 +93,7 @@ function OrderForm() {
       currency: 'USD',
       customer: { email: userEmail, name: fullName || userEmail },
       customizations: {
-        title: 'Smart 4K IPTV',
+        title: 'Smart 4K',
         description: `${plan.name} — ${connections} connection${connections > 1 ? 's' : ''}`,
       },
       callback: (data: { status: string }) => {
@@ -215,24 +215,30 @@ function OrderForm() {
     setError('')
     setLoading(true)
 
-    const res = await fetch('/api/orders', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ planSlug: plan.slug, planName: plan.name, connections, amount, phone, country }),
-    })
+    try {
+      const res = await fetch('/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planSlug: plan.slug, planName: plan.name, connections, amount, phone, country }),
+      })
 
-    if (!res.ok) {
-      const data = await res.json()
-      setError(data.error || 'Something went wrong. Please try again.')
+      if (!res.ok) {
+        const data = await res.json()
+        setError(data.error || 'Something went wrong. Please try again.')
+        setLoading(false)
+        return
+      }
+
+      const { orderId } = await res.json()
       setLoading(false)
-      return
+      setPendingOrderId(orderId)
+      setPaymentCancelled(false)
+      openFlutterwaveModal(orderId)
+    } catch (err) {
+      console.error('Order submit error:', err)
+      setError('Something went wrong. Please try again.')
+      setLoading(false)
     }
-
-    const { orderId } = await res.json()
-    setLoading(false)
-    setPendingOrderId(orderId)
-    setPaymentCancelled(false)
-    openFlutterwaveModal(orderId)
   }
 
   return (
