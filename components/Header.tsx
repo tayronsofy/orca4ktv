@@ -126,6 +126,14 @@ const Header: React.FC = () => {
             Free Trial
           </Link>
 
+          {/* Free Trial — mobile only, visible in top bar */}
+          <Link
+            href="/trial"
+            className="md:hidden bg-[#6d28d9] text-white px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-tight hover:bg-[#5b21b6] transition-all whitespace-nowrap"
+          >
+            Free Trial
+          </Link>
+
           {/* Hamburger - mobile only */}
           <button
             onClick={() => setMobileOpen(prev => !prev)}
