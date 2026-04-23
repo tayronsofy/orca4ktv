@@ -156,7 +156,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
               { href: '/dashboard/subscription', icon: 'fas fa-key', label: 'My Credentials' },
               { href: '/dashboard/invoices', icon: 'fas fa-receipt', label: 'Invoices' },
               { href: '/iptv-shop', icon: 'fas fa-shopping-cart', label: 'Renew / Upgrade' },
-              { href: '/#faq', icon: 'fas fa-question-circle', label: 'Help & FAQ' },
+              { href: '/setup-guide', icon: 'fas fa-question-circle', label: 'Setup Guide' },
             ].map(l => (
               <Link
                 key={l.href}

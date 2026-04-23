@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import SetupWizard from './SetupWizard';
 import BrevoIframeForm from './BrevoIframeForm';
 
 const Pricing = () => {
