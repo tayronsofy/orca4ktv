@@ -175,7 +175,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-col px-6 py-6 gap-1 flex-1">
+          <nav className="flex flex-col px-6 py-6 gap-1 flex-1 overflow-y-auto">
             {navLinks.map(link => (
               <Link
                 key={link.href}
