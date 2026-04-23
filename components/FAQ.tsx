@@ -108,12 +108,20 @@ const FAQ: React.FC = () => {
         <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#2a0e5c] to-[#0d071b] border border-[#4a3482]/30 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Still have questions?</h3>
           <p className="text-gray-400 mb-6">Our support team is available 24/7 to help you with any technical or billing inquiries.</p>
-          <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
-          >
-            <i className="fas fa-envelope"></i> Contact Support
-          </a>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="/setup-guide"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black rounded-full uppercase text-xs tracking-[0.2em] hover:opacity-90 transition-all transform hover:scale-105"
+            >
+              <i className="fas fa-play-circle"></i> Setup Guide & Tutorials
+            </a>
+            <a
+              href="mailto:contact@smart4k.io"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
+            >
+              <i className="fas fa-envelope"></i> Contact Support
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -28,6 +28,7 @@ const Footer: React.FC = () => {
                   FAQ
                 </button>
               </li>
+              <li><Link href="/setup-guide" className="hover:text-white transition-colors">Setup Guide</Link></li>
               <li><a href="https://iptvrooms.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">IPTV Forum</a></li>
             </ul>
           </div>

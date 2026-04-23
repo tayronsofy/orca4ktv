@@ -185,7 +185,7 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     // "Credentials" and "Ready!" are phishing triggers — rewritten
     subject: `Your Smart 4K subscription is now active`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\nSetup information:\nUsername: ${username}\nPassword: ${password}\nM3U URL: ${m3uUrl}${portalUrl ? `\nPortal URL: ${portalUrl}` : ''}\n\nYou can also find this information anytime in your dashboard:\nhttps://smart4k.io/dashboard/subscription\n\nNeed help setting up? Visit https://smart4k.io/#faq or reply to this email.\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\nSetup information:\nUsername: ${username}\nPassword: ${password}\nM3U URL: ${m3uUrl}${portalUrl ? `\nPortal URL: ${portalUrl}` : ''}\n\nYou can also find this information anytime in your dashboard:\nhttps://smart4k.io/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://smart4k.io/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Smart 4K Team\nhttps://smart4k.io`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -208,7 +208,10 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
           <div style="text-align:center;margin:24px 0;">
             <a href="https://smart4k.io/dashboard/subscription" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
           </div>
-          <p style="color:#6b7280;font-size:12px;">Need help getting started? Visit our <a href="https://smart4k.io/#faq" style="color:#a855f7;">setup guide</a> or reply to this email — we are happy to help.</p>
+          <div style="text-align:center;margin:20px 0 8px;">
+            <a href="https://smart4k.io/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
+          </div>
+          <p style="color:#6b7280;font-size:12px;text-align:center;">Need help setting up? Our guide has video tutorials for every device.</p>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
           &copy; 2026 Smart 4K &middot; <a href="https://smart4k.io" style="color:#a855f7;">smart4k.io</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
@@ -249,7 +252,7 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
     replyTo: REPLY_TO,
     subject: `Your Smart 4K Free Trial Is Ready`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${name},\n\nYour Smart 4K free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Smart 4K\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Visit https://smart4k.io or reply to this email.\n\nLove it? Upgrade for full access: https://smart4k.io/#pricing\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${name},\n\nYour Smart 4K free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Smart 4K\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Watch our video tutorials:\nhttps://smart4k.io/setup-guide\n\nLove it? Upgrade for full access: https://smart4k.io/#pricing\n\n— The Smart 4K Team\nhttps://smart4k.io`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -287,10 +290,13 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
             </table>
           </div>
 
-          <p style="color:#d1d5db;font-size:13px;">Need help setting up? Visit our <a href="https://smart4k.io/#faq" style="color:#a855f7;">setup guide</a> or reply to this email — we are happy to help.</p>
+          <div style="text-align:center;margin:28px 0 8px;">
+            <a href="https://smart4k.io/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
+          </div>
+          <p style="color:#6b7280;font-size:12px;text-align:center;margin:0 0 24px;">Step-by-step video tutorials for every device — Firestick, Apple, Android &amp; more.</p>
 
-          <div style="text-align:center;margin:32px 0;">
-            <a href="https://smart4k.io/#pricing" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">Love it? Upgrade for full access &rarr;</a>
+          <div style="text-align:center;margin:0 0 32px;">
+            <a href="https://smart4k.io/#pricing" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;border:1px solid #a855f7/30;">Love it? Upgrade for full access &rarr;</a>
           </div>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
