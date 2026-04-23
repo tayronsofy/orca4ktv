@@ -31,6 +31,49 @@ const FILTERS = [
 
 const OTHER_TAGS = ['buzztv', 'formuler', 'smartstb', 'nvidia', 'dreamlink', 'tivimate', 'smarters', 'avov']
 
+const FAQ_ITEMS = [
+  {
+    q: 'How do I set up IPTV on a Firestick?',
+    a: 'To set up IPTV on a Firestick, first enable "Apps from Unknown Sources" in your Firestick settings. Then install the Downloader app from the Amazon store and use it to sideload TiviMate or IPTV Smarters Pro. Open the app, select "Add Playlist", choose "Xtream Codes" or "M3U URL", and enter your username, password, and server URL (host) from your Smart 4K dashboard. Watch our Firestick tutorial video above for full step-by-step instructions.',
+  },
+  {
+    q: 'What is the best IPTV app for Android?',
+    a: 'TiviMate is widely considered the best IPTV app for Android and Firestick — it offers a polished TV-guide interface, multi-stream support, catch-up, and recording. IPTV Smarters Pro is another excellent choice, especially for beginners, as it supports both Xtream Codes and M3U playlists. GSE IPTV and XCIPTV are also popular options. All of these work perfectly with your Smart 4K subscription.',
+  },
+  {
+    q: 'How do I add an M3U playlist to TiviMate?',
+    a: 'Open TiviMate and tap "Add Playlist". Select "M3U playlist" and paste your M3U URL from your Smart 4K dashboard. TiviMate will automatically import all channels. For the EPG (TV guide), go to Settings → EPG Sources and add your EPG URL — also available in your dashboard. Refresh the EPG to populate the programme guide. You can then organise channels into favourites and groups.',
+  },
+  {
+    q: 'What are Xtream Codes and how do I use them?',
+    a: 'Xtream Codes is an IPTV login method that uses three pieces of information: a Server URL (host), a Username, and a Password. Instead of a long M3U link, you enter these three values separately in your app. Most apps like TiviMate, IPTV Smarters, Smart IPTV, and IBO Player support Xtream Codes. Your host, username, and password are provided in your Smart 4K credentials email and dashboard.',
+  },
+  {
+    q: 'What internet speed do I need for 4K IPTV streaming?',
+    a: 'For smooth 4K UHD IPTV streaming, we recommend a minimum of 25 Mbps download speed. For HD channels, 10 Mbps is sufficient. If multiple people are streaming simultaneously on separate devices, multiply accordingly. A stable wired (ethernet) connection is always preferable to Wi-Fi for the best experience. Avoid peak-hour congestion on shared connections.',
+  },
+  {
+    q: 'How do I add an EPG (TV guide) URL to my IPTV app?',
+    a: 'The EPG (Electronic Programme Guide) URL is listed on your credentials page in the Smart 4K dashboard. In TiviMate, go to Settings → EPG Sources → Add Source and paste the URL. In IPTV Smarters, it is entered during the playlist setup under "EPG URL". In Smart IPTV, paste it in the EPG URL field on the web portal at siptv.app. After saving, force-refresh the EPG to load the programme schedule.',
+  },
+  {
+    q: 'Can I use my IPTV subscription on multiple devices at the same time?',
+    a: 'Yes — the number of simultaneous streams depends on the plan you chose. A 1-connection plan allows streaming on one device at a time. A 2-connection plan allows two devices simultaneously, and so on up to 4 connections. You can install the app on as many devices as you like and use them interchangeably, as long as the number of concurrent streams does not exceed your plan limit.',
+  },
+  {
+    q: 'How do I set up IPTV on a Samsung or LG Smart TV?',
+    a: 'On Samsung Smart TVs, install Smart IPTV (SIPTV) from the Samsung App Store, then register your TV\'s MAC address at siptv.app and upload your M3U URL or Xtream Codes there. On LG TVs, use the SmartIPTV app from the LG Content Store in the same way. Formuler devices running Android also work natively. Alternatively, cast from an Android phone or use a Firestick plugged into your TV\'s HDMI port.',
+  },
+  {
+    q: 'Why are my IPTV channels not loading or showing a black screen?',
+    a: 'A black screen or channels failing to load is usually caused by one of three things: incorrect credentials (double-check your username and password for extra spaces or wrong case), an expired subscription (check your dashboard status), or a temporary server issue. Try deleting and re-adding your playlist. Make sure your M3U URL contains &output=ts at the end for best compatibility. If the issue persists, contact our support team.',
+  },
+  {
+    q: 'How do I update or refresh my IPTV channel list?',
+    a: 'In TiviMate, go to Playlists → select your playlist → Update. In IPTV Smarters, pull down to refresh or go to Settings and re-sync. In Smart IPTV, re-upload your M3U URL at siptv.app. If you have recently renewed or upgraded your subscription, your credentials remain the same — simply refresh the playlist to get any newly added channels.',
+  },
+]
+
 const QUICK_FIXES = [
   {
     title: 'Buffering / Lagging',
@@ -63,6 +106,7 @@ type WizardMode = 'setup' | 'fix'
 export default function SetupGuideContent() {
   const [activeFilter, setActiveFilter] = useState('all')
   const [openFix, setOpenFix] = useState<number | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   // AI Wizard state
   const [wizardStep, setWizardStep] = useState(0)
@@ -124,6 +168,56 @@ export default function SetupGuideContent() {
 
       <div className="max-w-6xl mx-auto px-4 pb-20">
 
+        {/* SEO intro + How it works */}
+        <section className="mb-20 pt-10">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <p className="text-gray-400 leading-relaxed text-base">
+              Whether you&apos;re installing IPTV on a <strong className="text-white">Firestick</strong>, <strong className="text-white">Android box</strong>, <strong className="text-white">iPhone</strong>, <strong className="text-white">Samsung or LG Smart TV</strong>, <strong className="text-white">MAG box</strong>, or <strong className="text-white">PC</strong> — this guide has everything you need. Our step-by-step video tutorials cover every major app: <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">Smart IPTV</strong>, <strong className="text-white">Formuler</strong>, <strong className="text-white">Kodi</strong>, and more. Use the AI assistant below for a personalised setup guide or to fix any issue instantly.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-black text-white text-center mb-10">
+            How to Set Up IPTV in <span className="text-purple-400">4 Easy Steps</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                step: '01',
+                icon: 'fas fa-key',
+                title: 'Get Your Credentials',
+                desc: 'After subscribing, your username, password, M3U URL and EPG URL are sent by email and available in your dashboard.',
+              },
+              {
+                step: '02',
+                icon: 'fas fa-mobile-alt',
+                title: 'Choose Your Device & App',
+                desc: 'Pick your device (Firestick, Smart TV, Android, Apple, etc.) and install a compatible IPTV app such as TiviMate or IPTV Smarters.',
+              },
+              {
+                step: '03',
+                icon: 'fas fa-play-circle',
+                title: 'Follow the Tutorial',
+                desc: 'Watch the matching video tutorial below or let our AI generate step-by-step instructions tailored to your exact device and app.',
+              },
+              {
+                step: '04',
+                icon: 'fas fa-check-circle',
+                title: 'Enter Details & Stream',
+                desc: 'Enter your Xtream Codes or M3U URL into the app. Add your EPG URL for a full TV guide. You\'re ready — enjoy 22,000+ channels in 4K.',
+              },
+            ].map(s => (
+              <div key={s.step} className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 relative">
+                <span className="absolute top-4 right-5 text-4xl font-black text-white/5">{s.step}</span>
+                <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center mb-4">
+                  <i className={`${s.icon} text-purple-400`}></i>
+                </div>
+                <h3 className="text-white font-bold mb-2">{s.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Video Tutorials */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-6">
@@ -156,7 +250,7 @@ export default function SetupGuideContent() {
                   <iframe
                     src={`https://streamable.com/e/${video.id}`}
                     className="w-full h-full"
-                    frameBorder="0"
+                    style={{ border: 'none' }}
                     allowFullScreen
                     allow="autoplay; fullscreen"
                   />
@@ -358,7 +452,7 @@ export default function SetupGuideContent() {
         </section>
 
         {/* Quick Fixes */}
-        <section>
+        <section className="mb-20">
           <div className="flex items-center gap-3 mb-6">
             <i className="fas fa-wrench text-purple-400 text-xl"></i>
             <h2 className="text-2xl font-black text-white">Quick Fixes</h2>
@@ -380,6 +474,51 @@ export default function SetupGuideContent() {
                 {openFix === i && (
                   <div className="px-6 pb-5">
                     <p className="text-gray-400 text-sm leading-relaxed">{fix.body}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: FAQ_ITEMS.map(f => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }) }}
+          />
+
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-black text-white mb-3">
+              IPTV Setup <span className="text-purple-400">FAQ</span>
+            </h2>
+            <p className="text-gray-400">Common questions about installing and configuring IPTV.</p>
+          </div>
+
+          <div className="space-y-3 max-w-4xl mx-auto">
+            {FAQ_ITEMS.map((item, i) => (
+              <div
+                key={i}
+                className={`rounded-2xl border transition-all duration-200 ${openFaq === i ? 'bg-[#2c3034] border-purple-500/40' : 'bg-[#2c3034]/60 border-white/5 hover:border-white/10'}`}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between px-6 py-5 text-left"
+                >
+                  <span className={`font-bold transition-colors ${openFaq === i ? 'text-white' : 'text-gray-300'}`}>{item.q}</span>
+                  <i className={`fas fa-chevron-down flex-shrink-0 ml-4 text-sm transition-transform duration-200 ${openFaq === i ? 'rotate-180 text-purple-400' : 'text-gray-500'}`}></i>
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-5 border-t border-white/5 pt-3">
+                    <p className="text-gray-400 leading-relaxed text-sm">{item.a}</p>
                   </div>
                 )}
               </div>
