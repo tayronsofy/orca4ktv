@@ -72,9 +72,6 @@ export default function AdminLoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-gray-600 text-xs mt-6">
-          Set ADMIN_PASSWORD and ADMIN_SECRET in .env.local
-        </p>
       </div>
     </div>
   )
