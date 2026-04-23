@@ -186,17 +186,7 @@ const Header: React.FC = () => {
               </Link>
             ))}
 
-            <div className="border-t border-white/10 mt-4 pt-4 px-0">
-              <Link
-                href="/trial"
-                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white py-3 rounded-xl font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-lg shadow-[#a855f7]/20 mb-4"
-              >
-                <i className="fas fa-play text-xs"></i>
-                Free Trial
-              </Link>
-            </div>
-
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-white/10 mt-4 pt-6">
               <p className="text-xs text-gray-400 uppercase tracking-widest mb-3 px-4">Regions</p>
               <div className="flex flex-col gap-1">
                 <Link href="/iptv-usa" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
