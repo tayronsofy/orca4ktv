@@ -82,8 +82,8 @@ const Header: React.FC = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3 md:gap-6 shrink-0">
-          {/* Region Flags */}
-          <div className="flex items-center gap-2 border-r border-gray-700 pr-3 md:pr-6">
+          {/* Region Flags — hidden on mobile, visible on desktop */}
+          <div className="hidden md:flex items-center gap-2 border-r border-gray-700 pr-3 md:pr-6">
             <Link href="/iptv-usa" title="USA IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-usa' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
               <img src="https://flagcdn.com/w40/us.png" alt="USA" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
