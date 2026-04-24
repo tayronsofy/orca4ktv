@@ -11,6 +11,8 @@ function getPanelBase(): string {
   return base
 }
 
+const STREAMING_SERVER = 'http://line.trxdnscloud.ru'
+
 function panelUrl(params: Record<string, string>): string {
   const base = getPanelBase()
   const apiKey = process.env.IPTV_API_KEY!
@@ -19,32 +21,30 @@ function panelUrl(params: Record<string, string>): string {
 }
 
 /**
- * Fix the M3U URL returned by the panel.
- * The panel sometimes returns http:///get.php?... (empty host).
- * In that case, use the panel base URL as the host.
+ * Rewrite the M3U URL returned by the panel so its host is always the
+ * streaming server (IPTV_SERVER_URL). The panel API lives on a different
+ * host (backup.activationpanel.ru) that is not the streaming endpoint.
  */
 function fixM3uUrl(rawUrl: string): string {
+  const serverBase = STREAMING_SERVER
   try {
     const parsed = new URL(rawUrl)
-    const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
 
     // Host is empty — e.g. http:///get.php?...
     if (!parsed.host) {
-      return `${base}${parsed.pathname}${parsed.search}`
+      return `${serverBase}${parsed.pathname}${parsed.search}`
     }
 
-    // Host looks like a PHP filename, not a real domain — e.g. http://get.php?...
-    // The panel dropped the real host and left only the filename as the "host".
+    // Host looks like a PHP filename — e.g. http://get.php?...
     if (/\.php$/i.test(parsed.host)) {
-      return `${base}/${parsed.host}${parsed.search}`
+      return `${serverBase}/${parsed.host}${parsed.search}`
     }
 
-    return rawUrl
+    // Valid URL — replace host with the streaming server
+    return `${serverBase}${parsed.pathname}${parsed.search}`
   } catch {
-    // rawUrl is not a valid URL — build from panel base + path portion
-    const base = process.env.IPTV_PANEL_URL!.replace(/\/$/, '')
     const pathPart = rawUrl.replace(/^https?:\/\/[^/]*/, '')
-    return `${base}${pathPart}`
+    return `${serverBase}${pathPart}`
   }
 }
 
@@ -77,7 +77,7 @@ export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): P
     action: 'new',
     type: 'm3u',
     sub: String(sub),
-    pack: 'all',
+    template: 'all',
   }
   if (opts.note) params.note = opts.note
 
@@ -111,8 +111,7 @@ export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): P
   }
 
   if (!m3uUrl) {
-    const base = getPanelBase().replace(/\/$/, '')
-    m3uUrl = `${base}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
+    m3uUrl = `${STREAMING_SERVER}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
   }
 
   return {
@@ -132,8 +131,8 @@ export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount
   const params: Record<string, string> = {
     action: 'new',
     type: 'm3u',
-    sub: '99',    // 99 = demo/trial (12h, fixed by panel)
-    pack: 'all',  // no custom bouquets — give access to everything
+    sub: '99',        // 99 = demo/trial (12h, fixed by panel)
+    template: 'all',  // use the 'all' template to assign packages
   }
   if (note) params.note = note
 
@@ -170,8 +169,7 @@ export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount
 
   // Build clean M3U URL if not already set
   if (!m3uUrl) {
-    const base = getPanelBase().replace(/\/$/, '')
-    m3uUrl = `${base}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
+    m3uUrl = `${STREAMING_SERVER}/get.php?username=${username}&password=${password}&type=m3u_plus&output=ts`
   }
 
   return {

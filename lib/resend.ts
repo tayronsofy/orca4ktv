@@ -177,7 +177,8 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
 }
 
 export async function sendCredentialsReady(props: SendCredentialsProps) {
-  const { to, customerName, planName, endDate, username, password, m3uUrl, portalUrl } = props
+  const { to, customerName, planName, endDate, username, password, portalUrl } = props
+  const m3uUrl = props.m3uUrl.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
   return getResend().emails.send({
     from: FROM,
     to,
@@ -232,19 +233,15 @@ interface SendTrialCredentialsProps {
 }
 
 export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
-  const { to, name, iptv_username, iptv_password, m3u_url, portal_url, expires_at } = props
+  const { to, name, iptv_username, iptv_password, portal_url, expires_at } = props
+
+  const m3u_url = props.m3u_url.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
+  const hostUrl = 'http://line.trxdnscloud.ru'
+  const epgUrl = `http://line.trxdnscloud.ru/xmltv.php?username=${iptv_username}&password=${iptv_password}`
+
   const expiryFormatted = new Date(expires_at).toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
   })
-
-  // Derive host and EPG URL from the M3U URL
-  let hostUrl = ''
-  let epgUrl = ''
-  try {
-    const parsed = new URL(m3u_url)
-    hostUrl = parsed.origin // e.g. http://backup.activationpanel.ru
-    epgUrl = `${hostUrl}/xmltv.php?username=${iptv_username}&password=${iptv_password}`
-  } catch { /* ignore if URL is malformed */ }
 
   return getResend().emails.send({
     from: FROM,

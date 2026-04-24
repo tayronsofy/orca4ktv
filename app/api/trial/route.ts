@@ -20,19 +20,18 @@ export async function POST(request: NextRequest) {
 
     const admin = createAdminClient()
 
-    // Duplicate check: 1 trial per email per 7 days (case-insensitive)
-    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
-    const { data: existing } = await admin
-      .from('trials')
-      .select('id')
-      .ilike('email', email.trim())
-      .gte('created_at', sevenDaysAgo)
-      .neq('status', 'rejected')
-      .limit(1)
-
-    if (existing && existing.length > 0) {
-      return NextResponse.json({ error: 'already_submitted' }, { status: 409 })
-    }
+    // Duplicate check disabled for testing — re-enable when DNS issue is resolved
+    // const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+    // const { data: existing } = await admin
+    //   .from('trials')
+    //   .select('id')
+    //   .ilike('email', email.trim())
+    //   .gte('created_at', sevenDaysAgo)
+    //   .neq('status', 'rejected')
+    //   .limit(1)
+    // if (existing && existing.length > 0) {
+    //   return NextResponse.json({ error: 'already_submitted' }, { status: 409 })
+    // }
 
     // Insert trial request
     const { data: trial, error: insertError } = await admin

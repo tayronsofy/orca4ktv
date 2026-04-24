@@ -14,7 +14,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { duration_hours, mode, pack_id, iptv_username, iptv_password, m3u_url, portal_url, account_id } = body
+  const { duration_hours, mode, iptv_username, iptv_password, m3u_url, portal_url, account_id } = body
 
   // Panel mode is fixed at 12h (set by the panel for demo accounts)
   const effectiveDuration = mode === 'panel' ? 12 : Number(duration_hours)
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       creds = {
         iptv_username: created.username,
         iptv_password: created.password,
-        m3u_url: created.m3uUrl,
+        m3u_url: `http://line.trxdnscloud.ru/get.php?username=${created.username}&password=${created.password}&type=m3u_plus&output=ts`,
       }
     } catch (err) {
       console.error('Panel create trial error:', err)
