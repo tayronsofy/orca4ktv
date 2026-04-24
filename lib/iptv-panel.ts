@@ -77,7 +77,7 @@ export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): P
     action: 'new',
     type: 'm3u',
     sub: String(sub),
-    pack: 'all',
+    pack: '35647',
   }
   if (opts.note) params.note = opts.note
 
@@ -132,7 +132,7 @@ export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount
     action: 'new',
     type: 'm3u',
     sub: '99',     // 99 = demo/trial (12h, fixed by panel)
-    pack: 'all',   // give access to all packages
+    pack: '35647',   // give access to all packages
   }
   if (note) params.note = note
 
