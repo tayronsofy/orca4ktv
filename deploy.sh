@@ -13,7 +13,7 @@ echo ""
 echo "▶  Committing and pushing to git..."
 git add -A
 git diff --cached --quiet && echo "   (nothing new to commit)" || git commit -m "$MSG"
-git push origin master
+git push origin main
 
 echo ""
 echo "▶  Deploying on VPS..."
@@ -21,7 +21,7 @@ ssh "$VPS_HOST" bash << ENDSSH
   set -e
   cd "$VPS_PATH"
   echo "   Pulling latest code..."
-  git pull origin master
+  git pull origin main
   echo "   Installing dependencies..."
   npm install --omit=dev --silent
   echo "   Building..."
