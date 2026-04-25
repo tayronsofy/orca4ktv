@@ -22,65 +22,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const latestPosts = getPublishedPosts().slice(0, 6)
 
-  return (
+  const belowDevices = (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Product",
-                "name": "SMART 4K Premium IPTV Subscription",
-                "description": "Get instant access to 22,000+ live TV channels, 4K movies, and global sports.",
-                "image": "https://smart4k.io/og-image.jpg",
-                "brand": { "@type": "Brand", "name": "SMART 4K" },
-                "category": "Best IPTV · Smart TV · Watch TV online",
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://smart4k.io/#pricing",
-                  "priceCurrency": "USD",
-                  "price": "14.99",
-                  "availability": "https://schema.org/InStock"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "502",
-                  "bestRating": "5",
-                  "worstRating": "1"
-                },
-                "review": [
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "James R." },
-                    "datePublished": "2026-03-15",
-                    "reviewBody": "Best IPTV service I've used. Absolutely zero buffering during the Champions League finals, even in 4K. Setup took less than 5 minutes on my Firestick.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Sarah M." },
-                    "datePublished": "2026-02-28",
-                    "reviewBody": "Switched from another provider and the difference is night and day. 22,000+ channels, crystal clear picture, and their support team actually responds.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Mike T." },
-                    "datePublished": "2026-04-01",
-                    "reviewBody": "Great service overall. The 4K sports streams are incredible. Would love more South American football channels but everything else is perfect.",
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-                  }
-                ]
-              }
-            ]
-          })
-        }}
-      />
-      <Hero />
-
       {/* SEO Content Block - server rendered for crawlers */}
       <section className="bg-[#1f2326] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -143,9 +86,70 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+    </>
+  )
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Product",
+                "name": "SMART 4K Premium IPTV Subscription",
+                "description": "Get instant access to 22,000+ live TV channels, 4K movies, and global sports.",
+                "image": "https://smart4k.io/og-image.jpg",
+                "brand": { "@type": "Brand", "name": "SMART 4K" },
+                "category": "Best IPTV · Smart TV · Watch TV online",
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://smart4k.io/#pricing",
+                  "priceCurrency": "USD",
+                  "price": "14.99",
+                  "availability": "https://schema.org/InStock"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "502",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                },
+                "review": [
+                  {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "James R." },
+                    "datePublished": "2026-03-15",
+                    "reviewBody": "Best IPTV service I've used. Absolutely zero buffering during the Champions League finals, even in 4K. Setup took less than 5 minutes on my Firestick.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+                  },
+                  {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "Sarah M." },
+                    "datePublished": "2026-02-28",
+                    "reviewBody": "Switched from another provider and the difference is night and day. 22,000+ channels, crystal clear picture, and their support team actually responds.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+                  },
+                  {
+                    "@type": "Review",
+                    "author": { "@type": "Person", "name": "Mike T." },
+                    "datePublished": "2026-04-01",
+                    "reviewBody": "Great service overall. The 4K sports streams are incredible. Would love more South American football channels but everything else is perfect.",
+                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
+      <Hero />
 
       <Suspense fallback={<div className="h-10" />}>
-        <HomePageClient />
+        <HomePageClient belowDevices={belowDevices} />
       </Suspense>
     </>
   )

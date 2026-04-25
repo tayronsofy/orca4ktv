@@ -1,6 +1,7 @@
 'use client'
 
 import { Suspense, lazy } from 'react'
+import type React from 'react'
 
 const LiveTicker = lazy(() => import('@/components/LiveTicker'))
 const VideoSection = lazy(() => import('@/components/VideoSection'))
@@ -24,7 +25,7 @@ const scrollToPricing = () => {
   if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
-export default function HomePageClient() {
+export default function HomePageClient({ belowDevices }: { belowDevices?: React.ReactNode }) {
   return (
     <>
       <Suspense fallback={<div className="h-10" />}>
@@ -38,6 +39,8 @@ export default function HomePageClient() {
         <Features />
         <Devices />
       </Suspense>
+
+      {belowDevices}
 
       <Suspense fallback={<div />}>
         <VideoBanner />
