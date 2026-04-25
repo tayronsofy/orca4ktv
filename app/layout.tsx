@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import FontAwesomeLoader from '@/components/FontAwesomeLoader'
 
 const inter = Inter({ subsets: ['latin'], display: 'optional' })
 
@@ -38,6 +37,23 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="https://flagcdn.com" />
+
+        {/* FontAwesome — non-blocking preload */}
+        <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          as="style"
+          crossOrigin="anonymous"
+          // @ts-ignore
+          onLoad="this.rel='stylesheet'"
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            crossOrigin="anonymous"
+          />
+        </noscript>
 
         {/* Organization Schema */}
         <script
@@ -82,7 +98,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <FontAwesomeLoader />
       </body>
     </html>
   )
