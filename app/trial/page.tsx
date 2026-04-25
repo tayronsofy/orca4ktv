@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
 export const metadata: Metadata = {
-  title: 'Free IPTV Trial – Test 22,000+ Channels Free',
-  description: 'Try SMART 4K free — access 22,000+ live channels, 4K sports, global movies & VOD with no credit card. Get your free IPTV trial credentials in minutes.',
-  keywords: 'free iptv trial, iptv test, iptv free trial 2026, best iptv trial 2026, iptv trial no credit card, free iptv test, try iptv free, iptv subscription trial, free iptv 24 hours',
+  title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
+  description: 'Try SMART 4K free — access thousands of premium channels, 4K sports & movies. Get your free trial credentials and experience reliable HD streaming today.',
+  keywords: 'free iptv trial, iptv test, iptv free trial 2026, best iptv trial 2026, try iptv free, iptv subscription trial',
   alternates: { canonical: 'https://smart4k.io/trial' },
   openGraph: {
-    title: 'Free IPTV Trial – Test 22,000+ Channels Free',
-    description: 'Try SMART 4K free — access 22,000+ live channels, 4K sports, global movies & VOD with no credit card. Get your free IPTV trial credentials in minutes.',
+    title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
+    description: 'Try SMART 4K free — access thousands of premium channels, 4K sports & movies. Get your trial credentials and start streaming today.',
     type: 'website',
     url: 'https://smart4k.io/trial',
     images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free IPTV Trial – Test 22,000+ Channels Free',
-    description: 'No credit card. Instant access. Test SMART 4K IPTV free with 22,000+ channels & 4K quality.',
+    title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
+    description: 'Quick setup. Test SMART 4K IPTV free — thousands of premium channels & 4K quality. No commitment.',
     images: ['https://smart4k.io/og-image.jpg'],
   },
 }

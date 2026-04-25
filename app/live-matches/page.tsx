@@ -7,8 +7,9 @@ import type { Fixture } from '@/lib/sports-api'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Live Football Matches | Watch in 4K | SMART 4K IPTV',
-  description: 'Stream all live football matches in 4K Ultra-HD. Premier League, Champions League, La Liga and more — buffer-free IPTV on any device.',
+  title: 'Live Football Matches | Watch in 4K | Smart 4K IPTV',
+  description: 'Watch live football matches in 4K Ultra-HD. Coverage of top football leagues worldwide — reliable HD streaming on any device.',
+  keywords: 'live football iptv, watch football 4k, iptv sports, football streaming, live sports iptv 2026',
   alternates: { canonical: 'https://smart4k.io/live-matches' },
 }
 

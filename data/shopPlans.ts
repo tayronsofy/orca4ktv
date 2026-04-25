@@ -79,9 +79,9 @@ export const SHOP_PLANS: ShopPlan[] = [
       'Test the full service before committing',
       'Cancel any time, zero cancellation fees',
     ],
-    metaTitle: 'IPTV 1-Month Subscription - $21/mo',
-    metaDescription: 'Try SMART 4K IPTV for 1 month — $21 only. Stream 22,000+ live channels, 4K sports & movies buffer-free on Firestick, Smart TV & mobile. No contract.',
-    keywords: 'iptv 1 month subscription, monthly iptv plan, try iptv monthly, iptv no contract, cheap iptv monthly 2026, best iptv monthly plan',
+    metaTitle: 'IPTV 1-Month Subscription – Smart 4K IPTV',
+    metaDescription: 'Start your SMART 4K subscription for just $21/month. Access thousands of premium channels, 4K sports & movies on Firestick, Smart TV & mobile. Flexible monthly plan.',
+    keywords: 'iptv 1 month subscription, monthly iptv plan, iptv subscription monthly, best iptv monthly plan 2026, iptv monthly',
     faq: [
       {
         q: 'What is included in the 1-month IPTV plan?',
@@ -152,9 +152,9 @@ export const SHOP_PLANS: ShopPlan[] = [
       '90 days of uninterrupted 4K streaming',
       'Best option for seasonal or quarterly viewers',
     ],
-    metaTitle: '3-Month IPTV Subscription - $45 (Save 30%)',
-    metaDescription: 'Get 3 months of SMART 4K IPTV for $45 — just $15/mo. Save 30% vs monthly. 22,000+ channels, 4K sports & buffer-free streaming. Instant activation.',
-    keywords: '3 month iptv subscription, iptv quarterly plan, iptv 3 months deal, cheap iptv 3 months 2026, iptv save 30 percent',
+    metaTitle: '3-Month IPTV Subscription – Save 30% | Smart 4K IPTV',
+    metaDescription: 'Get 3 months of SMART 4K for $45 — just $15/mo. Save 30% with our quarterly plan. Thousands of premium channels, 4K sports & reliable HD streaming.',
+    keywords: '3 month iptv subscription, iptv quarterly plan, iptv 3 months, best iptv quarterly 2026, iptv subscription deal',
     faq: [
       {
         q: 'How much does the 3-month plan cost per month?',
@@ -221,9 +221,9 @@ export const SHOP_PLANS: ShopPlan[] = [
       'Cover two full football/basketball seasons',
       'Best balance of savings and flexibility',
     ],
-    metaTitle: '6-Month IPTV Subscription - $69 (Save 45%)',
-    metaDescription: 'Get 6 months of SMART 4K IPTV for $69 — just $11.50/mo. Save 45% vs monthly. 22,000+ channels, 4K sports, buffer-free. Cancel anytime. Instant access.',
-    keywords: '6 month iptv subscription, iptv half year plan, iptv 6 months deal, cheap iptv 6 months 2026, iptv save 45 percent',
+    metaTitle: '6-Month IPTV Subscription – Save 45% | Smart 4K IPTV',
+    metaDescription: 'Get 6 months of SMART 4K for $69 — only $11.50/mo. Our most popular plan. Thousands of premium channels, 4K quality, reliable streaming. Flexible billing.',
+    keywords: '6 month iptv subscription, iptv half year plan, iptv 6 months, best iptv plan 2026, iptv subscription deal',
     faq: [
       {
         q: 'How much is the 6-month plan per month?',
@@ -290,9 +290,9 @@ export const SHOP_PLANS: ShopPlan[] = [
       'Save $157 compared to paying month-by-month',
       'Full year: every sport, every season, every event',
     ],
-    metaTitle: '12-Month IPTV Subscription - $95/year (Save 62%)',
-    metaDescription: 'Best IPTV annual plan 2026 — $95 for 12 months, just $7.92/mo. Save 62%. 22,000+ channels, 4K sports & movies buffer-free. #1 IPTV yearly deal. Buy now.',
-    keywords: 'best iptv annual plan 2026, cheap iptv 12 months, iptv yearly subscription, iptv 12 month deal, annual iptv subscription, iptv save 62 percent, best iptv value',
+    metaTitle: '12-Month IPTV Subscription – Best Value | Smart 4K IPTV',
+    metaDescription: 'Best value IPTV plan 2026 — $95 for 12 months, just $7.92/mo. Thousands of premium channels, 4K sports & movies with reliable HD streaming all year.',
+    keywords: 'best iptv annual plan 2026, iptv 12 months, iptv yearly subscription, iptv annual plan, best iptv value 2026',
     faq: [
       {
         q: 'Why is the 12-month plan the best value?',

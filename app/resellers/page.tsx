@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ResellersPage from '@/page-components/ResellersPage'
 
 export const metadata: Metadata = {
-  title: 'IPTV Reseller Program - Start Your IPTV Business',
-  description: 'Join the SMART 4K reseller program. Get your own admin panel, manage clients, and earn recurring revenue. Best IPTV reseller credits available.',
-  keywords: 'iptv reseller, iptv reseller panel, iptv credits, start iptv business, iptv wholesale',
+  title: 'IPTV Reseller Program – Partner with Smart 4K IPTV',
+  description: 'Partner with SMART 4K as a white-label reseller. Manage your clients with a dedicated panel and earn recurring commissions. Professional IPTV reseller program.',
+  keywords: 'iptv reseller, iptv reseller panel, iptv reseller program, iptv white label, iptv partner program',
   alternates: { canonical: 'https://smart4k.io/resellers' },
 }
 

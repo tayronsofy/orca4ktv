@@ -7,12 +7,12 @@ import { getPublishedPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
   title: 'Smart 4K IPTV – Live TV, Movies, 4K Sports & Streaming Guides',
-  description: 'Stream 22,000+ live TV channels, 4K movies & global sports on any device. #1 IPTV service for Firestick, Android & iOS. Start your free trial today.',
-  keywords: 'buy iptv, iptv free trial, best iptv 2026, 4k iptv subscription, premium iptv, buffer-free streaming, live sports iptv',
+  description: 'Watch thousands of live TV channels, 4K movies & international sports on any device. Premium IPTV service for Firestick, Android & iOS. Start your free trial today.',
+  keywords: 'iptv service, iptv free trial, best iptv 2026, 4k iptv subscription, premium iptv, live tv streaming, sports iptv',
   alternates: { canonical: 'https://smart4k.io/' },
   openGraph: {
     title: 'Smart 4K IPTV – Live TV, Movies, 4K Sports & Streaming Guides',
-    description: 'Get instant access to 22,000+ live TV channels, 4K movies, and global sports. Start your free trial.',
+    description: 'Watch thousands of premium TV channels, 4K movies and international sports on any device. Start your free trial.',
     type: 'website',
     url: 'https://smart4k.io/',
     images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],

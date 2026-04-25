@@ -4,13 +4,13 @@ import { SHOP_PLANS } from '@/data/shopPlans'
 import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
-  title: 'IPTV Shop - Buy IPTV Subscription 2026',
-  description: 'Buy the best IPTV subscription in 2026. Plans from 1–12 months — 22,000+ channels, 4K sports & movies, buffer-free streaming. Instant activation. No contract.',
-  keywords: 'buy iptv subscription, iptv shop, iptv plans 2026, best iptv subscription, iptv pricing, 4k iptv buy, iptv monthly quarterly annual plan',
+  title: 'IPTV Subscription Plans 2026 – Smart 4K IPTV',
+  description: 'Choose your SMART 4K subscription plan. 1 to 12-month options with thousands of premium channels, 4K quality sports & movies. Flexible plans, quick setup.',
+  keywords: 'iptv subscription, iptv plans 2026, best iptv subscription, iptv pricing, 4k iptv, iptv monthly plan, iptv annual plan',
   alternates: { canonical: 'https://smart4k.io/iptv-shop' },
   openGraph: {
-    title: 'IPTV Shop - Buy IPTV Subscription 2026',
-    description: 'Buy the best IPTV subscription in 2026. 22,000+ channels, 4K sports & movies from $7.92/mo. Instant activation.',
+    title: 'IPTV Subscription Plans 2026 – Smart 4K IPTV',
+    description: 'Choose your SMART 4K plan. Thousands of premium channels, 4K sports & movies from $7.92/mo. Flexible plans, quick setup.',
     type: 'website',
     url: 'https://smart4k.io/iptv-shop',
     images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],

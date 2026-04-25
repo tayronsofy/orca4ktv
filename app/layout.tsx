@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ['latin'], display: 'optional' })
 export const metadata: Metadata = {
   metadataBase: new URL('https://smart4k.io'),
   title: {
-    default: 'SMART 4K IPTV | Premium 4K IPTV Service',
+    default: 'SMART 4K | Premium Live TV & Streaming Service',
     template: '%s - SMART 4K IPTV',
   },
-  description: 'The #1 IPTV subscription 2026. Stream 22,000+ channels, 4K sports & movies buffer-free on Firestick, Smart TV & mobile. No contract, cancel anytime.',
+  description: 'Premium live TV subscription with thousands of channels, 4K movies and international sports. Works on Firestick, Smart TV, Android & iOS. Flexible monthly plans.',
   icons: {
     icon: [
       { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },

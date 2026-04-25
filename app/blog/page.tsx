@@ -5,8 +5,8 @@ import { getPublishedPosts } from '@/lib/posts'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'SMART 4K Blog - Streaming Guides & IPTV Tips 2026',
-  description: 'Learn everything about 4K streaming, Firestick setup guides, bypassing sports blackouts, and the ultimate IPTV tutorials. Updated weekly.',
+  title: 'Smart 4K Blog – Streaming Guides & IPTV Tips 2026',
+  description: 'Learn everything about 4K streaming, Firestick setup guides, watching sports from anywhere, and the ultimate IPTV tutorials. Updated weekly.',
   keywords: 'iptv blog, streaming guides, firestick tutorials, iptv tips, premium streaming 2026',
   alternates: { canonical: 'https://smart4k.io/blog' },
   openGraph: {
