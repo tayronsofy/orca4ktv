@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
+import Link from 'next/link'
 import Hero from '@/components/Hero'
 import HomePageClient from './HomePageClient'
+import { getPublishedPosts } from '@/lib/posts'
 
 export const metadata: Metadata = {
   title: 'Smart 4K IPTV – Live TV, Movies, 4K Sports & Streaming Guides',
@@ -18,6 +20,8 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  const latestPosts = getPublishedPosts().slice(0, 6)
+
   return (
     <>
       <script
@@ -110,6 +114,33 @@ export default function HomePage() {
             any issues within minutes. Join over 10,000 satisfied subscribers who have already made the switch
             to the best IPTV service available in 2026.
           </p>
+        </div>
+      </section>
+
+      {/* Latest IPTV Guides - server rendered so Google crawls internal links */}
+      <section className="bg-[#111417] py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-black text-white text-center mb-10">
+            Latest IPTV Guides &amp; Streaming Tips
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {latestPosts.map(post => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block bg-[#1f2326] rounded-xl p-6 hover:bg-[#2a2f33] transition-colors"
+              >
+                <span className="text-xs text-[#00df82] font-semibold uppercase tracking-wide">{post.category}</span>
+                <h3 className="text-white font-bold mt-2 mb-3 leading-snug">{post.title}</h3>
+                <p className="text-gray-400 text-sm">{post.date} · {post.readTime}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/blog" className="text-[#00df82] font-semibold hover:underline">
+              View all guides →
+            </Link>
+          </div>
         </div>
       </section>
 

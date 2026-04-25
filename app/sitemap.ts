@@ -1,11 +1,8 @@
 import type { MetadataRoute } from 'next'
-import matchesData from '@/data/matches.json'
 import { getPublishedPosts } from '@/lib/posts'
-import type { Fixture } from '@/lib/sports-api'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://smart4k.io'
-  const now = new Date().toISOString()
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${base}/`,                  priority: 1.0 },
@@ -25,21 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms`,             priority: 0.3 },
     { url: `${base}/dmca`,              priority: 0.3 },
     { url: `${base}/refund-policy`,     priority: 0.3 },
-  ].map(r => ({ ...r, lastModified: now, changeFrequency: 'weekly' as const }))
+  ].map(r => ({ ...r, lastModified: '2026-04-23', changeFrequency: 'weekly' as const }))
 
   const blogRoutes: MetadataRoute.Sitemap = getPublishedPosts().map(post => ({
     url: `${base}/blog/${post.slug}`,
-    lastModified: now,
+    lastModified: new Date(post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }))
 
-  const matchRoutes: MetadataRoute.Sitemap = (matchesData.matches as Fixture[]).map(m => ({
-    url: `${base}/watch/${m.slug}`,
-    lastModified: now,
-    changeFrequency: 'hourly' as const,
-    priority: 0.8,
-  }))
-
-  return [...staticRoutes, ...blogRoutes, ...matchRoutes]
+  return [...staticRoutes, ...blogRoutes]
 }
