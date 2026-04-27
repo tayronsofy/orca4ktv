@@ -155,9 +155,16 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
 
         <div className="prose prose-invert prose-lg md:prose-xl max-w-none prose-headings:font-black prose-headings:text-white prose-a:text-red-500 prose-blockquote:border-red-500 prose-blockquote:bg-red-500/5 prose-blockquote:not-italic prose-blockquote:py-2">
           {post.contentFormat === 'html' ? (
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div dangerouslySetInnerHTML={{ __html: post.content.replace(/<h1(\s[^>]*)?>/gi, '<h2$1>').replace(/<\/h1>/gi, '</h2>') }} />
           ) : (
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeSlug]}
+              components={{
+                // Demote any in-body H1 to H2 — the page already has one H1 (post title)
+                h1: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
+              }}
+            >
               {post.content}
             </ReactMarkdown>
           )}
