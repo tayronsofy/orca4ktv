@@ -36,7 +36,7 @@ const UKHero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] pt-40 md:pt-48 pb-20">
       
       {/* UK Theme Cinematic Background */}
       <div
