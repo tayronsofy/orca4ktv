@@ -4,8 +4,8 @@ import GermanyHomePage from '@/page-components/germany/GermanyHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Bestes IPTV Deutschland 2026 — Bundesliga, ARD, ZDF in 4K HDR | ORCA 4K TV',
-  description: 'Premium IPTV-Abonnement für Deutschland: Bundesliga, DFB-Pokal, Champions League, Formel 1 mit Audi-Einstieg, Fußball-WM 2026, Olympia Mailand-Cortina – plus ARD, ZDF, RTL, ProSieben, Sat.1, Vox in 4K HDR mit HDR10+ und Dolby Vision. Anti Freeze CDN, AES-256-verschlüsselt, Multi-Device, sofortige Aktivierung, 24/7 Support.',
+  title: 'Bestes IPTV Deutschland 2026 — Bundesliga 4K | ORCA 4K TV',
+  description: 'Bestes IPTV Deutschland 2026: jedes Bundesliga-Spiel, DFB-Pokal, Champions League, Formel 1 in 4K HDR. 22.000+ Sender, ARD, ZDF, RTL. Sofort aktiviert.',
   keywords: 'bestes iptv deutschland 2026, iptv deutschland, bundesliga iptv, dfb-pokal iptv, champions league iptv deutschland, formel 1 iptv 2026, audi f1 deutschland, fußball wm 2026 iptv, olympia mailand cortina 2026, ard iptv, zdf iptv, rtl iptv, prosieben iptv, sat 1 iptv, vox iptv, kabel eins iptv, iptv abonnement, iptv anbieter deutschland, iptv streamingdienst, premium iptv sender, 4K Streaming, HDR Streaming, pufferungsfreies Streaming, multi-device, sicheres Streaming, AES-256 Verschlüsselung, 24/7 Kundenservice, EPG Programm, Catch-Up Funktion, sofortige Aktivierung, iptv mit vpn, kabelfernsehen alternative, sky alternative deutschland, dazn alternative bundesliga',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-germany',
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Bestes IPTV Deutschland 2026 — Bundesliga, ARD, ZDF in 4K HDR',
-    description: 'Bundesliga, Champions League, Formel 1 mit Audi-Einstieg 2026, Fußball-WM 2026, Olympia – plus ARD, ZDF, RTL und mehr. 22.000+ Sender in 4K HDR.',
+    title: 'Bestes IPTV Deutschland 2026 — Bundesliga 4K | ORCA 4K TV',
+    description: 'Bundesliga, Champions League, Formel 1, WM 2026, Olympia in 4K HDR. ARD, ZDF, RTL und mehr. 22.000+ Sender. Sofort aktiviert.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-germany',
     images: [{ url: 'https://orca4ktv.com/images/germany-coverage.jpg', width: 1200, height: 630 }],
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bestes IPTV Deutschland 2026 — Bundesliga, ARD, ZDF in 4K HDR',
-    description: 'Jeder Bundesliga-Anstoß, jedes DFB-Pokal-Finale, jede F1-Runde der neuen 2026-Ära in 4K HDR. Anti Freeze CDN. Ab €/Monat.',
+    title: 'Bestes IPTV Deutschland 2026 — Bundesliga 4K | ORCA 4K TV',
+    description: 'Jeder Bundesliga-Anstoß, DFB-Pokal-Finale, F1-Runde 2026 in 4K HDR. Anti Freeze CDN. Ab €/Monat.',
   },
 }
 

@@ -3,14 +3,14 @@ import Link from 'next/link'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Glossary 2026 — Definitions for EPG, M3U, Xtream, 4K & More | ORCA 4K TV',
+  title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
   description:
-    'IPTV terminology explained: smart EPG guide, M3U playlist, Xtream Codes, AES-256 encryption, catch up TV, multi-device compatibility, buffer-free streaming and more — referenced for the ORCA 4K TV IPTV subscription.',
+    'IPTV terms explained: EPG, M3U, Xtream Codes, AES-256, catch-up TV, multi-device, buffer-free streaming. Definitions for the ORCA 4K TV subscription.',
   keywords:
     'IPTV glossary, electronic program guide, smart EPG guide, M3U playlist, Xtream Codes, catch up feature, IPTV catch up TV, AES-256 encryption, multi-device compatibility, IPTV multi-device, IPTV device compatibility, buffer-free streaming, zero buffering, Anti Freeze technology, secure IPTV access, encrypted IPTV streaming, instant activation, IPTV instant start, premium IPTV channels, on-demand movies, 4K streaming, HDR streaming, VPN allowed, IPTV with VPN',
   alternates: { canonical: 'https://orca4ktv.com/glossary' },
   openGraph: {
-    title: 'IPTV Glossary 2026 — Definitions for EPG, M3U, Xtream & More',
+    title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
     description:
       'Authoritative definitions of the IPTV terms our customers ask about — EPG, M3U, Xtream, AES-256, catch up TV, anti-freeze CDN and more.',
     url: 'https://orca4ktv.com/glossary',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Glossary — Definitions for EPG, M3U, Xtream & More',
+    title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
     description: 'Authoritative IPTV definitions referenced for the ORCA 4K TV subscription.',
   },
 }

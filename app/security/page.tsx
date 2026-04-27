@@ -3,23 +3,23 @@ import Link from 'next/link'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Security & Encryption — AES-256, TLS 1.3, VPN Allowed | ORCA 4K TV',
+  title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
   description:
-    'How ORCA 4K TV protects your IPTV subscription: AES-256 encryption (NIST FIPS 197), TLS 1.3 transport, encrypted IPTV streaming, secure IPTV access, VPN allowed, Anti Freeze technology, and 24/7 customer support.',
+    'How ORCA 4K TV protects your IPTV subscription: AES-256 encryption (NIST FIPS 197), TLS 1.3, VPN allowed, Anti Freeze CDN, 24/7 customer support.',
   keywords:
     'secure IPTV access, AES-256 encryption, encrypted IPTV streaming, secure streaming, IPTV with VPN, VPN allowed, Anti Freeze technology, buffer-free streaming, zero buffering, TLS 1.3, FIPS 197, IPTV security, premium IPTV channels, multi-device compatibility, 24/7 customer support, IPTV customer support',
   alternates: { canonical: 'https://orca4ktv.com/security' },
   openGraph: {
-    title: 'IPTV Security & Encryption — AES-256, TLS 1.3, VPN Allowed',
+    title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
     description:
-      'AES-256 encryption (FIPS-197), TLS 1.3, encrypted IPTV streaming, VPN policy, and Anti Freeze CDN behind every ORCA 4K TV IPTV subscription.',
+      'AES-256 encryption (FIPS-197), TLS 1.3, VPN allowed, Anti Freeze CDN — every ORCA 4K TV subscription.',
     url: 'https://orca4ktv.com/security',
     siteName: 'ORCA 4K TV',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Security & Encryption — AES-256, TLS 1.3, VPN Allowed',
+    title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
     description: 'How ORCA 4K TV secures every IPTV subscription with AES-256 and TLS 1.3.',
   },
 }

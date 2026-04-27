@@ -4,8 +4,8 @@ import { SHOP_PLANS } from '@/data/shopPlans'
 import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV Subscription Plans 2026 — 4K HDR · 22,000+ Channels · From $7.92/mo | ORCA 4K TV',
-  description: 'Buy the best IPTV subscription in 2026 from $7.92/month. 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand titles, smart EPG with 7-day catch-up TV, multi-device IPTV (Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS, Android), instant activation, AES-256 encrypted, Anti Freeze CDN, no contract, free IPTV trial.',
+  title: 'IPTV Subscription Plans 2026 — From $7.92/mo | ORCA 4K TV',
+  description: 'Premium IPTV plans from $7.92/month. 22,000+ channels in 4K HDR, 100,000+ on-demand, smart EPG, instant activation. No contract. Free trial included.',
   keywords: 'best iptv subscription 2026, iptv subscription plans, iptv plans 2026, buy iptv subscription, iptv shop, 4k iptv subscription, hd iptv service, premium iptv channels, premium iptv subscription, iptv streaming service, iptv service provider, smart EPG guide, electronic program guide, 7-day catch-up tv, iptv catch up, multi-device compatibility, multi-device iptv, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg, instant activation, iptv instant start, rapid setup, fast iptv setup, buffer-free streaming, anti freeze cdn, secure streaming, AES-256 encryption, NIST FIPS 197, 24/7 customer support, iptv customer support, vpn allowed, iptv with vpn, no contract iptv, free iptv trial, iptv free trial, hdr10+, dolby vision, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv subscription usa uk canada germany netherlands',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-shop',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV Subscription Plans 2026 — 4K HDR · 22,000+ Channels · From $7.92/mo',
-    description: 'Premium IPTV subscription plans from $7.92/month. 22,000+ channels in 4K HDR, 100,000+ on-demand titles, smart EPG, 7-day catch-up, multi-device, instant activation, AES-256 encryption. No contract, free trial.',
+    title: 'IPTV Subscription Plans 2026 — From $7.92/mo | ORCA 4K TV',
+    description: 'IPTV plans from $7.92/mo. 22,000+ channels in 4K HDR, 100,000+ on-demand, smart EPG, multi-device, instant activation. No contract.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-shop',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],

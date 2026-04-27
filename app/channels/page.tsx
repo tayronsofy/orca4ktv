@@ -4,8 +4,8 @@ import ChannelsPage from '@/page-components/ChannelsPage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Channel List 2026 — 22,000+ Premium IPTV Channels in 4K HDR | ORCA 4K TV',
-  description: 'Complete IPTV channel list for 2026: 22,000+ live TV channels across 150+ countries — sports, news, movies, kids, music, international. Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, BBC, ESPN, Sky, ARD, ZDF, RTL, NPO. 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV, multi-device IPTV, AES-256 encryption, Anti Freeze CDN.',
+  title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
+  description: 'Browse 22,000+ live IPTV channels across 150+ countries. Premier League, NFL, NBA, NHL, Bundesliga, F1 2026 in 4K HDR. Smart EPG, multi-device.',
   keywords: 'iptv channel list 2026, premium iptv channels, live tv channels, iptv 22000 channels, iptv channels usa, iptv channels uk, iptv channels canada, iptv channels germany, iptv channels netherlands, iptv channels france, iptv sports channels, premier league iptv channels, nfl iptv channels, nba iptv channels, nhl iptv channels, mlb iptv channels, bundesliga iptv channels, eredivisie iptv channels, f1 2026 iptv channels, espn iptv, bbc iptv, sky sports iptv, tnt sports iptv, dazn iptv, ard iptv, zdf iptv, rtl iptv, npo iptv, ziggo sport iptv, sportsnet iptv, tsn iptv, iptv news channels, iptv kids channels, iptv movie channels, iptv music channels, iptv international channels, 4k iptv channels, hdr iptv, hdr10+, dolby vision, smart epg, 7-day catch-up, electronic program guide, multi-device iptv, AES-256 encryption, anti freeze cdn, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg',
   alternates: {
     canonical: 'https://orca4ktv.com/channels',
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'IPTV Channel List 2026 — 22,000+ Premium IPTV Channels in 4K HDR',
-    description: 'Browse 22,000+ live IPTV channels across 150+ countries. Premier League, NFL, NBA, NHL, Bundesliga, Eredivisie, F1 2026, BBC, ESPN, ARD, ZDF, NPO and more — in 4K HDR.',
+    title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
+    description: '22,000+ IPTV channels across 150+ countries. Premier League, NFL, NBA, NHL, Bundesliga, F1 2026 in 4K HDR. Smart EPG.',
     url: 'https://orca4ktv.com/channels',
     type: 'website',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Channel List 2026 — 22,000+ Channels in 4K HDR',
-    description: '22,000+ live IPTV channels, sports, news, movies, kids — across 150+ countries in 4K HDR with HDR10+ and Dolby Vision.',
+    title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
+    description: '22,000+ IPTV channels — sports, news, movies, kids — across 150+ countries in 4K HDR.',
   },
 }
 

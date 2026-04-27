@@ -4,8 +4,8 @@ import NetherlandsHomePage from '@/page-components/netherlands/NetherlandsHomePa
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Beste IPTV Nederland 2026 — Eredivisie, NPO, RTL in 4K HDR | ORCA 4K TV',
-  description: 'Premium IPTV-abonnement voor Nederland: Eredivisie, KNVB-beker, Champions League, Formule 1 met Max Verstappen, WK voetbal 2026, Olympische Spelen Milaan-Cortina — plus NPO 1, NPO 2, RTL 4, SBS6, Veronica en Ziggo Sport in 4K HDR met HDR10+ en Dolby Vision. Anti Freeze CDN met Amsterdam-edge server, AES-256 versleuteld, multi-device, directe activering, 24/7 Nederlandstalige klantenservice.',
+  title: 'Beste IPTV Nederland 2026 — Eredivisie 4K | ORCA 4K TV',
+  description: 'Beste IPTV Nederland 2026: elke Eredivisie-aftrap, Champions League, F1 met Max Verstappen in 4K HDR. 22.000+ zenders, NPO, RTL, SBS6. Direct actief.',
   keywords: 'beste iptv nederland 2026, iptv nederland, eredivisie iptv, knvb beker iptv, champions league iptv nederland, formule 1 iptv 2026, max verstappen f1 2026, wk voetbal 2026 iptv, olympische spelen milaan cortina 2026, npo iptv, rtl iptv, sbs6 iptv, ziggo sport alternatief, espn nl alternatief, veronica iptv, iptv abonnement nederland, iptv aanbieder nederland, iptv streamingdienst, premium iptv zenders, 4K streamen, HDR streamen, buffervrij streamen, multi-device, veilig streamen, AES-256 versleuteling, 24/7 klantenservice, EPG gids, catch-up tv, snelle activatie, iptv met vpn, kabel tv alternatief, ziggo alternatief, kpn alternatief, sky netherlands alternatief, viaplay alternatief',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-netherlands',
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Beste IPTV Nederland 2026 — Eredivisie, NPO, RTL in 4K HDR',
-    description: 'Eredivisie, Champions League, Formule 1 met Max Verstappen, WK 2026, Olympische Spelen — plus NPO, RTL, SBS6 en meer. 22.000+ zenders in 4K HDR.',
+    title: 'Beste IPTV Nederland 2026 — Eredivisie 4K | ORCA 4K TV',
+    description: 'Eredivisie, Champions League, F1 met Verstappen, WK 2026 in 4K HDR. NPO, RTL, SBS6. 22.000+ zenders. Direct actief.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-netherlands',
     images: [{ url: 'https://orca4ktv.com/images/netherlands-coverage.jpg', width: 1200, height: 630 }],
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Beste IPTV Nederland 2026 — Eredivisie, NPO, RTL in 4K HDR',
-    description: 'Elke Eredivisie-aftrap, elke KNVB-beker-finale, elke F1-race van Max Verstappen in 4K HDR. Anti Freeze CDN. Vanaf €/maand.',
+    title: 'Beste IPTV Nederland 2026 — Eredivisie 4K | ORCA 4K TV',
+    description: 'Elke Eredivisie-aftrap, KNVB-beker-finale, F1 met Verstappen in 4K HDR. Anti Freeze CDN. Vanaf €/maand.',
   },
 }
 

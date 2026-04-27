@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ['latin'], display: 'optional' })
 export const metadata: Metadata = {
   metadataBase: new URL('https://orca4ktv.com'),
   title: {
-    default: 'ORCA 4K TV | Premium Live TV & Streaming Service',
-    template: '%s - ORCA 4K TV IPTV',
+    default: 'ORCA 4K TV | Premium IPTV Subscription in 4K HDR',
+    template: '%s - ORCA 4K TV',
   },
-  description: 'Premium live TV subscription with thousands of channels, 4K movies and international sports. Works on Firestick, Smart TV, Android & iOS. Flexible monthly plans.',
+  description: 'Premium IPTV subscription with 22,000+ channels in 4K HDR, on-demand movies, multi-device. Firestick, Smart TV, Apple TV, Android. No contract.',
   icons: {
     icon: [
       { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },

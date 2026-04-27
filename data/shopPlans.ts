@@ -108,7 +108,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       "Cancel on your terms, without penalty"
     ],
     "metaTitle": "Monthly IPTV Plan – Orca 4K TV Subscription",
-    "metaDescription": "For only $21, our IPTV 1 month subscription is the best IPTV monthly plan 2026. It's a flexible monthly IPTV plan delivering 4K movies & sports to your Smart TV, Firestick, and mobile.",
+    "metaDescription": "Best IPTV 1 month plan 2026 — only $21. Flexible monthly IPTV with 4K HDR movies & sports on Smart TV, Firestick, Apple TV, mobile. No contract.",
     "keywords": "iptv 1 month subscription, monthly iptv plan, iptv subscription monthly, best iptv monthly plan 2026, iptv monthly",
     "faq": [
       {
@@ -224,7 +224,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       "Ideal for seasonal commitments or quarterly payments"
     ],
     "metaTitle": "IPTV Quarterly Plan - 30% Off | Orca 4K TV",
-    "metaDescription": "A top iptv subscription deal: save 30% with our iptv quarterly plan. Get iptv 3 months of 4K sports & channels for $45 ($15/mo). The best iptv quarterly 2026 3 month iptv subscription.",
+    "metaDescription": "Best IPTV 3 months plan 2026 — $45 ($15/mo, save 30%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
     "keywords": "3 month iptv subscription, iptv quarterly plan, iptv 3 months, best iptv quarterly 2026, iptv subscription deal",
     "faq": [
       {
@@ -336,7 +336,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       "The perfect mix of affordability and freedom"
     ],
     "metaTitle": "IPTV Half Year Plan – 45% Off Subscription | ORCA 4K TV",
-    "metaDescription": "Get our best IPTV plan 2026 and a leading IPTV subscription deal. The popular IPTV half year plan provides a 6 month IPTV subscription for IPTV 6 months of reliable, 4K streaming on thousands of channels for $69.",
+    "metaDescription": "Best IPTV 6 months plan 2026 — $69 ($11.50/mo, save 45%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
     "keywords": "6 month iptv subscription, iptv half year plan, iptv 6 months, best iptv plan 2026, iptv subscription deal",
     "faq": [
       {
@@ -448,7 +448,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       "12 months of total access: all sports, all seasons"
     ],
     "metaTitle": "Best IPTV Value 2026: IPTV Annual Plan | ORCA 4K TV",
-    "metaDescription": "Our best IPTV annual plan is the best IPTV value for 2026. The IPTV yearly subscription is $95 for 12 months ($7.92/mo), delivering 4K sports, movies, and thousands of channels.",
+    "metaDescription": "Best IPTV 12 months plan 2026 — $95 ($7.92/mo, save 62%). 22,000+ channels in 4K HDR, 100,000+ movies. The best IPTV value of 2026.",
     "keywords": "best iptv annual plan 2026, iptv 12 months, iptv yearly subscription, iptv annual plan, best iptv value 2026",
     "faq": [
       {

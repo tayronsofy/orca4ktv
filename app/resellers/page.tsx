@@ -3,8 +3,8 @@ import ResellersPage from '@/page-components/ResellersPage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Reseller Program 2026 — White-Label IPTV Panel · Credits · 50%+ Margins | ORCA 4K TV',
-  description: 'Become an IPTV reseller in 2026 with ORCA 4K TV. White-label IPTV dealer panel, credit-based provisioning, instant M3U + Xtream codes activation, sub-reseller hierarchy, 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, multi-device delivery, AES-256 encryption, Anti Freeze CDN, 24/7 priority dealer support. 78–86% margins.',
+  title: 'IPTV Reseller Program 2026 — 50%+ Margins | ORCA 4K TV',
+  description: 'Become a profitable IPTV reseller with white-label dealer panel, credit-based provisioning, instant activation. 22,000+ channels in 4K HDR. 78–86% margins.',
   keywords: 'iptv reseller, iptv reseller program, iptv reseller panel, become iptv reseller, white label iptv, iptv dealer, iptv dealer panel, iptv credits, iptv credit panel, sub-reseller iptv, iptv distribution, iptv wholesale, iptv b2b, iptv affiliate, iptv reseller api, m3u reseller, xtream codes reseller, iptv business opportunity, profitable iptv reseller, iptv reseller usa, iptv reseller uk, iptv reseller canada, iptv reseller europe, 4K HDR streaming, 22000 channels iptv, iptv reseller margins, iptv reseller training, iptv white-label panel, iptv subscription reseller, instant activation, multi-device iptv, AES-256 encryption, 24/7 priority support, anti freeze cdn, iptv 2026',
   alternates: {
     canonical: 'https://orca4ktv.com/resellers',
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'IPTV Reseller Program 2026 — White-Label IPTV Panel · Credits · 50%+ Margins',
-    description: 'Launch your IPTV reseller business in 2026 with ORCA 4K TV. White-label dealer panel, credit-based provisioning, 22,000+ live channels in 4K HDR, sub-reseller hierarchy, 78–86% margins, 24/7 priority dealer support.',
+    title: 'IPTV Reseller Program 2026 — 50%+ Margins | ORCA 4K TV',
+    description: 'White-label IPTV dealer panel, credit-based provisioning, 22,000+ channels in 4K HDR, sub-reseller hierarchy. 78–86% margins.',
     type: 'website',
     url: 'https://orca4ktv.com/resellers',
     images: [{ url: 'https://orca4ktv.com/images/resellers-hero.png', width: 1536, height: 1024 }],

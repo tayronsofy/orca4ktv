@@ -4,8 +4,8 @@ import UKHomePage from '@/page-components/uk/UKHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV UK 2026 — Premier League, BBC, ITV in 4K HDR | ORCA 4K TV',
-  description: 'Premium IPTV subscription for the UK: Premier League, BBC, ITV, Channel 4, Channel 5, Six Nations Rugby, F1, Wimbledon, cricket — every UK channel in 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN, AES-256 encryption, multi-device, instant activation, 24/7 support.',
+  title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
+  description: 'Best IPTV UK 2026: every Premier League match, Champions League, F1, Wimbledon in 4K HDR. 22,000+ channels, BBC, ITV, Channel 4. Multi-device, instant.',
   keywords: 'best iptv uk 2026, premier league iptv, premier league iptv no buffering, uk tv channels iptv hd, champions league iptv uk, six nations rugby iptv, F1 iptv uk 2026, wimbledon iptv 2026, the open championship iptv, cricket iptv uk, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, BBC iPlayer alternative, ITVX alternative, Channel 4 alternative, satellite TV alternative UK',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-uk',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV in 4K HDR',
-    description: 'Premier League, BBC, ITV, Channel 4, Six Nations Rugby, F1, Wimbledon — every UK channel in 4K HDR. Anti Freeze CDN, multi-device, instant activation.',
+    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
+    description: 'Best IPTV UK 2026: every Premier League, Champions League, F1, Wimbledon in 4K HDR. 22,000+ channels, BBC, ITV. Multi-device, instant.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-uk',
     images: [{ url: 'https://orca4ktv.com/images/uk-coverage.jpg', width: 1200, height: 630 }],
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV in 4K HDR',
-    description: 'Every UK channel in 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN. AES-256 encrypted. £/mo plans.',
+    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
+    description: 'Premier League, Champions League, F1, Wimbledon in 4K HDR. Anti Freeze CDN. AES-256 encrypted. £/mo plans.',
   },
 }
 

@@ -9,19 +9,19 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: 'Live Football Matches in 4K HDR — Buffer-Free | ORCA 4K TV',
-  description: 'Watch live TV streaming of every major football league in 4K Ultra-HD with HDR streaming, zero buffering, and Anti Freeze technology. Multi-device IPTV streaming service across Smart TV, Firestick, Android, iOS.',
+  description: 'Watch every major football league live in 4K HDR — buffer-free Anti Freeze CDN. Premier League, Champions League, Bundesliga, La Liga. Multi-device.',
   keywords: 'live football iptv, watch football 4k, iptv sports, football streaming, live sports iptv 2026, live TV streaming, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, Anti Freeze technology, IPTV subscription, IPTV streaming service, premium IPTV channels, multi-device compatibility, IPTV multi-device',
   alternates: { canonical: 'https://orca4ktv.com/live-matches' },
   openGraph: {
-    title: 'Live Football Matches in 4K HDR — Buffer-Free',
-    description: 'Live TV streaming of every major football league in 4K HDR with zero buffering and Anti Freeze technology.',
+    title: 'Live Football Matches in 4K HDR | ORCA 4K TV',
+    description: 'Every major football league live in 4K HDR — buffer-free Anti Freeze CDN.',
     url: 'https://orca4ktv.com/live-matches',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Live Football Matches in 4K HDR — Buffer-Free',
-    description: '4K HDR live TV streaming with zero buffering and Anti Freeze technology.',
+    title: 'Live Football Matches in 4K HDR | ORCA 4K TV',
+    description: 'Every major football league live in 4K HDR — buffer-free Anti Freeze CDN.',
   },
 }
 

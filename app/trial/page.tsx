@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
 export const metadata: Metadata = {
-  title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation | ORCA 4K TV',
-  description: 'Free IPTV trial with rapid setup and instant activation. Test ORCA 4K TV — premium IPTV channels, 4K HDR streaming, smart EPG guide, multi-device compatibility. No credit card, IPTV instant start in minutes.',
+  title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
+  description: 'Free IPTV trial with instant activation. Test ORCA 4K TV — 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
   keywords: 'free iptv trial, iptv test, iptv free trial 2026, IPTV instant start, instant activation, rapid setup, fast IPTV setup, IPTV subscription plans, IPTV subscription, multi-device compatibility, IPTV multi-device, buffer-free streaming, zero buffering, premium IPTV channels, 4K streaming, HDR streaming',
   alternates: { canonical: 'https://orca4ktv.com/trial' },
   openGraph: {
-    title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation',
-    description: 'Test ORCA 4K TV with a free IPTV trial — rapid setup, IPTV instant start, premium channels and 4K HDR streaming across multi-device.',
+    title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
+    description: 'Test ORCA 4K TV — 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
     type: 'website',
     url: 'https://orca4ktv.com/trial',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation',
-    description: 'IPTV instant start with no credit card. 4K HDR streaming, smart EPG guide, multi-device compatibility.',
+    title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
+    description: 'No credit card. 22,000+ channels in 4K HDR. Smart EPG, multi-device.',
     images: ['https://orca4ktv.com/og-image.jpg'],
   },
 }

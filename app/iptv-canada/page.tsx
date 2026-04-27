@@ -4,8 +4,8 @@ import CanadaHomePage from '@/page-components/canada/CanadaHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV Canada 2026 — NHL, TSN, Sportsnet, CBC in 4K HDR | ORCA 4K TV',
-  description: 'Premium IPTV subscription for Canada: every NHL game, CFL season, Stanley Cup, the 2026 Winter Olympics, FIFA World Cup matches in Toronto and Vancouver, plus CBC, CTV, Global, TSN, Sportsnet, RDS, TVA Sports — bilingual EN/FR coverage in 4K HDR with HDR10+ and Dolby Vision.',
+  title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
+  description: 'Best IPTV Canada 2026: every NHL Stanley Cup match, CFL, MLB, 2026 Olympics in 4K HDR. 22,000+ channels, CBC, CTV, TSN, Sportsnet. Bilingual EN/FR.',
   keywords: 'best iptv canada 2026, iptv canada, nhl iptv canada, stanley cup playoffs iptv, cfl iptv canada, tsn iptv canada, sportsnet iptv canada, cbc iptv, ctv iptv, global tv iptv canada, citytv iptv, french canadian iptv channels, rds iptv quebec, tva sports iptv, radio-canada iptv, milano cortina 2026 olympics canada, fifa world cup 2026 toronto vancouver, raptors iptv toronto, blue jays iptv, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, multi-device compatibility, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, cord cutting canada 2026',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-canada',
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV Canada 2026 — NHL, CFL, Olympics & World Cup in 4K HDR',
-    description: 'Stanley Cup, the 2026 Winter Olympics, World Cup matches in Toronto and Vancouver, plus every Canadian broadcaster — bilingual EN/FR coverage in 4K HDR.',
+    title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
+    description: 'Every Stanley Cup match, 2026 Olympics, World Cup. CBC, CTV, TSN, Sportsnet — bilingual EN/FR coverage in 4K HDR.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-canada',
     images: [{ url: 'https://orca4ktv.com/images/canada-coverage.jpg', width: 1200, height: 630 }],
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best IPTV Canada 2026 — NHL, CFL, Olympics & World Cup in 4K HDR',
-    description: 'Every Stanley Cup shift, every Olympic final, every Toronto / Vancouver World Cup 2026 match. Bilingual EN/FR. From $/mo in CAD.',
+    title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
+    description: 'Every Stanley Cup, 2026 Olympic final, World Cup match. Bilingual EN/FR. From $/mo in CAD.',
   },
 }
 

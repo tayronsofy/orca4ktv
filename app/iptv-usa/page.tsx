@@ -5,7 +5,7 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
   title: 'Best IPTV USA 2026 — NFL, NBA, MLB in 4K HDR | ORCA 4K TV',
-  description: 'Premium IPTV subscription for the USA: NFL, NBA, MLB, USA local channels in 4K HDR streaming with buffer-free streaming, smart EPG guide, multi-device compatibility, instant activation, AES-256 encryption, and 24/7 customer support.',
+  description: 'Best IPTV USA 2026: NFL, NBA, MLB, NHL in 4K HDR. 22,000+ channels, ABC, CBS, NBC, FOX, ESPN. Anti Freeze CDN, multi-device. From $7.92/mo.',
   keywords: 'best iptv usa 2026, usa local channels iptv, nfl sunday ticket iptv alternative, american sports iptv hd, iptv service for firestick usa, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-usa',

@@ -3,16 +3,16 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata = {
   title: {
-    absolute: 'IPTV Setup Guide 2026 — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV · 5-Minute Install | ORCA 4K TV',
+    absolute: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
   },
   description:
-    'Complete IPTV setup guide for 2026. Install IPTV on Firestick 4K Max, Apple TV 4K, Android TV 14, Samsung Tizen, LG webOS, MAG-box, Formuler, iOS, iPadOS, Android, Windows, macOS in under 5 minutes. M3U URL & Xtream codes setup for TiviMate, IPTV Smarters Pro, OTT Navigator, GSE Smart IPTV, Smart IPTV. EPG / catch-up TV configuration, AI troubleshooter, VPN allowed, AES-256 encrypted, Anti Freeze CDN, instant activation.',
+    'Step-by-step IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, EPG, AI troubleshooter. Stream in 5 minutes.',
   keywords:
     'iptv setup guide 2026, how to install iptv, iptv installation tutorial, iptv firestick 4k max setup, iptv apple tv 4k setup, iptv android tv 14 setup, iptv smart tv samsung lg setup, iptv mag box setup, iptv formuler setup, iptv ios iphone ipad setup, iptv android setup, iptv windows mac setup, tivimate iptv setup, iptv smarters pro setup, ott navigator iptv setup, gse smart iptv setup, smart iptv setup, m3u playlist setup, m3u url setup, xtream codes setup, iptv epg setup, electronic program guide setup, 7-day catch-up tv setup, iptv buffering fix, iptv black screen fix, iptv login failed fix, iptv credentials, iptv with vpn, vpn allowed iptv, iptv anti freeze cdn, iptv aes-256 encryption, multi-device iptv, instant activation iptv, rapid iptv setup, fast iptv setup, 5-minute iptv setup, iptv troubleshooting, iptv setup ai assistant',
   openGraph: {
-    title: 'IPTV Setup Guide 2026 — Firestick 4K Max, Apple TV 4K, Smart TV in 5 Minutes',
+    title: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
     description:
-      'Step-by-step IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, MAG, iOS, Android. M3U + Xtream codes, EPG, 7-day catch-up. AI troubleshooter included.',
+      'IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, EPG, AI troubleshooter. Stream in 5 minutes.',
     url: 'https://orca4ktv.com/setup-guide',
     type: 'website' as const,
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
@@ -27,9 +27,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image' as const,
-    title: 'IPTV Setup Guide 2026 — 5-Minute Install',
+    title: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
     description:
-      'IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, MAG, iOS, Android. M3U URL + Xtream codes + EPG. AI troubleshooter.',
+      'IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, AI troubleshooter.',
   },
 }
 
