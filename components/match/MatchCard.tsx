@@ -13,7 +13,7 @@ export default function MatchCard({ match, state }: Props) {
   return (
     <Link
       href={`/watch/${match.slug}`}
-      className="block bg-[#111] border border-white/10 rounded-2xl p-5 hover:border-white/20 hover:bg-[#151515] transition-all group"
+      className="block bg-[#111] border border-white/10 rounded-2xl p-5 hover:border-white/20 hover:bg-[#001530] transition-all group"
     >
       {/* League row */}
       <div className="flex items-center gap-2 mb-5 min-w-0">
@@ -112,7 +112,7 @@ export default function MatchCard({ match, state }: Props) {
           </span>
         )}
         {state === 'pre' && (
-          <span className="inline-flex items-center gap-1.5 bg-[#6d28d9]/20 border border-[#6d28d9]/40 text-[#a855f7] text-xs font-black px-4 py-2 rounded-full group-hover:bg-[#6d28d9]/30 transition-colors">
+          <span className="inline-flex items-center gap-1.5 bg-[#003580]/20 border border-[#003580]/40 text-[#00E5FF] text-xs font-black px-4 py-2 rounded-full group-hover:bg-[#003580]/30 transition-colors">
             Get Match Pass →
           </span>
         )}

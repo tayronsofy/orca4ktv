@@ -221,7 +221,7 @@ export default function OrderDetailPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Customer info */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-user text-purple-400"></i> Customer</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{order.profiles?.full_name || '—'}</dd></div>
@@ -244,7 +244,7 @@ export default function OrderDetailPage() {
         </div>
 
         {/* Order info */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-shopping-cart text-blue-400"></i> Order Details</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between"><dt className="text-gray-500">Plan</dt><dd className="text-white">{order.plan_name}</dd></div>
@@ -271,7 +271,7 @@ export default function OrderDetailPage() {
         </div>
 
         {/* Invoice / Payment Link */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-file-invoice text-green-400"></i> Invoice & Payment</h2>
           <div className="space-y-3">
             <div>
@@ -281,7 +281,7 @@ export default function OrderDetailPage() {
                 value={paymentLink}
                 onChange={e => setPaymentLink(e.target.value)}
                 placeholder="https://paypal.me/... or payment URL"
-                className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500"
+                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500"
               />
             </div>
             <div>
@@ -289,7 +289,7 @@ export default function OrderDetailPage() {
               <select
                 value={invoiceStatus}
                 onChange={e => setInvoiceStatus(e.target.value)}
-                className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500"
+                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500"
               >
                 <option value="pending">Pending</option>
                 <option value="paid">Paid</option>
@@ -308,7 +308,7 @@ export default function OrderDetailPage() {
         </div>
 
         {/* IPTV Credentials */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2">
             <i className="fas fa-key text-yellow-400"></i> IPTV Credentials
             {sub?.status === 'active' && (
@@ -327,7 +327,7 @@ export default function OrderDetailPage() {
                   value={creds[field]}
                   onChange={e => setCreds(c => ({ ...c, [field]: e.target.value }))}
                   placeholder={field === 'm3u_url' ? 'http://server.com/get.php?username=...&password=...&type=m3u' : field === 'portal_url' ? 'http://server.com (optional)' : ''}
-                  className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                  className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
                 />
               </div>
             ))}
@@ -338,7 +338,7 @@ export default function OrderDetailPage() {
                 onChange={e => setCreds(c => ({ ...c, mac_addresses: e.target.value }))}
                 placeholder={'00:1A:79:XX:XX:XX\n00:1A:79:YY:YY:YY'}
                 rows={3}
-                className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500 resize-none"
+                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500 resize-none"
               />
             </div>
             <div className="flex gap-2">
@@ -353,14 +353,14 @@ export default function OrderDetailPage() {
         </div>
 
         {/* Admin notes */}
-        <div className="md:col-span-2 bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="md:col-span-2 bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-sticky-note text-gray-400"></i> Admin Notes</h2>
           <textarea
             value={notes}
             onChange={e => setNotes(e.target.value)}
             placeholder="Internal notes about this order…"
             rows={3}
-            className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 resize-none"
+            className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 resize-none"
           />
           <button onClick={saveNotes} className="mt-3 bg-white/10 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-white/15 transition-colors">
             Save Notes

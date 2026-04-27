@@ -15,7 +15,7 @@ const FAQ = lazy(() => import('@/components/FAQ'))
 const TelegramWidget = lazy(() => import('@/components/TelegramWidget'))
 
 const Loader = () => (
-  <div className="w-full h-32 flex items-center justify-center bg-[#1f2326]">
+  <div className="w-full h-32 flex items-center justify-center bg-[#001f3f]">
     <div className="w-6 h-6 border-2 border-purple-600 rounded-full animate-spin border-t-transparent" />
   </div>
 )

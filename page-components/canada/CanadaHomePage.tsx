@@ -14,7 +14,7 @@ const CanadaFeatures = lazy(() => import('@/components/canada/CanadaFeatures'))
 const CanadaFAQ = lazy(() => import('@/components/canada/CanadaFAQ'))
 
 const Loader = () => (
-  <div className="w-full h-32 flex items-center justify-center bg-[#1f2326]">
+  <div className="w-full h-32 flex items-center justify-center bg-[#001f3f]">
     <div className="w-6 h-6 border-2 border-red-600 rounded-full animate-spin border-t-transparent" />
   </div>
 )
@@ -25,7 +25,11 @@ const scrollToPricing = () => {
   else window.location.href = '/#pricing'
 }
 
-const CanadaHomePage: React.FC = () => {
+interface CanadaHomePageProps {
+  seoContent?: React.ReactNode
+}
+
+const CanadaHomePage: React.FC<CanadaHomePageProps> = ({ seoContent }) => {
   return (
     <>
       <Suspense fallback={<div className="h-10" />}>
@@ -37,6 +41,7 @@ const CanadaHomePage: React.FC = () => {
         <div id="pricing"><CanadaPricing /></div>
         <CanadaFeatures />
         <Devices />
+        {seoContent}
       </Suspense>
       <Suspense fallback={<div />}>
         <VideoBanner />

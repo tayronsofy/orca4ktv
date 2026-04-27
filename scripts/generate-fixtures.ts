@@ -39,7 +39,7 @@ function generateDescription(f: Fixture): string {
   return [
     opener,
     `The match is scheduled for ${date}${venue}.`,
-    `Watch ${f.homeTeam} vs ${f.awayTeam} live in 4K Ultra-HD on Smart 4K — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last.`,
+    `Watch ${f.homeTeam} vs ${f.awayTeam} live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last.`,
     `Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.`,
   ].join(' ')
 }

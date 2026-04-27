@@ -9,9 +9,13 @@
   }
 }
 @media (max-width: 768px) {
-  /* Disable heavy space animations */
-  .space-layer, 
+  /* Disable heavy space + ocean animations */
+  .space-layer,
+  .ocean-layer,
+  .ocean-surface,
   .animate-space-float,
+  .animate-swim-across,
+  .animate-bubble-rise,
   .animate-pulse-slow,
   .animate-pulse-slow-reverse {
     animation: none !important;
@@ -29,6 +33,6 @@
   
   /* Replace complex Galaxy background with a simple fast gradient */
   section.relative.min-h-screen {
-    background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%) !important;
+    background: radial-gradient(circle at center, #001737 0%, #000000 100%) !important;
   }
 }

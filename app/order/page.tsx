@@ -200,7 +200,7 @@ function OrderForm() {
   }
 
   return (
-    <div style={{ paddingTop: '120px' }} className="min-h-screen bg-[#1f2326] px-4 pb-16">
+    <div style={{ paddingTop: '120px' }} className="min-h-screen bg-[#001f3f] px-4 pb-16">
       <div className="max-w-4xl mx-auto">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-8">
@@ -215,7 +215,7 @@ function OrderForm() {
             <h1 className="text-2xl font-black text-white mb-6">Order Summary</h1>
 
             {/* Plan selector */}
-            <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 mb-6">
+            <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Select Plan</p>
               <div className="grid grid-cols-2 gap-2">
                 {SHOP_PLANS.map(p => (
@@ -226,7 +226,7 @@ function OrderForm() {
                     className={`py-2 px-3 rounded-xl text-sm font-bold transition-all ${
                       p.slug === plan.slug
                         ? 'bg-purple-600 text-white'
-                        : 'bg-[#1f2326] text-gray-400 hover:text-white border border-white/5'
+                        : 'bg-[#001f3f] text-gray-400 hover:text-white border border-white/5'
                     }`}
                   >
                     {p.shortName}
@@ -237,7 +237,7 @@ function OrderForm() {
             </div>
 
             {/* Connections */}
-            <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 mb-6">
+            <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Connections (simultaneous devices)</p>
               <div className="grid grid-cols-4 gap-2">
                 {[1, 2, 3, 4].map(n => (
@@ -248,7 +248,7 @@ function OrderForm() {
                     className={`py-2.5 rounded-xl text-sm font-bold transition-all ${
                       n === connections
                         ? 'bg-purple-600 text-white'
-                        : 'bg-[#1f2326] text-gray-400 hover:text-white border border-white/5'
+                        : 'bg-[#001f3f] text-gray-400 hover:text-white border border-white/5'
                     }`}
                   >
                     {n}
@@ -283,11 +283,11 @@ function OrderForm() {
           {/* Billing Form */}
           <div>
             <h2 className="text-2xl font-black text-white mb-6">Your Details</h2>
-            <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+            <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
 
               {/* Auth section */}
               {authStep === 'done' ? (
-                <div className="mb-5 bg-[#1f2326] rounded-xl px-4 py-3 flex items-center justify-between">
+                <div className="mb-5 bg-[#001f3f] rounded-xl px-4 py-3 flex items-center justify-between">
                   <div>
                     <p className="text-xs text-gray-500">Logged in as</p>
                     <p className="text-white text-sm font-medium">{userEmail}</p>
@@ -318,7 +318,7 @@ function OrderForm() {
                       value={fullName}
                       onChange={e => setFullName(e.target.value)}
                       placeholder="John Smith"
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                     />
                   </div>
                   <div>
@@ -329,7 +329,7 @@ function OrderForm() {
                       value={emailInput}
                       onChange={e => setEmailInput(e.target.value)}
                       placeholder="you@example.com"
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                     />
                   </div>
                   <div>
@@ -341,7 +341,7 @@ function OrderForm() {
                       value={passwordInput}
                       onChange={e => setPasswordInput(e.target.value)}
                       placeholder="Min. 6 characters"
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                     />
                   </div>
                   {authError && (
@@ -378,7 +378,7 @@ function OrderForm() {
                         value={passwordInput}
                         onChange={e => setPasswordInput(e.target.value)}
                         placeholder="Enter your password"
-                        className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                        className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                       />
                     </div>
                     {authError && (
@@ -418,7 +418,7 @@ function OrderForm() {
                       value={phone}
                       onChange={e => setPhone(e.target.value)}
                       placeholder="+1 555 000 0000"
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
+                      className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors"
                     />
                   </div>
                   <div>
@@ -426,7 +426,7 @@ function OrderForm() {
                     <select
                       value={country}
                       onChange={e => setCountry(e.target.value)}
-                      className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors appearance-none cursor-pointer"
                     >
                       <option value="">Select your country</option>
                       {COUNTRIES.map(c => (

@@ -3,7 +3,7 @@ import matchesData from '@/data/matches.json'
 import { getPublishedPosts } from '@/lib/posts'
 
 const KEY = '30ae5a89de2541f78502a0111a939c1e'
-const HOST = 'smart4k.io'
+const HOST = 'orca4ktv.com'
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
 
 // Static pages to always submit

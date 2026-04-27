@@ -30,8 +30,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'www.smart4k.io' }],
-        destination: 'https://smart4k.io/:path*',
+        has: [{ type: 'host', value: 'www.orca4ktv.com' }],
+        destination: 'https://orca4ktv.com/:path*',
         permanent: true,
       },
     ]
@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       { protocol: 'https', hostname: 'flagcdn.com' },
-      { protocol: 'https', hostname: 'smart4k.io' },
+      { protocol: 'https', hostname: 'orca4ktv.com' },
       { protocol: 'https', hostname: 'img.sofascore.com' },
     ],
   },

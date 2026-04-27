@@ -42,12 +42,12 @@ export async function generateMetadata({
     title,
     description,
     keywords: match.tags?.join(', ') ?? '',
-    alternates: { canonical: `https://smart4k.io/watch/${slug}` },
+    alternates: { canonical: `https://orca4ktv.com/watch/${slug}` },
     openGraph: {
       title,
       description,
       type: 'website',
-      url: `https://smart4k.io/watch/${slug}`,
+      url: `https://orca4ktv.com/watch/${slug}`,
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
@@ -85,7 +85,7 @@ export default async function MatchPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <div className="min-h-screen bg-[#0a0a0a]" style={{ paddingTop: '80px' }}>
+      <div className="min-h-screen bg-[#000a1c]" style={{ paddingTop: '80px' }}>
 
         {/* ── State-aware hero ── */}
         <MatchHero match={match} state={state} />

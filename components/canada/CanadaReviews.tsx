@@ -4,22 +4,22 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "The NHL streams are perfectly smooth and the 4K categories look incredible. Setup took less than 5 minutes.",
-        device: "Smart TV - Toronto",
+        text: "Watched every Leafs playoff game in 4K HDR on my Apple TV 4K — zero buffering during overtime, even during the Cup final. Dropped Rogers Ignite and saved over $90 a month.",
+        device: "Apple TV 4K — Toronto, ON",
     },
     {
-        text: "Awesome Canadian support team. I had a small issue getting it on my Firestick and they helped right away.",
-        device: "Firestick - Vancouver",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Canucks games on Sportsnet, CFL Fridays on TSN, even the Olympic curling final from Milano — all crystal clear. Bilingual EPG is a killer feature.",
+        device: "Firestick 4K Max — Vancouver, BC",
     },
     {
-        text: "Huge VOD library and the EPG includes all my local CA networks. Works perfectly on my iPad and living room TV.",
-        device: "iOS + Samsung TV - Calgary",
+        text: "Switched from Bell Fibe after the umpteenth price hike. Same TVA Sports, RDS and ICI Télé coverage I had before, plus 100+ extra international channels. Service à la clientèle en français — nickel.",
+        device: "LG webOS + iPhone — Montréal, QC",
     },
 ];
 
 const CanadaReviews: React.FC = () => {
     return (
-        <section className="py-20 bg-[#15171a] relative overflow-hidden" id="reviews">
+        <section className="py-20 bg-[#001530] relative overflow-hidden" id="reviews">
             {/* Background Ambience */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] -translate-y-1/2"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] translate-y-1/2"></div>
@@ -31,7 +31,7 @@ const CanadaReviews: React.FC = () => {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Canadian viewers choose us for stability, local channels, and fast support when setup help is needed.
+                        Verified Canadian cord-cutters from Toronto to Vancouver to Montréal — buffer-free 4K HDR, every NHL game, every Olympic final, every CBC and Radio-Canada feed, one bilingual IPTV subscription.
                     </p>
                 </div>
 
@@ -39,7 +39,7 @@ const CanadaReviews: React.FC = () => {
                     {reviewsRaw.map((review, i) => (
                         <div
                             key={i}
-                            className="bg-[#1f2326] p-8 rounded-3xl border border-white/5 hover:border-red-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
+                            className="bg-[#001f3f] p-8 rounded-3xl border border-white/5 hover:border-red-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
                         >
                             {/* Stars */}
                             <div className="flex gap-1 mb-6">

@@ -7,32 +7,36 @@ const NetherlandsFAQ: React.FC = () => {
 
   const netherlandsFaqData = [
     {
-      question: "Zijn Nederlandse lokale zenders inbegrepen?",
-      answer: "Ja, naast onze uitgebreide wereldwijde bibliotheek bevat je abonnement alle belangrijke Nederlandse lokale en nationale zenders – waaronder NPO 1, NPO 2, NPO 3, RTL 4, RTL 5, SBS6, Veronica en vele regionale zenders. Je mist nooit meer het lokale nieuws of een wedstrijd van je favoriete club."
+      question: "Kan ik elke Eredivisie-wedstrijd inclusief de zaterdagavondtopper in 4K HDR kijken?",
+      answer: "Ja. Elke Eredivisie-wedstrijd van het seizoen 2025–26 en 2026–27 (vrijdagavond, zaterdag, zondag-topper, maandagavond), de complete Keuken Kampioen Divisie, de gehele KNVB-beker tot aan de finale eind april 2026 in De Kuip, alle UEFA Champions League-knockouts, Europa League en Conference League zijn live in 4K HDR inbegrepen — geen apart sportpakket, geen toeslag."
     },
     {
-      question: "Vertraagt mijn internetprovider deze dienst in Nederland?",
-      answer: "Wij maken gebruik van geavanceerde routeringstechnologie en beveiligde verbindingsoptimalisaties die het voor Nederlandse providers moeilijk maken om je streamingverkeer te beperken. Je krijgt de volledige bandbreedte waarvoor je betaalt, voor een perfecte 4K-beeldkwaliteit."
+      question: "Zijn het WK voetbal 2026, de Olympische Winterspelen Milaan-Cortina en de F1 met Max Verstappen erbij?",
+      answer: "Ja. Het FIFA WK voetbal 2026 in de VS, Canada en Mexico met het Nederlands elftal wordt live in 4K HDR uitgezonden. De Olympische Winterspelen Milaan-Cortina (6–22 februari 2026) — schaatsen, snowboard, ijshockey, curling, alle medaillebeslissingen met TeamNL — zijn ook volledig opgenomen. Het Formule 1-seizoen 2026 met geheel nieuwe reglementen en Max Verstappen die zijn vijfde wereldtitel najaagt, zenden wij elke Grand Prix live uit."
     },
     {
-      question: "Kan ik mijn account delen met mijn gezin?",
-      answer: "Je kunt zoveel apparaten tegelijkertijd verbinden als je abonnement toestaat. Of het nu de televisie in de woonkamer is of de tablet van de kinderen – zolang je binnen de limieten van je abonnement blijft, kan je hele huishouden tegelijkertijd kijken."
+      question: "Zijn NPO, RTL, SBS6, Veronica en Ziggo Sport inbegrepen?",
+      answer: "Ja, volledig. NPO 1, NPO 2, NPO 3, NPO Politiek, NPO Nieuws, NPO Zapp, NPO Cultura, alle regionale omroepen (AT5, RTV Noord-Holland, Omroep Brabant, RTV Utrecht), RTL 4, RTL 5, RTL 7, RTL 8, RTL Z, SBS6, SBS9, Net5, Veronica, Comedy Central en alle Ziggo Sport-alternatieven plus ESPN NL-kanalen zijn allemaal aanwezig. Inclusief NOS Journaal, RTL Nieuws, BNR en alle catch-up-content via NLZIET-equivalenten."
     },
     {
-      question: "Welke hardware heb ik nodig om te beginnen?",
-      answer: "Vrijwel elk modern apparaat werkt. Download gewoon een compatibele streaming-app op je Amazon Firestick, Apple TV, Android TV-box of Smart TV. Geen speciale kabelboxen of satellietschotels vereist."
+      question: "Beperken Ziggo, KPN, T-Mobile of Odido mijn IPTV-streams?",
+      answer: "Onze streams gebruiken TLS 1.3 met AES-256-versleuteling (NIST FIPS 197), waardoor traffic-shaping voor ISP's onbetrouwbaar wordt. Mocht je toch beperking ervaren — vooral in de spits op zwaarbelaste Nederlandse aansluitingen — dan is IPTV met VPN in elk abonnement volledig ondersteund, zonder snelheidslimiet. De meeste Nederlandse huishoudens ervaren helemaal geen beperking."
     },
     {
-      question: "Is er een contract of annuleringskosten?",
-      answer: "Wij bieden volledige flexibiliteit op maandbasis of via voordelige vooruitbetaalde abonnementen. Er zijn absoluut geen automatische incasso's, verborgen kosten of annuleringsboetes. Jij behoudt de volledige controle over je betalingen."
+      question: "Welke streaming-apparaten werken — Firestick 4K Max, Apple TV 4K, Smart TV?",
+      answer: "Alle. Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3e generatie), Android TV 14-boxen (Nvidia Shield, Onn 4K Pro, Chromecast met Google TV), Samsung Tizen, LG webOS, MAG-box, plus iOS / iPadOS / Android-smartphones en -tablets, Windows / macOS / Linux pc's en elke HTML5-browser. Dezelfde Nederlandse zenderbibliotheek en EPG op elk scherm via TiviMate, IPTV Smarters Pro of OTT Navigator."
     },
     {
-      question: "Hoe snel ontvang ik mijn inloggegevens?",
-      answer: "Zodra het afrekenen is voltooid, wordt je account direct automatisch aangemaakt. Controleer je inbox (en spammap) op de directe installatie-instructies – je kunt binnen enkele minuten beginnen met streamen."
+      question: "Hoeveel gelijktijdige streams kan mijn huishouden gebruiken?",
+      answer: "Abonnementen bieden tot 4 gelijktijdige verbindingen — daarmee kunnen de huiskamer-tv, de tablet in de kinderkamer en een smartphone in de keuken tegelijkertijd verschillende zenders tonen. Perfect voor een Eredivisie-weekend met de topper in de huiskamer en de NOS Studio Sport-samenvatting op de tablet. Het 1-maand-abonnement start met 1 verbinding; het 12-maanden-abonnement bevat standaard tot 4 verbindingen zonder meerprijs."
     },
     {
-      question: "Wat gebeurt er als ik tijdens een wedstrijd bufferingproblemen heb?",
-      answer: "Ons op Nederland gerichte leveringsnetwerk handhaaft een beschikbaarheid van 99,9%. Incidentele internetonderbrekingen kunnen echter voorkomen. Ons supportteam is 24/7 beschikbaar via de helpdesk om je verbindingsroutes onmiddellijk te optimaliseren als je problemen ervaart."
+      question: "Is er een gratis proefperiode — en een contract of opzegkosten?",
+      answer: "Gratis IPTV-proefperiode zonder creditcard, directe activering, volledige toegang tot de bibliotheek van 22.000 zenders, volledige 4K HDR. Test voordat je betaalt. Abonnementen zijn maandelijks of als voordelige kwartaal-, half-jaar- of 12-maanden-pakketten. Geen automatische verlenging, geen verborgen kosten, geen opzegboete. Altijd opzegbaar."
+    },
+    {
+      question: "Hoe snel ontvang ik mijn inloggegevens na bestelling?",
+      answer: "IPTV directe start: van afrekenen tot de eerste live zender duurt doorgaans minder dan 5 minuten. Inloggegevens (M3U-URL + Xtream-codes) worden automatisch per e-mail verzonden zodra de betaling binnenkomt. De installatie met elke compatibele speler duurt nog eens 60 seconden — bekijk de stap-voor-stap installatiegids voor jouw apparaat."
     }
   ];
 
@@ -50,7 +54,7 @@ const NetherlandsFAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-12 bg-[#1f2326] relative overflow-hidden">
+    <section id="faq" className="py-12 bg-[#001f3f] relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#21468B]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -61,7 +65,7 @@ const NetherlandsFAQ: React.FC = () => {
             IPTV Nederland <span className="text-[#21468B]">FAQ</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 font-medium">Duidelijke antwoorden voor Nederlandse IPTV-gebruikers.</p>
+          <p className="mt-6 text-gray-400 font-medium">Duidelijke antwoorden voor Nederlandse cord-cutters en Eredivisie-fans.</p>
         </div>
 
         <div className="space-y-4">
@@ -69,8 +73,8 @@ const NetherlandsFAQ: React.FC = () => {
             <div
               key={index}
               className={`group rounded-2xl border transition-all duration-300 ${openIndex === index
-                ? 'bg-[#2c3034] border-[#21468B]/50 shadow-[0_0_30px_rgba(33,70,139,0.1)]'
-                : 'bg-[#2c3034]/40 border-white/5 hover:border-white/10'
+                ? 'bg-[#002952] border-[#21468B]/50 shadow-[0_0_30px_rgba(33,70,139,0.1)]'
+                : 'bg-[#002952]/40 border-white/5 hover:border-white/10'
                 }`}
             >
               <button
@@ -97,12 +101,12 @@ const NetherlandsFAQ: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#1e102f] to-[#0c162b] border border-[#21468B]/20 text-center">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#001a3a] to-[#001f3f] border border-[#21468B]/20 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Hulp nodig bij het instellen?</h3>
           <p className="text-gray-400 mb-6">Ons Nederlandstalige supportteam staat dag en nacht voor je klaar.</p>
           <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
+            href="mailto:support@orca4ktv.com"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#001a36] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
           >
             <i className="fas fa-envelope text-[#AE1C28]"></i> Contact
           </a>

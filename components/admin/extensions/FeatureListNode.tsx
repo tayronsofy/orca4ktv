@@ -10,7 +10,7 @@ function FeatureListView({ node, updateAttributes, selected }: NodeViewProps) {
 
   return (
     <NodeViewWrapper>
-      <div style={{ margin: '1.25rem 0', background: '#1a1d20', border: `1px solid ${selected ? '#ef4444' : 'rgba(255,255,255,0.08)'}`, borderRadius: '.75rem', padding: '1.25rem', overflow: 'hidden' }}>
+      <div style={{ margin: '1.25rem 0', background: '#001a36', border: `1px solid ${selected ? '#ef4444' : 'rgba(255,255,255,0.08)'}`, borderRadius: '.75rem', padding: '1.25rem', overflow: 'hidden' }}>
         <div style={{ color: '#6b7280', fontSize: '.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: '.75rem' }}>✅ Feature List</div>
         {/* Live preview */}
         <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 .875rem', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '.75rem' }}>

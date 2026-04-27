@@ -3,7 +3,7 @@ import matchesData from '@/data/matches.json'
 import type { Fixture } from '@/lib/sports-api'
 
 export const runtime = 'edge'
-export const alt = 'Smart 4K — Live Match Stream'
+export const alt = 'Orca 4K TV — Live Match Stream'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -25,7 +25,7 @@ export default async function OgImage({
       <div
         style={{
           width: '100%', height: '100%',
-          background: 'linear-gradient(135deg, #080808 0%, #0d0d0d 50%, #080808 100%)',
+          background: 'linear-gradient(135deg, #000a1c 0%, #000a1c 50%, #000a1c 100%)',
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           fontFamily: 'sans-serif', position: 'relative',
@@ -85,13 +85,13 @@ export default async function OgImage({
           position: 'absolute', bottom: 28, right: 36,
           color: '#444', fontSize: 18, fontWeight: 700, letterSpacing: '0.05em',
         }}>
-          smart4k.io
+          orca4ktv.com
         </div>
 
         {/* Bottom accent bar */}
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0, height: 6,
-          background: 'linear-gradient(90deg, #7c3aed, #2563eb)',
+          background: 'linear-gradient(90deg, #0066CC, #2563eb)',
         }} />
       </div>
     ),

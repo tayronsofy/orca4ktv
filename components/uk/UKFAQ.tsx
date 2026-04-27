@@ -7,32 +7,36 @@ const UKFAQ: React.FC = () => {
 
   const ukFaqData = [
     {
-      question: "Are British Local Networks Included?",
-      answer: "Yes, alongside our vast global library, your subscription includes access to major UK geographical locals and premium sports networks across the nation, ensuring you never miss local news or your favorite team."
+      question: "Can I watch every Premier League match — including 3pm Saturday kick-offs?",
+      answer: "Yes. Every Premier League fixture is included — the early Saturday windows, the 3pm Saturday kick-offs, late Saturday, Sunday afternoons, Sunday Night Football, Monday Night Football, plus every cup tie. Champions League knockouts, Europa League, FA Cup, EFL Cup and Scottish Premiership are all live in 4K HDR. No FA-blackout limitation, no separate sports add-on."
     },
     {
-      question: "Will My ISP Throttle This Service in the UK?",
-      answer: "We utilize advanced routing and secure handshakes that make it difficult for ISPs to throttle your streaming traffic. You get the full bandwidth you pay for, resulting in a pristine 4K picture."
+      question: "Does this cover the Six Nations 2026, Wimbledon, F1 and cricket?",
+      answer: "Yes. Six Nations 2026 (kick-off Friday 6 February), Premiership Rugby, the British & Irish Lions tour, Wimbledon late June through mid-July, The Open Championship in July, every F1 grand prix of the new 2026 era, MotoGP, Test cricket, the Ashes, T20 Blast and The Hundred — all included on every plan."
     },
     {
-      question: "Can I Share My Account With Family?",
-      answer: "You are welcome to connect up to the number of devices allotted in your specific plan. Whether it's the living room TV or a tablet upstairs, as long as it's within your plan's stream limit, your household can watch simultaneously."
+      question: "Are BBC, ITV, Channel 4 and Channel 5 included?",
+      answer: "Yes. BBC One, BBC Two, BBC Three, BBC Four, BBC News, ITV1, ITV2, ITV3, ITV4, Channel 4, E4, Film4, More4, Channel 5 are all included with regional affiliates by postcode. The smart EPG guide shows live now-playing data for every UK terrestrial channel, plus 7-day catch up TV — a clean BBC iPlayer / ITVX-style replay experience built into the player."
     },
     {
-      question: "What Hardware Do I Need to Start Watching?",
-      answer: "Virtually any modern device works. Just download a compatible streaming app on your Amazon Firestick, Apple TV, Android box, or Smart TV. No proprietary cable boxes or satellite dishes are ever required."
+      question: "Will Virgin Media, BT, Sky Broadband or TalkTalk throttle my IPTV streams?",
+      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197), which makes traffic shaping unreliable for ISPs to apply. If you do see throttling — common during peak evening hours on heavily-oversubscribed UK lines — IPTV with VPN is fully supported on every plan with no speed cap from our side. Most UK households see no throttling at all."
     },
     {
-      question: "Is There a Contract or Cancellation Fee?",
-      answer: "We offer complete flexibility on a month-to-month basis or via discounted prepaid longer terms. There are strictly no automatic recurring charges, hidden fees, or cancellation penalties. You maintain absolute control over your payments."
+      question: "Which streaming devices work — Firestick 4K Max, Apple TV 4K, Smart TV?",
+      answer: "All of them. Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3rd generation), Android TV 14 boxes (Nvidia Shield, Google TV, Onn 4K Pro), Samsung Tizen, LG webOS, Panasonic, Hisense VIDAA, MAG box, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux PCs, and any HTML5 browser. Same channel library and EPG on every screen via TiviMate, IPTV Smarters Pro or OTT Navigator."
     },
     {
-      question: "How Quickly Do I Get My Login Coordinates?",
-      answer: "Once checkout is completed, our automated server provisions your dedicated UK slot immediately. Check your inbox (and spam folder) for the instant setup instructions so you can start streaming within minutes."
+      question: "How many simultaneous streams can my household run?",
+      answer: "Plans ship with up to 4 simultaneous connections so the lounge TV, the kid's tablet upstairs, and a phone in the kitchen can all run different channels at the same time. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
     },
     {
-      question: "What Happens If I Experience Buffering During a Game?",
-      answer: "While our UK-based delivery network maintains 99.9% uptime, occasional internet routing drops can occur. Our UK support staff is on standby 24/7 via the helpdesk to optimize your connection routes immediately if you run into any hitches."
+      question: "Is there a free trial — and is there any contract or cancellation fee?",
+      answer: "Free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before paying a penny. Plans run month-to-month or as discounted prepaid quarterly / 6-month / 12-month bundles. No automatic recurring charges, no hidden fees, no early-termination penalty. Cancel any time."
+    },
+    {
+      question: "How fast do I get my login after signup?",
+      answer: "IPTV instant start: from checkout to first live channel typically takes under 5 minutes. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with any compatible player takes another 60 seconds — see the step-by-step setup guide for your device."
     }
   ];
 
@@ -50,7 +54,7 @@ const UKFAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-12 bg-[#1f2326] relative overflow-hidden">
+    <section id="faq" className="py-12 bg-[#001f3f] relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -61,7 +65,7 @@ const UKFAQ: React.FC = () => {
             IPTV UK <span className="text-blue-500">FAQ</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 font-medium">Clear answers for British IPTV viewers.</p>
+          <p className="mt-6 text-gray-400 font-medium">Straight answers for British cord-cutters and sports fans.</p>
         </div>
 
         <div className="space-y-4">
@@ -69,8 +73,8 @@ const UKFAQ: React.FC = () => {
             <div
               key={index}
               className={`group rounded-2xl border transition-all duration-300 ${openIndex === index
-                  ? 'bg-[#2c3034] border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.1)]'
-                  : 'bg-[#2c3034]/40 border-white/5 hover:border-white/10'
+                  ? 'bg-[#002952] border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.1)]'
+                  : 'bg-[#002952]/40 border-white/5 hover:border-white/10'
                 }`}
             >
               <button
@@ -97,12 +101,12 @@ const UKFAQ: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#1e102f] to-[#0c162b] border border-blue-500/20 text-center">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#001a3a] to-[#001f3f] border border-blue-500/20 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Need UK-Based Setup Help?</h3>
           <p className="text-gray-400 mb-6">Our British technical specialists are ready around the clock.</p>
           <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
+            href="mailto:support@orca4ktv.com"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#001a36] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
           >
             <i className="fas fa-flag text-red-600"></i> Contact Us
           </a>

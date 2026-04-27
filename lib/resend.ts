@@ -4,15 +4,15 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY || 'placeholder')
 }
 
-// "Smart 4K" — no "IPTV" in sender name (spam trigger)
-const FROM = process.env.RESEND_FROM_EMAIL || 'Smart 4K <hello@smart4k.io>'
-const REPLY_TO = process.env.RESEND_REPLY_TO || 'contact@smart4k.io'
+// "Orca 4K TV" — no "IPTV" in sender name (spam trigger)
+const FROM = process.env.RESEND_FROM_EMAIL || 'Orca 4K TV <hello@orca4ktv.com>'
+const REPLY_TO = process.env.RESEND_REPLY_TO || 'support@orca4ktv.com'
 
 // Shared headers for all customer-facing emails
 const CUSTOMER_HEADERS = {
   'List-Unsubscribe': `<mailto:${REPLY_TO}>`,
   'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-  'X-Entity-Ref-ID': 'smart4k-transactional',
+  'X-Entity-Ref-ID': 'orca4ktv-transactional',
 }
 
 export type EmailType = 'order-confirmation' | 'payment-link' | 'credentials-ready'
@@ -64,7 +64,7 @@ export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
     to: adminEmail,
     replyTo: REPLY_TO,
     subject: `New order received: ${orderNumber}`,
-    text: `New order received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}\n\nManage: https://smart4k.io/admin/orders/${orderId}`,
+    text: `New order received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}\n\nManage: https://orca4ktv.com/admin/orders/${orderId}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
@@ -86,11 +86,11 @@ export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
             </table>
           </div>
           <div style="text-align:center;">
-            <a href="https://smart4k.io/admin/orders/${orderId}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Manage Order</a>
+            <a href="https://orca4ktv.com/admin/orders/${orderId}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Manage Order</a>
           </div>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          Smart 4K Admin Alert &middot; <a href="https://smart4k.io/admin/orders" style="color:#a855f7;">View all orders</a>
+          Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/orders" style="color:#a855f7;">View all orders</a>
         </div>
       </div>
     `,
@@ -107,12 +107,12 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
     subject: `We received your order — ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
     // Plain text version (critical for inbox delivery)
-    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://smart4k.io/dashboard\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://orca4ktv.com/dashboard\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
           <h1 style="margin:0;font-size:24px;font-weight:900;">Order Received</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Thank you for choosing Smart 4K</p>
+          <p style="margin:8px 0 0;opacity:.85;">Thank you for choosing Orca 4K TV</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
@@ -127,11 +127,11 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
             </table>
           </div>
           <div style="text-align:center;margin-top:32px;">
-            <a href="https://smart4k.io/dashboard" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
+            <a href="https://orca4ktv.com/dashboard" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
           </div>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Smart 4K &middot; <a href="https://smart4k.io" style="color:#a855f7;">smart4k.io</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
+          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
         </div>
       </div>
     `,
@@ -147,12 +147,12 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
     // No "Pay Now" in subject — reads like a scam email
     subject: `Next step for your order — ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
           <h1 style="margin:0;font-size:24px;font-weight:900;">Complete Your Order</h1>
-          <p style="margin:8px 0 0;opacity:.85;">One step left to activate your Smart 4K plan</p>
+          <p style="margin:8px 0 0;opacity:.85;">One step left to activate your Orca 4K TV plan</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
@@ -169,7 +169,7 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
           <p style="color:#6b7280;font-size:13px;">Have questions? Simply reply to this email and we will help you right away.</p>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Smart 4K &middot; <a href="https://smart4k.io" style="color:#a855f7;">smart4k.io</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
+          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
         </div>
       </div>
     `,
@@ -184,9 +184,9 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     to,
     replyTo: REPLY_TO,
     // "Credentials" and "Ready!" are phishing triggers — rewritten
-    subject: `Your Smart 4K subscription is now active`,
+    subject: `Your Orca 4K TV subscription is now active`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\nSetup information:\nUsername: ${username}\nPassword: ${password}\nM3U URL: ${m3uUrl}${portalUrl ? `\nPortal URL: ${portalUrl}` : ''}\n\nYou can also find this information anytime in your dashboard:\nhttps://smart4k.io/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://smart4k.io/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\nSetup information:\nUsername: ${username}\nPassword: ${password}\nM3U URL: ${m3uUrl}${portalUrl ? `\nPortal URL: ${portalUrl}` : ''}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -207,15 +207,15 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
           </div>
           <p style="color:#d1d5db;font-size:13px;">You can also access these details at any time from your dashboard:</p>
           <div style="text-align:center;margin:24px 0;">
-            <a href="https://smart4k.io/dashboard/subscription" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
+            <a href="https://orca4ktv.com/dashboard/subscription" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
           </div>
           <div style="text-align:center;margin:20px 0 8px;">
-            <a href="https://smart4k.io/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
+            <a href="https://orca4ktv.com/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
           </div>
           <p style="color:#6b7280;font-size:12px;text-align:center;">Need help setting up? Our guide has video tutorials for every device.</p>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Smart 4K &middot; <a href="https://smart4k.io" style="color:#a855f7;">smart4k.io</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
+          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
         </div>
       </div>
     `,
@@ -247,14 +247,14 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
     from: FROM,
     to,
     replyTo: REPLY_TO,
-    subject: `Your Smart 4K Free Trial Is Ready`,
+    subject: `Your Orca 4K TV Free Trial Is Ready`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${name},\n\nYour Smart 4K free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Smart 4K\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Watch our video tutorials:\nhttps://smart4k.io/setup-guide\n\nLove it? Upgrade for full access: https://smart4k.io/#pricing\n\n— The Smart 4K Team\nhttps://smart4k.io`,
+    text: `Hi ${name},\n\nYour Orca 4K TV free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Orca 4K TV\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nLove it? Upgrade for full access: https://orca4ktv.com/#pricing\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
           <h1 style="margin:0;font-size:24px;font-weight:900;">Your Free Trial Is Ready!</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Smart 4K — 22,000+ live channels, 4K sports &amp; VOD</p>
+          <p style="margin:8px 0 0;opacity:.85;">Orca 4K TV — 22,000+ live channels, 4K sports &amp; VOD</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${name}</strong>,</p>
@@ -270,7 +270,7 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
             <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Xtream Codes</p>
             <p style="margin:0 0 16px;color:#6b7280;font-size:11px;">For TiviMate, IPTV Smarters, Smart IPTV, etc.</p>
             <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Playlist Name</td><td style="color:#fff;font-family:monospace;text-align:right;">Smart 4K</td></tr>
+              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Playlist Name</td><td style="color:#fff;font-family:monospace;text-align:right;">Orca 4K TV</td></tr>
               <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_username}</td></tr>
               <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_password}</td></tr>
               <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Host / URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;word-break:break-all;">${hostUrl}</td></tr>
@@ -288,16 +288,16 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
           </div>
 
           <div style="text-align:center;margin:28px 0 8px;">
-            <a href="https://smart4k.io/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
+            <a href="https://orca4ktv.com/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
           </div>
           <p style="color:#6b7280;font-size:12px;text-align:center;margin:0 0 24px;">Step-by-step video tutorials for every device — Firestick, Apple, Android &amp; more.</p>
 
           <div style="text-align:center;margin:0 0 32px;">
-            <a href="https://smart4k.io/#pricing" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;border:1px solid #a855f7/30;">Love it? Upgrade for full access &rarr;</a>
+            <a href="https://orca4ktv.com/#pricing" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;border:1px solid #a855f7/30;">Love it? Upgrade for full access &rarr;</a>
           </div>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Smart 4K &middot; <a href="https://smart4k.io" style="color:#a855f7;">smart4k.io</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
+          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
         </div>
       </div>
     `,
@@ -320,7 +320,7 @@ export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
     to: adminEmail,
     replyTo: REPLY_TO,
     subject: `New Trial Request — ${name}`,
-    text: `New trial request received\n\nName: ${name}\nEmail: ${email}\nDevice: ${device}\nCountry: ${country}\n\nReview: https://smart4k.io/admin/trials`,
+    text: `New trial request received\n\nName: ${name}\nEmail: ${email}\nDevice: ${device}\nCountry: ${country}\n\nReview: https://orca4ktv.com/admin/trials`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
@@ -337,11 +337,11 @@ export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
             </table>
           </div>
           <div style="text-align:center;">
-            <a href="https://smart4k.io/admin/trials" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Review in Admin</a>
+            <a href="https://orca4ktv.com/admin/trials" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Review in Admin</a>
           </div>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          Smart 4K Admin Alert &middot; <a href="https://smart4k.io/admin/trials" style="color:#a855f7;">View all trials</a>
+          Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/trials" style="color:#a855f7;">View all trials</a>
         </div>
       </div>
     `,

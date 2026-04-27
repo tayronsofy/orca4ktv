@@ -27,14 +27,14 @@ const CanadaHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our Canada Concierge is currently offline, but we guarantee access to top Canadian networks!");
+      setAiResponse("Our Canada concierge is offline right now — but yes, ORCA 4K TV ships every major Canadian broadcaster including CBC, CTV, Global, Citytv, TSN, Sportsnet, plus Radio-Canada, RDS, TVA Sports for our French Canadian viewers.");
     } finally {
       setIsSearching(false);
     }
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
       
       {/* Canada Theme Cinematic Background */}
       <div
@@ -51,13 +51,13 @@ const CanadaHero: React.FC = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-red-600/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-white/5 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001f3f]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-red-400 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-          Best IPTV Canada Subscription 🇨🇦
+          Canada&apos;s New Cord-Cutter · IPTV Canada 2026 🇨🇦
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
@@ -68,11 +68,11 @@ const CanadaHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Your premier NHL Center Ice IPTV alternative. We guarantee 99.9% uptime during NHL playoffs.
+          Every Stanley Cup Shift. Every Olympic Final. Every Toronto World Cup Match — In 4K HDR
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          The Best IPTV Canada 2026 subscription. Get TSN and Sportsnet IPTV Canada, Canadian Local News IPTV, and French Canadian IPTV channels. Reliable IPTV service for Toronto, Vancouver, and Montreal.
+          From Stanley Cup playoffs to the Milano-Cortina 2026 Winter Olympics in February, the FIFA World Cup matches Toronto and Vancouver host in June, the CFL season, Blue Jays at Rogers Centre and Raptors at Scotiabank Arena — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with edge servers in Toronto and Vancouver. Bilingual EN/FR support. Live on Firestick 4K Max, Apple TV 4K, Smart TV — just ask the AI concierge what&apos;s on tonight.
         </p>
 
         {/* AI Search Bar Area */}
@@ -84,7 +84,7 @@ const CanadaHero: React.FC = () => {
               aria-label="Search for Canadian channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search Canadian networks (e.g., 'Do you have Live Sports and Local News?')"
+              placeholder="Ask anything: 'Stanley Cup tonight?' · 'CFL game on Sportsnet?' · 'Olympics curling final?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500/50 transition-all text-lg shadow-2xl"
             />
             <button

@@ -16,24 +16,24 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
   const router = useRouter()
   const handleBack = onBackToHome || (() => router.push('/'))
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#020204] via-[#1a1d20] to-[#020204] px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#00050d] via-[#001a36] to-[#00050d] px-4 overflow-hidden">
       <SEO
-        title="Privacy Policy - SMART 4K"
-        description="Read our Privacy Policy to understand how we collect, use, and protect your personal information at SMART 4K."
+        title="Privacy Policy - ORCA 4K TV"
+        description="Read our Privacy Policy to understand how we collect, use, and protect your personal information at ORCA 4K TV."
         keywords="privacy policy, data protection, gdpr, user privacy"
       />
       {/* Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00E5FF]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse"></div>
 
       <div className="relative z-10 w-full max-w-4xl text-center">
-        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#a855f7] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
-          <span className="mr-2 inline-block w-2 h-2 bg-[#a855f7] rounded-full animate-pulse"></span>
+        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
+          <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
           Legal & Compliance
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-          Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">Policy</span>
+          Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-white to-[#00E5FF] bg-[length:200%_auto] animate-shimmer">Policy</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-3xl mx-auto drop-shadow-lg leading-relaxed">
@@ -42,9 +42,9 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto mt-16 space-y-12 px-4 md:px-0 text-gray-300 text-lg">
-        <div className="bg-[#1f2326]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md space-y-6">
+        <div className="bg-[#001f3f]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md space-y-6">
           <p>
-            At <strong>SMART 4K</strong>, accessible from <a href="https://smart4k.io" className="text-[#a855f7] hover:underline">smart4k.io</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by SMART 4K and how we use it.
+            At <strong>ORCA 4K TV</strong>, accessible from <a href="https://orca4ktv.com" className="text-[#00E5FF] hover:underline">orca4ktv.com</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by ORCA 4K TV and how we use it.
           </p>
           <p>
             If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
@@ -55,7 +55,7 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
 
           <h2 className="text-3xl font-black text-white mb-6">Consent</h2>
           <p>
-            By using our website, you hereby consent to our Privacy Policy and agree to its terms. For our Terms and Conditions, please visit the <a href="/terms" className="text-[#a855f7] hover:underline">Terms &amp; Conditions</a> page.
+            By using our website, you hereby consent to our Privacy Policy and agree to its terms. For our Terms and Conditions, please visit the <a href="/terms" className="text-[#00E5FF] hover:underline">Terms &amp; Conditions</a> page.
           </p>
 
           <h2 className="text-3xl font-black text-white mb-6">Information we collect</h2>
@@ -83,31 +83,31 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
 
           <h2 className="text-3xl font-black text-white mb-6">Log Files</h2>
           <p>
-            SMART 4K follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services’ analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users’ movement on the website, and gathering demographic information.
+            ORCA 4K TV follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services’ analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users’ movement on the website, and gathering demographic information.
           </p>
 
           <h2 className="text-3xl font-black text-white mb-6">Cookies and Web Beacons</h2>
           <p>
-            Like any other website, SMART 4K uses ‘cookies’. These cookies are used to store information including visitors’ preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.
+            Like any other website, ORCA 4K TV uses ‘cookies’. These cookies are used to store information including visitors’ preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users’ experience by customizing our web page content based on visitors’ browser type and/or other information.
           </p>
           <p>
-            For more general information on cookies, please read <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer" className="text-[#a855f7] hover:underline">“What Are Cookies”</a>.
+            For more general information on cookies, please read <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer" className="text-[#00E5FF] hover:underline">“What Are Cookies”</a>.
           </p>
 
           <h2 className="text-3xl font-black text-white mb-6">Advertising Partners Privacy Policies</h2>
           <p>
-            You may consult this list to find the Privacy Policy for each of the advertising partners of SMART 4K.
+            You may consult this list to find the Privacy Policy for each of the advertising partners of ORCA 4K TV.
           </p>
           <p>
             Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on IpTv, which are sent directly to users’ browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
           </p>
           <p>
-            Note that SMART 4K has no access to or control over these cookies that are used by third-party advertisers.
+            Note that ORCA 4K TV has no access to or control over these cookies that are used by third-party advertisers.
           </p>
 
           <h2 className="text-3xl font-black text-white mb-6">Third Party Privacy Policies</h2>
           <p>
-            SMART 4K's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
+            ORCA 4K TV's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.
           </p>
           <p>
             You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers’ respective websites.
@@ -143,7 +143,7 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
             Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.
           </p>
           <p>
-            SMART 4K does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
+            ORCA 4K TV does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.
           </p>
         </div>
 
@@ -151,7 +151,7 @@ const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHome }) =
         <div className="text-center mt-16">
           <button
             onClick={handleBack}
-            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
           >
             <i className="fas fa-arrow-left"></i> Back to Home
           </button>

@@ -14,7 +14,7 @@ export default function TrustChecklist() {
     <section className="py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-center text-xl md:text-2xl font-black text-white mb-8">
-          Why Smart 4K is the Best Way to Watch
+          Why Orca 4K TV is the Best Way to Watch
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {ITEMS.map(({ icon: Icon, label, sub }) => (

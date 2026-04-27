@@ -10,13 +10,13 @@ const NetherlandsPricing = () => {
   const [activeDeviceCount, setActiveDeviceCount] = useState<1 | 2 | 3 | 4>(1);
 
   const NETHERLANDS_FEATURES = [
-    "Dedicated Nederland-snelheidservers",
-    "Alle Nederlandse lokale en nationale zenders",
-    "Onbeperkt live sport",
-    "Echte 4K-resolutie",
-    "ISP-throttle bescherming",
-    "24/7 Support in het Nederlands",
-    "Directe automatische activering"
+    "Alle Nederlandse zenders (NPO, RTL, Ziggo Sport)",
+    "Eredivisie, KNVB-beker, Champions League, F1",
+    "22.000+ internationale live-kanalen wereldwijd",
+    "100.000+ films & series on-demand",
+    "Echte 4K HDR met HDR10+ en Dolby Vision",
+    "Anti Freeze CDN — Bufferloos streamen",
+    "24/7 Klantenservice · Directe activering"
   ];
 
   const FORM_URL_1_MONTH = "https://d35d7546.sibforms.com/serve/MUIFABcNLakD2jacljgYIn-UHpEDCBU9I4dN99xxru3Nm07fPF03m78cMOb3k2TxRtcigsmQcCUYA1V5Hlhr-d0hrpIZZgfLZWFEcD6q4eaO01Bq-BM1XqAkEn2TekeNfJxYNCU5ZDbNL2JvQ2hCmUeYSx9UOFgTXGPp9T5qBuVX3B_T38zvuzrNtO9RsTRmW4iv2ejj38ehXioqVg==";
@@ -54,7 +54,7 @@ const NetherlandsPricing = () => {
   const currentPlans = PRICING_TIERS[activeDeviceCount];
 
   return (
-    <section className="relative py-20 bg-[#1f2326] overflow-hidden" id="pricing">
+    <section className="relative py-20 bg-[#001f3f] overflow-hidden" id="pricing">
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#AE1C28]/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#21468B]/10 rounded-full blur-[120px]" />
 
@@ -64,10 +64,10 @@ const NetherlandsPricing = () => {
             IPTV Nederland Prijzen. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AE1C28] to-[#21468B]">Altijd opzegbaar.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Start nu met streamen via de beste IPTV-dienst in Nederland. Wereldwijd afrekenen in USD/EUR.
+            Eén wereldwijd IPTV-abonnement — alle Nederlandse zenders plus 22.000+ internationale livekanalen in 4K HDR. Betaling in EUR, altijd opzegbaar.
           </p>
 
-          <div className="inline-flex flex-wrap items-center justify-center bg-[#15171a] p-2 rounded-full border border-[#AE1C28]/30 shadow-xl shadow-[#AE1C28]/10">
+          <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-[#AE1C28]/30 shadow-xl shadow-[#AE1C28]/10">
             {[1, 2, 3, 4].map((count) => (
               <button
                 key={count}
@@ -98,7 +98,7 @@ const NetherlandsPricing = () => {
             >
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-[#AE1C28]/30 to-[#21468B]/10 opacity-50 ${plan.isPopular ? 'from-[#AE1C28] to-[#21468B] opacity-100' : ''}`} />
 
-              <div className="relative h-full bg-[#15171a] rounded-[22px] p-6 flex flex-col border border-[#AE1C28]/20 overflow-hidden">
+              <div className="relative h-full bg-[#001530] rounded-[22px] p-6 flex flex-col border border-[#AE1C28]/20 overflow-hidden">
                 {plan.isPopular && (
                   <div className="absolute top-0 right-0">
                     <div className="bg-gradient-to-l from-[#AE1C28] to-[#21468B] text-white text-xs font-bold px-3 py-1 rounded-bl-xl shadow-lg">

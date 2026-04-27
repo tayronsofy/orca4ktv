@@ -34,19 +34,19 @@ const OTHER_TAGS = ['buzztv', 'formuler', 'smartstb', 'nvidia', 'dreamlink', 'ti
 const FAQ_ITEMS = [
   {
     q: 'How do I set up IPTV on a Firestick?',
-    a: 'To set up IPTV on a Firestick, first enable "Apps from Unknown Sources" in your Firestick settings. Then install the Downloader app from the Amazon store and use it to sideload TiviMate or IPTV Smarters Pro. Open the app, select "Add Playlist", choose "Xtream Codes" or "M3U URL", and enter your username, password, and server URL (host) from your Smart 4K dashboard. Watch our Firestick tutorial video above for full step-by-step instructions.',
+    a: 'To set up IPTV on a Firestick, first enable "Apps from Unknown Sources" in your Firestick settings. Then install the Downloader app from the Amazon store and use it to sideload TiviMate or IPTV Smarters Pro. Open the app, select "Add Playlist", choose "Xtream Codes" or "M3U URL", and enter your username, password, and server URL (host) from your Orca 4K TV dashboard. Watch our Firestick tutorial video above for full step-by-step instructions.',
   },
   {
     q: 'What is the best IPTV app for Android?',
-    a: 'TiviMate is widely considered the best IPTV app for Android and Firestick — it offers a polished TV-guide interface, multi-stream support, catch-up, and recording. IPTV Smarters Pro is another excellent choice, especially for beginners, as it supports both Xtream Codes and M3U playlists. GSE IPTV and XCIPTV are also popular options. All of these work perfectly with your Smart 4K subscription.',
+    a: 'TiviMate is widely considered the best IPTV app for Android and Firestick — it offers a polished TV-guide interface, multi-stream support, catch-up, and recording. IPTV Smarters Pro is another excellent choice, especially for beginners, as it supports both Xtream Codes and M3U playlists. GSE IPTV and XCIPTV are also popular options. All of these work perfectly with your Orca 4K TV subscription.',
   },
   {
     q: 'How do I add an M3U playlist to TiviMate?',
-    a: 'Open TiviMate and tap "Add Playlist". Select "M3U playlist" and paste your M3U URL from your Smart 4K dashboard. TiviMate will automatically import all channels. For the EPG (TV guide), go to Settings → EPG Sources and add your EPG URL — also available in your dashboard. Refresh the EPG to populate the programme guide. You can then organise channels into favourites and groups.',
+    a: 'Open TiviMate and tap "Add Playlist". Select "M3U playlist" and paste your M3U URL from your Orca 4K TV dashboard. TiviMate will automatically import all channels. For the EPG (TV guide), go to Settings → EPG Sources and add your EPG URL — also available in your dashboard. Refresh the EPG to populate the programme guide. You can then organise channels into favourites and groups.',
   },
   {
     q: 'What are Xtream Codes and how do I use them?',
-    a: 'Xtream Codes is an IPTV login method that uses three pieces of information: a Server URL (host), a Username, and a Password. Instead of a long M3U link, you enter these three values separately in your app. Most apps like TiviMate, IPTV Smarters, Smart IPTV, and IBO Player support Xtream Codes. Your host, username, and password are provided in your Smart 4K credentials email and dashboard.',
+    a: 'Xtream Codes is an IPTV login method that uses three pieces of information: a Server URL (host), a Username, and a Password. Instead of a long M3U link, you enter these three values separately in your app. Most apps like TiviMate, IPTV Smarters, Smart IPTV, and IBO Player support Xtream Codes. Your host, username, and password are provided in your Orca 4K TV credentials email and dashboard.',
   },
   {
     q: 'What internet speed do I need for 4K IPTV streaming?',
@@ -54,7 +54,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How do I add an EPG (TV guide) URL to my IPTV app?',
-    a: 'The EPG (Electronic Programme Guide) URL is listed on your credentials page in the Smart 4K dashboard. In TiviMate, go to Settings → EPG Sources → Add Source and paste the URL. In IPTV Smarters, it is entered during the playlist setup under "EPG URL". In Smart IPTV, paste it in the EPG URL field on the web portal at siptv.app. After saving, force-refresh the EPG to load the programme schedule.',
+    a: 'The EPG (Electronic Programme Guide) URL is listed on your credentials page in the Orca 4K TV dashboard. In TiviMate, go to Settings → EPG Sources → Add Source and paste the URL. In IPTV Smarters, it is entered during the playlist setup under "EPG URL". In Smart IPTV, paste it in the EPG URL field on the web portal at siptv.app. After saving, force-refresh the EPG to load the programme schedule.',
   },
   {
     q: 'Can I use my IPTV subscription on multiple devices at the same time?',
@@ -148,20 +148,20 @@ export default function SetupGuideContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#1f2326]">
+    <div className="min-h-screen bg-[#001f3f]">
       {/* Hero */}
-      <div className="relative bg-gradient-to-b from-[#020204] via-[#1a1d20] to-[#1f2326] overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#a855f7]/10 rounded-full blur-[150px] pointer-events-none" />
-        <div className="absolute top-10 right-1/4 w-80 h-80 bg-[#6d28d9]/10 rounded-full blur-[150px] pointer-events-none" />
-        <div style={{ paddingTop: '120px' }} className="relative max-w-5xl mx-auto px-4 pb-16 text-center">
+      <div className="relative bg-gradient-to-b from-[#00050d] via-[#001a36] to-[#001f3f] overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00E5FF]/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-10 right-1/4 w-80 h-80 bg-[#003580]/10 rounded-full blur-[150px] pointer-events-none" />
+        <div style={{ paddingTop: '180px' }} className="relative max-w-5xl mx-auto px-4 pb-16 text-center">
           <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-1.5 text-purple-300 text-xs font-semibold uppercase tracking-widest mb-6">
             <i className="fas fa-robot"></i> AI-Powered Support
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-            IPTV Setup Guide
+            IPTV Setup Guide 2026 — Stream in 5 Minutes on Any Device
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Video tutorials for every device + AI troubleshooter. Get streaming in minutes.
+            Step-by-step IPTV installation tutorials for Firestick 4K Max, Apple TV 4K, Android TV 14, Samsung Tizen, LG webOS, MAG-box, Formuler, iOS, and Android — plus an AI troubleshooter for buffering, login, EPG, and black-screen fixes. Get streaming in 5 minutes.
           </p>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function SetupGuideContent() {
         <section className="mb-20 pt-10">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <p className="text-gray-400 leading-relaxed text-base">
-              Whether you&apos;re installing IPTV on a <strong className="text-white">Firestick</strong>, <strong className="text-white">Android box</strong>, <strong className="text-white">iPhone</strong>, <strong className="text-white">Samsung or LG Smart TV</strong>, <strong className="text-white">MAG box</strong>, or <strong className="text-white">PC</strong> — this guide has everything you need. Our step-by-step video tutorials cover every major app: <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">Smart IPTV</strong>, <strong className="text-white">Formuler</strong>, <strong className="text-white">Kodi</strong>, and more. Use the AI assistant below for a personalised setup guide or to fix any issue instantly.
+              Whether you&apos;re installing IPTV on a <strong className="text-white">Firestick 4K Max</strong>, <strong className="text-white">Apple TV 4K</strong>, <strong className="text-white">Android TV 14 box</strong> (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), <strong className="text-white">Samsung Tizen</strong> or <strong className="text-white">LG webOS</strong> Smart TV, <strong className="text-white">MAG-box</strong>, <strong className="text-white">Formuler</strong>, <strong className="text-white">iPhone / iPad</strong>, <strong className="text-white">Android phone or tablet</strong>, or <strong className="text-white">Windows / macOS / Linux PC</strong> — this guide ships everything you need to be streaming in 4K HDR in under 5 minutes. Our step-by-step video tutorials cover every major IPTV player: <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">OTT Navigator</strong>, <strong className="text-white">GSE Smart IPTV</strong>, <strong className="text-white">Smart IPTV</strong>, <strong className="text-white">Perfect Player</strong>, <strong className="text-white">Kodi</strong>, and more. Use the AI assistant below for a personalised IPTV setup guide or to instantly fix buffering, login, EPG, and black-screen issues.
             </p>
           </div>
 
@@ -206,7 +206,7 @@ export default function SetupGuideContent() {
                 desc: 'Enter your Xtream Codes or M3U URL into the app. Add your EPG URL for a full TV guide. You\'re ready — enjoy 22,000+ channels in 4K.',
               },
             ].map(s => (
-              <div key={s.step} className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 relative">
+              <div key={s.step} className="bg-[#002952] rounded-2xl p-6 border border-white/5 relative">
                 <span className="absolute top-4 right-5 text-4xl font-black text-white/5">{s.step}</span>
                 <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center mb-4">
                   <i className={`${s.icon} text-purple-400`}></i>
@@ -234,7 +234,7 @@ export default function SetupGuideContent() {
                 className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all border ${
                   activeFilter === f.tag
                     ? 'bg-purple-600 text-white border-purple-500'
-                    : 'bg-[#2c3034] text-gray-400 border-white/5 hover:text-white hover:border-purple-500/30'
+                    : 'bg-[#002952] text-gray-400 border-white/5 hover:text-white hover:border-purple-500/30'
                 }`}
               >
                 {f.label}
@@ -245,7 +245,7 @@ export default function SetupGuideContent() {
           {/* Video grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredVideos.map(video => (
-              <div key={video.id} className="bg-[#2c3034] rounded-2xl overflow-hidden border border-white/5">
+              <div key={video.id} className="bg-[#002952] rounded-2xl overflow-hidden border border-white/5">
                 <div className="aspect-video w-full">
                   <iframe
                     src={`https://streamable.com/e/${video.id}`}
@@ -279,8 +279,8 @@ export default function SetupGuideContent() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Wizard card */}
-            <div className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
-              <div className="bg-[#1f2326] px-5 py-4 border-b border-white/5 flex items-center gap-3">
+            <div className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
+              <div className="bg-[#001f3f] px-5 py-4 border-b border-white/5 flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center">
                   <i className="fas fa-robot text-purple-400 text-sm"></i>
                 </div>
@@ -408,7 +408,7 @@ export default function SetupGuideContent() {
 
             {/* Right side info */}
             <div className="space-y-5">
-              <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+              <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
                 <div className="flex items-center gap-3 mb-3">
                   <i className="fas fa-bolt text-yellow-400"></i>
                   <h3 className="text-white font-bold">Instant AI Help</h3>
@@ -417,7 +417,7 @@ export default function SetupGuideContent() {
                   Our AI assistant knows every app, every device, and every common issue. Select your device and get a personalized guide in seconds — no waiting, no support tickets.
                 </p>
               </div>
-              <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+              <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
                 <div className="flex items-center gap-3 mb-3">
                   <i className="fas fa-key text-purple-400"></i>
                   <h3 className="text-white font-bold">Need Your Credentials?</h3>
@@ -432,7 +432,7 @@ export default function SetupGuideContent() {
                   View my credentials <i className="fas fa-arrow-right text-xs"></i>
                 </Link>
               </div>
-              <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+              <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
                 <div className="flex items-center gap-3 mb-3">
                   <i className="fas fa-headset text-blue-400"></i>
                   <h3 className="text-white font-bold">Still Need Help?</h3>
@@ -441,10 +441,10 @@ export default function SetupGuideContent() {
                   Our support team is available 24/7. Reply to any of our emails or contact us directly.
                 </p>
                 <a
-                  href="mailto:support@smart4k.io"
+                  href="mailto:support@orca4ktv.com"
                   className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 font-semibold transition-colors"
                 >
-                  <i className="fas fa-envelope text-xs"></i> support@smart4k.io
+                  <i className="fas fa-envelope text-xs"></i> support@orca4ktv.com
                 </a>
               </div>
             </div>
@@ -460,7 +460,7 @@ export default function SetupGuideContent() {
 
           <div className="space-y-3">
             {QUICK_FIXES.map((fix, i) => (
-              <div key={i} className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
+              <div key={i} className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
                 <button
                   onClick={() => setOpenFix(openFix === i ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/5 transition-colors"
@@ -507,7 +507,7 @@ export default function SetupGuideContent() {
             {FAQ_ITEMS.map((item, i) => (
               <div
                 key={i}
-                className={`rounded-2xl border transition-all duration-200 ${openFaq === i ? 'bg-[#2c3034] border-purple-500/40' : 'bg-[#2c3034]/60 border-white/5 hover:border-white/10'}`}
+                className={`rounded-2xl border transition-all duration-200 ${openFaq === i ? 'bg-[#002952] border-purple-500/40' : 'bg-[#002952]/60 border-white/5 hover:border-white/10'}`}
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -523,6 +523,68 @@ export default function SetupGuideContent() {
                 )}
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* SEO Content Block */}
+        <section className="mt-20 pt-16 border-t border-white/5">
+          <div className="max-w-4xl mx-auto space-y-7">
+            <p className="text-center text-purple-400 text-xs font-black uppercase tracking-[0.3em]">
+              IPTV Setup Guide · 2026
+            </p>
+
+            <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
+              How to Set Up IPTV in 2026 — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
+            </h2>
+
+            <p className="text-gray-300 text-lg leading-relaxed">
+              The <strong className="text-white">ORCA 4K TV IPTV setup guide</strong> walks you through installation in under 5 minutes on every major streaming device of 2026. After checkout, you receive your unique <strong className="text-white">M3U URL</strong>, <strong className="text-white">EPG URL</strong>, and <strong className="text-white">Xtream Codes</strong> (server URL, username, password) by email and inside your dashboard — instant activation, no waiting, AES-256 encrypted, VPN-friendly. Pick the right IPTV player for your hardware, paste in your credentials, and you&apos;re streaming 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision plus 100,000+ on-demand titles within minutes.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-black text-white pt-4 border-t border-purple-500/15">
+              IPTV setup by device — every major player covered
+            </h3>
+
+            <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Firestick 4K Max / Fire TV Cube setup:</strong> install TiviMate or IPTV Smarters Pro via the Downloader app, paste your Xtream codes — Firestick is the most popular IPTV device in 2026.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Apple TV 4K (3rd gen) setup:</strong> install IPTV Smarters Pro or GSE Smart IPTV from the App Store, sign in with Xtream codes — true 4K HDR with Dolby Vision.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Android TV 14 setup:</strong> Nvidia Shield, Onn 4K Pro, Chromecast with Google TV — install TiviMate from the Google Play Store, the gold-standard IPTV player.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Samsung Tizen Smart TV setup:</strong> install Smart IPTV (siptv.app), register your TV&apos;s MAC address, upload your M3U URL — no external box needed.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">LG webOS Smart TV setup:</strong> install SmartIPTV from the LG Content Store, paste your M3U URL via the web portal — instant 4K HDR streaming.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">MAG-box / Formuler setup:</strong> enter the portal URL via the device&apos;s System Settings — works natively without any app install.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">iOS / iPadOS setup:</strong> GSE Smart IPTV or IPTV Smarters Pro from the App Store, paste M3U URL or Xtream codes.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Android phone / tablet setup:</strong> TiviMate, IPTV Smarters Pro, or OTT Navigator from Google Play.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Windows / macOS / Linux setup:</strong> Kodi with PVR IPTV Simple Client, or Perfect Player, or VLC for quick playback testing.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Web browser playback:</strong> any modern HTML5 browser works for the web player at the dashboard — no install needed for trials.</span></li>
+            </ul>
+
+            <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
+              IPTV credentials — M3U URL, Xtream codes, EPG URL
+            </h3>
+
+            <p className="text-gray-300 text-lg leading-relaxed">
+              ORCA 4K TV ships <strong className="text-white">three credential formats</strong> for maximum compatibility: an <strong className="text-white">M3U playlist URL</strong> (single link, one-paste setup — best for TiviMate, OTT Navigator, Smart IPTV, Perfect Player, Kodi), <strong className="text-white">Xtream Codes</strong> (server URL + username + password — best for IPTV Smarters Pro, GSE Smart IPTV, IBO Player, and any modern IPTV app), and a dedicated <strong className="text-white">EPG URL</strong> for the smart Electronic Programme Guide and 7-day catch-up TV. All three are visible in your dashboard at any time. Switch devices freely — your credentials stay the same.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
+              Common IPTV issues &amp; instant fixes
+            </h3>
+
+            <p className="text-gray-300 text-lg leading-relaxed">
+              The most common issues during IPTV setup are <strong className="text-white">buffering</strong> (lower the stream quality, switch to ethernet, or ensure your M3U URL ends with <code className="text-purple-300 bg-black/30 px-1 rounded">&output=ts</code>), <strong className="text-white">login failed</strong> (Xtream codes are case-sensitive — re-type instead of copy/paste), <strong className="text-white">black screen / no audio</strong> (delete and re-add your playlist, verify subscription is active in your dashboard), <strong className="text-white">EPG not loading</strong> (paste the EPG URL into Settings → EPG Sources and force-refresh), and <strong className="text-white">channels not loading</strong> (re-import the M3U URL, check Anti Freeze CDN status). Our AI assistant above generates personalised fixes for any combination of device, app, and symptom — usually solved in under 60 seconds.
+            </p>
+
+            <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
+              IPTV with VPN, Anti Freeze CDN &amp; AES-256 encryption
+            </h3>
+
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Every IPTV stream uses <strong className="text-white">TLS 1.3 with AES-256 encryption</strong> (NIST FIPS 197), making ISP traffic-shaping unreliable against ORCA 4K TV. Our <Link href="/security" className="text-purple-400 hover:underline font-bold">Anti Freeze CDN</Link> with regional edge servers in the US, UK, Frankfurt, and Amsterdam keeps latency below 25 ms in most regions — buffer-free 4K HDR streaming even at peak hours. <strong className="text-white">VPN is fully allowed</strong> on every plan with no speed throttling — useful when traveling or on heavily congested connections. See the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> for definitions of M3U, Xtream Codes, EPG, catch-up TV, HDR10+, Dolby Vision, and other technical terms.
+            </p>
+
+            <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">
+              Need to test before you buy? <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start a free IPTV trial</Link> — no credit card required, full 4K HDR, all 22,000+ channels. Or browse the <Link href="/iptv-shop" className="text-purple-400 hover:underline font-bold">IPTV plans</Link> from $7.92/month. Already a subscriber? View your <Link href="/dashboard/subscription" className="text-purple-400 hover:underline font-bold">M3U URL, EPG URL &amp; Xtream codes</Link> in the dashboard.
+            </p>
           </div>
         </section>
 

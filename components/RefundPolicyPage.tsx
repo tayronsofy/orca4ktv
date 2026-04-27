@@ -14,24 +14,24 @@ const RefundPolicyPage: React.FC<RefundPolicyPageProps> = ({ onBackToHome }) => 
   const router = useRouter()
   const handleBack = onBackToHome || (() => router.push('/'))
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#020204] via-[#1a1d20] to-[#020204] px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#00050d] via-[#001a36] to-[#00050d] px-4 overflow-hidden">
       <SEO
-        title="Refund Policy - SMART 4K"
+        title="Refund Policy - ORCA 4K TV"
         description="Understand our refund policy. We offer trials to ensure satisfaction before purchase. Learn about our 7-day refund window."
         keywords="refund policy, money back guarantee, iptv refund, subscription cancellation"
       />
       {/* Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00E5FF]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse"></div>
 
       <div className="relative z-10 w-full max-w-4xl text-center">
-        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#a855f7] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
-          <span className="mr-2 inline-block w-2 h-2 bg-[#a855f7] rounded-full animate-pulse"></span>
+        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
+          <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
           Legal & Compliance
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-          Refund <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">Policy</span>
+          Refund <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-white to-[#00E5FF] bg-[length:200%_auto] animate-shimmer">Policy</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-3xl mx-auto drop-shadow-lg leading-relaxed">
@@ -40,7 +40,7 @@ const RefundPolicyPage: React.FC<RefundPolicyPageProps> = ({ onBackToHome }) => 
       </div>
 
       <div className="relative z-10 w-full max-w-3xl mx-auto mt-16 space-y-8 px-4 md:px-0 text-gray-300 text-lg">
-        <div className="bg-[#1f2326]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md">
+        <div className="bg-[#001f3f]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md">
           <p className="mb-4">
             By purchasing Services through this site, you are agreeing to these terms and entering into a contract with us.
           </p>
@@ -64,8 +64,8 @@ const RefundPolicyPage: React.FC<RefundPolicyPageProps> = ({ onBackToHome }) => 
         {/* Contact Us Button */}
         <div className="text-center mt-12">
           <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
+            href="mailto:support@orca4ktv.com"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
           >
             <i className="fas fa-envelope"></i> Contact Us
           </a>
@@ -75,7 +75,7 @@ const RefundPolicyPage: React.FC<RefundPolicyPageProps> = ({ onBackToHome }) => 
         <div className="text-center mt-8">
           <button
             onClick={handleBack}
-            className="inline-flex items-center gap-2 px-10 py-4 bg-[#2c3034] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:bg-white/10 transition-all shadow-xl"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-[#002952] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:bg-white/10 transition-all shadow-xl"
           >
             <i className="fas fa-arrow-left"></i> Back to Home
           </button>

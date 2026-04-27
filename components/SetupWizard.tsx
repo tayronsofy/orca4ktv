@@ -56,9 +56,9 @@ const SetupWizard: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="bg-[#1a1d21] w-full max-w-sm md:max-w-lg rounded-2xl border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.2)] overflow-hidden relative">
+      <div className="bg-[#001a36] w-full max-w-sm md:max-w-lg rounded-2xl border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.2)] overflow-hidden relative">
 
-        <div className="bg-[#111316] p-4 flex justify-between items-center border-b border-white/5">
+        <div className="bg-[#000d20] p-4 flex justify-between items-center border-b border-white/5">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
               <i className="fas fa-robot"></i>
@@ -121,7 +121,7 @@ const SetupWizard: React.FC = () => {
                 {mode === 'setup' && (
                   <>
                     <button onClick={() => handleFinalSelection('Recommend Best App')} className="w-full p-4 bg-purple-600 hover:bg-purple-700 rounded-xl text-white font-bold text-left shadow-lg">✨ Recommend Best App</button>
-                    <button onClick={() => handleFinalSelection('IPSMART 4Ks')} className="w-full p-4 bg-white/5 hover:bg-white/10 rounded-xl text-gray-300 text-left">IPSMART 4Ks Pro</button>
+                    <button onClick={() => handleFinalSelection('IPORCA 4K TVs')} className="w-full p-4 bg-white/5 hover:bg-white/10 rounded-xl text-gray-300 text-left">IPORCA 4K TVs Pro</button>
                     <button onClick={() => handleFinalSelection('TiviMate')} className="w-full p-4 bg-white/5 hover:bg-white/10 rounded-xl text-gray-300 text-left">TiviMate (Best for Firestick)</button>
                     {/* NEW BUTTONS ADDED HERE */}
                     <button onClick={() => handleFinalSelection('IBO Player')} className="w-full p-4 bg-white/5 hover:bg-white/10 rounded-xl text-gray-300 text-left">IBO Player (Best for Smart TV)</button>

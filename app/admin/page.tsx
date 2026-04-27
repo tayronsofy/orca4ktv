@@ -37,12 +37,12 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-10">
           <h1 className="text-4xl font-black text-white mb-1">
-            SMART <span className="text-red-500">4K</span>
+            ORCA <span className="text-red-500">4K</span> TV
           </h1>
           <p className="text-gray-500 text-sm font-semibold tracking-widest uppercase">Admin Dashboard</p>
         </div>
 
-        <form onSubmit={handleLogin} className="bg-[#1a1d20] rounded-2xl p-8 border border-white/5 shadow-2xl space-y-5">
+        <form onSubmit={handleLogin} className="bg-[#001a36] rounded-2xl p-8 border border-white/5 shadow-2xl space-y-5">
           <div>
             <label className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-wider">
               Password
@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter admin password"
               required
-              className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-500 transition-colors"
+              className="w-full bg-[#000a1c] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-500 transition-colors"
             />
           </div>
 

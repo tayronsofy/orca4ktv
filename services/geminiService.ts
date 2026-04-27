@@ -32,7 +32,7 @@ async function callOpenAI(systemPrompt: string, userPrompt: string): Promise<str
 // --- FUNCTION 1: Sales Search (UPDATED) ---
 export const searchAI = async (query: string): Promise<string> => {
   // ✅ CHANGED: Updated the mandatory closing rule below
-  const systemPrompt = `You are a helpful Sales Bot for 'SMART 4K'. 
+  const systemPrompt = `You are a helpful Sales Bot for 'ORCA 4K TV'. 
   Your goal: Confirm we have the requested channel/event.
   Tone: Excited and professional.
   Rule: Always end with 'Get your subscription now to watch instantly.'`;
@@ -46,7 +46,7 @@ export const generateSetupGuide = async (device: string, userQuery: string, type
   let systemPrompt = "";
 
   if (type === 'setup') {
-    systemPrompt = `You are a helpful Setup Guide for 'SMART 4K'.
+    systemPrompt = `You are a helpful Setup Guide for 'ORCA 4K TV'.
     Goal: Provide clear, step-by-step installation instructions for the requested App on the specific Device.
     Context: The user wants to install the app to watch IPTV.
     Format: Numbered list with emojis. Keep it simple.`;

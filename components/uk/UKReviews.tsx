@@ -4,22 +4,22 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "The Premier League streams are absolutely smooth and the 4K categories look brilliant on my telly. Setup took 5 mins.",
-        device: "Android TV - London",
+        text: "Watched every Liverpool fixture in 4K HDR on my Apple TV 4K — zero buffering, even on the 3pm Saturday kick-offs. Cancelled satellite TV and saved over £75 a month.",
+        device: "Apple TV 4K — Liverpool",
     },
     {
-        text: "Brilliant UK support that replies fast. I had a tiny app issue and they helped sort it right out.",
-        device: "Firestick - Manchester",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Six Nations matches, Premier League midweek, F1 Sundays — all crystal clear. Smart EPG is sharper than anything I've used.",
+        device: "Firestick 4K Max — Manchester",
     },
     {
-        text: "Massive VOD library and the EPG has all British channels. Works perfectly on my mobile and Smart TV.",
-        device: "iOS + LG TV - Birmingham",
+        text: "Switched from BT after years of paying for premium sports add-ons. Same Premier League and Champions League coverage, plus Wimbledon and county cricket, all in 4K HDR on my LG OLED.",
+        device: "LG webOS + iPhone — London",
     },
 ];
 
 const UKReviews: React.FC = () => {
     return (
-        <section className="py-20 bg-[#15171a] relative overflow-hidden" id="reviews">
+        <section className="py-20 bg-[#001530] relative overflow-hidden" id="reviews">
             {/* Background Ambience */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] translate-y-1/2"></div>
@@ -31,7 +31,7 @@ const UKReviews: React.FC = () => {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        British viewers choose us for stability, premium sports channels, and fast support when setup help is needed.
+                        Verified British cord-cutters who switched from satellite TV — buffer-free 4K HDR, every Premier League fixture, every Six Nations match, every UK terrestrial channel, one IPTV subscription.
                     </p>
                 </div>
 
@@ -39,7 +39,7 @@ const UKReviews: React.FC = () => {
                     {reviewsRaw.map((review, i) => (
                         <div
                             key={i}
-                            className="bg-[#1f2326] p-8 rounded-3xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
+                            className="bg-[#001f3f] p-8 rounded-3xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
                         >
                             {/* Stars */}
                             <div className="flex gap-1 mb-6">

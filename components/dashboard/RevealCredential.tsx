@@ -22,7 +22,7 @@ export default function RevealCredential({ label, value, secret = false, isUrl =
   const display = secret && !revealed ? '••••••••••••' : value
 
   return (
-    <div className="bg-[#1f2326] rounded-xl px-4 py-3 border border-white/5">
+    <div className="bg-[#001f3f] rounded-xl px-4 py-3 border border-white/5">
       <div className="flex items-center justify-between mb-1">
         <span className="text-xs text-gray-500 uppercase tracking-widest">{label}</span>
         <div className="flex items-center gap-2">

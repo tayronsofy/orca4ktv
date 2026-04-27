@@ -8,7 +8,7 @@ type BtnVariant = 'red' | 'white' | 'outline'
 
 const VARIANT_STYLE: Record<BtnVariant, string> = {
   red:     'background:#dc2626;color:#fff;border:none',
-  white:   'background:#fff;color:#0a0a0a;border:none',
+  white:   'background:#fff;color:#000a1c;border:none',
   outline: 'background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.4)',
 }
 
@@ -27,7 +27,7 @@ function CtaButtonView({ node, updateAttributes, selected }: NodeViewProps) {
         <select
           value={variant}
           onChange={(e) => updateAttributes({ variant: e.target.value as BtnVariant })}
-          style={{ background: '#1a1d20', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '.375rem', color: '#9ca3af', fontSize: '.7rem', padding: '.25rem .5rem' }}
+          style={{ background: '#001a36', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '.375rem', color: '#9ca3af', fontSize: '.7rem', padding: '.25rem .5rem' }}
         >
           <option value="red">Red</option>
           <option value="white">White</option>
@@ -37,7 +37,7 @@ function CtaButtonView({ node, updateAttributes, selected }: NodeViewProps) {
           value={url}
           onChange={(e) => updateAttributes({ url: e.target.value })}
           placeholder="https://..."
-          style={{ background: '#1a1d20', border: '1px solid rgba(255,255,255,0.1)', outline: 'none', color: '#9ca3af', fontSize: '.75rem', padding: '.35rem .75rem', borderRadius: '.375rem', flex: 1, minWidth: '150px' }}
+          style={{ background: '#001a36', border: '1px solid rgba(255,255,255,0.1)', outline: 'none', color: '#9ca3af', fontSize: '.75rem', padding: '.35rem .75rem', borderRadius: '.375rem', flex: 1, minWidth: '150px' }}
         />
       </div>
     </NodeViewWrapper>

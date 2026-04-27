@@ -11,13 +11,13 @@ const UKPricing = () => {
 
   // UK-specific unique text
   const UK_FEATURES = [
-    "Dedicated UK High-Speed Servers",
-    "All Local & National UK Networks",
-    "Unrestricted Premium Live Sports",
-    "True 4K Resolution on UK Displays",
-    "Zero ISP Throttling Protection",
-    "24/7 UK Support Team",
-    "Instant Automated UK Activation"
+    "All UK Networks (BBC, ITV, Channel 4, Sky, TNT Sports)",
+    "Premier League, Champions League, F1 — Every Match",
+    "22,000+ International Live Channels Worldwide",
+    "100,000+ On-Demand Movies & Series Library",
+    "True 4K HDR with HDR10+ & Dolby Vision",
+    "Anti Freeze CDN — Buffer-Free Streaming",
+    "24/7 Customer Support · Instant UK Activation"
   ];
 
   const FORM_URL_1_MONTH = "https://d35d7546.sibforms.com/serve/MUIFABcNLakD2jacljgYIn-UHpEDCBU9I4dN99xxru3Nm07fPF03m78cMOb3k2TxRtcigsmQcCUYA1V5Hlhr-d0hrpIZZgfLZWFEcD6q4eaO01Bq-BM1XqAkEn2TekeNfJxYNCU5ZDbNL2JvQ2hCmUeYSx9UOFgTXGPp9T5qBuVX3B_T38zvuzrNtO9RsTRmW4iv2ejj38ehXioqVg==";
@@ -55,7 +55,7 @@ const UKPricing = () => {
   const currentPlans = PRICING_TIERS[activeDeviceCount];
 
   return (
-    <section className="relative py-20 bg-[#1f2326] overflow-hidden" id="pricing">
+    <section className="relative py-20 bg-[#001f3f] overflow-hidden" id="pricing">
       {/* UK Theme Subtle Background Ambience */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
@@ -66,10 +66,10 @@ const UKPricing = () => {
             UK IPTV Pricing. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">Cancel Anytime.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Start streaming via the best IPTV service in the UK. Global checkout in USD/GBP.
+            One global IPTV subscription — every UK network plus 22,000+ international live channels in 4K HDR. Pay in GBP, cancel anytime.
           </p>
 
-          <div className="inline-flex flex-wrap items-center justify-center bg-[#15171a] p-2 rounded-full border border-blue-600/30 shadow-xl shadow-blue-500/10">
+          <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-blue-600/30 shadow-xl shadow-blue-500/10">
             {[1, 2, 3, 4].map((count) => (
               <button
                 key={count}
@@ -100,7 +100,7 @@ const UKPricing = () => {
             >
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-red-500/30 to-blue-600/10 opacity-50 ${plan.isPopular ? 'from-red-500 to-blue-600 opacity-100' : ''}`} />
 
-              <div className="relative h-full bg-[#15171a] rounded-[22px] p-6 flex flex-col border border-blue-500/20 overflow-hidden">
+              <div className="relative h-full bg-[#001530] rounded-[22px] p-6 flex flex-col border border-blue-500/20 overflow-hidden">
                 {plan.isPopular && (
                   <div className="absolute top-0 right-0">
                     <div className="bg-gradient-to-l from-red-600 to-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-xl shadow-lg">

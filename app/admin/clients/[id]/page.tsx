@@ -79,7 +79,7 @@ export default function ClientDetailPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Profile info */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4">Profile</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{profile.full_name || '—'}</dd></div>
@@ -91,7 +91,7 @@ export default function ClientDetailPage() {
         </div>
 
         {/* Active subscription */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4">Active Subscription</h2>
           {activeSub ? (
             <dl className="space-y-2 text-sm">
@@ -107,7 +107,7 @@ export default function ClientDetailPage() {
       {/* Orders */}
       <h2 className="text-white font-bold mb-4">Order History ({orders.length})</h2>
       {orders.length === 0 ? (
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 text-center text-gray-500 text-sm">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 text-center text-gray-500 text-sm">
           No orders yet.
         </div>
       ) : (
@@ -116,7 +116,7 @@ export default function ClientDetailPage() {
             const invoice = order.invoices?.[0]
             const sub = order.subscriptions?.[0]
             return (
-              <div key={order.id} className="bg-[#2c3034] rounded-2xl p-5 border border-white/5">
+              <div key={order.id} className="bg-[#002952] rounded-2xl p-5 border border-white/5">
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                   <div>
                     <p className="text-white font-bold">{order.plan_name}</p>

@@ -14,7 +14,7 @@ const USAFeatures = lazy(() => import('@/components/usa/USAFeatures'))
 const USAFAQ = lazy(() => import('@/components/usa/USAFAQ'))
 
 const Loader = () => (
-  <div className="w-full h-32 flex items-center justify-center bg-[#1f2326]">
+  <div className="w-full h-32 flex items-center justify-center bg-[#001f3f]">
     <div className="w-6 h-6 border-2 border-blue-600 rounded-full animate-spin border-t-transparent" />
   </div>
 )
@@ -25,7 +25,11 @@ const scrollToPricing = () => {
   else window.location.href = '/#pricing'
 }
 
-const USAHomePage: React.FC = () => {
+interface USAHomePageProps {
+  seoContent?: React.ReactNode
+}
+
+const USAHomePage: React.FC<USAHomePageProps> = ({ seoContent }) => {
   return (
     <>
       <Suspense fallback={<div className="h-10" />}>
@@ -37,6 +41,7 @@ const USAHomePage: React.FC = () => {
         <div id="pricing"><USAPricing /></div>
         <USAFeatures />
         <Devices />
+        {seoContent}
       </Suspense>
       <Suspense fallback={<div />}>
         <VideoBanner />

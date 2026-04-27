@@ -15,10 +15,10 @@ interface Props {
 }
 
 export default function MatchHero({ match, state }: Props) {
-  const tgBot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? 'Smart4ksupport'
+  const tgBot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? 'Orca4ktv'
 
   return (
-    <section className="relative overflow-hidden bg-[#080808] pt-10 pb-14 px-4">
+    <section className="relative overflow-hidden bg-[#000a1c] pt-10 pb-14 px-4">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-[#00e676]/5 rounded-full blur-[120px]" />

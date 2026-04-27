@@ -31,15 +31,15 @@ const features = [
 
 const TrialWhatYouGet: React.FC = () => {
   return (
-    <section className="py-24 bg-[#1f2326]">
+    <section className="py-24 bg-[#001f3f]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-            What&apos;s Included in Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6d28d9] to-[#a855f7]">Free Trial</span>
+            What&apos;s Included in Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#003580] to-[#00E5FF]">Free Trial</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Your free IPTV trial includes the full SMART 4K experience — no features locked, no restrictions.
+            Your free IPTV trial includes the full ORCA 4K TV experience — no features locked, no restrictions.
           </p>
         </div>
 
@@ -47,7 +47,7 @@ const TrialWhatYouGet: React.FC = () => {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="bg-[#15171a] rounded-3xl border border-white/5 hover:border-[#a855f7]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden group"
+              className="bg-[#001530] rounded-3xl border border-white/5 hover:border-[#00E5FF]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl overflow-hidden group"
             >
               <div className="overflow-hidden border-b border-white/5">
                 <img

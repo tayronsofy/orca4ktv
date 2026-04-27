@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <footer className="bg-[#1a1d20] pt-12 pb-10 border-t border-white/5">
+    <footer className="bg-[#001a36] pt-12 pb-10 border-t border-white/5">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-10">
           <div>
@@ -29,6 +29,8 @@ const Footer: React.FC = () => {
                 </button>
               </li>
               <li><Link href="/setup-guide" className="hover:text-white transition-colors">Setup Guide</Link></li>
+              <li><Link href="/glossary" className="hover:text-white transition-colors">IPTV Glossary</Link></li>
+              <li><Link href="/security" className="hover:text-white transition-colors">Security & Encryption</Link></li>
               <li><a href="https://iptvrooms.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">IPTV Forum</a></li>
             </ul>
           </div>
@@ -42,8 +44,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           <div className="flex flex-col gap-4 text-center md:text-left">
-            <Link href="/" className="hover:opacity-80 transition-opacity inline-block" aria-label="Smart 4K Home">
-              <img src="/logo.png?v=2" alt="SMART 4K IPTV" className="h-12 w-auto" width={1263} height={399} loading="lazy" />
+            <Link href="/" className="hover:opacity-80 transition-opacity inline-block" aria-label="Orca 4K TV Home">
+              <img src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-16 w-auto" width={1432} height={704} loading="lazy" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               Premium IPTV service with 22,000+ channels in HD &amp; 4K. Trusted by cord-cutters worldwide.
@@ -51,7 +53,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <span>Copyright © 2026 SMART 4K Inc. All rights reserved.</span>
+          <span>Copyright © 2026 ORCA 4K TV Inc. All rights reserved.</span>
           <div className="flex items-center gap-4">
             <Link href="/iptv-usa" className="hover:text-gray-400 transition-colors">IPTV USA</Link>
             <Link href="/iptv-uk" className="hover:text-gray-400 transition-colors">IPTV UK</Link>

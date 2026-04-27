@@ -9,6 +9,7 @@ export interface FeatureItem {
   title: string;
   description: string;
   imageUrl: string;
+  imageAlt?: string;
   reverse?: boolean;
 }
 

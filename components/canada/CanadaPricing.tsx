@@ -11,13 +11,13 @@ const CanadaPricing = () => {
 
   // Canada-specific unique text
   const CANADA_FEATURES = [
-    "Dedicated High-Speed Canadian Servers",
-    "All Local & National Canadian Networks",
-    "Unrestricted Premium Live Sports (NHL/CFL)",
-    "True 4K Resolution on all Displays",
-    "Zero ISP Throttling Protection",
-    "24/7 Canadian Support Team",
-    "Instant Automated Activation"
+    "All Canadian Networks (CBC, CTV, Global, TSN, Sportsnet)",
+    "NHL, CFL, MLB, NBA — Every Game Live in 4K HDR",
+    "22,000+ International Live Channels Worldwide",
+    "100,000+ On-Demand Movies & Series Library",
+    "True 4K HDR with HDR10+ & Dolby Vision",
+    "Anti Freeze CDN — Buffer-Free Streaming",
+    "24/7 Customer Support · Instant Canadian Activation"
   ];
 
   const FORM_URL_1_MONTH = "https://d35d7546.sibforms.com/serve/MUIFABcNLakD2jacljgYIn-UHpEDCBU9I4dN99xxru3Nm07fPF03m78cMOb3k2TxRtcigsmQcCUYA1V5Hlhr-d0hrpIZZgfLZWFEcD6q4eaO01Bq-BM1XqAkEn2TekeNfJxYNCU5ZDbNL2JvQ2hCmUeYSx9UOFgTXGPp9T5qBuVX3B_T38zvuzrNtO9RsTRmW4iv2ejj38ehXioqVg==";
@@ -55,7 +55,7 @@ const CanadaPricing = () => {
   const currentPlans = PRICING_TIERS[activeDeviceCount];
 
   return (
-    <section className="relative py-20 bg-[#1f2326] overflow-hidden" id="pricing">
+    <section className="relative py-20 bg-[#001f3f] overflow-hidden" id="pricing">
       {/* Canada Theme Subtle Background Ambience */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-white/5 rounded-full blur-[120px]" />
@@ -66,10 +66,10 @@ const CanadaPricing = () => {
             Canada IPTV Pricing. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Cancel Anytime.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Start streaming via the best IPTV service in Canada. Global checkout available.
+            One global IPTV subscription — every Canadian network plus 22,000+ international live channels in 4K HDR. Pay in CAD, cancel anytime.
           </p>
 
-          <div className="inline-flex flex-wrap items-center justify-center bg-[#15171a] p-2 rounded-full border border-red-600/30 shadow-xl shadow-red-500/10">
+          <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-red-600/30 shadow-xl shadow-red-500/10">
             {[1, 2, 3, 4].map((count) => (
               <button
                 key={count}
@@ -77,7 +77,7 @@ const CanadaPricing = () => {
                 className={`
                   px-6 py-2 rounded-full text-sm font-bold transition-all duration-300
                   ${activeDeviceCount === count
-                    ? 'bg-gradient-to-r from-red-600 to-white text-[#1a0b3c] shadow-lg shadow-red-500/30 scale-105'
+                    ? 'bg-gradient-to-r from-red-600 to-white text-[#001737] shadow-lg shadow-red-500/30 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'}
                 `}
               >
@@ -100,7 +100,7 @@ const CanadaPricing = () => {
             >
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-red-500/30 to-white/10 opacity-50 ${plan.isPopular ? 'from-red-500 to-red-700 opacity-100' : ''}`} />
 
-              <div className="relative h-full bg-[#15171a] rounded-[22px] p-6 flex flex-col border border-red-500/20 overflow-hidden">
+              <div className="relative h-full bg-[#001530] rounded-[22px] p-6 flex flex-col border border-red-500/20 overflow-hidden">
                 {plan.isPopular && (
                   <div className="absolute top-0 right-0">
                     <div className="bg-gradient-to-l from-red-600 to-red-400 text-white text-xs font-bold px-3 py-1 rounded-bl-xl shadow-lg">

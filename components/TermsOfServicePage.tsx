@@ -14,24 +14,24 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
   const router = useRouter()
   const handleBack = onBackToHome || (() => router.push('/'))
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#020204] via-[#1a1d20] to-[#020204] px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-24 bg-gradient-to-br from-[#00050d] via-[#001a36] to-[#00050d] px-4 overflow-hidden">
       <SEO
-        title="Terms and Conditions - SMART 4K"
-        description="Review our Terms and Conditions regarding your use of SMART 4K services, subscription policies, and usage guidelines."
+        title="Terms and Conditions - ORCA 4K TV"
+        description="Review our Terms and Conditions regarding your use of ORCA 4K TV services, subscription policies, and usage guidelines."
         keywords="terms of service, iptv terms, smart 4k conditions, usage policy"
       />
       {/* Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00E5FF]/10 blur-[150px] rounded-full animate-pulse-slow"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse"></div>
 
       <div className="relative z-10 w-full max-w-4xl text-center">
-        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#a855f7] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
-          <span className="mr-2 inline-block w-2 h-2 bg-[#a855f7] rounded-full animate-pulse"></span>
+        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
+          <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
           Legal & Compliance
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black mb-8 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-          Terms And <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">Conditions</span>
+          Terms And <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-white to-[#00E5FF] bg-[length:200%_auto] animate-shimmer">Conditions</span>
         </h1>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-3xl mx-auto drop-shadow-lg leading-relaxed">
@@ -40,9 +40,9 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
       </div>
 
       <div className="relative z-10 w-full max-w-3xl mx-auto mt-16 space-y-8 px-4 md:px-0 text-gray-300 text-lg">
-        <div className="bg-[#1f2326]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md space-y-6">
+        <div className="bg-[#001f3f]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md space-y-6">
           <p>
-            SMART 4K provides an online video streaming service which allows clients to browse distinctive offerings of live and on-demand programs. Consequently, by accessing or using any of the SMART 4K services, you acknowledge and consent to these terms:
+            ORCA 4K TV provides an online video streaming service which allows clients to browse distinctive offerings of live and on-demand programs. Consequently, by accessing or using any of the ORCA 4K TV services, you acknowledge and consent to these terms:
           </p>
 
           <h2 className="text-2xl font-bold text-white">Changes to the Terms and Conditions</h2>
@@ -52,7 +52,7 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
 
           <h2 className="text-2xl font-bold text-white">Minimum age requirement</h2>
           <p>
-            In order to become a member and utilize the SMART 4K services, you must be 18 years old or older.
+            In order to become a member and utilize the ORCA 4K TV services, you must be 18 years old or older.
           </p>
 
           <h2 className="text-2xl font-bold text-white">Usage and service terms</h2>
@@ -67,7 +67,7 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
 
           <h2 className="text-2xl font-bold text-white">Quality of streams</h2>
           <p>
-            A perfect viewing experience relies upon your network access and device capabilities. The elements will be based on your location, internet capacity, the quantity of devices connected to the same network, the content you have chosen, and the configuration of the device you are using. Subsequently, SMART 4K can’t make any guarantees about the content in these regards. Please note sharing a subscription will result in permanent suspension or device ban.
+            A perfect viewing experience relies upon your network access and device capabilities. The elements will be based on your location, internet capacity, the quantity of devices connected to the same network, the content you have chosen, and the configuration of the device you are using. Subsequently, ORCA 4K TV can’t make any guarantees about the content in these regards. Please note sharing a subscription will result in permanent suspension or device ban.
           </p>
 
           <h2 className="text-2xl font-bold text-white">Used balance</h2>
@@ -82,7 +82,7 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
 
           <h2 className="text-2xl font-bold text-white">Accuracy of information</h2>
           <p>
-            All the data you submit to our database must be accurate and updated. Please keep your passwords safe. You won’t need to uncover it to any SMART 4K agents. You are responsible for all utilization of your account.
+            All the data you submit to our database must be accurate and updated. Please keep your passwords safe. You won’t need to uncover it to any ORCA 4K TV agents. You are responsible for all utilization of your account.
           </p>
 
           <h2 className="text-2xl font-bold text-white">Compatibility</h2>
@@ -107,7 +107,7 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
 
           <h2 className="text-2xl font-bold text-white">Suspension and downtime</h2>
           <p>
-            In extension of our rights to end or suspend your access delineated above, you acknowledge that: your access and usage of the services might be suspended for the length of any sudden or unscheduled downtime or unavailability of any portion or all of the services for any reason. All correspondences and notice to be made or offered in understanding with this Agreement ought to be in the English language. We maintain all authority to instantly end or limit your use of the services or access to content at any time, without notice or liability, if SMART 4K determines in its sole discretion that you have breached these Terms, disregarded any law, rule, or regulation. The SMART 4K logo, and other SMART 4K marks, graphics, scripts, are trademarks of SMART 4K. None of the SMART 4K trademarks may be copied, downloaded, or otherwise exploited.
+            In extension of our rights to end or suspend your access delineated above, you acknowledge that: your access and usage of the services might be suspended for the length of any sudden or unscheduled downtime or unavailability of any portion or all of the services for any reason. All correspondences and notice to be made or offered in understanding with this Agreement ought to be in the English language. We maintain all authority to instantly end or limit your use of the services or access to content at any time, without notice or liability, if ORCA 4K TV determines in its sole discretion that you have breached these Terms, disregarded any law, rule, or regulation. The ORCA 4K TV logo, and other ORCA 4K TV marks, graphics, scripts, are trademarks of ORCA 4K TV. None of the ORCA 4K TV trademarks may be copied, downloaded, or otherwise exploited.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({ onBackToHome })
         <div className="text-center mt-16">
           <button
             onClick={handleBack}
-            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white font-black rounded-full uppercase text-sm tracking-[0.2em] hover:scale-105 transition-all shadow-xl"
           >
             <i className="fas fa-arrow-left"></i> Back to Home
           </button>

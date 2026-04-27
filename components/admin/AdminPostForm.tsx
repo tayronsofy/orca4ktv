@@ -8,7 +8,7 @@ import type { BlogPost } from '@/lib/posts'
 
 // Lazy-load the editor (it's heavy and needs the browser)
 const RichTextEditor = dynamic(() => import('./RichTextEditor'), { ssr: false, loading: () => (
-  <div className="bg-[#0a0a0a] border border-white/10 rounded-xl h-64 flex items-center justify-center text-gray-600">
+  <div className="bg-[#000a1c] border border-white/10 rounded-xl h-64 flex items-center justify-center text-gray-600">
     Loading editor…
   </div>
 )})
@@ -126,7 +126,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="border-b border-white/5 px-6 py-4 flex items-center justify-between sticky top-0 bg-[#0a0a0a] z-10">
+      <div className="border-b border-white/5 px-6 py-4 flex items-center justify-between sticky top-0 bg-[#000a1c] z-10">
         <div className="flex items-center gap-3">
           <Link href="/admin/dashboard" className="text-gray-500 hover:text-white transition-colors">← Back</Link>
           <span className="text-gray-600">/</span>
@@ -165,7 +165,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
 
           <div>
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Slug</label>
-            <div className="flex items-center gap-2 bg-[#1a1d20] border border-white/10 rounded-xl px-4 py-2">
+            <div className="flex items-center gap-2 bg-[#001a36] border border-white/10 rounded-xl px-4 py-2">
               <span className="text-gray-600 text-sm">/blog/</span>
               <input
                 type="text"
@@ -190,14 +190,14 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
         {/* Right: Meta sidebar */}
         <div className="space-y-5">
           {/* Status */}
-          <div className="bg-[#1a1d20] rounded-2xl border border-white/5 p-5 space-y-3">
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 p-5 space-y-3">
             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider">Publish Settings</h3>
             <div>
               <label className="block text-xs text-gray-500 mb-1">Status</label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as 'published' | 'draft')}
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30"
               >
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
@@ -210,20 +210,20 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 value={readTime}
                 onChange={(e) => setReadTime(e.target.value)}
                 placeholder="5 min read"
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
 
           {/* Category & Featured Image */}
-          <div className="bg-[#1a1d20] rounded-2xl border border-white/5 p-5 space-y-3">
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 p-5 space-y-3">
             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider">Category & Image</h3>
             <div>
               <label className="block text-xs text-gray-500 mb-1">Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30"
               >
                 {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -270,7 +270,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
                 placeholder="Or paste an image URL…"
-                className="mt-2 w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+                className="mt-2 w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
               {imageUrl && (
                 <button
@@ -284,7 +284,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
           </div>
 
           {/* Author */}
-          <div className="bg-[#1a1d20] rounded-2xl border border-white/5 p-5 space-y-3">
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 p-5 space-y-3">
             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider">Author</h3>
             <div>
               <label className="block text-xs text-gray-500 mb-1">Name</label>
@@ -293,7 +293,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Alex Mercer"
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
             </div>
             <div>
@@ -303,13 +303,13 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 value={authorRole}
                 onChange={(e) => setAuthorRole(e.target.value)}
                 placeholder="Senior Streaming Architect"
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
             </div>
           </div>
 
           {/* SEO */}
-          <div className="bg-[#1a1d20] rounded-2xl border border-white/5 p-5 space-y-3">
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 p-5 space-y-3">
             <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider">SEO</h3>
             <div>
               <label className="block text-xs text-gray-500 mb-1">Excerpt (meta description)</label>
@@ -319,7 +319,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 placeholder="A short summary shown in search results and blog cards…"
                 rows={3}
                 maxLength={200}
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30 resize-none"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30 resize-none"
               />
               <p className="text-right text-xs text-gray-600">{excerpt.length}/200</p>
             </div>
@@ -330,7 +330,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 value={seoKeywords}
                 onChange={(e) => setSeoKeywords(e.target.value)}
                 placeholder="keyword one, keyword two, keyword three"
-                className="w-full bg-[#0a0a0a] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
             </div>
           </div>

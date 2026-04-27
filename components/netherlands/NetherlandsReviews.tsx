@@ -4,22 +4,22 @@ import React from 'react';
 
 const reviewsRaw = [
   {
-    text: "De Eredivisie-streams lopen absoluut vloeiend en de 4K-kwaliteit ziet er fantastisch uit. Installatie duurde maar 5 minuten.",
-    device: "Android TV – Amsterdam",
+    text: "Elke Eredivisie-topper en alle Champions League-avonden in 4K HDR op mijn Apple TV 4K — geen hapering, zelfs niet op de beslissende speeldag in mei. Ziggo opgezegd en meer dan €45 per maand bespaard.",
+    device: "Apple TV 4K – Amsterdam",
   },
   {
-    text: "Geweldige support die snel reageert. Ik had een klein probleem met de app en ze hebben het meteen opgelost. Zeker aanbevelen!",
-    device: "Firestick – Rotterdam",
+    text: "In minder dan 5 minuten via TiviMate ingesteld op de Firestick 4K Max. F1-zondagen met Max Verstappen, KNVB-beker-avonden, Olympische hoogtepunten uit Milaan-Cortina — alles haarscherp. De EPG is overzichtelijker dan alles wat ik daarvoor had.",
+    device: "Firestick 4K Max – Rotterdam",
   },
   {
-    text: "Enorme VOD-bibliotheek en de EPG heeft alle Nederlandse zenders. Werkt perfect op mijn smartphone en Smart TV.",
-    device: "iOS + Samsung TV – Utrecht",
+    text: "Na de zoveelste prijsverhoging van KPN overgestapt. Dezelfde Eredivisie, dezelfde NPO Start, plus 100+ internationale zenders. Streamt vlekkeloos in 4K HDR op mijn LG OLED.",
+    device: "LG webOS + iPhone – Eindhoven",
   },
 ];
 
 const NetherlandsReviews: React.FC = () => {
   return (
-    <section className="py-20 bg-[#15171a] relative overflow-hidden" id="reviews">
+    <section className="py-20 bg-[#001530] relative overflow-hidden" id="reviews">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#21468B]/10 rounded-full blur-[120px] -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#AE1C28]/10 rounded-full blur-[120px] translate-y-1/2"></div>
 
@@ -30,7 +30,7 @@ const NetherlandsReviews: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Nederlandse gebruikers kiezen ons vanwege stabiliteit, premium sportkanalen en snelle hulp bij de installatie.
+            Geverifieerde Nederlandse cord-cutters van Amsterdam tot Eindhoven — buffervrij 4K HDR, elke Eredivisie-wedstrijd, elke F1-Grand Prix, elk Olympisch moment, één enkel IPTV-abonnement.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const NetherlandsReviews: React.FC = () => {
           {reviewsRaw.map((review, i) => (
             <div
               key={i}
-              className="bg-[#1f2326] p-8 rounded-3xl border border-white/5 hover:border-[#21468B]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
+              className="bg-[#001f3f] p-8 rounded-3xl border border-white/5 hover:border-[#21468B]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, starIndex) => (

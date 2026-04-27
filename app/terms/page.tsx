@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import TermsOfServicePage from '@/components/TermsOfServicePage'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - SMART 4K',
-  description: 'SMART 4K terms of service and usage agreement.',
-  alternates: { canonical: 'https://smart4k.io/terms' },
+  title: 'Terms of Service - ORCA 4K TV',
+  description: 'ORCA 4K TV terms of service and usage agreement.',
+  alternates: { canonical: 'https://orca4ktv.com/terms' },
   robots: { index: false },
 }
 

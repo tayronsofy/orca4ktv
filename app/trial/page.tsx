@@ -2,23 +2,23 @@ import type { Metadata } from 'next'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
 export const metadata: Metadata = {
-  title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
-  description: 'Try SMART 4K free — access thousands of premium channels, 4K sports & movies. Get your free trial credentials and experience reliable HD streaming today.',
-  keywords: 'free iptv trial, iptv test, iptv free trial 2026, best iptv trial 2026, try iptv free, iptv subscription trial',
-  alternates: { canonical: 'https://smart4k.io/trial' },
+  title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation | ORCA 4K TV',
+  description: 'Free IPTV trial with rapid setup and instant activation. Test ORCA 4K TV — premium IPTV channels, 4K HDR streaming, smart EPG guide, multi-device compatibility. No credit card, IPTV instant start in minutes.',
+  keywords: 'free iptv trial, iptv test, iptv free trial 2026, IPTV instant start, instant activation, rapid setup, fast IPTV setup, IPTV subscription plans, IPTV subscription, multi-device compatibility, IPTV multi-device, buffer-free streaming, zero buffering, premium IPTV channels, 4K streaming, HDR streaming',
+  alternates: { canonical: 'https://orca4ktv.com/trial' },
   openGraph: {
-    title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
-    description: 'Try SMART 4K free — access thousands of premium channels, 4K sports & movies. Get your trial credentials and start streaming today.',
+    title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation',
+    description: 'Test ORCA 4K TV with a free IPTV trial — rapid setup, IPTV instant start, premium channels and 4K HDR streaming across multi-device.',
     type: 'website',
-    url: 'https://smart4k.io/trial',
-    images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],
+    url: 'https://orca4ktv.com/trial',
+    images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free IPTV Trial – Test Smart 4K Premium Streaming',
-    description: 'Quick setup. Test SMART 4K IPTV free — thousands of premium channels & 4K quality. No commitment.',
-    images: ['https://smart4k.io/og-image.jpg'],
+    title: 'Free IPTV Trial 2026 — Rapid Setup, Instant Activation',
+    description: 'IPTV instant start with no credit card. 4K HDR streaming, smart EPG guide, multi-device compatibility.',
+    images: ['https://orca4ktv.com/og-image.jpg'],
   },
 }
 
@@ -38,7 +38,7 @@ export default function TrialPage() {
                 "name": "What is included in the free IPTV trial?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The free IPTV trial gives you full access to SMART 4K's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
+                  "text": "The free IPTV trial gives you full access to ORCA 4K TV's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
                 }
               },
               {
@@ -54,7 +54,7 @@ export default function TrialPage() {
                 "name": "Do I need a credit card for the free trial?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. The SMART 4K free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
+                  "text": "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
                 }
               },
               {
@@ -93,21 +93,21 @@ export default function TrialPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "SMART 4K Free IPTV Trial",
+            "name": "ORCA 4K TV Free IPTV Trial",
             "description": "Free IPTV trial providing access to 22,000+ live channels, 4K quality, global sports, and VOD library with no credit card required.",
             "provider": {
               "@type": "Organization",
-              "name": "SMART 4K",
-              "url": "https://smart4k.io/"
+              "name": "ORCA 4K TV",
+              "url": "https://orca4ktv.com/"
             },
             "serviceType": "IPTV Streaming Service",
-            "url": "https://smart4k.io/trial",
+            "url": "https://orca4ktv.com/trial",
             "offers": {
               "@type": "Offer",
               "price": "0",
               "priceCurrency": "USD",
               "availability": "https://schema.org/InStock",
-              "url": "https://smart4k.io/trial",
+              "url": "https://orca4ktv.com/trial",
               "description": "Free IPTV trial — no credit card required"
             },
             "areaServed": {

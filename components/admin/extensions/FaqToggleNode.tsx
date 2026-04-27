@@ -11,7 +11,7 @@ function FaqToggleView({ node, updateAttributes, selected }: NodeViewProps) {
       <div
         data-drag-handle
         style={{
-          background: '#1a1d20',
+          background: '#001a36',
           border: `1px solid ${selected ? '#ef4444' : 'rgba(255,255,255,0.1)'}`,
           borderRadius: '.75rem',
           overflow: 'hidden',
@@ -85,7 +85,7 @@ export const FaqToggleNode = Node.create({
     const a = HTMLAttributes.answer ?? ''
     return [
       'div',
-      { 'data-faq-block': '', style: 'background:#1a1d20;border:1px solid rgba(255,255,255,0.08);border-radius:.75rem;overflow:hidden;margin-bottom:.75rem' },
+      { 'data-faq-block': '', style: 'background:#001a36;border:1px solid rgba(255,255,255,0.08);border-radius:.75rem;overflow:hidden;margin-bottom:.75rem' },
       [
         'div',
         { 'data-faq-toggle': '', style: 'padding:1rem 1.25rem;cursor:pointer;font-weight:700;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:1rem' },

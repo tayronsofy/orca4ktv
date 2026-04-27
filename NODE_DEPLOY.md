@@ -1,14 +1,14 @@
-# Deploying SMART 4K to Node.js (Subdirectory)
+# Deploying ORCA 4K TV to Node.js (Subdirectory)
 
-Your application is configured to run at `smart4k.io`. The server handles both the API (for the AI features) and the static frontend files.
+Your application is configured to run at `orca4ktv.com`. The server handles both the API (for the AI features) and the static frontend files.
 
 ## Prerequisites
 - A **VPS or Dedicated Server** with Node.js installed (v18+ recommended).
 - SSH access to your server.
-- Reverse proxy (Nginx/Apache) configured to point `smart4k.io` to `localhost:3000/iptv` OR simply exposing port 3000 directly.
+- Reverse proxy (Nginx/Apache) configured to point `orca4ktv.com` to `localhost:3000/iptv` OR simply exposing port 3000 directly.
 
 ## Files to Upload
-Upload the following files/folders to your server directory (e.g., `/var/www/smart4k`):
+Upload the following files/folders to your server directory (e.g., `/var/www/orca4ktv`):
 
 1.  `dist/` (The entire build folder)
 2.  `server.js` (The Node.js backend)
@@ -31,7 +31,7 @@ Upload the following files/folders to your server directory (e.g., `/var/www/sma
     For persistent running (auto-restart on crash/reboot), use PM2:
     ```bash
     npm install -g pm2
-    pm2 start server.js --name "smart4k-iptv"
+    pm2 start server.js --name "orca4ktv-iptv"
     pm2 save
     pm2 startup
     ```
@@ -50,5 +50,5 @@ location /iptv/ {
 ```
 
 ## Verification
--   Visit: `https://smart4k.io`
+-   Visit: `https://orca4ktv.com`
 -   Check AI Feature: Try the "ASK US" button to confirm the backend API is reachable.

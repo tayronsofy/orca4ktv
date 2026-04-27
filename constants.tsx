@@ -36,20 +36,23 @@ export const CHANNELS_RAIL: MediaItem[] = [
 
 export const FEATURES: FeatureItem[] = [
   {
-    title: "Multi-Platform Compatibility",
-    description: "Access your premium programming across smart TVs, tablets, mobile devices, and gaming consoles. Our platform delivers flawlessly optimized performance uniformly.",
+    title: "One Subscription. Every Screen.",
+    description: "A single ORCA 4K TV IPTV subscription unlocks every screen in the house — Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG, iOS and Android. Up to four simultaneous streams on the same plan, with the identical channel library and smart EPG guide on every device.",
     imageUrl: "/images/iptv-devices-scaled.png",
+    imageAlt: "Family watching a live 4K football match on a Smart TV with a tablet and smartphone alongside — multi-device IPTV subscription on ORCA 4K TV.",
   },
   {
-    title: "Intelligent Content Curation",
-    description: "Eliminate endless searching. Our state-of-the-art personalized engine analyzes your viewing habits to instantly highlight live broadcasts and cinematic hits you’ll love.",
+    title: "Smart EPG That Knows What You Want Next",
+    description: "Ask in plain English — 'Is the World Cup 2026 final on?' or 'What's playing on Sky Sports tonight?' — and the AI concierge surfaces the right channel instantly. The smart EPG guide learns your viewing habits, builds personalized recommendations, and remembers everything aired in the last 7 days for catch up TV across every premium IPTV channel.",
     imageUrl: "/images/iptv-AI-scaled.png",
+    imageAlt: "Young adult using AI voice search to navigate the smart EPG guide on a 4K TV — AI-powered IPTV streaming service from ORCA 4K TV.",
     reverse: true,
   },
   {
-    title: "Lightning-Fast 4K Streaming",
-    description: "Enjoy zero-interruption viewing through our worldwide optimized network. We supply pristine native 4K feeds at maximum velocity so every match and movie plays perfectly.",
+    title: "4K HDR That Never Buffers",
+    description: "Native 4K Ultra-HD with HDR10+ and Dolby Vision support, delivered through our proprietary Anti Freeze CDN. Edge POPs reroute around peak traffic in real time, so the FIFA World Cup 2026 final, Super Bowl LX, and every Champions League knockout play through buffer-free from kickoff to final whistle on a 25 Mbps+ connection.",
     imageUrl: "/images/4K-IPTV-scaled.png",
+    imageAlt: "Two friends watching a live 4K HDR football broadcast on a wall-mounted Smart TV — buffer-free streaming on ORCA 4K TV with Anti Freeze CDN.",
   },
 ];
 
@@ -59,14 +62,14 @@ export const PRICING_PLANS: PricingPlan[] = [
     price: "$14.98",
     description: "1 MONTH SUBSCRIBE",
     buttonText: "BUY NOW",
-    link: "https://smart4k.io/product/1-month",
+    link: "https://orca4ktv.com/product/1-month",
   },
   {
     name: "TWELVE ULTIMATE",
     price: "$59.98",
     description: "12 MONTH SUBSCRIBE",
     buttonText: "BUY NOW",
-    link: "https://smart4k.io/product/12-month",
+    link: "https://orca4ktv.com/product/12-month",
     isBestValue: true,
   },
   {
@@ -74,13 +77,13 @@ export const PRICING_PLANS: PricingPlan[] = [
     price: "$34.98",
     description: "3 MONTH SUBSCRIBE",
     buttonText: "BUY NOW",
-    link: "https://smart4k.io/product/3-month",
+    link: "https://orca4ktv.com/product/3-month",
   },
   {
     name: "SIX PREMIUM",
     price: "$45.98",
     description: "6 MONTH SUBSCRIBE",
     buttonText: "BUY NOW",
-    link: "https://smart4k.io/product/6-month",
+    link: "https://orca4ktv.com/product/6-month",
   },
 ];

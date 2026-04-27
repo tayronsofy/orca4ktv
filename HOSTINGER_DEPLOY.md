@@ -1,21 +1,21 @@
-# Deploying SMART 4K to Hostinger
+# Deploying ORCA 4K TV to Hostinger
 
-Your project is built and ready for deployment. Follow these steps to put your website live at `smart4k.io`.
+Your project is built and ready for deployment. Follow these steps to put your website live at `orca4ktv.com`.
 
 ## Prerequisites
 - Access to your **Hostinger Control Panel** (hPanel).
-- The project's **`dist`** folder (located in your project directory: `/Users/macbook2/Downloads/smart4k/tv-smarter website/dist`).
+- The project's **`dist`** folder (located in your project directory: `/Users/macbook2/Downloads/orca4ktv/tv-smarter website/dist`).
 
 ## Step-by-Step Instructions
 
 ### 1. Access File Manager
 1.  Log in to your Hostinger hPanel.
-2.  Go to **Websites** and click **Manage** next to `smart4k.io`.
+2.  Go to **Websites** and click **Manage** next to `orca4ktv.com`.
 3.  Scroll down to the **Files** section and click on **File Manager**.
 
 ### 2. Navigate to the Target Directory
 1.  In the File Manager, navigate to `public_html`.
-2.  **Create a new folder** named `iptv` (since you want your site at `smart4k.io`).
+2.  **Create a new folder** named `iptv` (since you want your site at `orca4ktv.com`).
     - *If this folder already exists, open it.*
 3.  Open the `iptv` folder.
 
@@ -41,7 +41,7 @@ public_html/
 ```
 
 ### 5. Test the Site
-1.  Open `https://smart4k.io` in your browser.
+1.  Open `https://orca4ktv.com` in your browser.
 2.  Verify the site loads correctly.
 3.  Check that images are visible and the "Free Trial" form works.
 

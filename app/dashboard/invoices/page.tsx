@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
-  title: 'My Invoices - SMART 4K IPTV',
+  title: 'My Invoices - ORCA 4K TV IPTV',
 }
 
 const statusMap: Record<string, { label: string; color: string }> = {
@@ -27,12 +27,12 @@ export default async function InvoicesPage() {
       <h1 className="text-2xl font-black text-white mb-6">Invoices</h1>
 
       {!invoices || invoices.length === 0 ? (
-        <div className="bg-[#2c3034] rounded-2xl p-8 border border-white/5 text-center">
+        <div className="bg-[#002952] rounded-2xl p-8 border border-white/5 text-center">
           <i className="fas fa-file-invoice text-4xl text-gray-600 mb-4"></i>
           <p className="text-gray-400">No invoices yet.</p>
         </div>
       ) : (
-        <div className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
+        <div className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
           {/* Table header */}
           <div className="hidden md:grid grid-cols-5 gap-4 px-6 py-3 border-b border-white/5 text-xs text-gray-500 uppercase tracking-widest">
             <span>Invoice</span>

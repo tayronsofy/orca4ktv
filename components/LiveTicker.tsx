@@ -36,7 +36,7 @@ const LiveTicker: React.FC = () => {
   }, []);
 
   return (
-    <div className={`w-full bg-gradient-to-r from-[#0a0a0c] via-red-950/10 to-[#0a0a0c] border-y border-white/5 text-white overflow-hidden relative z-40 h-16 md:h-20 flex items-center transition-opacity duration-700 ${isLoading ? 'opacity-90' : 'opacity-100'}`}>
+    <div className={`w-full bg-gradient-to-r from-[#000a1c] via-red-950/10 to-[#000a1c] border-y border-white/5 text-white overflow-hidden relative z-40 h-16 md:h-20 flex items-center transition-opacity duration-700 ${isLoading ? 'opacity-90' : 'opacity-100'}`}>
       
       {/* Premium LIVE Label with Skewed Dynamic Shape */}
       <div className={`absolute left-0 top-0 bottom-0 px-10 md:px-14 z-50 flex items-center transition-all duration-500 shadow-[30px_0_50px_rgba(0,0,0,0.9)] -skew-x-[15deg] -ml-4 ${isLoading ? 'bg-orange-600 animate-pulse' : 'bg-red-600'}`}>

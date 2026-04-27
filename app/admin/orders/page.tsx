@@ -82,7 +82,7 @@ export default function AdminOrdersPage() {
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
             placeholder="Search by email…"
-            className="bg-[#2c3034] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-64"
+            className="bg-[#002952] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-64"
           />
           <button type="submit" className="bg-purple-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-purple-500 transition-colors">
             Search
@@ -100,7 +100,7 @@ export default function AdminOrdersPage() {
               key={s}
               onClick={() => { setStatus(s); setPage(1) }}
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all ${
-                status === s ? 'bg-purple-600 text-white' : 'bg-[#2c3034] text-gray-400 hover:text-white border border-white/5'
+                status === s ? 'bg-purple-600 text-white' : 'bg-[#002952] text-gray-400 hover:text-white border border-white/5'
               }`}
             >
               {s === 'all' ? 'All' : statusLabel[s]}
@@ -110,7 +110,7 @@ export default function AdminOrdersPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
+      <div className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
         <div className="hidden md:grid grid-cols-6 gap-4 px-6 py-3 border-b border-white/5 text-xs text-gray-500 uppercase tracking-widest">
           <span className="col-span-2">Customer</span>
           <span>Plan</span>
@@ -156,7 +156,7 @@ export default function AdminOrdersPage() {
           <button
             onClick={() => setPage(p => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="bg-[#2c3034] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors"
+            className="bg-[#002952] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors"
           >
             ← Previous
           </button>
@@ -164,7 +164,7 @@ export default function AdminOrdersPage() {
           <button
             onClick={() => setPage(p => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
-            className="bg-[#2c3034] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors"
+            className="bg-[#002952] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors"
           >
             Next →
           </button>

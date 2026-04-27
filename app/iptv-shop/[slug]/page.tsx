@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: plan.metaTitle,
     description: plan.metaDescription,
     keywords: plan.keywords,
-    alternates: { canonical: `https://smart4k.io/iptv-shop/${plan.slug}` },
+    alternates: { canonical: `https://orca4ktv.com/iptv-shop/${plan.slug}` },
     openGraph: {
       title: plan.metaTitle,
       description: plan.metaDescription,
       type: 'website',
-      url: `https://smart4k.io/iptv-shop/${plan.slug}`,
-      images: [{ url: 'https://smart4k.io/og-image.jpg', width: 1200, height: 630 }],
+      url: `https://orca4ktv.com/iptv-shop/${plan.slug}`,
+      images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
     },
   }
 }
@@ -38,27 +38,51 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://smart4k.io/' },
-          { '@type': 'ListItem', position: 2, name: 'IPTV Shop', item: 'https://smart4k.io/iptv-shop' },
-          { '@type': 'ListItem', position: 3, name: plan.name, item: `https://smart4k.io/iptv-shop/${plan.slug}` },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://orca4ktv.com/' },
+          { '@type': 'ListItem', position: 2, name: 'IPTV Shop', item: 'https://orca4ktv.com/iptv-shop' },
+          { '@type': 'ListItem', position: 3, name: plan.name, item: `https://orca4ktv.com/iptv-shop/${plan.slug}` },
         ],
       },
       {
+        '@type': 'Service',
+        '@id': `https://orca4ktv.com/iptv-shop/${plan.slug}#service`,
+        name: `${plan.name} — Premium IPTV Subscription`,
+        serviceType: 'Premium IPTV Streaming Subscription',
+        provider: { '@id': 'https://orca4ktv.com/#organization' },
+        areaServed: { '@type': 'Place', name: 'Worldwide' },
+        audience: {
+          '@type': 'Audience',
+          audienceType: 'Cord-cutters, sports fans, premium streaming households, multi-device families',
+        },
+        availableLanguage: ['English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese', 'Dutch', 'Arabic'],
+        hoursAvailable: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+          opens: '00:00',
+          closes: '23:59',
+        },
+        description: `${plan.description} 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand titles, smart EPG with 7-day catch-up TV, multi-device IPTV (Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS, Android), AES-256 encryption, Anti Freeze CDN, instant M3U + Xtream codes activation.`,
+      },
+      {
         '@type': 'Product',
+        '@id': `https://orca4ktv.com/iptv-shop/${plan.slug}#product`,
         name: plan.name,
         description: plan.description,
-        brand: { '@type': 'Brand', name: 'SMART 4K IPTV' },
-        image: 'https://smart4k.io/og-image.jpg',
-        url: `https://smart4k.io/iptv-shop/${plan.slug}`,
-        category: 'IPTV Subscription',
-        offers: {
+        brand: { '@type': 'Brand', name: 'ORCA 4K TV' },
+        image: 'https://orca4ktv.com/og-image.jpg',
+        url: `https://orca4ktv.com/iptv-shop/${plan.slug}`,
+        category: 'IPTV Subscription / Streaming Service',
+        offers: plan.deviceTiers.map(tier => ({
           '@type': 'Offer',
-          url: `https://smart4k.io${plan.deviceTiers[0].checkoutLink}`,
+          name: `${plan.name} — ${tier.label}`,
+          url: `https://orca4ktv.com${tier.checkoutLink}`,
           priceCurrency: 'USD',
-          price: plan.basePrice.toFixed(2),
+          price: tier.price.toFixed(2),
+          priceValidUntil: '2026-12-31',
           availability: 'https://schema.org/InStock',
-          seller: { '@type': 'Organization', name: 'SMART 4K IPTV' },
-        },
+          seller: { '@type': 'Organization', name: 'ORCA 4K TV' },
+          eligibleQuantity: { '@type': 'QuantitativeValue', value: tier.devices, unitText: 'simultaneous connections' },
+        })),
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: plan.ratingValue.toString(),
@@ -103,7 +127,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       />
 
       {/* Hero */}
-      <section className="relative bg-[#1f2326] pt-32 pb-16 px-4 overflow-hidden">
+      <section className="relative bg-[#001f3f] pt-32 pb-16 px-4 overflow-hidden">
         <div className="absolute top-0 left-1/3 w-[500px] h-[400px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-[350px] h-[300px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-5xl mx-auto relative z-10">
@@ -155,13 +179,13 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
 
               {/* Share Buttons */}
               <ShareButtons
-                url={`https://smart4k.io/iptv-shop/${plan.slug}`}
-                title={`SMART 4K IPTV - ${plan.name}`}
+                url={`https://orca4ktv.com/iptv-shop/${plan.slug}`}
+                title={`ORCA 4K TV IPTV - ${plan.name}`}
               />
             </div>
 
             {/* Right: Price Card */}
-            <div className="w-full lg:w-80 bg-[#2c3034] border border-white/10 rounded-2xl p-8 flex flex-col gap-5 shadow-2xl shadow-black/30">
+            <div className="w-full lg:w-80 bg-[#002952] border border-white/10 rounded-2xl p-8 flex flex-col gap-5 shadow-2xl shadow-black/30">
               <div>
                 <p className="text-gray-500 text-xs uppercase tracking-widest mb-1">Starting from</p>
                 <div className="flex items-end gap-1.5">
@@ -207,39 +231,14 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      {/* All Features */}
-      <section className="bg-[#1a1d20] py-16 px-4 border-y border-white/5">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-black text-white text-center mb-10">
-            Everything Included in the{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
-              {plan.shortName} Plan
-            </span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {plan.features.map(feature => (
-              <div
-                key={feature}
-                className="flex items-center gap-3 bg-[#2c3034] border border-white/5 rounded-xl px-5 py-4"
-              >
-                <div className="w-8 h-8 rounded-full bg-purple-600/15 flex items-center justify-center flex-shrink-0">
-                  <i className="fas fa-check text-purple-400 text-xs" />
-                </div>
-                <span className="text-gray-200 text-sm font-medium">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Device Pricing Table */}
-      <section className="bg-[#1f2326] py-16 px-4">
+      <section className="bg-[#001a36] py-16 px-4 border-y border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-3">
-            Choose Your Connections
+            Choose Your IPTV Connections — 1, 2, 3 or 4 Simultaneous Streams
           </h2>
           <p className="text-gray-400 text-center mb-10">
-            Watch on multiple devices simultaneously — one subscription, multiple screens.
+            Watch on multiple devices simultaneously — one IPTV subscription, multiple screens. Perfect for families and multi-room households.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {plan.deviceTiers.map((tier) => (
@@ -247,8 +246,8 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 key={tier.devices}
                 className={`relative flex flex-col rounded-2xl border p-6 text-center transition-all ${
                   tier.devices === 1
-                    ? 'border-purple-500/50 bg-gradient-to-b from-purple-900/15 to-[#2c3034]'
-                    : 'border-white/10 bg-[#2c3034]'
+                    ? 'border-purple-500/50 bg-gradient-to-b from-purple-900/15 to-[#002952]'
+                    : 'border-white/10 bg-[#002952]'
                 }`}
               >
                 <div className="w-12 h-12 rounded-full bg-purple-600/15 border border-purple-500/20 flex items-center justify-center mx-auto mb-3">
@@ -279,20 +278,45 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
+      {/* All Features */}
+      <section className="bg-[#001f3f] py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-black text-white text-center mb-10">
+            Everything Included in the{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+              {plan.shortName} Plan
+            </span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {plan.features.map(feature => (
+              <div
+                key={feature}
+                className="flex items-center gap-3 bg-[#002952] border border-white/5 rounded-xl px-5 py-4"
+              >
+                <div className="w-8 h-8 rounded-full bg-purple-600/15 flex items-center justify-center flex-shrink-0">
+                  <i className="fas fa-check text-purple-400 text-xs" />
+                </div>
+                <span className="text-gray-200 text-sm font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Compatible Devices */}
-      <section className="bg-[#1a1d20] py-16 px-4 border-t border-white/5">
+      <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-3">
-            Compatible with Every Device
+            Compatible with Every IPTV Device — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
           </h2>
           <p className="text-gray-400 text-center mb-10">
-            Stream on any screen — TV, phone, tablet or computer. Setup takes under 5 minutes.
+            Stream on any screen — TV, phone, tablet or computer. Compatible with TiviMate, IPTV Smarters Pro, OTT Navigator. Setup takes under 5 minutes via M3U URL or Xtream codes.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {COMPATIBLE_DEVICES.map(device => (
               <div
                 key={device.name}
-                className="flex flex-col items-center gap-3 bg-[#2c3034] border border-white/5 rounded-xl py-6 px-4 text-center hover:border-purple-500/20 transition-all"
+                className="flex flex-col items-center gap-3 bg-[#002952] border border-white/5 rounded-xl py-6 px-4 text-center hover:border-purple-500/20 transition-all"
               >
                 <div className="w-12 h-12 rounded-full bg-purple-600/10 flex items-center justify-center">
                   <i className={`fab ${device.icon} text-purple-400 text-lg`} />
@@ -305,7 +329,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Customer Reviews */}
-      <section className="bg-[#1f2326] py-16 px-4">
+      <section className="bg-[#001f3f] py-16 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-black text-white mb-3">
@@ -325,7 +349,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
             {plan.reviews.map((review) => (
               <div
                 key={review.name}
-                className="bg-[#2c3034] border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
+                className="bg-[#002952] border border-white/10 rounded-2xl p-6 flex flex-col gap-4"
               >
                 <div className="flex gap-0.5">
                   {[1, 2, 3, 4, 5].map(star => (
@@ -347,14 +371,14 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#1a1d20] py-16 px-4 border-t border-white/5">
+      <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-10">
             {plan.shortName} Plan — FAQ
           </h2>
           <div className="space-y-4">
             {plan.faq.map((item) => (
-              <div key={item.q} className="border border-white/10 rounded-xl bg-[#2c3034] overflow-hidden">
+              <div key={item.q} className="border border-white/10 rounded-xl bg-[#002952] overflow-hidden">
                 <details className="group">
                   <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
                     <span className="font-bold text-white">{item.q}</span>
@@ -371,14 +395,13 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       </section>
 
       {/* Final CTA */}
-      <section className="bg-[#1f2326] py-16 px-4">
+      <section className="bg-[#001f3f] py-16 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
-            Ready to Start Streaming?
+            Ready to start streaming the best IPTV subscription in 2026?
           </h2>
           <p className="text-gray-400 text-lg mb-8">
-            Get instant access to 22,000+ channels, 4K movies, and live sports.
-            Activate your {plan.shortName} plan in under 5 minutes.
+            Get instant access to 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, and every Premier League · NFL · NBA · NHL · MLB · Bundesliga · Eredivisie · F1 2026 match. Activate your {plan.shortName} plan with M3U URL + Xtream codes in under 5 minutes — buffer-free on Anti Freeze CDN, AES-256 encrypted, multi-device IPTV ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

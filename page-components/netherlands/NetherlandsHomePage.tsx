@@ -14,7 +14,7 @@ const NetherlandsFeatures = lazy(() => import('@/components/netherlands/Netherla
 const NetherlandsFAQ = lazy(() => import('@/components/netherlands/NetherlandsFAQ'))
 
 const Loader = () => (
-  <div className="w-full h-32 flex items-center justify-center bg-[#1f2326]">
+  <div className="w-full h-32 flex items-center justify-center bg-[#001f3f]">
     <div className="w-6 h-6 border-2 border-[#AE1C28] rounded-full animate-spin border-t-transparent" />
   </div>
 )
@@ -25,7 +25,11 @@ const scrollToPricing = () => {
   else window.location.href = '/#pricing'
 }
 
-const NetherlandsHomePage: React.FC = () => {
+interface NetherlandsHomePageProps {
+  seoContent?: React.ReactNode
+}
+
+const NetherlandsHomePage: React.FC<NetherlandsHomePageProps> = ({ seoContent }) => {
   return (
     <>
       <Suspense fallback={<div className="h-10" />}>
@@ -37,6 +41,7 @@ const NetherlandsHomePage: React.FC = () => {
         <div id="pricing"><NetherlandsPricing /></div>
         <NetherlandsFeatures />
         <Devices />
+        {seoContent}
       </Suspense>
       <Suspense fallback={<div />}>
         <VideoBanner />

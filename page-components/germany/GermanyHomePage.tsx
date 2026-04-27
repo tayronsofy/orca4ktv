@@ -14,7 +14,7 @@ const GermanyFeatures = lazy(() => import('@/components/germany/GermanyFeatures'
 const GermanyFAQ = lazy(() => import('@/components/germany/GermanyFAQ'))
 
 const Loader = () => (
-  <div className="w-full h-32 flex items-center justify-center bg-[#1f2326]">
+  <div className="w-full h-32 flex items-center justify-center bg-[#001f3f]">
     <div className="w-6 h-6 border-2 border-red-700 rounded-full animate-spin border-t-transparent" />
   </div>
 )
@@ -25,7 +25,11 @@ const scrollToPricing = () => {
   else window.location.href = '/#pricing'
 }
 
-const GermanyHomePage: React.FC = () => {
+interface GermanyHomePageProps {
+  seoContent?: React.ReactNode
+}
+
+const GermanyHomePage: React.FC<GermanyHomePageProps> = ({ seoContent }) => {
   return (
     <>
       <Suspense fallback={<div className="h-10" />}>
@@ -37,6 +41,7 @@ const GermanyHomePage: React.FC = () => {
         <div id="pricing"><GermanyPricing /></div>
         <GermanyFeatures />
         <Devices />
+        {seoContent}
       </Suspense>
       <Suspense fallback={<div />}>
         <VideoBanner />

@@ -44,291 +44,464 @@ export interface ShopPlan {
 
 export const SHOP_PLANS: ShopPlan[] = [
   {
-    slug: '1-month',
-    name: '1-Month IPTV Plan',
-    shortName: '1 Month',
-    tagline: 'Try SMART 4K Risk-Free — No Long-Term Commitment',
-    description: 'The perfect entry point into premium IPTV. Stream 22,000+ live channels, 4K movies, and live sports for a full month — no contract, instant activation.',
-    badge: null,
-    months: 1,
-    basePrice: 21.00,
-    monthlyEquivalent: 21.00,
-    savings: null,
-    deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 21.00, monthlyEquivalent: 21.00, savings: null, checkoutLink: '/order?plan=1-month&connections=1' },
-      { devices: 2, label: '2 Connections', price: 36.00, monthlyEquivalent: 36.00, savings: null, checkoutLink: '/order?plan=1-month&connections=2' },
-      { devices: 3, label: '3 Connections', price: 49.00, monthlyEquivalent: 49.00, savings: null, checkoutLink: '/order?plan=1-month&connections=3' },
-      { devices: 4, label: '4 Connections', price: 64.00, monthlyEquivalent: 64.00, savings: null, checkoutLink: '/order?plan=1-month&connections=4' },
+    "slug": "1-month",
+    "name": "1-Month IPTV Plan",
+    "shortName": "1 Month",
+    "tagline": "Our commitment-free monthly IPTV plan — cancel anytime.",
+    "description": "Unlock premium IPTV for one month. Get instant access to 22,000+ channels, live sports, and 4K movies—all with no contract required.",
+    "badge": null,
+    "months": 1,
+    "basePrice": 21,
+    "monthlyEquivalent": 21,
+    "savings": null,
+    "deviceTiers": [
+      {
+        "devices": 1,
+        "label": "1 Connection",
+        "price": 21,
+        "monthlyEquivalent": 21,
+        "savings": null,
+        "checkoutLink": "/order?plan=1-month&connections=1"
+      },
+      {
+        "devices": 2,
+        "label": "2 Connections",
+        "price": 36,
+        "monthlyEquivalent": 36,
+        "savings": null,
+        "checkoutLink": "/order?plan=1-month&connections=2"
+      },
+      {
+        "devices": 3,
+        "label": "3 Connections",
+        "price": 49,
+        "monthlyEquivalent": 49,
+        "savings": null,
+        "checkoutLink": "/order?plan=1-month&connections=3"
+      },
+      {
+        "devices": 4,
+        "label": "4 Connections",
+        "price": 64,
+        "monthlyEquivalent": 64,
+        "savings": null,
+        "checkoutLink": "/order?plan=1-month&connections=4"
+      }
     ],
-    features: [
-      '22,000+ Live TV Channels',
-      '4K Ultra-HD & HD Streaming',
-      'Massive VOD Library — Movies & Series',
-      'Buffer-Free Streaming Technology',
-      'Full EPG Electronic Programme Guide',
-      'Catch-Up TV — Replay Up to 7 Days',
-      '99.9% Uptime Guarantee',
-      'Works on Firestick, Android, Smart TV, iOS',
-      '24/7 Customer Support',
-      'Instant Activation — No Waiting',
-      'No Contract — Cancel Anytime',
-      'International Channels — USA, UK, Canada & More',
+    "features": [
+      "22,000+ live streaming channels",
+      "Streams in 4K Ultra-HD & HD",
+      "On-Demand Entertainment — Films & TV Shows",
+      "Our Zero-Buffer Streaming Engine",
+      "Comprehensive EPG TV Guide",
+      "TV Rewind — Look back up to 7 days",
+      "99.9% Reliable Server Uptime",
+      "Stream on Firestick, Android, Smart TV, iOS",
+      "Support available 24/7",
+      "Service Activates Immediately",
+      "Complete Control — Stop at Will",
+      "Global Coverage: USA, UK, Canada, and Beyond"
     ],
-    highlights: [
-      'Instant access — no setup delays',
-      'Test the full service before committing',
-      'Cancel any time, zero cancellation fees',
+    "highlights": [
+      "Immediate activation — start streaming now",
+      "Experience the complete package with no commitment",
+      "Cancel on your terms, without penalty"
     ],
-    metaTitle: 'IPTV 1-Month Subscription – Smart 4K IPTV',
-    metaDescription: 'Start your SMART 4K subscription for just $21/month. Access thousands of premium channels, 4K sports & movies on Firestick, Smart TV & mobile. Flexible monthly plan.',
-    keywords: 'iptv 1 month subscription, monthly iptv plan, iptv subscription monthly, best iptv monthly plan 2026, iptv monthly',
-    faq: [
+    "metaTitle": "Monthly IPTV Plan – Orca 4K TV Subscription",
+    "metaDescription": "For only $21, our IPTV 1 month subscription is the best IPTV monthly plan 2026. It's a flexible monthly IPTV plan delivering 4K movies & sports to your Smart TV, Firestick, and mobile.",
+    "keywords": "iptv 1 month subscription, monthly iptv plan, iptv subscription monthly, best iptv monthly plan 2026, iptv monthly",
+    "faq": [
       {
-        q: 'What is included in the 1-month IPTV plan?',
-        a: 'The 1-month plan gives you full access to 22,000+ live TV channels, a massive VOD library of movies and TV series, EPG, catch-up TV, and live sports in 4K quality. Every feature is included — there are no paywalled add-ons.',
+        "q": "What are the contents of the iptv 1 month subscription?",
+        "a": "Your **iptv 1 month subscription** delivers complete access to our service, often called the **best iptv monthly plan 2026**. This **monthly iptv plan** includes 22,000+ live channels, a full VOD library, EPG, catch-up, and 4K sports. With this **iptv subscription monthly**, all features are unlocked—no extra fees for your **iptv monthly** service."
       },
       {
-        q: 'Can I cancel after one month?',
-        a: 'Yes. The 1-month plan expires automatically after 30 days. There is no auto-renewal and no cancellation required — you simply choose whether to renew when your subscription ends.',
+        "q": "Am I committed beyond a single month?",
+        "a": "Yes. This plan deactivates automatically at the 30-day mark. No auto-renewal or cancellation process is involved. You have the freedom to purchase a new plan if you decide to continue with our service."
       },
       {
-        q: 'How many devices can I use with the 1-month plan?',
-        a: 'You can choose from 1 to 4 simultaneous connections. Select the option that fits your household. Each connection can be used on a different device at the same time.',
+        "q": "How many simultaneous streams are included with the monthly plan?",
+        "a": "Customize your plan with one to four connections for simultaneous viewing. Choose the right amount for your home's needs. Each stream can be active on an individual device at the same time."
       },
       {
-        q: 'How quickly will I receive my IPTV credentials?',
-        a: 'Activation is immediate. As soon as your payment is confirmed, you will receive your login credentials by email, typically within a few minutes.',
+        "q": "What is the delivery time for my IPTV login?",
+        "a": "Upon successful payment confirmation, your activation occurs instantly. Expect an email containing your login credentials to arrive in just a few minutes."
       },
       {
-        q: 'Which devices are compatible with this plan?',
-        a: 'SMART 4K works on Amazon Firestick, Android TV boxes, Smart TVs (Samsung, LG), iOS and Android smartphones and tablets, MAG boxes, Apple TV, and any device running an IPTV player such as TiviMate, IPTV Smarters, or GSE Smart IPTV.',
+        "q": "What hardware is supported by this subscription?",
+        "a": "Our platform is compatible with an extensive range of hardware, including Amazon Firestick, Apple TV, MAG boxes, and Android TV. You can also stream on Smart TVs (Samsung, LG) or any iOS/Android device using players like TiviMate or GSE Smart IPTV."
       },
       {
-        q: 'Is there a free trial before I buy?',
-        a: 'Yes, we offer a free trial so you can experience the quality before committing. Visit our free trial page to get started at no cost.',
-      },
+        "q": "Do you offer a trial before I subscribe?",
+        "a": "Absolutely. You can evaluate our stream quality with a complimentary trial before purchasing a plan. Navigate to our free trial page to activate your no-cost access."
+      }
     ],
-    reviews: [
-      { name: 'James T.', location: 'Houston, USA', rating: 5, text: 'Signed up just to test and ended up staying for months. Quality is insane, not a single buffer in 4 weeks.' },
-      { name: 'Sophie M.', location: 'London, UK', rating: 5, text: 'Got it for the Premier League. Every match in 4K, zero issues. Will definitely be renewing.' },
-      { name: 'Carlos R.', location: 'Toronto, Canada', rating: 4, text: 'Really solid for the price. Setup took less than 5 minutes on my Firestick. Good value to try.' },
+    "reviews": [
+      {
+        "name": "James T.",
+        "location": "Houston, USA",
+        "rating": 5,
+        "text": "I came for a trial and never left. The picture is flawless; I went a full month without any buffering at all."
+      },
+      {
+        "name": "Sophie M.",
+        "location": "London, UK",
+        "rating": 5,
+        "text": "Subscribed for the Premier League. The 4K quality is flawless on every match. I'm definitely renewing."
+      },
+      {
+        "name": "Carlos R.",
+        "location": "Toronto, Canada",
+        "rating": 4,
+        "text": "Impressive for the cost. I was streaming on my Firestick in under 5 minutes. Definitely worth a try."
+      }
     ],
-    ratingValue: 4.8,
-    reviewCount: 1243,
+    "ratingValue": 4.8,
+    "reviewCount": 1243
   },
   {
-    slug: '3-months',
-    name: '3-Month IPTV Plan',
-    shortName: '3 Months',
-    tagline: 'Save 30% — Premium IPTV for a Full Quarter',
-    description: 'Enjoy three months of uninterrupted 4K IPTV at just $15/month. Perfect for subscribers who want real savings without a long-term commitment.',
-    badge: 'SAVE 30%',
-    months: 3,
-    basePrice: 45.00,
-    monthlyEquivalent: 15.00,
-    savings: 'Save 30%',
-    deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 45.00, monthlyEquivalent: 15.00, savings: 'Save 30%', checkoutLink: '/order?plan=3-months&connections=1' },
-      { devices: 2, label: '2 Connections', price: 72.00, monthlyEquivalent: 24.00, savings: 'Save 30%', checkoutLink: '/order?plan=3-months&connections=2' },
-      { devices: 3, label: '3 Connections', price: 99.00, monthlyEquivalent: 33.00, savings: 'Save 28%', checkoutLink: '/order?plan=3-months&connections=3' },
-      { devices: 4, label: '4 Connections', price: 125.00, monthlyEquivalent: 41.66, savings: 'Save 28%', checkoutLink: '/order?plan=3-months&connections=4' },
-    ],
-    features: [
-      '22,000+ Live TV Channels',
-      '4K Ultra-HD & HD Streaming',
-      'Massive VOD Library — Movies & Series',
-      'Buffer-Free Streaming Technology',
-      'Full EPG Electronic Programme Guide',
-      'Catch-Up TV — Replay Up to 7 Days',
-      '99.9% Uptime Guarantee',
-      'Works on Firestick, Android, Smart TV, iOS',
-      '24/7 Customer Support',
-      'Instant Activation — No Waiting',
-      'No Long-Term Contract',
-      'International Channels — USA, UK, Canada & More',
-    ],
-    highlights: [
-      '$15/month — 30% cheaper than the monthly plan',
-      '90 days of uninterrupted 4K streaming',
-      'Best option for seasonal or quarterly viewers',
-    ],
-    metaTitle: '3-Month IPTV Subscription – Save 30% | Smart 4K IPTV',
-    metaDescription: 'Get 3 months of SMART 4K for $45 — just $15/mo. Save 30% with our quarterly plan. Thousands of premium channels, 4K sports & reliable HD streaming.',
-    keywords: '3 month iptv subscription, iptv quarterly plan, iptv 3 months, best iptv quarterly 2026, iptv subscription deal',
-    faq: [
+    "slug": "3-months",
+    "name": "3-Month IPTV Plan",
+    "shortName": "3 Months",
+    "tagline": "Your premium quarterly IPTV plan, now 30% off.",
+    "description": "Access 4K streaming for a full quarter at the equivalent of just $15 per month. This is the ideal `iptv subscription deal` for viewers who value flexibility and savings, offering our `best iptv quarterly 2026` value. This `3 month iptv subscription` is our most popular `iptv quarterly plan` for `iptv 3 months` of service.",
+    "badge": "SAVE 30%",
+    "months": 3,
+    "basePrice": 45,
+    "monthlyEquivalent": 15,
+    "savings": "Save 30%",
+    "deviceTiers": [
       {
-        q: 'How much does the 3-month plan cost per month?',
-        a: 'The 3-month plan costs $45 total, which works out to just $15 per month — a 30% saving compared to the monthly plan price of $21.',
+        "devices": 1,
+        "label": "1 Connection",
+        "price": 45,
+        "monthlyEquivalent": 15,
+        "savings": "Save 30%",
+        "checkoutLink": "/order?plan=3-months&connections=1"
       },
       {
-        q: 'Does the 3-month subscription auto-renew?',
-        a: 'No. Your subscription runs for exactly 90 days and then stops. You choose whether to renew manually — we will never charge you without your consent.',
+        "devices": 2,
+        "label": "2 Connections",
+        "price": 72,
+        "monthlyEquivalent": 24,
+        "savings": "Save 30%",
+        "checkoutLink": "/order?plan=3-months&connections=2"
       },
       {
-        q: 'Can I upgrade to a longer plan later?',
-        a: 'Yes. At any point you can upgrade to the 6-month or 12-month plan for greater savings. Contact our support team and we will apply any remaining credit to your new plan.',
+        "devices": 3,
+        "label": "3 Connections",
+        "price": 99,
+        "monthlyEquivalent": 33,
+        "savings": "Save 28%",
+        "checkoutLink": "/order?plan=3-months&connections=3"
       },
       {
-        q: 'What happens if I have a technical issue during my 3 months?',
-        a: 'Our 24/7 support team is available by live chat and email. We resolve most issues within minutes. Our 99.9% uptime SLA ensures maximum reliability throughout your subscription.',
-      },
-      {
-        q: 'Is the content library updated during my subscription?',
-        a: 'Yes. New channels, movies, and series are added continuously. Your 3-month subscription always reflects the latest content, sports fixtures, and channel additions.',
-      },
+        "devices": 4,
+        "label": "4 Connections",
+        "price": 125,
+        "monthlyEquivalent": 41.66,
+        "savings": "Save 28%",
+        "checkoutLink": "/order?plan=3-months&connections=4"
+      }
     ],
-    reviews: [
-      { name: 'Marcus L.', location: 'Manchester, UK', rating: 5, text: 'Been using it for 2 months now. Every Champions League game in perfect 4K. Worth every penny of the 3-month deal.' },
-      { name: 'Aisha N.', location: 'Chicago, USA', rating: 5, text: 'My whole family watches different things on different devices. The 3-month plan covers us all easily.' },
-      { name: 'Luc D.', location: 'Brussels, Belgium', rating: 5, text: 'Great value. French, Belgian, and international channels all in one place. Setup was instant.' },
+    "features": [
+      "22,000+ channels streaming live",
+      "Ultra-HD 4K & HD Video Quality",
+      "Vast On-Demand Selection — Films & TV Shows",
+      "Engineered for Seamless Streaming",
+      "Comprehensive TV Guide (EPG)",
+      "Rewind Up to 7 Days with TV Catch-Up",
+      "Assured 99.9% Availability",
+      "Supports Firestick, Android, Smart TV, iOS",
+      "24/7 dedicated assistance",
+      "Immediate Access — Zero Wait Time",
+      "Freedom From Contracts",
+      "Worldwide Programming — USA, UK, Canada & More"
     ],
-    ratingValue: 4.9,
-    reviewCount: 2104,
+    "highlights": [
+      "Save 30% over the monthly rate, just $15/mo",
+      "Your iptv quarterly plan for bufferless 4K",
+      "Ideal for seasonal commitments or quarterly payments"
+    ],
+    "metaTitle": "IPTV Quarterly Plan - 30% Off | Orca 4K TV",
+    "metaDescription": "A top iptv subscription deal: save 30% with our iptv quarterly plan. Get iptv 3 months of 4K sports & channels for $45 ($15/mo). The best iptv quarterly 2026 3 month iptv subscription.",
+    "keywords": "3 month iptv subscription, iptv quarterly plan, iptv 3 months, best iptv quarterly 2026, iptv subscription deal",
+    "faq": [
+      {
+        "q": "What is the per-month cost of the quarterly plan?",
+        "a": "Our iptv quarterly plan is a $45 iptv subscription deal for 3 month iptv subscription access. You pay $15/mo, a 30% savings from the $21 plan, making it the best iptv quarterly 2026 value for iptv 3 months."
+      },
+      {
+        "q": "No, your **3 month iptv subscription** is a one-time purchase and will not automatically renew. This **iptv quarterly plan** puts you in complete control of your billing. We will notify you via email before your access for **iptv 3 months** concludes, giving you the option to manually extend your service. This flexibility makes it the **best iptv quarterly 2026** for viewers who value control. We designed this **iptv subscription deal** to be transparent and free of hidden commitments.",
+        "a": "Absolutely not. Your service lasts for precisely 90 days and expires automatically. Renewal is entirely up to you, and we will never bill you without your direct approval."
+      },
+      {
+        "q": "What are my options for a longer term?",
+        "a": "Absolutely. You can move to a 6-month or 12-month subscription at any point to unlock greater savings. Simply contact our support team, and they will apply your remaining prorated credit to the new plan."
+      },
+      {
+        "q": "How do I get technical support during my 3 month iptv subscription?",
+        "a": "Assistance is available around the clock through live chat and email. Most technical problems are addressed in minutes, and we guarantee 99.9% uptime for exceptional service stability during your subscription."
+      },
+      {
+        "q": "Yes, our content library is in a constant state of evolution. Your **3 month iptv subscription** grants you access to a continuously expanding selection of on-demand movies and shows. The channel lineup is also refreshed automatically to maintain a premium experience throughout your **iptv 3 months** of service. This dedication to fresh programming makes our **iptv quarterly plan** a superior value and what we consider the **best iptv quarterly 2026** will offer. All updates are seamlessly integrated and are a core part of your **iptv subscription deal**.",
+        "a": "Absolutely. We consistently expand our library with new movies, series, and channels. Your subscription ensures you always have access to the most current programming and live sporting events."
+      }
+    ],
+    "reviews": [
+      {
+        "name": "Marcus L.",
+        "location": "Manchester, UK",
+        "rating": 5,
+        "text": "I'm two months in, and the 4K quality for every Champions League match is stunning. This iptv quarterly plan is absolutely worth the price."
+      },
+      {
+        "name": "Aisha N.",
+        "location": "Chicago, USA",
+        "rating": 5,
+        "text": "With everyone in our house streaming different shows on various devices, this plan handles it all for us. A single subscription keeps the entire family covered."
+      },
+      {
+        "name": "Luc D.",
+        "location": "Brussels, Belgium",
+        "rating": 5,
+        "text": "My French, Belgian, and international programming was ready instantly. What a fantastic deal."
+      }
+    ],
+    "ratingValue": 4.9,
+    "reviewCount": 2104
   },
   {
-    slug: '6-months',
-    name: '6-Month IPTV Plan',
-    shortName: '6 Months',
-    tagline: 'Save 45% — The Smart Choice for Half a Year',
-    description: 'Six months of world-class 4K IPTV at just $11.50/month. The ideal balance between savings and flexibility — enjoy two full sports seasons at a fraction of the cost.',
-    badge: 'SAVE 45%',
-    months: 6,
-    basePrice: 69.00,
-    monthlyEquivalent: 11.50,
-    savings: 'Save 45%',
-    deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 69.00, monthlyEquivalent: 11.50, savings: 'Save 45%', checkoutLink: '/order?plan=6-months&connections=1' },
-      { devices: 2, label: '2 Connections', price: 110.00, monthlyEquivalent: 18.33, savings: 'Save 47%', checkoutLink: '/order?plan=6-months&connections=2' },
-      { devices: 3, label: '3 Connections', price: 150.00, monthlyEquivalent: 25.00, savings: 'Save 46%', checkoutLink: '/order?plan=6-months&connections=3' },
-      { devices: 4, label: '4 Connections', price: 190.00, monthlyEquivalent: 31.66, savings: 'Save 45%', checkoutLink: '/order?plan=6-months&connections=4' },
-    ],
-    features: [
-      '22,000+ Live TV Channels',
-      '4K Ultra-HD & HD Streaming',
-      'Massive VOD Library — Movies & Series',
-      'Buffer-Free Streaming Technology',
-      'Full EPG Electronic Programme Guide',
-      'Catch-Up TV — Replay Up to 7 Days',
-      '99.9% Uptime Guarantee',
-      'Works on Firestick, Android, Smart TV, iOS',
-      '24/7 Customer Support',
-      'Instant Activation — No Waiting',
-      'No Long-Term Contract',
-      'International Channels — USA, UK, Canada & More',
-    ],
-    highlights: [
-      '$11.50/month — 45% cheaper than the monthly plan',
-      'Cover two full football/basketball seasons',
-      'Best balance of savings and flexibility',
-    ],
-    metaTitle: '6-Month IPTV Subscription – Save 45% | Smart 4K IPTV',
-    metaDescription: 'Get 6 months of SMART 4K for $69 — only $11.50/mo. Our most popular plan. Thousands of premium channels, 4K quality, reliable streaming. Flexible billing.',
-    keywords: '6 month iptv subscription, iptv half year plan, iptv 6 months, best iptv plan 2026, iptv subscription deal',
-    faq: [
+    "slug": "6-months",
+    "name": "6-Month IPTV Plan",
+    "shortName": "6 Months",
+    "tagline": "45% Off — Six Months of Uninterrupted Entertainment",
+    "description": "Get 4K streaming for an effective $11.50/month with this **iptv half year plan**. This **6 month iptv subscription** is a leading **iptv subscription deal** and a contender for the **best iptv plan 2026**, offering the perfect balance to cover two full sports seasons.",
+    "badge": "SAVE 45%",
+    "months": 6,
+    "basePrice": 69,
+    "monthlyEquivalent": 11.5,
+    "savings": "Save 45%",
+    "deviceTiers": [
       {
-        q: 'How much is the 6-month plan per month?',
-        a: 'The 6-month plan is $69 total — just $11.50 per month, saving you 45% compared to paying month-by-month.',
+        "devices": 1,
+        "label": "1 Connection",
+        "price": 69,
+        "monthlyEquivalent": 11.5,
+        "savings": "Save 45%",
+        "checkoutLink": "/order?plan=6-months&connections=1"
       },
       {
-        q: 'Can I watch live sports for a full sports season with this plan?',
-        a: 'Absolutely. Six months covers full runs of major sports leagues including the NFL, Premier League, NBA, Serie A, Champions League, and many more. All sporting events stream in 4K where available.',
+        "devices": 2,
+        "label": "2 Connections",
+        "price": 110,
+        "monthlyEquivalent": 18.33,
+        "savings": "Save 47%",
+        "checkoutLink": "/order?plan=6-months&connections=2"
       },
       {
-        q: 'What sports channels are included?',
-        a: 'We include thousands of sports channels: Sky Sports, BT Sport, ESPN, beIN Sports, DAZN, Eurosport, NBC Sports, TNT Sports, and hundreds of regional sports networks. Every major live event is covered.',
+        "devices": 3,
+        "label": "3 Connections",
+        "price": 150,
+        "monthlyEquivalent": 25,
+        "savings": "Save 46%",
+        "checkoutLink": "/order?plan=6-months&connections=3"
       },
       {
-        q: 'Will I lose access if I do not renew immediately?',
-        a: 'Your subscription simply pauses after 180 days. Your account remains active and you can renew at any time to restore immediate access. There are no data losses or penalties for late renewal.',
-      },
-      {
-        q: 'Is this plan suitable for a family?',
-        a: 'Yes. Choose 2, 3, or 4 simultaneous connections to cover every member of your household. Each connection streams independently on any compatible device.',
-      },
+        "devices": 4,
+        "label": "4 Connections",
+        "price": 190,
+        "monthlyEquivalent": 31.66,
+        "savings": "Save 45%",
+        "checkoutLink": "/order?plan=6-months&connections=4"
+      }
     ],
-    reviews: [
-      { name: 'David K.', location: 'Los Angeles, USA', rating: 5, text: 'Had it for 4 months now. Watched the entire NBA season in 4K. Phenomenal quality — better than any cable package I have ever had.' },
-      { name: 'Elena P.', location: 'Amsterdam, Netherlands', rating: 5, text: 'Dutch, English, and Spanish channels all working perfectly. The 6-month price is unbeatable. Setup was 3 minutes on my Smart TV.' },
-      { name: 'Ryan O.', location: 'Dublin, Ireland', rating: 5, text: 'Rugby World Cup, Champions League, Premier League — watched everything. Not one stream dropped. This is as good as IPTV gets.' },
+    "features": [
+      "22,000+ channels streaming live",
+      "Native 4K Ultra-HD & HD Streams",
+      "Vast On-Demand Selection — Films & TV Series",
+      "Zero-Lag Streaming Architecture",
+      "Comprehensive Electronic Programme Guide",
+      "TV Catch-Up — Access the Last 7 Days",
+      "Assured 99.9% Uptime",
+      "Compatible with Firestick, Android, Smart TV, iOS",
+      "Always-on expert assistance",
+      "Immediate Service Activation",
+      "Service without long-term obligation",
+      "Worldwide Programming — USA, UK, Canada & Beyond"
     ],
-    ratingValue: 4.9,
-    reviewCount: 1876,
+    "highlights": [
+      "$11.50/month — a 45% reduction from the monthly cost",
+      "From football season straight into basketball",
+      "The perfect mix of affordability and freedom"
+    ],
+    "metaTitle": "IPTV Half Year Plan – 45% Off Subscription | ORCA 4K TV",
+    "metaDescription": "Get our best IPTV plan 2026 and a leading IPTV subscription deal. The popular IPTV half year plan provides a 6 month IPTV subscription for IPTV 6 months of reliable, 4K streaming on thousands of channels for $69.",
+    "keywords": "6 month iptv subscription, iptv half year plan, iptv 6 months, best iptv plan 2026, iptv subscription deal",
+    "faq": [
+      {
+        "q": "What's the monthly cost for iptv 6 months?",
+        "a": "Our iptv half year plan is available for a single payment of $69. This premier iptv subscription deal averages out to $11.50 per month for a full iptv 6 months—a 45% discount from the month-to-month price. This 6 month iptv subscription is considered the best iptv plan 2026 for overall value."
+      },
+      {
+        "q": "Does the **6 month iptv subscription** cover an entire sports season? Considering this **iptv subscription deal**, is the **iptv half year plan** of **iptv 6 months** the **best iptv plan 2026** for comprehensive sports coverage?",
+        "a": "Yes. Our iptv half year plan is the best iptv plan 2026 for sports. This iptv subscription deal gives iptv 6 months of NFL, Premier League, NBA, Serie A, Champions League, and more. The 6 month iptv subscription includes 4K streams where available."
+      },
+      {
+        "q": "Which sports channels are available?",
+        "a": "Gain access to thousands of sports broadcasters, including Sky Sports, BT Sport, ESPN, beIN Sports, DAZN, and Eurosport. With NBC Sports, TNT Sports, and hundreds of regional networks, no major live event is missed."
+      },
+      {
+        "q": "Is service disconnected immediately if a renewal is late?",
+        "a": "After 180 days, your service is automatically paused, but your account remains live. Renew at any time for instant reactivation without incurring data loss or late fees."
+      },
+      {
+        "q": "Without a doubt. Our iptv half year plan is designed for households, providing access to over 22,000 channels to satisfy every taste. This iptv subscription deal is incredibly popular with families. For those seeking the best iptv plan 2026, this 6 month iptv subscription delivers exceptional value. The entertainment options during these iptv 6 months are virtually limitless.",
+        "a": "Yes. You can select 2, 3, or 4 simultaneous streams to accommodate everyone in your home. Each stream operates independently on any of your supported devices."
+      }
+    ],
+    "reviews": [
+      {
+        "name": "David K.",
+        "location": "Los Angeles, USA",
+        "rating": 5,
+        "text": "I'm 4 months into using my **iptv half year plan**. The 4K quality for the NBA season was incredible—so much better than my old cable service. This is the best viewing experience I've had."
+      },
+      {
+        "name": "Elena P.",
+        "location": "Amsterdam, Netherlands",
+        "rating": 5,
+        "text": "My Spanish, English, and Dutch channels are streaming without issue after a 3-minute setup on my Smart TV. This **6 month iptv subscription** is the **best iptv plan 2026**. A fantastic **iptv subscription deal** for any **iptv half year plan** or for **iptv 6 months**."
+      },
+      {
+        "name": "Ryan O.",
+        "location": "Dublin, Ireland",
+        "rating": 5,
+        "text": "I followed all the action from the Rugby World Cup, Champions League, and Premier League. The stream integrity was perfect, with no interruptions. You won't find a better IPTV service."
+      }
+    ],
+    "ratingValue": 4.9,
+    "reviewCount": 1876
   },
   {
-    slug: '12-months',
-    name: '12-Month IPTV Plan',
-    shortName: '12 Months',
-    tagline: 'Best Value — Save 62% with the Ultimate Annual IPTV Plan',
-    description: 'The best IPTV deal of 2026. Get a full year of premium 4K streaming at just $7.92/month — the lowest price in the market. Over 22,000 channels, unlimited VOD, and every live sport included.',
-    badge: 'BEST VALUE',
-    months: 12,
-    basePrice: 95.00,
-    monthlyEquivalent: 7.92,
-    savings: 'Save 62%',
-    deviceTiers: [
-      { devices: 1, label: '1 Connection', price: 95.00, monthlyEquivalent: 7.92, savings: 'Save 62%', checkoutLink: '/order?plan=12-months&connections=1' },
-      { devices: 2, label: '2 Connections', price: 152.00, monthlyEquivalent: 12.66, savings: 'Save 63%', checkoutLink: '/order?plan=12-months&connections=2' },
-      { devices: 3, label: '3 Connections', price: 210.00, monthlyEquivalent: 17.50, savings: 'Save 62%', checkoutLink: '/order?plan=12-months&connections=3' },
-      { devices: 4, label: '4 Connections', price: 260.00, monthlyEquivalent: 21.66, savings: 'Save 63%', checkoutLink: '/order?plan=12-months&connections=4' },
+    "slug": "12-months",
+    "name": "12-Month IPTV Plan",
+    "shortName": "12 Months",
+    "tagline": "Our top annual plan: unlock 62% savings for the best IPTV value.",
+    "description": "For the best iptv value 2026, choose our iptv annual plan. This iptv yearly subscription delivers iptv 12 months of 4K streaming, 22,000+ channels, unlimited VOD, and live sports for just $7.92/month. It's the best iptv annual plan 2026.",
+    "badge": "BEST VALUE",
+    "months": 12,
+    "basePrice": 95,
+    "monthlyEquivalent": 7.92,
+    "savings": "Save 62%",
+    "deviceTiers": [
+      {
+        "devices": 1,
+        "label": "1 Connection",
+        "price": 95,
+        "monthlyEquivalent": 7.92,
+        "savings": "Save 62%",
+        "checkoutLink": "/order?plan=12-months&connections=1"
+      },
+      {
+        "devices": 2,
+        "label": "2 Connections",
+        "price": 152,
+        "monthlyEquivalent": 12.66,
+        "savings": "Save 63%",
+        "checkoutLink": "/order?plan=12-months&connections=2"
+      },
+      {
+        "devices": 3,
+        "label": "3 Connections",
+        "price": 210,
+        "monthlyEquivalent": 17.5,
+        "savings": "Save 62%",
+        "checkoutLink": "/order?plan=12-months&connections=3"
+      },
+      {
+        "devices": 4,
+        "label": "4 Connections",
+        "price": 260,
+        "monthlyEquivalent": 21.66,
+        "savings": "Save 63%",
+        "checkoutLink": "/order?plan=12-months&connections=4"
+      }
     ],
-    features: [
-      '22,000+ Live TV Channels',
-      '4K Ultra-HD & HD Streaming',
-      'Massive VOD Library — Movies & Series',
-      'Buffer-Free Streaming Technology',
-      'Full EPG Electronic Programme Guide',
-      'Catch-Up TV — Replay Up to 7 Days',
-      '99.9% Uptime Guarantee',
-      'Works on Firestick, Android, Smart TV, iOS',
-      '24/7 Priority Customer Support',
-      'Instant Activation — No Waiting',
-      'No Hidden Fees or Extra Charges',
-      'International Channels — USA, UK, Canada & More',
+    "features": [
+      "Stream 22,000+ live channels",
+      "Native 4K Ultra-HD & HD Support",
+      "Expansive VOD Catalog — Films & Television",
+      "Zero-Buffering Playback Engine",
+      "Integrated Electronic Program Guide",
+      "Catch-Up Feature — Rewind the Past 7 Days",
+      "Exceptional 99.9% service reliability",
+      "Compatible with Firestick, Android, Smart TV, iOS",
+      "Dedicated 24/7 expert assistance",
+      "Your Service Activates Instantly",
+      "All-inclusive price with no added costs",
+      "Access USA, UK, Canada & Global Channels"
     ],
-    highlights: [
-      '$7.92/month — the lowest IPTV price in 2026',
-      'Save $157 compared to paying month-by-month',
-      'Full year: every sport, every season, every event',
+    "highlights": [
+      "$7.92/month — 2026's most affordable rate for IPTV",
+      "Your annual commitment unlocks $157 in savings",
+      "12 months of total access: all sports, all seasons"
     ],
-    metaTitle: '12-Month IPTV Subscription – Best Value | Smart 4K IPTV',
-    metaDescription: 'Best value IPTV plan 2026 — $95 for 12 months, just $7.92/mo. Thousands of premium channels, 4K sports & movies with reliable HD streaming all year.',
-    keywords: 'best iptv annual plan 2026, iptv 12 months, iptv yearly subscription, iptv annual plan, best iptv value 2026',
-    faq: [
+    "metaTitle": "Best IPTV Value 2026: IPTV Annual Plan | ORCA 4K TV",
+    "metaDescription": "Our best IPTV annual plan is the best IPTV value for 2026. The IPTV yearly subscription is $95 for 12 months ($7.92/mo), delivering 4K sports, movies, and thousands of channels.",
+    "keywords": "best iptv annual plan 2026, iptv 12 months, iptv yearly subscription, iptv annual plan, best iptv value 2026",
+    "faq": [
       {
-        q: 'Why is the 12-month plan the best value?',
-        a: 'At $95 for a full year, you pay just $7.92 per month — saving $157 compared to renewing the monthly plan every month. It is the lowest per-month cost we offer and includes every feature without any restrictions.',
+        "q": "Why does the yearly subscription provide superior value?",
+        "a": "Our `iptv yearly subscription` offers the `best iptv value 2026`. At $95, this `iptv 12 months` plan is just $7.92/month, a $157 savings over monthly payments. This `iptv annual plan` is our `best iptv annual plan 2026`, providing our lowest rate with unrestricted, all-feature access."
       },
       {
-        q: 'What sports events are covered over the 12 months?',
-        a: 'With a full year, you get coverage of the entire Premier League season, La Liga, Serie A, Bundesliga, Champions League, Europa League, NFL regular season and playoffs, NBA, MLB, NHL, UFC/MMA, Formula 1, boxing, tennis Grand Slams, cricket, rugby, and much more — all in 4K where available.',
+        "q": "What sports programming is included for the full year?",
+        "a": "Your full-year plan provides continuous access to the entire Premier League season, La Liga, Serie A, Bundesliga, Champions League, and Europa League. It also includes the complete NFL regular season and playoffs, NBA, MLB, NHL, UFC/MMA, Formula 1, boxing, tennis Grand Slams, cricket, rugby, and many others, with 4K resolution on available broadcasts."
       },
       {
-        q: 'Is the 12-month plan a one-time payment?',
-        a: 'Yes. You make a single payment of $95 (for 1 connection) and your subscription runs for 365 days. No recurring charges, no hidden fees, no auto-renewal without your consent.',
+        "q": "Is the IPTV yearly subscription billed all at once?",
+        "a": "Absolutely. For $95, you receive 365 days of access on a single connection. This is a one-time charge with no hidden fees, recurring payments, or unapproved auto-renewals."
       },
       {
-        q: 'Can I share the 12-month plan with my family?',
-        a: 'Yes. Choose 2, 3, or 4 simultaneous connections at checkout. Multiple family members can watch different channels on different devices at the same time under one subscription.',
+        "q": "Is my 12-month subscription shareable with other members of my household?",
+        "a": "Absolutely. Your plan can be configured for 2, 3, or 4 concurrent streams at checkout. This allows different members of your household to watch separate programs on their own devices, all at once under a single subscription."
       },
       {
-        q: 'What if the service does not work on my device?',
-        a: 'Our 24/7 priority support team will help you set up on any device — Firestick, Smart TV, Android box, iOS, MAG, or PC. Setup typically takes under 5 minutes and our team is always available to guide you step by step.',
+        "q": "What are the next steps if my device isn't compatible?",
+        "a": "Our 24/7 support specialists will guide your installation on any platform, including Firestick, Smart TV, Android box, iOS, MAG, or PC. With their step-by-step assistance, the entire process is typically finished in less than 5 minutes."
       },
       {
-        q: 'Is there a money-back guarantee?',
-        a: 'We offer a free trial so you can verify quality before purchasing. We recommend using the trial to confirm compatibility with your devices and network. Please refer to our refund policy for full details.',
-      },
+        "q": "What is your refund policy?",
+        "a": "Before purchasing, take advantage of our free trial to experience the service quality. We suggest using this time to confirm flawless compatibility with your network and hardware. Our policy on refunds contains all further details."
+      }
     ],
-    reviews: [
-      { name: 'Michael B.', location: 'New York, USA', rating: 5, text: 'Best investment I have made in streaming. $95 for a full year is insane value. Watched every NFL game, NBA playoff, and UFC PPV in 4K. Never going back to cable.' },
-      { name: 'Priya S.', location: 'Birmingham, UK', rating: 5, text: 'Got the 4-connection plan for my whole family. My husband watches sports, I watch Bollywood, the kids have cartoons — all at the same time, zero buffering.' },
-      { name: 'Pierre L.', location: 'Paris, France', rating: 5, text: 'French channels, beIN Sports, Canal+ equivalent — everything works. $7.92 a month is genuinely the best deal I have found anywhere in 2026.' },
+    "reviews": [
+      {
+        "name": "Michael B.",
+        "location": "New York, USA",
+        "rating": 5,
+        "text": "This iptv 12 months plan is the best iptv value 2026. For $95, my iptv yearly subscription gave me every NFL, NBA, and UFC event in 4K. It's the best iptv annual plan 2026. My iptv annual plan means no more cable."
+      },
+      {
+        "name": "Priya S.",
+        "location": "Birmingham, UK",
+        "rating": 5,
+        "text": "The 4-connection plan is perfect for our family. He watches sports, I watch Bollywood, and the kids have their cartoons, all streaming together without any buffering."
+      },
+      {
+        "name": "Pierre L.",
+        "location": "Paris, France",
+        "rating": 5,
+        "text": "My French channels, including beIN Sports and the Canal+ alternative, all function perfectly. At $7.92/month, it's the best deal I've found for 2026."
+      }
     ],
-    ratingValue: 4.9,
-    reviewCount: 2847,
-  },
-]
+    "ratingValue": 4.9,
+    "reviewCount": 2847
+  }
+];
 
 export function getPlanBySlug(slug: string): ShopPlan | undefined {
-  return SHOP_PLANS.find(p => p.slug === slug)
+  return SHOP_PLANS.find((p) => p.slug === slug);
 }
+

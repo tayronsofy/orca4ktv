@@ -69,7 +69,7 @@ export default function MatchListClient({ live, upcoming, results }: Props) {
       {/* Upcoming section */}
       {showUpcoming && upcoming.length > 0 && (
         <section className="mb-10">
-          <h2 className="text-xs font-black text-[#a855f7] uppercase tracking-widest mb-4">
+          <h2 className="text-xs font-black text-[#00E5FF] uppercase tracking-widest mb-4">
             Upcoming
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

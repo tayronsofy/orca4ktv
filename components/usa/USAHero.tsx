@@ -29,14 +29,14 @@ const USAHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our USA Concierge is currently offline, but we guarantee access to top stateside networks!");
+      setAiResponse("Our USA concierge is offline right now — but yes, ORCA 4K TV ships every major US network including ESPN, NFL Network, NBA TV, MLB Network, FOX, NBC, CBS, ABC, and your local affiliates by ZIP code.");
     } finally {
       setIsSearching(false);
     }
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
       
       {/* USA Theme Cinematic Background */}
       <div
@@ -53,13 +53,13 @@ const USAHero: React.FC = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-red-600/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001f3f]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-          America's #1 IPTV Solution 🇺🇸
+          America&apos;s New Cord-Cutter · IPTV USA 2026 🇺🇸
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
@@ -70,11 +70,11 @@ const USAHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Your NFL Sunday Ticket alternative. Watch ABC, NBC, CBS, and FOX without cable.
+          Every Sunday. Every Walk-Off. Every Buzzer-Beater — In 4K HDR, Without the Cable Bill
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          The ultimate American Sports IPTV HD service. Stream ESPN and TNT in 4K. Experience buffer-free US servers across New York, Los Angeles, and Chicago delivering 22,000+ global channels.
+          From the Super Bowl LX kickoff at Levi&apos;s Stadium to March Madness, the NBA Finals, the World Series, and every NFL Sunday in between — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with five US edge servers (NYC, LA, Chicago, Dallas, Atlanta) keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Roku Ultra, Apple TV 4K, and every Smart TV — just ask the AI concierge what&apos;s on.
         </p>
 
         {/* AI Search Bar Area */}
@@ -86,7 +86,7 @@ const USAHero: React.FC = () => {
               aria-label="Search for US channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search US networks (e.g., 'Do you have ESPN and Fox News?')"
+              placeholder="Ask anything: 'NBA Finals tonight?' · 'College football Saturday?' · 'NHL Center Ice?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg shadow-2xl"
             />
             <button

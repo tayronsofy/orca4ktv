@@ -4,22 +4,22 @@ import React from 'react';
 
 const reviewsRaw = [
   {
-    text: "Die Bundesliga-Streams laufen absolut flüssig und die 4K-Qualität sieht fantastisch aus. Die Einrichtung dauerte nur 5 Minuten.",
-    device: "Android TV – Berlin",
+    text: "Jedes Bundesliga-Topspiel und alle Champions-League-Abende in 4K HDR auf meinem Apple TV 4K – kein Ruckeln, selbst beim entscheidenden Spieltag im Mai. Vodafone gekündigt und über 50 € pro Monat gespart.",
+    device: "Apple TV 4K – Berlin",
   },
   {
-    text: "Toller Support, der schnell antwortet. Ich hatte ein kleines App-Problem und sie haben es sofort gelöst. Sehr empfehlenswert!",
-    device: "Firestick – München",
+    text: "In unter 5 Minuten mit TiviMate auf dem Firestick 4K Max eingerichtet. F1-Sonntage, DFB-Pokal-Mittwoch, Olympia-Highlights aus Mailand-Cortina – alles gestochen scharf. Der EPG ist klarer als alles, was ich vorher hatte.",
+    device: "Firestick 4K Max – München",
   },
   {
-    text: "Riesige VOD-Bibliothek und der EPG hat alle deutschen Sender. Funktioniert perfekt auf meinem Smartphone und Smart TV.",
-    device: "iOS + Samsung TV – Hamburg",
+    text: "Nach der x-ten Preiserhöhung von Telekom MagentaTV gewechselt. Gleiche Bundesliga, gleiche ARD-Mediathek, plus 100+ internationale Sender. Streamt einwandfrei in 4K HDR auf meinem LG OLED.",
+    device: "LG webOS + iPhone – Hamburg",
   },
 ];
 
 const GermanyReviews: React.FC = () => {
   return (
-    <section className="py-20 bg-[#15171a] relative overflow-hidden" id="reviews">
+    <section className="py-20 bg-[#001530] relative overflow-hidden" id="reviews">
       {/* Background Ambience */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-[120px] -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-700/10 rounded-full blur-[120px] translate-y-1/2"></div>
@@ -31,7 +31,7 @@ const GermanyReviews: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-red-700 to-yellow-500 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Deutsche Nutzer wählen uns wegen Stabilität, Premium-Sportkanälen und schnellem Support bei der Einrichtung.
+            Verifizierte deutsche Cord-Cutter von Berlin bis München – pufferungsfreies 4K HDR, jedes Bundesliga-Spiel, jeder F1-Grand-Prix, jeder Olympia-Moment, ein einziges IPTV-Abonnement.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ const GermanyReviews: React.FC = () => {
           {reviewsRaw.map((review, i) => (
             <div
               key={i}
-              className="bg-[#1f2326] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
+              className="bg-[#001f3f] p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-6">

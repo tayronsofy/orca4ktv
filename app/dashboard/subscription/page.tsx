@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import RevealCredential from '@/components/dashboard/RevealCredential'
 
 export const metadata = {
-  title: 'My Subscription - SMART 4K IPTV',
+  title: 'My Subscription - ORCA 4K TV IPTV',
 }
 
 export default async function SubscriptionPage() {
@@ -24,7 +24,7 @@ export default async function SubscriptionPage() {
     return (
       <div>
         <h1 className="text-2xl font-black text-white mb-6">My Subscription</h1>
-        <div className="bg-[#2c3034] rounded-2xl p-8 border border-white/5 text-center">
+        <div className="bg-[#002952] rounded-2xl p-8 border border-white/5 text-center">
           <i className="fas fa-satellite-dish text-4xl text-gray-600 mb-4"></i>
           <p className="text-gray-400 mb-4">You don&apos;t have an active subscription yet.</p>
           <a href="/iptv-shop" className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">
@@ -53,7 +53,7 @@ export default async function SubscriptionPage() {
       <h1 className="text-2xl font-black text-white mb-6">My Subscription</h1>
 
       {/* Status bar */}
-      <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 mb-6">
+      <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="text-gray-400 text-sm mb-1">{(sub as any).orders?.plan_name || 'IPTV Plan'}</p>
@@ -84,7 +84,7 @@ export default async function SubscriptionPage() {
           Your credentials are being prepared. You&apos;ll receive an email once your subscription is activated.
         </div>
       ) : (
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 mb-6">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
           <h2 className="text-white font-bold mb-5 flex items-center gap-2">
             <i className="fas fa-key text-purple-400"></i> IPTV Credentials
           </h2>
@@ -107,13 +107,13 @@ export default async function SubscriptionPage() {
 
       {/* Device MACs */}
       {sub.mac_addresses && sub.mac_addresses.length > 0 && (
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5 mb-6">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2">
             <i className="fas fa-tv text-blue-400"></i> Registered Devices
           </h2>
           <div className="space-y-2">
             {sub.mac_addresses.map((mac: string, i: number) => (
-              <div key={i} className="flex items-center justify-between bg-[#1f2326] rounded-xl px-4 py-3">
+              <div key={i} className="flex items-center justify-between bg-[#001f3f] rounded-xl px-4 py-3">
                 <span className="text-gray-400 text-sm">Device {i + 1}</span>
                 <span className="text-white font-mono text-sm">{mac}</span>
               </div>
@@ -123,7 +123,7 @@ export default async function SubscriptionPage() {
       )}
 
       {/* Connections info */}
-      <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+      <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-white font-bold">Simultaneous connections</h2>

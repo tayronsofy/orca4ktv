@@ -19,11 +19,11 @@ const SportsLogos: React.FC = () => {
   return (
     <section className="bg-black py-20 border-b border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 text-center mb-12">
-        <p className="text-[#a855f7] text-[10px] font-black uppercase tracking-[0.4em] mb-4 opacity-70">
+        <p className="text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.4em] mb-4 opacity-70">
           World Class Sports Coverage
         </p>
         <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
-          Global Sports. <span className="text-[#a855f7]">Big Screen.</span>
+          Global Sports. <span className="text-[#00E5FF]">Big Screen.</span>
         </h2>
       </div>
 
@@ -48,7 +48,7 @@ const SportsLogos: React.FC = () => {
                 </div>
 
                 {/* Text fades in only when hovering THIS item */}
-                <span className="mt-4 text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover/item:text-[#a855f7] opacity-0 group-hover/item:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/item:translate-y-0">
+                <span className="mt-4 text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover/item:text-[#00E5FF] opacity-0 group-hover/item:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/item:translate-y-0">
                   {sport.name}
                 </span>
               </div>

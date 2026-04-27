@@ -15,14 +15,14 @@ const FEATURES = [
 
 const VideoSection: React.FC<VideoSectionProps> = ({ onScrollToPricing }) => {
   return (
-    <section className="relative min-h-[700px] bg-gradient-to-r from-[#1a0b3c] via-[#0d071b] to-black py-24 overflow-hidden">
+    <section className="relative min-h-[700px] bg-gradient-to-r from-[#001737] via-[#000d1f] to-black py-24 overflow-hidden">
       <div className="container mx-auto px-6 h-full flex flex-col lg:flex-row items-center justify-between gap-16">
 
         {/* Left Content Column */}
         <div className="flex-1 text-center lg:text-left z-10">
           <h2 className="text-2xl md:text-4xl font-black mb-6 text-white leading-tight uppercase tracking-tight drop-shadow-lg">
             EXPERIENCE THE NEXT EVOLUTION OF TV.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-white">
               Global Access. Infinite Entertainment.
             </span>
           </h2>
@@ -64,7 +64,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ onScrollToPricing }) => {
           {/* GPU Layer Promotion: will-change-transform helps mobile GPU handle this heavy element 
             Aspect Ratio: Prevents CLS (Layout Shift)
           */}
-          <div className="aspect-video bg-[#0a0a0a] rounded-xl overflow-hidden border-[12px] border-[#222] shadow-[0_0_100px_rgba(168,85,247,0.25)] relative group will-change-transform">
+          <div className="aspect-video bg-[#000a1c] rounded-xl overflow-hidden border-[12px] border-[#222] shadow-[0_0_100px_rgba(168,85,247,0.25)] relative group will-change-transform">
 
             {/* Optimized Video Component */}
             <video

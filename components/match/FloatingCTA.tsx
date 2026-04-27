@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function FloatingCTA({ matchSlug, state }: Props) {
-  const tgBot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? 'Smart4ksupport'
+  const tgBot = process.env.NEXT_PUBLIC_TELEGRAM_BOT_USERNAME ?? 'Orca4ktv'
   const tgLink = `https://t.me/${tgBot}?start=match_${matchSlug}`
 
   const primaryLabel = state === 'post'
@@ -25,9 +25,9 @@ export default function FloatingCTA({ matchSlug, state }: Props) {
 
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
         {/* Gradient fade above bar */}
-        <div className="h-6 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
+        <div className="h-6 bg-gradient-to-t from-[#000a1c] to-transparent pointer-events-none" />
 
-        <div className="bg-[#0a0a0a] border-t border-white/8 px-4 py-3 flex gap-3">
+        <div className="bg-[#000a1c] border-t border-white/8 px-4 py-3 flex gap-3">
           {/* Primary CTA */}
           <Link
             href="/order?plan=1-month&connections=1"

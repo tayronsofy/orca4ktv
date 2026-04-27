@@ -57,7 +57,7 @@ const Pricing = () => {
   const currentPlans = PRICING_TIERS[activeDeviceCount];
 
   return (
-    <section className="relative py-20 bg-[#1f2326] overflow-hidden" id="pricing">
+    <section className="relative py-20 bg-[#001f3f] overflow-hidden" id="pricing">
       {/* Background Ambience */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
@@ -72,7 +72,7 @@ const Pricing = () => {
           </p>
 
           {/* DEVICE SWITCHER */}
-          <div className="inline-flex flex-wrap items-center justify-center bg-[#15171a] p-2 rounded-full border border-purple-600/50 shadow-xl shadow-purple-500/20">
+          <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-purple-600/50 shadow-xl shadow-purple-500/20">
             {[1, 2, 3, 4].map((count) => (
               <button
                 key={count}
@@ -104,7 +104,7 @@ const Pricing = () => {
               {/* Gradient Border */}
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-purple-500/40 to-blue-600/10 opacity-50 ${plan.isPopular ? 'from-purple-500 to-blue-600 opacity-100' : ''}`} />
 
-              <div className="relative h-full bg-[#15171a] rounded-[22px] p-6 flex flex-col border border-purple-500/20 overflow-hidden">
+              <div className="relative h-full bg-[#001530] rounded-[22px] p-6 flex flex-col border border-purple-500/20 overflow-hidden">
 
                 {/* Popular Ribbon */}
                 {plan.isPopular && (

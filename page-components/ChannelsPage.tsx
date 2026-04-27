@@ -4,7 +4,6 @@ import React, { useEffect, useState, useMemo } from 'react';
 import Papa from 'papaparse';
 import { Search, Monitor, X, ChevronRight, PlayCircle } from 'lucide-react';
 import 'flag-icons/css/flag-icons.min.css';
-import SEO from '../components/SEO';
 
 interface Channel {
     fullText: string;
@@ -17,10 +16,14 @@ interface CountryGroup {
     name: string;
     count: number;
     channels: Channel[];
-    code?: string; // Optional: ISO code if we wanted to be fancy with flags, but names vary too much in CSV
+    code?: string;
 }
 
-const ChannelsPage: React.FC = () => {
+interface ChannelsPageProps {
+    seoContent?: React.ReactNode;
+}
+
+const ChannelsPage: React.FC<ChannelsPageProps> = ({ seoContent }) => {
     const [data, setData] = useState<Channel[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -114,20 +117,17 @@ const ChannelsPage: React.FC = () => {
 
 
     return (
-        <div className="min-h-screen bg-[#0f0f0f] text-white px-4 md:px-12 pb-12" style={{ paddingTop: '200px' }}>
-            <SEO
-                title="Full IPTV Channel List - 25,000+ Live Channels & VOD"
-                description="Browse our massive list of 25,000+ live TV channels from USA, UK, Canada, France, and more. Full HD & 4K quality with no buffering."
-                keywords="iptv channel list, live tv channels, usa iptv channels, uk iptv list, sports channels iptv, 4k iptv channels"
-            />
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-[#000a1c] text-white pb-12" style={{ paddingTop: '200px' }}>
+            <div className="max-w-7xl mx-auto px-4 md:px-12">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-6">
-                        Live Channel Directory
+                    <span className="inline-block bg-purple-600/20 border border-purple-500/30 text-purple-400 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
+                        IPTV Channel Directory · 2026
+                    </span>
+                    <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-6 leading-tight">
+                        IPTV Channel List 2026 — 22,000+ Live Channels Across 150+ Countries
                     </h1>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Explore our comprehensive list of <span className="text-white font-bold">22,000+</span> channels from around the world.
-                        Select a country to view available stations.
+                    <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                        Browse the complete ORCA 4K TV IPTV channel list — <span className="text-white font-bold">22,000+ live TV channels</span> in 4K HDR with HDR10+ and Dolby Vision, plus <span className="text-white font-bold">100,000+ on-demand titles</span>. Premium IPTV channels from the USA, UK, Canada, Germany, Netherlands, France, Spain, Italy, Portugal, Latin America, MENA, and more — sports, news, movies, kids, music, and 30+ international languages. Click any country to view its channel lineup.
                     </p>
                 </div>
 
@@ -142,8 +142,8 @@ const ChannelsPage: React.FC = () => {
                                 placeholder="Search for a country (e.g., France, USA, UK)..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full bg-[#16181b] border border-gray-700/50 rounded-2xl py-5 pl-14 pr-4 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-white placeholder-gray-500 shadow-xl text-lg relative z-20"
-                                style={{ color: '#ffffff', backgroundColor: '#16181b', paddingLeft: '60px' }}
+                                className="w-full bg-[#001530] border border-gray-700/50 rounded-2xl py-5 pl-14 pr-4 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-white placeholder-gray-500 shadow-xl text-lg relative z-20"
+                                style={{ color: '#ffffff', backgroundColor: '#001530', paddingLeft: '60px' }}
                             />
                         </div>
                     </div>
@@ -160,7 +160,7 @@ const ChannelsPage: React.FC = () => {
                             <div
                                 key={group.name}
                                 onClick={() => setSelectedCountry(group)}
-                                className="bg-[#1f2326] hover:bg-[#2a2e33] border border-white/5 hover:border-purple-500/30 rounded-2xl p-6 cursor-pointer transition-all duration-300 group relative overflow-hidden"
+                                className="bg-[#001f3f] hover:bg-[#2a2e33] border border-white/5 hover:border-purple-500/30 rounded-2xl p-6 cursor-pointer transition-all duration-300 group relative overflow-hidden"
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <div className="w-12 h-12 rounded-xl bg-purple-900/20 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform duration-300">
@@ -201,10 +201,10 @@ const ChannelsPage: React.FC = () => {
                         ></div>
 
                         {/* Content */}
-                        <div className="bg-[#16181b] w-full max-w-4xl rounded-3xl border border-white/10 shadow-2xl flex flex-col relative z-10 animate-fade-in-up overflow-hidden" style={{ maxHeight: '85vh' }}>
+                        <div className="bg-[#001530] w-full max-w-4xl rounded-3xl border border-white/10 shadow-2xl flex flex-col relative z-10 animate-fade-in-up overflow-hidden" style={{ maxHeight: '85vh' }}>
 
                             {/* Header */}
-                            <div className="p-8 border-b border-white/5 flex items-center justify-between bg-[#1f2326]">
+                            <div className="p-8 border-b border-white/5 flex items-center justify-between bg-[#001f3f]">
                                 <div>
                                     <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                                         {selectedCountry.name}
@@ -242,7 +242,7 @@ const ChannelsPage: React.FC = () => {
                             </div>
 
                             {/* Footer */}
-                            <div className="p-6 border-t border-white/5 bg-[#1f2326] rounded-b-3xl flex justify-between items-center">
+                            <div className="p-6 border-t border-white/5 bg-[#001f3f] rounded-b-3xl flex justify-between items-center">
                                 <span className="text-sm text-gray-500">
                                     Updates daily. 99.9% Uptime.
                                 </span>
@@ -267,12 +267,15 @@ const ChannelsPage: React.FC = () => {
 
             </div>
 
+            {/* Server-rendered SEO content block */}
+            {seoContent}
+
             <style>{`
           .custom-scrollbar::-webkit-scrollbar {
               width: 8px;
           }
           .custom-scrollbar::-webkit-scrollbar-track {
-              background: #1f2326; 
+              background: #001f3f; 
           }
           .custom-scrollbar::-webkit-scrollbar-thumb {
               background: #3f444b; 

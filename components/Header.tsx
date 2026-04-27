@@ -59,16 +59,16 @@ const Header: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-4 md:px-6 py-3 md:py-4 flex items-center justify-between ${
-          scrolled || mobileOpen ? 'bg-[#1f2326] shadow-xl border-b border-gray-800' : 'bg-transparent'
+          scrolled || mobileOpen ? 'bg-[#001f3f] shadow-xl border-b border-gray-800' : 'bg-transparent'
         }`}
       >
         {/* Logo */}
         <Link
           href="/"
           className="hover:opacity-80 transition-opacity flex items-center shrink-0"
-          aria-label="Smart 4K Home"
+          aria-label="Orca 4K TV Home"
         >
-          <Image src="/logo.png?v=2" alt="SMART 4K IPTV" width={1263} height={399} className="h-10 md:h-12 w-auto" priority />
+          <Image src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-16 md:h-20 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
           {/* Free Trial - desktop only */}
           <Link
             href="/trial"
-            className="hidden md:inline-flex bg-[#6d28d9] text-white px-6 py-2 rounded-full text-sm font-black uppercase tracking-tighter hover:bg-[#5b21b6] transition-all transform hover:scale-105 shadow-lg shadow-[#a855f7]/20 whitespace-nowrap"
+            className="hidden md:inline-flex bg-[#003580] text-white px-6 py-2 rounded-full text-sm font-black uppercase tracking-tighter hover:bg-[#003566] transition-all transform hover:scale-105 shadow-lg shadow-[#00E5FF]/20 whitespace-nowrap"
           >
             Free Trial
           </Link>
@@ -129,7 +129,7 @@ const Header: React.FC = () => {
           {/* Free Trial — mobile only, visible in top bar */}
           <Link
             href="/trial"
-            className="md:hidden bg-[#6d28d9] text-white px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-tight hover:bg-[#5b21b6] transition-all whitespace-nowrap"
+            className="md:hidden bg-[#003580] text-white px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-tight hover:bg-[#003566] transition-all whitespace-nowrap"
           >
             Free Trial
           </Link>
@@ -160,11 +160,11 @@ const Header: React.FC = () => {
 
         {/* Drawer */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 bg-[#1a1d20] border-l border-white/10 shadow-2xl transition-transform duration-300 flex flex-col ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`absolute top-0 right-0 h-full w-72 bg-[#001a36] border-l border-white/10 shadow-2xl transition-transform duration-300 flex flex-col ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <Image src="/logo.png?v=2" alt="SMART 4K IPTV" width={1263} height={399} className="h-9 w-auto" />
+            <Image src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-12 w-auto" />
             <button
               onClick={() => setMobileOpen(false)}
               className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-all"
@@ -234,7 +234,7 @@ const Header: React.FC = () => {
             )}
             <Link
               href="/trial"
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white py-4 rounded-full font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-lg shadow-[#a855f7]/20"
+              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white py-4 rounded-full font-black uppercase tracking-widest text-sm hover:opacity-90 transition-all shadow-lg shadow-[#00E5FF]/20"
             >
               <i className="fas fa-play text-xs"></i>
               Free Trial

@@ -37,7 +37,7 @@ const FONTS = [
 
 const COLORS = [
   '#ffffff', '#ef4444', '#f97316', '#eab308',
-  '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899',
+  '#22c55e', '#3b82f6', '#22D3EE', '#ec4899',
   '#94a3b8', '#64748b', '#1e293b', '#000000',
 ]
 
@@ -136,9 +136,9 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
   const charCount = editor.storage.characterCount?.characters() ?? 0
 
   return (
-    <div className="bg-[#0a0a0a] border border-white/10 rounded-xl">
+    <div className="bg-[#000a1c] border border-white/10 rounded-xl">
       {/* Toolbar */}
-      <div className="border-b border-white/10 px-3 py-2 flex flex-wrap items-center gap-0.5 bg-[#111315] rounded-t-xl sticky top-[57px] z-20">
+      <div className="border-b border-white/10 px-3 py-2 flex flex-wrap items-center gap-0.5 bg-[#000d20] rounded-t-xl sticky top-[57px] z-20">
         {/* History */}
         <button onClick={() => editor.chain().focus().undo().run()} title="Undo" className={btn(false)}>↩</button>
         <button onClick={() => editor.chain().focus().redo().run()} title="Redo" className={btn(false)}>↪</button>
@@ -179,7 +179,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
             if (!val) editor.chain().focus().unsetFontFamily().run()
             else editor.chain().focus().setFontFamily(val).run()
           }}
-          className="bg-[#1a1d20] text-gray-400 text-xs rounded px-2 py-1.5 border border-white/10 focus:outline-none"
+          className="bg-[#001a36] text-gray-400 text-xs rounded px-2 py-1.5 border border-white/10 focus:outline-none"
           title="Font family"
           defaultValue=""
         >
@@ -235,7 +235,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
 
       {/* Block picker panel */}
       {blocksOpen && (
-        <div className="border-b border-white/10 bg-[#0d0f11] px-4 py-4">
+        <div className="border-b border-white/10 bg-[#000a1c] px-4 py-4">
           <div className="flex items-center justify-between mb-3">
             <p className="text-xs font-black text-gray-400 uppercase tracking-wider">Insert Block</p>
             <p className="text-xs text-gray-600">Click a block to insert at cursor — blocks survive re-editing</p>
@@ -245,7 +245,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
               <button
                 key={i}
                 onClick={() => insertBlock(block.type, block.attrs)}
-                className="flex flex-col items-start gap-1.5 bg-[#1a1d20] hover:bg-[#1e2228] border border-white/8 hover:border-red-500/50 rounded-xl p-3 text-left transition-all group"
+                className="flex flex-col items-start gap-1.5 bg-[#001a36] hover:bg-[#001f3f] border border-white/8 hover:border-red-500/50 rounded-xl p-3 text-left transition-all group"
               >
                 <span className="text-2xl leading-none">{block.icon}</span>
                 <span className="text-white text-xs font-black group-hover:text-red-400 transition-colors">{block.label}</span>
@@ -285,8 +285,8 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
         .tiptap ul, .tiptap ol { padding-left: 1.5rem; color: #d1d5db; margin-bottom: 1rem; }
         .tiptap li { margin-bottom: 0.25rem; }
         .tiptap blockquote { border-left: 3px solid #ef4444; padding-left: 1rem; margin: 1.5rem 0; color: #9ca3af; font-style: italic; }
-        .tiptap code { background: #1a1d20; padding: 0.15rem 0.4rem; border-radius: 0.3rem; font-size: 0.85em; color: #f87171; }
-        .tiptap pre { background: #1a1d20; padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.25rem 0; }
+        .tiptap code { background: #001a36; padding: 0.15rem 0.4rem; border-radius: 0.3rem; font-size: 0.85em; color: #f87171; }
+        .tiptap pre { background: #001a36; padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.25rem 0; }
         .tiptap pre code { background: none; padding: 0; color: #e2e8f0; font-size: 0.9rem; }
         .tiptap a { color: #f87171; text-decoration: underline; }
         .tiptap strong { color: white; font-weight: 800; }

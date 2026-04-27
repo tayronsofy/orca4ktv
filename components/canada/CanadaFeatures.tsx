@@ -4,35 +4,43 @@ import React from 'react';
 
 const CANADA_FEATURES = [
   {
-    title: 'Flawless Nationwide Coverage',
-    description: 'The premier IPTV service for Toronto, Vancouver, and Montreal. Enjoy 99.9% uptime during NHL playoffs with our dedicated Canadian servers. Perfect for French Canadian IPTV channels.',
+    title: 'Coast-to-Coast Coverage with Toronto + Vancouver Edge POPs',
+    description: 'Two Canadian edge servers — Toronto and Vancouver — keep latency under 25ms whether you are watching a Stanley Cup playoff shift in Halifax, the 2026 Olympic curling final in Calgary, or a CFL Friday night in Winnipeg. Anti Freeze CDN reroutes around peak match-day congestion in real time, so every goal, every gold-medal moment, every Toronto Blue Jays at-bat lands buffer-free in 4K HDR.',
     imageUrl: '/images/canada-coverage.jpg',
-    altText: 'Best IPTV Canada 2026 servers in Toronto and Vancouver',
+    altText: 'Two Canadian hockey fans on a navy sofa watching a live 4K HDR NHL Stanley Cup playoff match on a wall-mounted Smart TV — buffer-free IPTV Canada streaming on ORCA 4K TV.',
     reverse: false
   },
   {
-    title: 'Smart Canadian Guide (EPG)',
-    description: 'The best NHL Center Ice IPTV alternative. Navigate TSN and Sportsnet IPTV Canada, along with Canadian Local News IPTV and massive multicultural packages including Indian IPTV Canada and Arabic IPTV Canada.',
+    title: 'Bilingual Smart EPG — English + Français',
+    description: 'The ORCA 4K TV smart EPG guide knows your week in both official languages — Hockey Night in Canada Saturdays, La Soirée du hockey on Radio-Canada, CFL Fridays, the Olympic medal table from Milano-Cortina, World Cup match days at BMO Field. Live scores, channel-jump shortcuts, 7-day catch up TV, AI-powered "what is on right now" search across CBC, CTV, Global, Citytv, TSN, Sportsnet, RDS and TVA Sports.',
     imageUrl: '/images/canada-epg.jpg',
-    altText: 'NHL Center Ice IPTV alternative and TSN and Sportsnet IPTV Canada',
+    altText: 'Adult holding a TV remote browsing the bilingual Smart EPG channel guide on a 4K Smart TV — ORCA 4K TV Canada IPTV subscription with electronic program guide and 7-day catch up TV.',
     reverse: true
   },
   {
-    title: 'Watch on Every Screen',
-    description: 'From your living room Smart TV to your Apple or Android smartphone on the go. Experience the Best IPTV Canada 2026 anywhere, streaming all your favorite French Canadian IPTV channels and sports.',
+    title: 'Every Canadian Streaming Device, One Subscription',
+    description: 'Multi-device IPTV compatibility on every plan: Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Chromecast with Google TV, Samsung Tizen, LG webOS, MAG box, iOS, Android, Windows, macOS, and any modern web browser. Up to four simultaneous streams. Identical Canadian channel library and EPG on every screen — TiviMate, IPTV Smarters Pro and OTT Navigator all supported out of the box.',
     imageUrl: '/images/canada-multi-device.jpg',
-    altText: 'French Canadian IPTV channels and Canadian Local News IPTV streaming',
+    altText: 'Coffee table with Firestick 4K Max remote, Apple TV 4K box, Roku player, smartphone and tablet in a Canadian living room — multi-device IPTV compatibility on ORCA 4K TV Canada subscription.',
     reverse: false
   }
 ];
 
 const CanadaFeatures: React.FC = () => {
   return (
-    <section id="features" className="py-24 bg-[#1f2326]">
+    <section id="features" className="py-24 bg-[#001f3f]">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold mb-4 text-white">Best IPTV CANADA Features</h2>
-          <div className="w-20 h-1 bg-red-500 mx-auto"></div>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <p className="text-red-400 text-xs font-black uppercase tracking-[0.3em] mb-3">
+            Built for the Canadian Cord-Cutter
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-white leading-tight">
+            Why ORCA 4K TV Is the Best IPTV Canada 2026
+          </h2>
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
+            Buffer-free 4K HDR streaming, every Canadian broadcaster in English and French, every league — Anti Freeze CDN with Toronto + Vancouver edge servers, AES-256 encrypted, multi-device IPTV ready.
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-white mx-auto mt-6"></div>
         </div>
 
         <div className="space-y-32">
@@ -50,7 +58,7 @@ const CanadaFeatures: React.FC = () => {
                 </p>
               </div>
               <div className="flex-1 w-full">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#2c3034] p-2 border border-red-500/20">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#002952] p-2 border border-red-500/20">
                    <img 
                     src={feature.imageUrl} 
                     alt={feature.altText || feature.title} 

@@ -32,7 +32,7 @@ export function generateMetaDescription(match: Fixture): string {
   const date = new Intl.DateTimeFormat('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
   }).format(new Date(match.kickoff))
-  return `Stream ${match.homeTeam} vs ${match.awayTeam} live on ${date}. ${match.league} — ${match.round}. Watch in 4K Ultra-HD with zero buffering. Instant access on Smart TV, Firestick, iPhone, PC. Smart 4K IPTV.`
+  return `Stream ${match.homeTeam} vs ${match.awayTeam} live on ${date}. ${match.league} — ${match.round}. Watch in 4K Ultra-HD with zero buffering. Instant access on Smart TV, Firestick, iPhone, PC. Orca 4K TV IPTV.`
 }
 
 export function generateMatchDescription(match: Fixture): string {
@@ -42,7 +42,7 @@ export function generateMatchDescription(match: Fixture): string {
     `${match.homeTeam} take on ${match.awayTeam} in what promises to be a thrilling ${match.league} ${match.round} clash.`,
     `The match kicks off on ${date}${venue}.`,
     `Stream every moment live in crystal-clear 4K Ultra-HD — from the opening whistle to the final goal — without a single buffer.`,
-    `Smart 4K delivers premium IPTV with 22,000+ live channels, optimized servers for peak match-day traffic, and instant activation on any device.`,
+    `Orca 4K TV delivers premium IPTV with 22,000+ live channels, optimized servers for peak match-day traffic, and instant activation on any device.`,
   ].join(' ')
 }
 
@@ -56,7 +56,7 @@ export function buildEventSchema(match: Fixture) {
     startDate: match.kickoff,
     sport: 'Football',
     description: generateMetaDescription(match),
-    url: `https://smart4k.io/watch/${match.slug}`,
+    url: `https://orca4ktv.com/watch/${match.slug}`,
     homeTeam: { '@type': 'SportsTeam', name: match.homeTeam },
     awayTeam: { '@type': 'SportsTeam', name: match.awayTeam },
     organizer: { '@type': 'Organization', name: match.league },
@@ -73,7 +73,7 @@ export function buildEventSchema(match: Fixture) {
       price: '2.00',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      url: `https://smart4k.io/watch/${match.slug}`,
+      url: `https://orca4ktv.com/watch/${match.slug}`,
     },
   }
 }
@@ -84,10 +84,10 @@ export function buildVideoObjectSchema(match: Fixture) {
     '@type': 'VideoObject',
     name: `${match.homeTeam} vs ${match.awayTeam} — Live 4K Stream`,
     description: generateMetaDescription(match),
-    thumbnailUrl: `https://smart4k.io/watch/${match.slug}/opengraph-image`,
+    thumbnailUrl: `https://orca4ktv.com/watch/${match.slug}/opengraph-image`,
     uploadDate: match.kickoff,
     duration: 'PT2H',
-    contentUrl: `https://smart4k.io/watch/${match.slug}`,
+    contentUrl: `https://orca4ktv.com/watch/${match.slug}`,
     publication: {
       '@type': 'BroadcastEvent',
       isLiveBroadcast: true,

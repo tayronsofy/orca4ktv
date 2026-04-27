@@ -308,7 +308,7 @@ export default function AdminTrialsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 mb-6 bg-[#2c3034] rounded-xl p-1 w-fit">
+      <div className="flex gap-1 mb-6 bg-[#002952] rounded-xl p-1 w-fit">
         {(['queue', 'accounts'] as const).map(tab => (
           <button
             key={tab}
@@ -330,7 +330,7 @@ export default function AdminTrialsPage() {
             {STATUS_OPTIONS.map(s => (
               <button key={s} onClick={() => setStatusFilter(s)}
                 className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all ${
-                  statusFilter === s ? 'bg-purple-600 text-white' : 'bg-[#2c3034] text-gray-400 hover:text-white border border-white/5'
+                  statusFilter === s ? 'bg-purple-600 text-white' : 'bg-[#002952] text-gray-400 hover:text-white border border-white/5'
                 }`}
               >
                 {s === 'all' ? 'All' : trialStatusLabel[s]}
@@ -338,7 +338,7 @@ export default function AdminTrialsPage() {
             ))}
           </div>
 
-          <div className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
+          <div className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
             <div className="hidden md:grid grid-cols-6 gap-4 px-6 py-3 border-b border-white/5 text-xs text-gray-500 uppercase tracking-widest">
               <span className="col-span-2">Name / Email</span>
               <span>Country</span>
@@ -371,7 +371,7 @@ export default function AdminTrialsPage() {
                   <div>
                     {trial.display_status === 'pending' ? (
                       <button onClick={() => openModal(trial)}
-                        className="bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white text-xs font-bold px-4 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap"
+                        className="bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white text-xs font-bold px-4 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap"
                       >
                         Send Trial ▶
                       </button>
@@ -397,44 +397,44 @@ export default function AdminTrialsPage() {
           <div className="flex items-center justify-between mb-4">
             <p className="text-gray-400 text-sm">{accounts.length} account{accounts.length !== 1 ? 's' : ''} in pool</p>
             <button onClick={() => setShowAddAccount(v => !v)}
-              className="bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white text-sm font-black px-5 py-2 rounded-xl hover:opacity-90 transition-opacity"
+              className="bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white text-sm font-black px-5 py-2 rounded-xl hover:opacity-90 transition-opacity"
             >
               + Add Account
             </button>
           </div>
 
           {showAddAccount && (
-            <form onSubmit={handleAddAccount} className="bg-[#2c3034] border border-purple-500/30 rounded-2xl p-6 mb-6 space-y-4">
+            <form onSubmit={handleAddAccount} className="bg-[#002952] border border-purple-500/30 rounded-2xl p-6 mb-6 space-y-4">
               <h3 className="text-white font-black text-sm uppercase tracking-wide">New Trial Account</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
                   <label className="block text-gray-400 text-xs font-semibold mb-1 uppercase tracking-wide">Label *</label>
                   <input required type="text" value={addForm.label} onChange={e => setAddForm(f => ({ ...f, label: e.target.value }))}
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500"
+                    className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500"
                     placeholder="Trial Account #1" />
                 </div>
                 <div>
                   <label className="block text-gray-400 text-xs font-semibold mb-1 uppercase tracking-wide">IPTV Username *</label>
                   <input required type="text" value={addForm.iptv_username} onChange={e => setAddForm(f => ({ ...f, iptv_username: e.target.value }))}
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
+                    className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
                     placeholder="username" />
                 </div>
                 <div>
                   <label className="block text-gray-400 text-xs font-semibold mb-1 uppercase tracking-wide">IPTV Password *</label>
                   <input required type="text" value={addForm.iptv_password} onChange={e => setAddForm(f => ({ ...f, iptv_password: e.target.value }))}
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
+                    className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
                     placeholder="password" />
                 </div>
                 <div className="col-span-2">
                   <label className="block text-gray-400 text-xs font-semibold mb-1 uppercase tracking-wide">M3U URL *</label>
                   <input required type="text" value={addForm.m3u_url} onChange={e => setAddForm(f => ({ ...f, m3u_url: e.target.value }))}
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
+                    className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
                     placeholder="http://server.example.com:8080/get.php?username=…" />
                 </div>
                 <div className="col-span-2">
                   <label className="block text-gray-400 text-xs font-semibold mb-1 uppercase tracking-wide">Portal URL <span className="text-gray-600 normal-case">(optional)</span></label>
                   <input type="text" value={addForm.portal_url} onChange={e => setAddForm(f => ({ ...f, portal_url: e.target.value }))}
-                    className="w-full bg-[#1f2326] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
+                    className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500"
                     placeholder="http://server.example.com:8080" />
                 </div>
               </div>
@@ -452,12 +452,12 @@ export default function AdminTrialsPage() {
             {accountsLoading ? (
               <div className="text-center text-gray-500 py-10">Loading…</div>
             ) : accounts.length === 0 ? (
-              <div className="text-center text-gray-500 py-10 bg-[#2c3034] rounded-2xl border border-white/5">
+              <div className="text-center text-gray-500 py-10 bg-[#002952] rounded-2xl border border-white/5">
                 No trial accounts yet. Add one above.
               </div>
             ) : (
               accounts.map(account => (
-                <div key={account.id} className="bg-[#2c3034] rounded-2xl border border-white/5 px-6 py-4">
+                <div key={account.id} className="bg-[#002952] rounded-2xl border border-white/5 px-6 py-4">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-2">
@@ -496,7 +496,7 @@ export default function AdminTrialsPage() {
       {/* ── Send Trial Modal ──────────────────────────────────────────────────── */}
       {modalOpen && selectedTrial && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className="bg-[#1f2326] border border-white/10 rounded-2xl w-full max-w-lg shadow-2xl overflow-y-auto max-h-[90vh]">
+          <div className="bg-[#001f3f] border border-white/10 rounded-2xl w-full max-w-lg shadow-2xl overflow-y-auto max-h-[90vh]">
             <div className="px-6 py-5 border-b border-white/10 flex items-center justify-between">
               <h2 className="text-white font-black text-lg">Send Trial</h2>
               <button onClick={closeModal} className="text-gray-500 hover:text-white text-xl leading-none">&times;</button>
@@ -504,7 +504,7 @@ export default function AdminTrialsPage() {
 
             <div className="px-6 py-5 space-y-5">
               {/* Request context */}
-              <div className="bg-[#2c3034] rounded-xl p-4 text-sm space-y-1">
+              <div className="bg-[#002952] rounded-xl p-4 text-sm space-y-1">
                 <p className="text-white font-semibold">{selectedTrial.name}</p>
                 <p className="text-purple-400">{selectedTrial.email}</p>
                 <p className="text-gray-400">{selectedTrial.device} &middot; {selectedTrial.country}</p>
@@ -523,7 +523,7 @@ export default function AdminTrialsPage() {
                     { value: 'manual', label: '✏️ Manual', desc: 'Paste creds' },
                   ] as const).map(opt => (
                     <button key={opt.value} onClick={() => setSendMode(opt.value)}
-                      className={`p-3 rounded-xl border text-left transition-all ${sendMode === opt.value ? 'border-purple-500 bg-purple-500/10' : 'border-white/10 bg-[#2c3034] hover:border-white/20'}`}
+                      className={`p-3 rounded-xl border text-left transition-all ${sendMode === opt.value ? 'border-purple-500 bg-purple-500/10' : 'border-white/10 bg-[#002952] hover:border-white/20'}`}
                     >
                       <div className="text-white text-xs font-bold">{opt.label}</div>
                       <div className="text-gray-500 text-xs mt-0.5">{opt.desc}</div>
@@ -534,7 +534,7 @@ export default function AdminTrialsPage() {
 
               {/* Panel mode: info box */}
               {sendMode === 'panel' && (
-                <div className="bg-[#2c3034] rounded-xl px-4 py-3 flex items-start gap-3">
+                <div className="bg-[#002952] rounded-xl px-4 py-3 flex items-start gap-3">
                   <span className="text-2xl leading-none mt-0.5">⚡</span>
                   <div>
                     <p className="text-white text-sm font-semibold">Auto-create via ActivationPanel</p>
@@ -557,7 +557,7 @@ export default function AdminTrialsPage() {
                   ) : (
                     <div className="space-y-2">
                       {availableAccounts.map(acc => (
-                        <label key={acc.id} className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${selectedAccountId === acc.id ? 'border-purple-500 bg-purple-500/10' : 'border-white/10 bg-[#2c3034] hover:border-white/20'}`}>
+                        <label key={acc.id} className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${selectedAccountId === acc.id ? 'border-purple-500 bg-purple-500/10' : 'border-white/10 bg-[#002952] hover:border-white/20'}`}>
                           <input type="radio" name="account" value={acc.id} checked={selectedAccountId === acc.id} onChange={() => setSelectedAccountId(acc.id)} className="mt-0.5 accent-purple-500" />
                           <div className="min-w-0">
                             <p className="text-white text-sm font-semibold">{acc.label}</p>
@@ -574,13 +574,13 @@ export default function AdminTrialsPage() {
               {sendMode === 'manual' && (
                 <div className="space-y-3">
                   <input type="text" value={manualForm.iptv_username} onChange={e => setManualForm(f => ({ ...f, iptv_username: e.target.value }))}
-                    className="w-full bg-[#2c3034] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="IPTV Username *" />
+                    className="w-full bg-[#002952] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="IPTV Username *" />
                   <input type="text" value={manualForm.iptv_password} onChange={e => setManualForm(f => ({ ...f, iptv_password: e.target.value }))}
-                    className="w-full bg-[#2c3034] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="IPTV Password *" />
+                    className="w-full bg-[#002952] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="IPTV Password *" />
                   <input type="text" value={manualForm.m3u_url} onChange={e => setManualForm(f => ({ ...f, m3u_url: e.target.value }))}
-                    className="w-full bg-[#2c3034] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="M3U URL *" />
+                    className="w-full bg-[#002952] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="M3U URL *" />
                   <input type="text" value={manualForm.portal_url} onChange={e => setManualForm(f => ({ ...f, portal_url: e.target.value }))}
-                    className="w-full bg-[#2c3034] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="Portal URL (optional)" />
+                    className="w-full bg-[#002952] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-mono focus:outline-none focus:border-purple-500" placeholder="Portal URL (optional)" />
                 </div>
               )}
 
@@ -610,7 +610,7 @@ export default function AdminTrialsPage() {
                 Cancel
               </button>
               <button onClick={handleSend} disabled={sending || !canSend}
-                className="bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white text-sm font-black px-6 py-2 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+                className="bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white text-sm font-black px-6 py-2 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
               >
                 {sending
                   ? (sendMode === 'panel' ? 'Creating account…' : 'Sending…')

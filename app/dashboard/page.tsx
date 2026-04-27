@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
-  title: 'My Dashboard - SMART 4K IPTV',
+  title: 'My Dashboard - ORCA 4K TV IPTV',
 }
 
 function StatusBadge({ status }: { status: string }) {
@@ -46,7 +46,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         <h1 className="text-2xl font-black text-white">
           Hello, {profile?.full_name?.split(' ')[0] || 'there'} 👋
         </h1>
-        <p className="text-gray-400 mt-1">Welcome to your SMART 4K dashboard</p>
+        <p className="text-gray-400 mt-1">Welcome to your ORCA 4K TV dashboard</p>
       </div>
 
       {justOrdered && (
@@ -61,7 +61,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Active subscription card */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <div className="flex items-center gap-2 mb-4">
             <i className="fas fa-satellite-dish text-purple-400"></i>
             <h2 className="text-white font-bold">Active Subscription</h2>
@@ -103,7 +103,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         </div>
 
         {/* Latest order / invoice */}
-        <div className="bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <div className="flex items-center gap-2 mb-4">
             <i className="fas fa-file-invoice text-blue-400"></i>
             <h2 className="text-white font-bold">Latest Order</h2>
@@ -149,7 +149,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         </div>
 
         {/* Quick links */}
-        <div className="md:col-span-2 bg-[#2c3034] rounded-2xl p-6 border border-white/5">
+        <div className="md:col-span-2 bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4">Quick Links</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
@@ -161,7 +161,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
               <Link
                 key={l.href}
                 href={l.href}
-                className="flex flex-col items-center gap-2 bg-[#1f2326] rounded-xl p-4 border border-white/5 hover:border-purple-500/30 hover:bg-white/5 transition-all text-center"
+                className="flex flex-col items-center gap-2 bg-[#001f3f] rounded-xl p-4 border border-white/5 hover:border-purple-500/30 hover:bg-white/5 transition-all text-center"
               >
                 <i className={`${l.icon} text-xl text-purple-400`}></i>
                 <span className="text-sm text-gray-300">{l.label}</span>

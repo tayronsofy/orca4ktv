@@ -7,32 +7,36 @@ const USAFAQ: React.FC = () => {
 
   const usaFaqData = [
     {
-      question: "Are American Local Networks Included?",
-      answer: "Yes, alongside our vast global library, your subscription includes access to major US geographical locals (ABC, CBS, NBC, Fox) and regional sports networks across the nation, ensuring you never miss local news or your hometown team."
+      question: "Is ORCA 4K TV a real NFL Sunday Ticket alternative for 2026?",
+      answer: "Yes. Every NFL regular-season game (early window, late window, Sunday Night Football, Monday Night Football, Thursday Night Football), every playoff round, the Pro Bowl, and Super Bowl LX at Levi's Stadium on February 8, 2026 are all included. NFL Network, NFL RedZone, ESPN, FOX, CBS and NBC Sunday broadcasts all stream live in 4K HDR — no separate Sunday Ticket subscription, no DirecTV satellite required."
     },
     {
-      question: "Will My ISP Throttle This Service in the US?",
-      answer: "We utilize advanced routing and secure handshakes that make it difficult for ISPs like Comcast, AT&T, or Spectrum to throttle your streaming traffic. You get the full bandwidth you pay for, resulting in a pristine 4K picture."
+      question: "Does the subscription include NBA League Pass, MLB Extra Innings, and NHL Center Ice content?",
+      answer: "Yes. NBA TV, ESPN, TNT, ABC, NBA League Pass-equivalent out-of-market coverage, MLB Network, MLB.tv-equivalent regional access, NHL Network and NHL Center Ice-equivalent matchups across all 32 NHL teams. Stanley Cup, World Series, NBA Finals, March Madness — every major American sports event in 4K HDR with the smart EPG guide showing live scores."
     },
     {
-      question: "Can I Share My Account With Family?",
-      answer: "You are welcome to connect up to the number of devices allotted in your specific plan. Whether it's the living room TV or a tablet upstairs, as long as it's within your plan's stream limit, your household can watch simultaneously."
+      question: "Are USA local channels (ABC, CBS, NBC, FOX) included by ZIP code?",
+      answer: "Yes. ABC, CBS, NBC, FOX, PBS, The CW and local news affiliates are pulled by your ZIP code so you get the right regional broadcast — Bay Area NBC for 49ers fans, Dallas FOX for Cowboys fans, NYC ABC for Yankees broadcasts. Full HD on every local affiliate, 4K where the local station provides it."
     },
     {
-      question: "What Hardware Do I Need to Start Watching?",
-      answer: "Virtually any modern device works. Just download a compatible streaming app on your Amazon Firestick, Apple TV, Android box, or Roku. No proprietary cable boxes or satellite dishes are ever required."
+      question: "Will Comcast Xfinity, Spectrum, Cox or AT&T Fiber throttle my IPTV streams?",
+      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197) which makes traffic shaping unreliable for ISPs to apply. If you do see throttling — common during peak hours on heavily-oversubscribed networks — IPTV with VPN is fully supported on every plan with no speed cap from our side. Most US households see no throttling at all."
     },
     {
-      question: "Is There a Contract or Cancellation Fee?",
-      answer: "We offer complete flexibility on a month-to-month basis or via discounted prepaid longer terms. There are strictly no automatic recurring charges, hidden fees, or cancellation penalties. You maintain absolute control over your payments."
+      question: "Which streaming devices work — Firestick 4K Max, Roku Ultra, Apple TV 4K?",
+      answer: "All of them. Firestick 4K Max, Roku Ultra, Roku Streaming Stick 4K+, Apple TV 4K (3rd generation), Android TV 14 boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG 524, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux PCs, and any HTML5 browser. Same channel library, same smart EPG on every screen."
     },
     {
-      question: "How Quickly Do I Get My Login Coordinates?",
-      answer: "Once checkout is completed, our automated server provisions your dedicated US slot immediately. Check your inbox (and spam folder) for the instant setup instructions so you can start streaming within minutes."
+      question: "How many simultaneous streams can my household run?",
+      answer: "Plans ship with up to 4 simultaneous connections so the living room TV, the kid's tablet, and a phone in the car can all run different channels at the same time. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
     },
     {
-      question: "What Happens If I Experience Buffering During a Game?",
-      answer: "While our US-based delivery network maintains 99.9% uptime, occasional internet routing drops can occur. Our North American support staff is on standby 24/7 via the helpdesk to optimize your connection routes immediately if you run into any hitches."
+      question: "Is there a 30-day money-back guarantee?",
+      answer: "We offer something better — a free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before you pay a cent. If you've already subscribed and the service is not what we promised, contact 24/7 customer support and we will work it out — no contract, no auto-renewal, you're never locked in."
+    },
+    {
+      question: "How fast do I get my login credentials after I sign up?",
+      answer: "Average IPTV instant start time is under 5 minutes from checkout to first live channel. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with TiviMate, IPTV Smarters Pro, or any compatible player takes another 60 seconds — see the step-by-step setup guide for your device."
     }
   ];
 
@@ -50,7 +54,7 @@ const USAFAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-12 bg-[#1f2326] relative overflow-hidden">
+    <section id="faq" className="py-12 bg-[#001f3f] relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -61,7 +65,7 @@ const USAFAQ: React.FC = () => {
             IPTV USA <span className="text-blue-500">FAQ</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 font-medium">Clear answers for American IPTV viewers.</p>
+          <p className="mt-6 text-gray-400 font-medium">Straight answers for American cord-cutters and sports fans.</p>
         </div>
 
         <div className="space-y-4">
@@ -69,8 +73,8 @@ const USAFAQ: React.FC = () => {
             <div
               key={index}
               className={`group rounded-2xl border transition-all duration-300 ${openIndex === index
-                  ? 'bg-[#2c3034] border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.1)]'
-                  : 'bg-[#2c3034]/40 border-white/5 hover:border-white/10'
+                  ? 'bg-[#002952] border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.1)]'
+                  : 'bg-[#002952]/40 border-white/5 hover:border-white/10'
                 }`}
             >
               <button
@@ -97,12 +101,12 @@ const USAFAQ: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#1e102f] to-[#0c162b] border border-blue-500/20 text-center">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#001a3a] to-[#001f3f] border border-blue-500/20 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Need US-Based Setup Help?</h3>
           <p className="text-gray-400 mb-6">Our North American technical specialists are ready around the clock.</p>
           <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
+            href="mailto:support@orca4ktv.com"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#001a36] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105 shadow-xl"
           >
             <i className="fas fa-flag-usa text-red-600"></i> Contact Us
           </a>

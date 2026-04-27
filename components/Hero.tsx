@@ -2,9 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 
-// OPTIMIZATION: Use WebP images and add explicit aspect ratios to prevent jumping
-const FLOATING_LOGOS = [];
-
 const Hero: React.FC = () => {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
@@ -46,9 +43,9 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] pt-40 md:pt-48 pb-20">
 
-      {/* --- Optimized Cinematic Background --- */}
+      {/* --- Aurora Background --- */}
       <div
         className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
         style={{
@@ -56,85 +53,62 @@ const Hero: React.FC = () => {
           willChange: isMobile ? 'auto' : 'transform',
         }}
       >
-        {/* Galaxy Layers (Hardware Accelerated) */}
-        <div className="space-layer space-layer-1 will-change-transform"></div>
-        <div className="space-layer space-layer-2 will-change-transform"></div>
-        <div className="space-layer space-layer-3 will-change-transform"></div>
+        {/* Deep navy base */}
+        <div className="absolute inset-0 bg-[#001f3f]"></div>
 
-        {/* Nebula Glows — desktop only (heavy GPU cost on mobile) */}
-        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#a855f7]/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
-        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
+        {/* Aurora blobs — soft, slow-drifting cyan + blue lights */}
+        <div className="aurora aurora-cyan-1 will-change-transform"></div>
+        <div className="aurora aurora-blue-1 will-change-transform"></div>
+        <div className="aurora aurora-cyan-2 will-change-transform"></div>
+        <div className="aurora aurora-blue-2 hidden md:block will-change-transform"></div>
 
-        {/* Floating Channel Logos (With Anti-CLS Wrappers) */}
-        {FLOATING_LOGOS.map((logo, idx) => (
-          <div
-            key={idx}
-            className={`absolute ${logo.top} ${logo.left} ${logo.width} opacity-30 filter blur-[0.5px] animate-space-float z-0`}
-            style={{
-              animationDelay: logo.delay,
-              willChange: 'transform'
-            }}
-          >
-            {/* 🚀 CLS FIX: Aspect Ratio Wrapper */}
-            <div className="relative aspect-square w-full">
-              <img
-                src={logo.src}
-                // 🚀 SEO FIX: Smart Keyword Combination
-                // Instead of repeating "SMART 4K", we describe the specific content availability.
-                alt={`Stream ${logo.name} in 4K on SMART 4K IPTV`}
+        {/* Soft horizontal shimmer band — adds movement across the middle */}
+        <div className="aurora-shimmer hidden md:block"></div>
 
-                loading="lazy"
-                className="w-full h-full object-contain grayscale brightness-125 contrast-125"
-                onError={(e) => (e.currentTarget.style.display = 'none')}
-              />
-            </div>
-          </div>
-        ))}
-
-        {/* Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        {/* Vignette overlay — keeps the H1 + search bar legible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#001f3f]/95"></div>
       </div>
 
       {/* --- Main Content --- */}
       <div className="relative z-10 max-w-4xl w-full px-4">
-        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#a855f7] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
-          <span className="mr-2 inline-block w-2 h-2 bg-[#a855f7] rounded-full animate-pulse"></span>
-          Your Universe of Limitless Entertainment
+        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
+          <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
+          The Best IPTV Subscription for 2026 · AI-Powered IPTV
         </div>
 
         {/* 🚀 SEO UPGRADE: Keyword-Rich H1 Tag */}
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-          SMART 4K<br />
-          <span className="hero-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] via-white to-[#a855f7] bg-[length:200%_auto] animate-shimmer">
+          ORCA 4K TV<br />
+          <span className="hero-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-white to-[#00E5FF] bg-[length:200%_auto] animate-shimmer">
             PREMIUM 4K IPTV
           </span>
         </h1>
 
         {/* 🚀 SEO UPGRADE: Descriptive H2 Tag */}
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Instantly Access Over 22,000 Premium Channels & Global Live Sports
+          22,000+ Live Channels, 4K HDR Sports & On-Demand Movies — Buffer-Free, Worldwide
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Unlock the next generation of television. Enjoy top-tier cinematic releases, exclusive live sporting events, and continuous 4K streaming driven by advanced AI technology.
+          Stream FIFA World Cup 2026, Super Bowl LX, Champions League finals and every premium IPTV channel in 4K Ultra-HD with HDR10+ and Dolby Vision support. Powered by Anti Freeze CDN, AES-256 encrypted, multi-device ready, and backed by an AI concierge that finds your show in seconds.
         </p>
 
         {/* AI Search Bar Area */}
         <div className="max-w-2xl mx-auto mb-16">
           <form onSubmit={handleSearch} className="relative group transition-all duration-500 mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#003580] to-[#00E5FF] rounded-full blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
             <input
               type="text"
               aria-label="Search for channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Discover your network (e.g., 'Is Sky Sports available?')"
-              className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 transition-all text-lg shadow-2xl"
+              placeholder="Ask anything: 'Is Sky Sports in 4K?' · 'NFL on Firestick?' · 'World Cup 2026?'"
+              className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 transition-all text-lg shadow-2xl"
             />
             <button
               type="submit"
               disabled={isSearching}
-              className="absolute right-3 top-3 bottom-3 bg-[#6d28d9] hover:bg-[#a855f7] text-white px-4 md:px-8 rounded-full transition-all flex items-center gap-3 font-black uppercase text-xs tracking-widest disabled:opacity-50 shadow-xl active:scale-95 z-10"
+              className="absolute right-3 top-3 bottom-3 bg-[#003580] hover:bg-[#00E5FF] text-white px-4 md:px-8 rounded-full transition-all flex items-center gap-3 font-black uppercase text-xs tracking-widest disabled:opacity-50 shadow-xl active:scale-95 z-10"
             >
               {isSearching ? <i className="fas fa-circle-notch fa-spin"></i> : <i className="fas fa-sparkles"></i>}
               <span className="inline">ASK US</span>
@@ -143,7 +117,7 @@ const Hero: React.FC = () => {
 
           {aiResponse && (
             <div className="mt-8 p-6 bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 text-left animate-fade-in shadow-2xl mb-8">
-              <div className="flex items-center gap-2 text-[10px] font-black text-[#a855f7] uppercase mb-3 tracking-[0.2em]">
+              <div className="flex items-center gap-2 text-[10px] font-black text-[#00E5FF] uppercase mb-3 tracking-[0.2em]">
                 <i className="fas fa-robot"></i> IPTV Concierge
               </div>
               <p className="text-gray-200 leading-relaxed font-semibold italic">{aiResponse}</p>
@@ -153,86 +127,112 @@ const Hero: React.FC = () => {
       </div>
 
       <style>{`
-        /* --- Performance Optimized CSS --- */
-        .will-change-transform {
-          will-change: transform;
-        }
+        .will-change-transform { will-change: transform; }
 
-        .space-layer {
+        /* Aurora blobs — soft glowing color clouds */
+        .aurora {
           position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background-repeat: repeat;
-          will-change: transform;
+          border-radius: 50%;
+          filter: blur(90px);
+          mix-blend-mode: screen;
+          pointer-events: none;
         }
 
         @media (max-width: 768px) {
-          .space-layer { display: none; }
+          .aurora {
+            filter: blur(60px);
+            animation-duration: 40s !important;
+          }
         }
 
-        .space-layer-1 {
-          background-image: radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-                            radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
-                            radial-gradient(1.5px 1.5px at 100px 150px, #fff, rgba(0,0,0,0));
-          background-size: 200px 200px;
-          animation: move-space 120s linear infinite;
-          opacity: 0.5;
+        .aurora-cyan-1 {
+          top: -15%;
+          left: -10%;
+          width: 60%;
+          height: 60%;
+          background: radial-gradient(circle, rgba(0, 229, 255, 0.55), transparent 65%);
+          animation: aurora-drift-1 24s ease-in-out infinite;
         }
 
-        .space-layer-2 {
-          background-image: radial-gradient(1px 1px at 15px 15px, #fff, rgba(0,0,0,0)),
-                            radial-gradient(1px 1px at 80px 10px, #fff, rgba(0,0,0,0));
-          background-size: 150px 150px;
-          animation: move-space 80s linear infinite;
-          opacity: 0.3;
+        .aurora-blue-1 {
+          top: 10%;
+          right: -15%;
+          width: 65%;
+          height: 65%;
+          background: radial-gradient(circle, rgba(0, 102, 204, 0.55), transparent 65%);
+          animation: aurora-drift-2 30s ease-in-out infinite;
         }
 
-        .space-layer-3 {
-          background-image: radial-gradient(2px 2px at 50px 50px, #fff, rgba(0,0,0,0));
-          background-size: 300px 300px;
-          animation: move-space 40s linear infinite;
-          opacity: 0.2;
+        .aurora-cyan-2 {
+          bottom: -20%;
+          left: 25%;
+          width: 55%;
+          height: 60%;
+          background: radial-gradient(circle, rgba(34, 211, 238, 0.45), transparent 65%);
+          animation: aurora-drift-3 28s ease-in-out infinite;
         }
 
-        @keyframes move-space {
-          from { transform: translate(0, 0) scale(1); }
-          to { transform: translate(10%, 10%) scale(1.1); }
+        .aurora-blue-2 {
+          top: 35%;
+          left: 35%;
+          width: 45%;
+          height: 50%;
+          background: radial-gradient(circle, rgba(0, 53, 128, 0.50), transparent 70%);
+          animation: aurora-drift-4 36s ease-in-out infinite;
         }
 
-        @keyframes space-float {
-          0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-          33% { transform: translate(15px, -25px) rotate(3deg) scale(1.05); }
-          66% { transform: translate(-10px, 15px) rotate(-2deg) scale(0.95); }
-          100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        /* Horizontal shimmer band — subtle highlight that drifts vertically */
+        .aurora-shimmer {
+          position: absolute;
+          top: 30%;
+          left: -10%;
+          right: -10%;
+          height: 35%;
+          background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 229, 255, 0.06) 30%,
+            rgba(255, 255, 255, 0.04) 50%,
+            rgba(0, 229, 255, 0.06) 70%,
+            transparent 100%);
+          filter: blur(40px);
+          mix-blend-mode: screen;
+          animation: shimmer-band 22s ease-in-out infinite;
+          pointer-events: none;
         }
 
-        .animate-space-float {
-          animation: space-float 20s ease-in-out infinite;
+        @keyframes aurora-drift-1 {
+          0%, 100% { transform: translate(0, 0) scale(1);     opacity: 0.85; }
+          33%      { transform: translate(8%, -4%) scale(1.1); opacity: 1;    }
+          66%      { transform: translate(-5%, 6%) scale(0.95); opacity: 0.9; }
         }
 
-        .animate-pulse-slow {
-          animation: pulse-slow 15s ease-in-out infinite;
+        @keyframes aurora-drift-2 {
+          0%, 100% { transform: translate(0, 0) scale(1);      opacity: 0.75; }
+          50%      { transform: translate(-10%, 5%) scale(1.15); opacity: 1; }
         }
 
-        .animate-pulse-slow-reverse {
-          animation: pulse-slow 18s ease-in-out infinite reverse;
+        @keyframes aurora-drift-3 {
+          0%, 100% { transform: translate(0, 0) scale(1);      opacity: 0.7; }
+          40%      { transform: translate(6%, -7%) scale(1.1); opacity: 0.95; }
+          70%      { transform: translate(-8%, 4%) scale(0.92); opacity: 0.8; }
         }
 
-        @keyframes pulse-slow {
-          0%, 100% { transform: scale(1); opacity: 0.1; }
-          50% { transform: scale(1.2); opacity: 0.2; }
+        @keyframes aurora-drift-4 {
+          0%, 100% { transform: translate(0, 0) scale(1);       opacity: 0.6; }
+          50%      { transform: translate(-6%, -8%) scale(1.2); opacity: 0.9; }
+        }
+
+        @keyframes shimmer-band {
+          0%, 100% { transform: translateY(0)    scale(1);    opacity: 0.7; }
+          50%      { transform: translateY(-15%) scale(1.05); opacity: 1;   }
         }
 
         @keyframes shimmer {
-          0% { background-position: -200% 0; }
+          0%   { background-position: -200% 0; }
           100% { background-position: 200% 0; }
         }
 
-        .animate-shimmer {
-          animation: shimmer 6s linear infinite;
-        }
+        .animate-shimmer { animation: shimmer 6s linear infinite; }
 
         .animate-fade-in {
           animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -240,7 +240,7 @@ const Hero: React.FC = () => {
 
         @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>

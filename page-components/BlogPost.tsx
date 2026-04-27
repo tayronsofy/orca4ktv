@@ -67,7 +67,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
     "@type": "Article",
     "headline": post.title,
     "description": post.excerpt,
-    "image": [`https://smart4k.io${post.imageUrl}`],
+    "image": [`https://orca4ktv.com${post.imageUrl}`],
     "datePublished": new Date(post.date).toISOString(),
     "dateModified": new Date(post.date).toISOString(),
     "author": [{
@@ -78,7 +78,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#020204] pt-[120px] pb-24 px-6 md:px-12 lg:px-24">
+    <div className="min-h-screen bg-[#00050d] pt-[120px] pb-24 px-6 md:px-12 lg:px-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -92,7 +92,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
           </Link>
         </div>
 
-        <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 border border-white/5 bg-[#1a1d20]">
+        <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl mb-12 border border-white/5 bg-[#001a36]">
           {post.imageUrl && (
             <Image
               src={post.imageUrl}
@@ -103,7 +103,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
               priority
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#020204] to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00050d] to-transparent"></div>
           <div className="absolute bottom-6 left-8 flex items-center gap-4">
             <div className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
               {post.category}
@@ -165,7 +165,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
 
         {/* Social Share */}
         {(() => {
-          const url = `https://smart4k.io/blog/${post.slug}`
+          const url = `https://orca4ktv.com/blog/${post.slug}`
           const text = encodeURIComponent(post.title)
           const encodedUrl = encodeURIComponent(url)
           return (
@@ -210,14 +210,14 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
         })()}
 
         {/* World Cup 2026 CTA */}
-        <div className="mt-16 rounded-2xl border border-white/10 bg-[#0d1117] p-8 md:p-10">
+        <div className="mt-16 rounded-2xl border border-white/10 bg-[#000a1c] p-8 md:p-10">
           <div className="mb-4">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-green-400">
               ⚽ World Cup 2026 Offer
             </span>
           </div>
           <h3 className="mb-3 text-2xl font-black text-white md:text-3xl">
-            Smart 4K is the most stable IPTV – watch every match without buffering
+            Orca 4K TV is the most stable IPTV – watch every match without buffering
           </h3>
           <p className="mb-4 text-gray-400 font-semibold">
             3M +1 FREE &bull; 6M +2 FREE &bull; 12M +3 FREE

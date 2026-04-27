@@ -29,14 +29,14 @@ const UKHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our UK Concierge is currently offline, but we guarantee access to top British networks!");
+      setAiResponse("Our UK concierge is offline right now — but yes, ORCA 4K TV ships every major British broadcaster including BBC One, BBC Two, ITV, Channel 4, Channel 5, plus Premier League, Champions League, Six Nations Rugby, F1, Wimbledon, cricket and more.");
     } finally {
       setIsSearching(false);
     }
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
       
       {/* UK Theme Cinematic Background */}
       <div
@@ -53,13 +53,13 @@ const UKHero: React.FC = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-red-600/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001f3f]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-          Best IPTV UK Subscription 🇬🇧
+          Britain&apos;s New Cord-Cutter · IPTV UK 2026 🇬🇧
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
@@ -70,11 +70,11 @@ const UKHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          The ultimate Sky Sports IPTV alternative. Watch 3pm kick-offs in the UK with our Anti-freeze technology for Premier League.
+          Every 3pm Kick-Off. Every Six Nations Try. Every Wimbledon Set — In 4K HDR, Without the Satellite Bill
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Get the Best IPTV UK 2026 subscription. Grab your free trial today to experience UK TV Channels IPTV HD (BBC, ITV, Channel 4) and TNT Sports IPTV UK completely buffer-free.
+          From the Premier League title race to the Six Nations 2026 in February, Wimbledon and The Open Championship in summer, every F1 grand prix of the new 2026 era, every Champions League knockout — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with a London edge keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Apple TV 4K, Smart TV — just ask the AI concierge what&apos;s on tonight.
         </p>
 
         {/* AI Search Bar Area */}
@@ -86,7 +86,7 @@ const UKHero: React.FC = () => {
               aria-label="Search for UK channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search UK networks (e.g., 'Do you have Live Sports and Local News?')"
+              placeholder="Ask anything: 'Premier League tonight?' · 'Six Nations Saturday?' · 'F1 race weekend?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg shadow-2xl"
             />
             <button

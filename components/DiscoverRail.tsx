@@ -22,7 +22,7 @@ const DiscoverRail: React.FC<DiscoverRailProps> = ({ title, items }) => {
             key={item.id} 
             className="flex-shrink-0 w-44 md:w-56 snap-start group cursor-pointer"
           >
-            <div className="relative aspect-[2/3] rounded-lg overflow-hidden mb-3 bg-[#2c3034] border border-transparent group-hover:border-[#e5a00d] transition-all duration-300">
+            <div className="relative aspect-[2/3] rounded-lg overflow-hidden mb-3 bg-[#002952] border border-transparent group-hover:border-[#e5a00d] transition-all duration-300">
               <img 
                 src={item.imageUrl} 
                 alt={item.title} 

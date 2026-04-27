@@ -33,10 +33,10 @@ export default function AdminDashboardClient({ posts: initialPosts }: { posts: B
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="border-b border-white/5 px-6 py-4 flex items-center justify-between sticky top-0 bg-[#0a0a0a] z-10">
+      <div className="border-b border-white/5 px-6 py-4 flex items-center justify-between sticky top-0 bg-[#000a1c] z-10">
         <div className="flex items-center gap-3">
           <span className="text-xl font-black text-white">
-            SMART <span className="text-red-500">4K</span>
+            ORCA <span className="text-red-500">4K</span> TV
           </span>
           <span className="text-gray-500 text-sm font-semibold">/ Admin</span>
         </div>
@@ -93,7 +93,7 @@ export default function AdminDashboardClient({ posts: initialPosts }: { posts: B
             </Link>
           </div>
         ) : (
-          <div className="bg-[#1a1d20] rounded-2xl border border-white/5 overflow-hidden">
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/5 text-xs font-bold text-gray-500 uppercase tracking-wider">

@@ -27,14 +27,14 @@ const GermanyHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Unser Deutschland-Concierge ist gerade offline, aber wir garantieren Zugang zu den besten deutschen Sendern!");
+      setAiResponse("Unser Deutschland-Concierge ist gerade offline – aber ja, ORCA 4K TV liefert alle wichtigen deutschen Sender, darunter ARD, ZDF, RTL, ProSieben, Sat.1, Vox, plus Bundesliga, Champions League, DFB-Pokal, Formel 1 und mehr.");
     } finally {
       setIsSearching(false);
     }
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
 
       {/* Germany Theme Cinematic Background */}
       <div
@@ -51,13 +51,13 @@ const GermanyHero: React.FC = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-red-700/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-yellow-500/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001f3f]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-yellow-400 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-          Deutschlands #1 IPTV-Lösung 🇩🇪
+          Deutschlands neuer Cord-Cutter · IPTV Deutschland 2026 🇩🇪
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
@@ -68,11 +68,11 @@ const GermanyHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Die beste Sky Sport Alternative. Bundesliga, ARD, ZDF und mehr – ohne Kabel, ohne Vertrag.
+          Jeder Bundesliga-Anstoß. Jedes Champions-League-Finale. Jede Formel-1-Runde – in 4K HDR, ohne Kabelvertrag
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Das ultimative IPTV Deutschland Erlebnis. Alle Bundesliga-Spiele, Formel 1 und über 22.000 Sender in 4K – pufferungsfrei auf Firestick, Android TV und Smart TV.
+          Vom Bundesliga-Topspiel am Samstagabend über den DFB-Pokal und die Champions League bis zum Audi-Einstieg in der Formel-1-Saison 2026, der Fußball-WM 2026 mit der DFB-Elf und Olympia in Mailand-Cortina – 22.000+ Live-Sender und 100.000+ Filme on-demand in nativem 4K HDR mit HDR10+ und Dolby Vision. Anti Freeze CDN mit Frankfurt-Edge-Server, AES-256-verschlüsselt, auf Firestick 4K Max, Apple TV 4K und jedem Smart TV. Frag den AI-Concierge einfach, was heute Abend läuft.
         </p>
 
         {/* AI Search Bar Area */}
@@ -84,7 +84,7 @@ const GermanyHero: React.FC = () => {
               aria-label="Sender oder Inhalte suchen"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Sender suchen (z.B. 'Habt ihr Bundesliga und RTL?')"
+              placeholder="Frag was du willst: 'Bundesliga heute Abend?' · 'F1-Rennen am Sonntag?' · 'DFB-Pokal-Finale?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all text-lg shadow-2xl"
             />
             <button

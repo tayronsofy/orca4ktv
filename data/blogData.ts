@@ -29,9 +29,9 @@ export const blogPosts: BlogPost[] = [
         content: `
 # Transforming Your Firestick into a 4K Streaming Powerhouse
 
-![Best IPTV App for Fire TV and Firestick 4K Max - Ultimate Setup Guide 2026](/images/blog/best-iptv-firestick-setup-guide-2026.jpg "A family watching SMART 4K IPTV flawlessly on an optimized Amazon Firestick device")
+![Best IPTV App for Fire TV and Firestick 4K Max - Ultimate Setup Guide 2026](/images/blog/best-iptv-firestick-setup-guide-2026.jpg "A family watching ORCA 4K TV IPTV flawlessly on an optimized Amazon Firestick device")
 
-The Amazon Firestick remains the absolute best device for IPTV in 2026. Its powerful hardware, excellent Wi-Fi receiver, and Android-based operating system make it the perfect pairing for SMART 4K's anti-freeze technology. 
+The Amazon Firestick remains the absolute best device for IPTV in 2026. Its powerful hardware, excellent Wi-Fi receiver, and Android-based operating system make it the perfect pairing for ORCA 4K TV's anti-freeze technology. 
 
 But out of the box, your Firestick isn't optimized for raw streaming performance. 
 
@@ -39,7 +39,7 @@ In this guide, we'll walk you through unlocking the true potential of your devic
 
 ## Step 1: Prepare Your Device (The "Jailbreak" Phase)
 
-Don't let the word "jailbreak" scare you—you're not voiding your warranty. You're simply allowing your device to install third-party applications (sideloading), an essential step to get the best IPTV players like **TiviMate**, **IPTV Smarters Pro**, or our custom SMART 4K application.
+Don't let the word "jailbreak" scare you—you're not voiding your warranty. You're simply allowing your device to install third-party applications (sideloading), an essential step to get the best IPTV players like **TiviMate**, **IPTV Smarters Pro**, or our custom ORCA 4K TV application.
 
 1. Go to **Settings** (the gear icon on the far right of the home screen).
 2. Select **My Fire TV**.
@@ -65,9 +65,9 @@ While there are many players, **TiviMate** is universally recognized as the best
 
 > Always clear your cache before major sporting events. Go to Settings > Applications > Manage Installed Applications > [Your IPTV App] > Clear Cache. This frees up vital RAM memory required for 4K 60FPS streams.
 
-## Step 4: Connecting SMART 4K To Your Player
+## Step 4: Connecting ORCA 4K TV To Your Player
 
-Once you sign up for a SMART 4K trial or subscription, you are provided with **Xtream Codes API** credentials. This consists of:
+Once you sign up for a ORCA 4K TV trial or subscription, you are provided with **Xtream Codes API** credentials. This consists of:
 - Server URL
 - Username
 - Password
@@ -80,11 +80,11 @@ Within 30 seconds, your device will download 22,000+ live TV channels, and thous
 
 You can have the best hardware in the world—a Firestick 4K Max wired directly to your gigabit router via ethernet—but if your IPTV provider suffers from server congestion during a massive **NFL Sunday** or a **UFC Pay-Per-View**, your stream will buffer.
 
-That's why SMART 4K utilizes our proprietary global CDN network spanning 60+ countries, load-balancing traffic instantly to guarantee a flawless 99.9% uptime. 
+That's why ORCA 4K TV utilizes our proprietary global CDN network spanning 60+ countries, load-balancing traffic instantly to guarantee a flawless 99.9% uptime. 
 
 ### Ready to ditch cable?
 
-Start your SMART 4K Free Trial today and witness the difference a premium provider makes.
+Start your ORCA 4K TV Free Trial today and witness the difference a premium provider makes.
         `
     }
 ];

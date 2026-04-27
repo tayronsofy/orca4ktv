@@ -8,7 +8,7 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #1f2326;
+  background-color: #001f3f;
   color: white;
   overflow-x: hidden;
 }
@@ -31,7 +31,11 @@ body {
 
 @media (max-width: 768px) {
   .space-layer,
+  .ocean-layer,
+  .ocean-surface,
   .animate-space-float,
+  .animate-swim-across,
+  .animate-bubble-rise,
   .animate-pulse-slow,
   .animate-pulse-slow-reverse {
     animation: none !important;
@@ -55,7 +59,7 @@ body {
 
   /* LCP fix: replace gradient text with solid color — avoids bg-clip-text composite paint */
   .hero-gradient-text {
-    color: #a855f7 !important;
+    color: #00E5FF !important;
     background-image: none !important;
     -webkit-background-clip: border-box !important;
     background-clip: border-box !important;
@@ -68,6 +72,6 @@ body {
   }
 
   section.relative.min-h-screen {
-    background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%) !important;
+    background: radial-gradient(circle at center, #001737 0%, #000000 100%) !important;
   }
 }

@@ -1,12 +1,20 @@
 {
-  "name": "smart4k-iptv",
+  "name": "orca4ktv-iptv",
   "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "regen": "tsx scripts/regenerate/index.ts all",
+    "regen:text": "tsx scripts/regenerate/index.ts text",
+    "regen:images": "tsx scripts/regenerate/index.ts images",
+    "regen:blog": "tsx scripts/regenerate/index.ts blog",
+    "regen:matches": "tsx scripts/regenerate/index.ts matches",
+    "regen:plans": "tsx scripts/regenerate/index.ts plans",
+    "regen:pages": "tsx scripts/regenerate/index.ts pages",
+    "regen:faq": "tsx scripts/regenerate/index.ts faq"
   },
   "dependencies": {
     "@google/genai": "^1.35.0",
@@ -45,8 +53,10 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.23",
     "dotenv": "^17.4.2",
+    "p-limit": "^7.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.21.0",
     "typescript": "~5.8.2"
   }
 }

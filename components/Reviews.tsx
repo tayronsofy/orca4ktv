@@ -19,7 +19,7 @@ const reviewsRaw = [
 
 const Reviews: React.FC = () => {
     return (
-        <section className="py-20 bg-[#15171a] relative overflow-hidden" id="reviews">
+        <section className="py-20 bg-[#001530] relative overflow-hidden" id="reviews">
             {/* Background Ambience */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] translate-y-1/2"></div>
@@ -27,11 +27,11 @@ const Reviews: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                        SMART 4K IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">User Reviews</span>
+                        ORCA 4K TV IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">User Reviews</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] mx-auto rounded-full mb-6"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Viewers choose SMART 4K for stability, quality, and fast support when setup help is needed.
+                        Viewers choose ORCA 4K TV for stability, quality, and fast support when setup help is needed.
                     </p>
                 </div>
 
@@ -39,7 +39,7 @@ const Reviews: React.FC = () => {
                     {reviewsRaw.map((review, i) => (
                         <div
                             key={i}
-                            className="bg-[#1f2326] p-8 rounded-3xl border border-white/5 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
+                            className="bg-[#001f3f] p-8 rounded-3xl border border-white/5 hover:border-purple-500/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group"
                         >
                             {/* Stars */}
                             <div className="flex gap-1 mb-6">

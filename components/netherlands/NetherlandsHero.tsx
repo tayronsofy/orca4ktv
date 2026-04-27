@@ -27,14 +27,14 @@ const NetherlandsHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Onze Nederland Concierge is momenteel offline, maar we garanderen toegang tot de beste Nederlandse zenders!");
+      setAiResponse("Onze Nederland-concierge is even offline, maar elke Eredivisie-aftrap, F1-ronde en NPO-uitzending blijft buffervrij in 4K HDR beschikbaar.");
     } finally {
       setIsSearching(false);
     }
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#020204] py-20">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden bg-[#00050d] py-20">
 
       {/* Netherlands Theme Cinematic Background */}
       <div
@@ -51,13 +51,13 @@ const NetherlandsHero: React.FC = () => {
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#AE1C28]/10 blur-[150px] rounded-full animate-pulse-slow will-change-transform"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#21468B]/10 blur-[150px] rounded-full animate-pulse-slow-reverse will-change-transform"></div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#1f2326]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#001f3f]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-[#AE1C28] rounded-full animate-pulse"></span>
-          Nederland #1 IPTV-Oplossing 🇳🇱
+          Nederlands nieuwe cord-cutter · IPTV Nederland 2026 🇳🇱
         </div>
 
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
@@ -68,11 +68,11 @@ const NetherlandsHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Het beste alternatief voor Ziggo & KPN. Eredivisie, NPO, RTL en meer – zonder abonnement, zonder contract.
+          Elke Eredivisie-aftrap. Elke Champions League-avond. Elke F1-ronde van Max Verstappen — in 4K HDR, zonder Ziggo-contract.
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          De ultieme IPTV Nederland ervaring. Alle Eredivisie-wedstrijden, Formule 1 met Max Verstappen en 22.000+ zenders in 4K – buffervrij op Firestick, Android TV en Smart TV.
+          Het echte Ziggo- en KPN-alternatief voor 2026: Eredivisie-topper, KNVB-beker tot de finale in De Kuip, UEFA Champions League, Formule 1 met Max Verstappen, WK voetbal 2026 met het Nederlands elftal en de Olympische Winterspelen Milaan-Cortina — live op een Amsterdam-edge server, AES-256 versleuteld, met onze AI-concierge die elke kanaalvraag direct beantwoordt.
         </p>
 
         {/* AI Search Bar Area */}
@@ -84,7 +84,7 @@ const NetherlandsHero: React.FC = () => {
               aria-label="Zoeken naar zenders of inhoud"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Zender zoeken (bijv. 'Hebben jullie Eredivisie en RTL 4?')"
+              placeholder="Vraag wat je wilt: 'Eredivisie vanavond?' · 'F1-race zondag?' · 'KNVB-beker finale?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#21468B]/50 transition-all text-lg shadow-2xl"
             />
             <button

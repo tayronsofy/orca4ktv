@@ -67,7 +67,7 @@ export default function AdminClientsPage() {
           value={searchInput}
           onChange={e => setSearchInput(e.target.value)}
           placeholder="Search by email or name…"
-          className="bg-[#2c3034] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-72"
+          className="bg-[#002952] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-72"
         />
         <button type="submit" className="bg-purple-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-purple-500 transition-colors">
           Search
@@ -79,7 +79,7 @@ export default function AdminClientsPage() {
         )}
       </form>
 
-      <div className="bg-[#2c3034] rounded-2xl border border-white/5 overflow-hidden">
+      <div className="bg-[#002952] rounded-2xl border border-white/5 overflow-hidden">
         <div className="hidden md:grid grid-cols-5 gap-4 px-6 py-3 border-b border-white/5 text-xs text-gray-500 uppercase tracking-widest">
           <span className="col-span-2">Client</span>
           <span>Country</span>
@@ -127,11 +127,11 @@ export default function AdminClientsPage() {
 
       {totalPages > 1 && (
         <div className="flex items-center justify-between mt-6">
-          <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="bg-[#2c3034] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors">
+          <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1} className="bg-[#002952] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors">
             ← Previous
           </button>
           <span className="text-gray-400 text-sm">Page {page} of {totalPages}</span>
-          <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="bg-[#2c3034] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors">
+          <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page === totalPages} className="bg-[#002952] text-gray-400 px-4 py-2 rounded-xl text-sm hover:text-white disabled:opacity-30 transition-colors">
             Next →
           </button>
         </div>

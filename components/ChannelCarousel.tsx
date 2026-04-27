@@ -22,13 +22,13 @@ const LOGO_ASSETS = [
 
 const ChannelCarousel: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-black via-[#1a1d20] to-black border-b border-white/5 py-10 overflow-hidden relative">
+    <section className="bg-gradient-to-r from-black via-[#001a36] to-black border-b border-white/5 py-10 overflow-hidden relative">
       {/* Decorative gradients for edge fading */}
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 mb-2 relative z-10">
-        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#a855f7] text-center mb-10 opacity-60">
+        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#00E5FF] text-center mb-10 opacity-60">
           Official Media Partners
         </p>
       </div>

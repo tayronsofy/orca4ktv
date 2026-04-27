@@ -39,7 +39,7 @@ function CalloutView({ node, updateAttributes, selected }: NodeViewProps) {
           <select
             value={variant}
             onChange={(e) => updateAttributes({ variant: e.target.value as Variant })}
-            style={{ background: '#1a1d20', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '.375rem', color: '#9ca3af', fontSize: '.7rem', padding: '.25rem .5rem', cursor: 'pointer' }}
+            style={{ background: '#001a36', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '.375rem', color: '#9ca3af', fontSize: '.7rem', padding: '.25rem .5rem', cursor: 'pointer' }}
           >
             <option value="tip">💡 Tip</option>
             <option value="warning">⚠️ Warning</option>

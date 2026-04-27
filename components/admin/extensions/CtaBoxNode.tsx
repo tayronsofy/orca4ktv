@@ -11,7 +11,7 @@ function CtaBoxView({ node, updateAttributes, selected }: NodeViewProps) {
   return (
     <NodeViewWrapper>
       <div style={{
-        background: 'linear-gradient(135deg,#1a1d20,#0a0a0a)',
+        background: 'linear-gradient(135deg,#001a36,#000a1c)',
         border: `1px solid ${selected ? '#ef4444' : 'rgba(239,68,68,.3)'}`,
         borderRadius: '1rem',
         padding: '1.5rem',
@@ -42,7 +42,7 @@ function CtaBoxView({ node, updateAttributes, selected }: NodeViewProps) {
             value={buttonUrl}
             onChange={(e) => updateAttributes({ buttonUrl: e.target.value })}
             placeholder="https://..."
-            style={{ background: '#1a1d20', border: '1px solid rgba(255,255,255,0.15)', outline: 'none', color: '#9ca3af', fontSize: '.75rem', padding: '.6rem .875rem', borderRadius: '.625rem', minWidth: '180px' }}
+            style={{ background: '#001a36', border: '1px solid rgba(255,255,255,0.15)', outline: 'none', color: '#9ca3af', fontSize: '.75rem', padding: '.6rem .875rem', borderRadius: '.625rem', minWidth: '180px' }}
           />
         </div>
       </div>
@@ -72,7 +72,7 @@ export const CtaBoxNode = Node.create({
     const { headline, subtext, buttonText, buttonUrl } = HTMLAttributes
     return [
       'div',
-      { 'data-cta-box': '', style: 'background:linear-gradient(135deg,#1a1d20,#0a0a0a);border:1px solid rgba(239,68,68,.3);border-radius:1rem;padding:2rem;text-align:center;margin:1.5rem 0' },
+      { 'data-cta-box': '', style: 'background:linear-gradient(135deg,#001a36,#000a1c);border:1px solid rgba(239,68,68,.3);border-radius:1rem;padding:2rem;text-align:center;margin:1.5rem 0' },
       ['h3', { style: 'color:#fff;font-size:1.5rem;font-weight:900;margin:0 0 .75rem' }, headline ?? ''],
       ['p',  { style: 'color:#9ca3af;margin:0 0 1.25rem' }, subtext ?? ''],
       ['a',  { href: buttonUrl ?? '#', style: 'display:inline-block;background:#dc2626;color:#fff;font-weight:800;font-size:.875rem;padding:.75rem 1.75rem;border-radius:.75rem;text-decoration:none;letter-spacing:.05em;text-transform:uppercase' }, buttonText ?? 'Learn More'],

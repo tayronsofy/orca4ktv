@@ -13,7 +13,7 @@ const FAQ: React.FC = () => {
 
   const faqData: FAQItem[] = [
     {
-      question: "Which Devices Are Compatible With SMART 4K?",
+      question: "Which Devices Are Compatible With ORCA 4K TV?",
       answer: "Our infrastructure is engineered for cross-platform versatility. You can reliably stream on Smart TVs, Android boxes, Apple iOS devices, Firesticks, Nvidia Shields, Windows laptops, and dedicated STB boxes like Mag or Formuler. There are virtually zero restrictions on how and where you can tune in."
     },
     {
@@ -56,18 +56,18 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-12 bg-[#1f2326] relative overflow-hidden">
+    <section id="faq" className="py-12 bg-[#001f3f] relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Decorative Blur Background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#a855f7]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E5FF]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-black text-white mb-4 uppercase tracking-tight">
-            Frequently Asked <span className="text-[#a855f7]">Questions</span>
+            Frequently Asked <span className="text-[#00E5FF]">Questions</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full"></div>
           <p className="mt-6 text-gray-400 font-medium">Everything you need to know about our premium IPTV service.</p>
         </div>
 
@@ -76,8 +76,8 @@ const FAQ: React.FC = () => {
             <div
               key={index}
               className={`group rounded-2xl border transition-all duration-300 ${openIndex === index
-                  ? 'bg-[#2c3034] border-[#a855f7]/50 shadow-[0_0_30px_rgba(168,85,247,0.1)]'
-                  : 'bg-[#2c3034]/40 border-white/5 hover:border-white/10'
+                  ? 'bg-[#002952] border-[#00E5FF]/50 shadow-[0_0_30px_rgba(168,85,247,0.1)]'
+                  : 'bg-[#002952]/40 border-white/5 hover:border-white/10'
                 }`}
             >
               <button
@@ -88,7 +88,7 @@ const FAQ: React.FC = () => {
                   {item.question}
                 </span>
                 <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                  <i className={`fas fa-chevron-down ${openIndex === index ? 'text-[#a855f7]' : 'text-gray-500'}`}></i>
+                  <i className={`fas fa-chevron-down ${openIndex === index ? 'text-[#00E5FF]' : 'text-gray-500'}`}></i>
                 </span>
               </button>
 
@@ -105,7 +105,7 @@ const FAQ: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#2a0e5c] to-[#0d071b] border border-[#4a3482]/30 text-center">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#001737] to-[#000d1f] border border-[#002952]/30 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Still have questions?</h3>
           <p className="text-gray-400 mb-6">Our support team is available 24/7 to help you with any technical or billing inquiries.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -116,8 +116,8 @@ const FAQ: React.FC = () => {
               <i className="fas fa-play-circle"></i> Setup Guide & Tutorials
             </a>
             <a
-              href="mailto:contact@smart4k.io"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
+              href="mailto:support@orca4ktv.com"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#001a36] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
             >
               <i className="fas fa-envelope"></i> Contact Support
             </a>

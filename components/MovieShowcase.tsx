@@ -25,14 +25,14 @@ const MovieShowcase: React.FC = () => {
   return (
     <section className="bg-black py-24 relative overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#a855f7]/5 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#00E5FF]/5 blur-[150px] rounded-full pointer-events-none"></div>
 
       <div className="container mx-auto px-6 text-center mb-16 relative z-10">
-        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 text-[#a855f7] text-[10px] font-black uppercase tracking-[0.4em]">
+        <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.4em]">
           Premium Library
         </div>
         <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter uppercase text-white leading-none">
-          WORLD CLASS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a855f7] to-white">CINEMA</span>
+          WORLD CLASS <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-white">CINEMA</span>
         </h2>
         <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed font-medium opacity-70">
           Discover thousands of titles in pure 4K. Updated every hour.
@@ -55,10 +55,10 @@ const MovieShowcase: React.FC = () => {
                 className="flex-shrink-0 mx-3"
               >
                 {/* 🚀 CLS FIX: The Wrapper enforces the Aspect Ratio (2/3) before image loads */}
-                <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] aspect-[2/3] relative group/item cursor-pointer rounded-lg overflow-hidden shadow-2xl transition-all duration-700 hover:z-30 hover:scale-105 border border-white/5 hover:border-[#a855f7]/50 bg-gray-900">
+                <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] aspect-[2/3] relative group/item cursor-pointer rounded-lg overflow-hidden shadow-2xl transition-all duration-700 hover:z-30 hover:scale-105 border border-white/5 hover:border-[#00E5FF]/50 bg-gray-900">
                   <img
                     src={movie.src}
-                    alt="Cinema Poster"
+                    alt={`Featured on-demand movie #${movie.id} — 4K HDR streaming on ORCA 4K TV IPTV subscription`}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110"
                     loading="lazy"      // Only load when near viewport
                     decoding="async"    // Decode off main thread to prevent UI freeze
@@ -70,7 +70,7 @@ const MovieShowcase: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover/item:opacity-0 transition-opacity duration-500"></div>
 
                   {/* Subtle Hover Glow */}
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 group-hover/item:ring-[#a855f7]/50 transition-all"></div>
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 group-hover/item:ring-[#00E5FF]/50 transition-all"></div>
                 </div>
               </div>
             ))}

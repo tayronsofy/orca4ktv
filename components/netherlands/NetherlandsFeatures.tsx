@@ -4,35 +4,43 @@ import React from 'react';
 
 const NETHERLANDS_FEATURES = [
   {
-    title: 'Perfecte dekking door heel Nederland',
-    description: 'Of je nu in Amsterdam, Rotterdam of Eindhoven bent – onze dedicated Nederlandse servers garanderen buffervrij streamen van Eredivisie en alle Nederlandse premium zenders in 4K. Onze anti-freeze technologie zorgt ook tijdens topper-wedstrijden voor een feilloze ervaring.',
-    imageUrl: '/images/watch iptv Nederland.jpeg',
-    altText: 'IPTV Netherlands – Beste IPTV Nederland 2026',
+    title: 'Landelijke dekking met Amsterdam-edge server',
+    description: 'Een dedicated Amsterdam-edge server houdt de latentie onder 25 ms — of je nu de Eredivisie-topper kijkt in Amsterdam, een Champions League-avond in Rotterdam of de Olympische Winterspelen-hoogtepunten in Eindhoven. Anti Freeze CDN herleidt piekverkeer in real-time, zodat elke aftrap, elke pitstop en elke gouden medaille buffervrij in 4K HDR aankomt.',
+    imageUrl: '/images/netherlands-coverage.jpg',
+    altText: 'Twee Nederlandse Eredivisie-fans op de bank kijken een Eredivisie-wedstrijd in 4K HDR live op een Smart TV — buffervrij IPTV Nederland streamen via ORCA 4K TV.',
     reverse: false
   },
   {
-    title: 'Slimme Programmagids (EPG)',
-    description: 'Navigeer door alle Nederlandse zenders zoals NPO 1, NPO 2, RTL 4, SBS6 en Ziggo Sport met onze intelligente programmagids. Mis nooit meer een Eredivisie-wedstrijd of een Formule 1-race met Max Verstappen – alles overzichtelijk georganiseerd in de EPG.',
-    imageUrl: '/images/NEDERLAND iptv epg.jpeg',
-    altText: 'IPTV Netherlands EPG Programmagids',
+    title: 'Slimme programmagids voor de Nederlandse sportkalender',
+    description: 'De ORCA 4K TV-programmagids kent jouw week — Eredivisie-weekend, Champions League op dinsdag en woensdag, F1-zondagen met Max Verstappen, KNVB-beker-avonden en Olympische hoogtepunten uit Milaan-Cortina. Live ticker, snelle zenderwissels, 7-dagen catch-up tv en AI-gestuurd zoeken ("Wat is er nu te zien?") voor NPO, RTL, SBS6, Veronica, Ziggo Sport en ESPN NL.',
+    imageUrl: '/images/netherlands-epg.jpg',
+    altText: 'Volwassene met afstandsbediening kijkt naar de Smart TV-programmagids op een 4K Smart TV — ORCA 4K TV Nederland IPTV-abonnement met elektronische programmagids en 7-dagen catch-up tv.',
     reverse: true
   },
   {
-    title: 'Stream op elk apparaat',
-    description: 'Van de Smart TV in de woonkamer tot je smartphone onderweg. Volg onze eenvoudige installatiegids voor TiviMate of Firestick en kijk je favoriete zenders overal – helemaal zonder satellietschotel of kabelaansluiting.',
-    imageUrl: '/images/Nederland iptv channels.jpeg',
-    altText: 'IPTV Netherlands op alle apparaten',
+    title: 'Op elk Nederlands streaming-apparaat — één abonnement',
+    description: 'Multi-device-compatibiliteit in elk abonnement: Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3e generatie), Android TV 14-boxen (Nvidia Shield, Onn 4K Pro, Chromecast met Google TV), Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS en elke webbrowser. Tot vier gelijktijdige streams. Identieke Nederlandse zenderbibliotheek en EPG op elk scherm — TiviMate, IPTV Smarters Pro en OTT Navigator worden ondersteund.',
+    imageUrl: '/images/netherlands-multi-device.jpg',
+    altText: 'Salontafel met Firestick 4K Max afstandsbediening, Apple TV 4K-box, Roku-speler, smartphone en tablet in een Nederlandse woonkamer — multi-device IPTV-compatibiliteit op ORCA 4K TV Nederland.',
     reverse: false
   }
 ];
 
 const NetherlandsFeatures: React.FC = () => {
   return (
-    <section id="features" className="py-24 bg-[#1f2326]">
+    <section id="features" className="py-24 bg-[#001f3f]">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold mb-4 text-white">Beste IPTV Nederland – Functies</h2>
-          <div className="w-20 h-1 bg-[#AE1C28] mx-auto"></div>
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <p className="text-orange-400 text-xs font-black uppercase tracking-[0.3em] mb-3">
+            Gebouwd voor Nederlandse cord-cutters
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-white leading-tight">
+            Waarom ORCA 4K TV het beste IPTV Nederland 2026 is
+          </h2>
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
+            Buffervrij 4K HDR-streamen, elke Nederlandse zender, elke competitie — Anti Freeze CDN met Amsterdam-edge server, AES-256 versleuteld, multi-device IPTV ready.
+          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto mt-6"></div>
         </div>
 
         <div className="space-y-32">
@@ -50,7 +58,7 @@ const NetherlandsFeatures: React.FC = () => {
                 </p>
               </div>
               <div className="flex-1 w-full">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#2c3034] p-2 border border-[#AE1C28]/20">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#002952] p-2 border border-[#AE1C28]/20">
                   <img
                     src={feature.imageUrl}
                     alt={feature.altText || feature.title}

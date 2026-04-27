@@ -10,13 +10,13 @@ const GermanyPricing = () => {
   const [activeDeviceCount, setActiveDeviceCount] = useState<1 | 2 | 3 | 4>(1);
 
   const GERMANY_FEATURES = [
-    "Dedizierte Deutschland-Hochgeschwindigkeitsserver",
-    "Alle deutschen Lokal- und Nationalsender",
-    "Uneingeschränkter Live-Sport",
-    "Echte 4K-Auflösung",
-    "ISP-Drosselschutz",
-    "24/7 Support auf Deutsch",
-    "Sofortige automatische Aktivierung"
+    "Alle deutschen Sender (ARD, ZDF, RTL, Sky, ProSieben)",
+    "Bundesliga, DFB-Pokal, Champions League, Formel 1",
+    "22.000+ internationale Live-Kanäle weltweit",
+    "100.000+ Filme & Serien on-demand",
+    "Echtes 4K HDR mit HDR10+ und Dolby Vision",
+    "Anti Freeze CDN — Streaming ohne Pufferung",
+    "24/7 Support · Sofortige Aktivierung"
   ];
 
   const FORM_URL_1_MONTH = "https://d35d7546.sibforms.com/serve/MUIFABcNLakD2jacljgYIn-UHpEDCBU9I4dN99xxru3Nm07fPF03m78cMOb3k2TxRtcigsmQcCUYA1V5Hlhr-d0hrpIZZgfLZWFEcD6q4eaO01Bq-BM1XqAkEn2TekeNfJxYNCU5ZDbNL2JvQ2hCmUeYSx9UOFgTXGPp9T5qBuVX3B_T38zvuzrNtO9RsTRmW4iv2ejj38ehXioqVg==";
@@ -54,7 +54,7 @@ const GermanyPricing = () => {
   const currentPlans = PRICING_TIERS[activeDeviceCount];
 
   return (
-    <section className="relative py-20 bg-[#1f2326] overflow-hidden" id="pricing">
+    <section className="relative py-20 bg-[#001f3f] overflow-hidden" id="pricing">
       {/* Germany Theme Subtle Background Ambience */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-700/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-[120px]" />
@@ -65,10 +65,10 @@ const GermanyPricing = () => {
             IPTV Deutschland Preise. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400">Jederzeit kündbar.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Starte jetzt mit dem besten IPTV-Dienst in Deutschland. Zahlung weltweit in USD/EUR.
+            Ein globales IPTV-Abonnement — alle deutschen Sender plus 22.000+ internationale Live-Kanäle in 4K HDR. Zahlung in EUR, jederzeit kündbar.
           </p>
 
-          <div className="inline-flex flex-wrap items-center justify-center bg-[#15171a] p-2 rounded-full border border-red-700/30 shadow-xl shadow-red-500/10">
+          <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-red-700/30 shadow-xl shadow-red-500/10">
             {[1, 2, 3, 4].map((count) => (
               <button
                 key={count}
@@ -99,7 +99,7 @@ const GermanyPricing = () => {
             >
               <div className={`absolute inset-0 rounded-3xl bg-gradient-to-b from-red-700/30 to-yellow-500/10 opacity-50 ${plan.isPopular ? 'from-red-700 to-yellow-500 opacity-100' : ''}`} />
 
-              <div className="relative h-full bg-[#15171a] rounded-[22px] p-6 flex flex-col border border-red-700/20 overflow-hidden">
+              <div className="relative h-full bg-[#001530] rounded-[22px] p-6 flex flex-col border border-red-700/20 overflow-hidden">
                 {plan.isPopular && (
                   <div className="absolute top-0 right-0">
                     <div className="bg-gradient-to-l from-red-700 to-yellow-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl shadow-lg">

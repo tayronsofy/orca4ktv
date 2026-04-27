@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const trialFaqData = [
   {
     question: "What is included in the free IPTV trial?",
-    answer: "The free IPTV trial gives you full access to SMART 4K's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
+    answer: "The free IPTV trial gives you full access to ORCA 4K TV's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
   },
   {
     question: "How long does the free trial last?",
@@ -13,7 +13,7 @@ const trialFaqData = [
   },
   {
     question: "Do I need a credit card for the free trial?",
-    answer: "No. The SMART 4K free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
+    answer: "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
   },
   {
     question: "How quickly will I receive my trial credentials?",
@@ -33,15 +33,15 @@ const TrialFAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-20 bg-[#15171a] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#a855f7]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+    <section className="py-20 bg-[#001530] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E5FF]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-            Free Trial <span className="text-[#a855f7]">FAQ</span>
+            Free Trial <span className="text-[#00E5FF]">FAQ</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#6d28d9] to-[#a855f7] mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 font-medium">Everything you need to know before starting your free IPTV trial.</p>
         </div>
 
@@ -51,8 +51,8 @@ const TrialFAQ: React.FC = () => {
               key={index}
               className={`group rounded-2xl border transition-all duration-300 ${
                 openIndex === index
-                  ? 'bg-[#2c3034] border-[#a855f7]/50 shadow-[0_0_30px_rgba(168,85,247,0.1)]'
-                  : 'bg-[#2c3034]/40 border-white/5 hover:border-white/10'
+                  ? 'bg-[#002952] border-[#00E5FF]/50 shadow-[0_0_30px_rgba(168,85,247,0.1)]'
+                  : 'bg-[#002952]/40 border-white/5 hover:border-white/10'
               }`}
             >
               <button
@@ -63,7 +63,7 @@ const TrialFAQ: React.FC = () => {
                   {item.question}
                 </span>
                 <span className={`flex-shrink-0 ml-4 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
-                  <i className={`fas fa-chevron-down ${openIndex === index ? 'text-[#a855f7]' : 'text-gray-500'}`}></i>
+                  <i className={`fas fa-chevron-down ${openIndex === index ? 'text-[#00E5FF]' : 'text-gray-500'}`}></i>
                 </span>
               </button>
 
@@ -77,12 +77,12 @@ const TrialFAQ: React.FC = () => {
         </div>
 
         {/* Support CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#2a0e5c] to-[#0d071b] border border-[#4a3482]/30 text-center">
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#001737] to-[#000d1f] border border-[#002952]/30 text-center">
           <h3 className="text-xl font-bold text-white mb-2">Still have questions?</h3>
           <p className="text-gray-400 mb-6">Our support team is available 24/7 to help you get started with your free trial.</p>
           <a
-            href="mailto:contact@smart4k.io"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#1a1d20] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
+            href="mailto:support@orca4ktv.com"
+            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#001a36] font-black rounded-full uppercase text-xs tracking-[0.2em] hover:bg-gray-200 transition-all transform hover:scale-105"
           >
             <i className="fas fa-envelope"></i> Contact Support
           </a>

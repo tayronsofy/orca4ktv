@@ -64,7 +64,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
         if (data.error === 'already_submitted') {
           setAlreadySubmitted(true);
         } else {
-          setError("Something went wrong. Please try again or contact us at contact@smart4k.io.");
+          setError("Something went wrong. Please try again or contact us at support@orca4ktv.com.");
         }
       }
     } catch (err) {
@@ -75,11 +75,11 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-[#020204] via-[#1a1d20] to-[#020204] px-4">
-      <div className="relative z-10 w-full max-w-2xl bg-[#1f2326] border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_80px_rgba(168,85,247,0.15)] animate-fade-in">
+    <section className="relative min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-[#00050d] via-[#001a36] to-[#00050d] px-4">
+      <div className="relative z-10 w-full max-w-2xl bg-[#001f3f] border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_80px_rgba(168,85,247,0.15)] animate-fade-in">
 
         <h2 className="text-4xl md:text-5xl font-black text-white mb-6 text-center tracking-tight">
-          Start Your <span className="text-[#a855f7]">Free Trial</span>
+          Start Your <span className="text-[#00E5FF]">Free Trial</span>
         </h2>
 
         {submitted ? (
@@ -100,7 +100,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
             <p className="text-yellow-200 mb-6">
               We already have a trial request from this email. Please allow 7 days between requests, or contact us directly.
             </p>
-            <a href="mailto:contact@smart4k.io" className="bg-white text-black px-8 py-3 rounded-full font-bold uppercase hover:bg-gray-200 transition-colors inline-block">
+            <a href="mailto:support@orca4ktv.com" className="bg-white text-black px-8 py-3 rounded-full font-bold uppercase hover:bg-gray-200 transition-colors inline-block">
               Contact Us
             </a>
           </div>
@@ -116,7 +116,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
                 name="name"
                 minLength={2}
                 maxLength={50}
-                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:ring-2 focus:ring-[#a855f7]"
+                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:ring-2 focus:ring-[#00E5FF]"
                 placeholder="Your Name"
                 aria-label="Your Name"
               />
@@ -132,7 +132,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
                 name="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 maxLength={254}
-                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:ring-2 focus:ring-[#a855f7]"
+                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:ring-2 focus:ring-[#00E5FF]"
                 placeholder="you@example.com"
                 aria-label="Your Email Address"
               />
@@ -145,7 +145,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
                 id="device"
                 required
                 name="device"
-                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white bg-[#1f2326] appearance-none bg-no-repeat bg-right-8 bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M7.41%2C8.59L12%2C13.17L16.59%2C8.59L18%2C10L12%2C16L6%2C10L7.41%2C8.59Z%22%2F%3E%3C%2Fsvg%3E')]"
+                className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white bg-[#001f3f] appearance-none bg-no-repeat bg-right-8 bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M7.41%2C8.59L12%2C13.17L16.59%2C8.59L18%2C10L12%2C16L6%2C10L7.41%2C8.59Z%22%2F%3E%3C%2Fsvg%3E')]"
                 aria-label="Select Device"
               >
                 <option value="">Select Device</option>
@@ -166,7 +166,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
                 required
                 name="country"
                 defaultValue=""
-                className="w-full p-4 rounded-xl bg-[#1f2326] border border-white/10 text-white focus:ring-2 focus:ring-[#a855f7] appearance-none cursor-pointer"
+                className="w-full p-4 rounded-xl bg-[#001f3f] border border-white/10 text-white focus:ring-2 focus:ring-[#00E5FF] appearance-none cursor-pointer"
                 aria-label="Select your country"
               >
                 <option value="" disabled>Select your country</option>
@@ -191,7 +191,7 @@ const FreeTrialForm: React.FC<FreeTrialFormProps> = ({ onBackToHome }) => {
 
             {error && <p className="text-red-400 text-center">{error}</p>}
 
-            <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-[#6d28d9] to-[#a855f7] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl disabled:opacity-50">
+            <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-[#003580] to-[#00E5FF] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-xl disabled:opacity-50">
               {loading ? 'Sending...' : 'Get Free Trial'}
             </button>
 

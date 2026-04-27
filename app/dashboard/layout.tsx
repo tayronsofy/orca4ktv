@@ -22,10 +22,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
     .single()
 
   return (
-    <div style={{ paddingTop: '80px' }} className="min-h-screen bg-[#1f2326]">
+    <div style={{ paddingTop: '80px' }} className="min-h-screen bg-[#001f3f]">
       <div className="flex">
         {/* Sidebar */}
-        <aside className="hidden md:flex flex-col w-64 min-h-[calc(100vh-80px)] bg-[#15171a] border-r border-white/5 px-4 py-8 sticky top-20">
+        <aside className="hidden md:flex flex-col w-64 min-h-[calc(100vh-80px)] bg-[#001530] border-r border-white/5 px-4 py-8 sticky top-20">
           {/* User info */}
           <div className="mb-8 px-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center text-white font-black text-lg mb-3">
@@ -61,7 +61,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </aside>
 
         {/* Mobile bottom nav */}
-        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#15171a] border-t border-white/5 z-50 flex">
+        <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#001530] border-t border-white/5 z-50 flex">
           {navItems.map(item => (
             <Link
               key={item.href}
@@ -82,7 +82,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
       {/* Telegram support button */}
       <a
-        href="https://t.me/Smart4ksupport"
+        href="https://t.me/Orca4ktv"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 flex items-center gap-2 bg-[#229ED9] hover:bg-[#1a8bbf] text-white font-bold px-4 py-3 rounded-full shadow-xl hover:shadow-[#229ED9]/40 transition-all hover:scale-105"

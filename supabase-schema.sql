@@ -1,5 +1,5 @@
 -- ============================================================
--- SMART 4K IPTV — Supabase Schema
+-- ORCA 4K TV IPTV — Supabase Schema
 -- Run this in the Supabase SQL Editor (Dashboard → SQL Editor)
 -- ============================================================
 
