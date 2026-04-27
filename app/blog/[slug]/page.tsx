@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
   const imageUrl = post.imageUrl ? `https://orca4ktv.com${post.imageUrl}` : 'https://orca4ktv.com/og-default.jpg'
   return {
-    title: `${post.title} - Orca 4K TV`,
+    title: post.title,
     description: post.excerpt,
     keywords: post.seoKeywords,
     alternates: { canonical: `https://orca4ktv.com/blog/${post.slug}` },
