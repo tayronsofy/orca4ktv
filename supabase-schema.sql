@@ -148,3 +148,14 @@ CREATE OR REPLACE TRIGGER orders_updated_at
 CREATE OR REPLACE TRIGGER subscriptions_updated_at
   BEFORE UPDATE ON subscriptions
   FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+-- ============================================================
+-- TRIALS — link to auth users + signup token for activation
+-- (run idempotently; the trials table itself is created out-of-band)
+-- ============================================================
+ALTER TABLE trials
+  ADD COLUMN IF NOT EXISTS auth_user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
+  ADD COLUMN IF NOT EXISTS signup_token TEXT UNIQUE;
+
+CREATE INDEX IF NOT EXISTS idx_trials_signup_token ON trials(signup_token);
+CREATE INDEX IF NOT EXISTS idx_trials_auth_user_id ON trials(auth_user_id);

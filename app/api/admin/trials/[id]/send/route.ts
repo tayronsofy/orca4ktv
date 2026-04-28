@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { randomBytes } from 'crypto'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { sendTrialCredentials } from '@/lib/resend'
 import { createTrialM3U } from '@/lib/iptv-panel'
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://orca4ktv.com'
 
 function checkAdminAuth(request: NextRequest): boolean {
   const token = request.cookies.get('admin_token')?.value
@@ -72,29 +75,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     return NextResponse.json({ error: 'validation', message: 'Invalid mode.' }, { status: 400 })
   }
 
-  // ── Send email first — only update DB if it succeeds ─────────────────────────
+  // ── Generate signup token + activation URL ───────────────────────────────────
 
-  try {
-    await sendTrialCredentials({
-      to: trial.email,
-      name: trial.name,
-      iptv_username: creds.iptv_username,
-      iptv_password: creds.iptv_password,
-      m3u_url: creds.m3u_url,
-      portal_url: creds.portal_url,
-      expires_at,
-    })
-  } catch (err) {
-    console.error('Trial email send error:', err)
-    return NextResponse.json(
-      { error: 'email_failed', message: 'Failed to send email. Please try again.' },
-      { status: 500 }
-    )
-  }
+  const signupToken = randomBytes(32).toString('hex')
+  const activationUrl = `${SITE_URL}/auth/register?trial=${signupToken}&next=${encodeURIComponent('/dashboard/trial')}`
 
-  // ── Persist to DB ─────────────────────────────────────────────────────────────
+  // ── Persist creds + token first (so /dashboard/trial can read them after signup)
 
-  await admin
+  const { error: updateError } = await admin
     .from('trials')
     .update({
       status: 'sent',
@@ -105,8 +93,35 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       duration_hours: effectiveDuration,
       sent_at: new Date().toISOString(),
       expires_at,
+      signup_token: signupToken,
     })
     .eq('id', id)
+
+  if (updateError) {
+    console.error('Trial update error:', updateError)
+    return NextResponse.json(
+      { error: 'db_error', message: 'Failed to save trial. Please try again.' },
+      { status: 500 }
+    )
+  }
+
+  // ── Send activation email (no creds in body) ────────────────────────────────
+
+  try {
+    await sendTrialCredentials({
+      to: trial.email,
+      name: trial.name,
+      activation_url: activationUrl,
+      expires_at,
+      duration_hours: effectiveDuration,
+    })
+  } catch (err) {
+    console.error('Trial email send error:', err)
+    return NextResponse.json(
+      { error: 'email_failed', message: 'Failed to send email. Please try again.' },
+      { status: 500 }
+    )
+  }
 
   // Mark pool account as in_use if applicable
   if (mode === 'pool' && account_id) {

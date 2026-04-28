@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 
 const navItems = [
   { href: '/dashboard', label: 'Overview', icon: 'fas fa-home' },
+  { href: '/dashboard/trial', label: 'Free Trial', icon: 'fas fa-bolt' },
   { href: '/dashboard/subscription', label: 'Subscription', icon: 'fas fa-satellite-dish' },
   { href: '/dashboard/invoices', label: 'Invoices', icon: 'fas fa-file-invoice' },
   { href: '/dashboard/profile', label: 'Profile', icon: 'fas fa-user' },

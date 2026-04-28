@@ -225,19 +225,13 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
 interface SendTrialCredentialsProps {
   to: string
   name: string
-  iptv_username: string
-  iptv_password: string
-  m3u_url: string
-  portal_url?: string
+  activation_url: string
   expires_at: string
+  duration_hours: number
 }
 
 export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
-  const { to, name, iptv_username, iptv_password, portal_url, expires_at } = props
-
-  const m3u_url = props.m3u_url.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
-  const hostUrl = 'http://line.trxdnscloud.ru'
-  const epgUrl = `http://line.trxdnscloud.ru/xmltv.php?username=${iptv_username}&password=${iptv_password}`
+  const { to, name, activation_url, expires_at, duration_hours } = props
 
   const expiryFormatted = new Date(expires_at).toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
@@ -247,54 +241,33 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
     from: FROM,
     to,
     replyTo: REPLY_TO,
-    subject: `Your Orca 4K TV Free Trial Is Ready`,
+    subject: `Your Orca 4K TV access details`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${name},\n\nYour Orca 4K TV free trial is now active!\n\nTRIAL EXPIRY: ${expiryFormatted}\n\n--- XTREAM CODES (TiviMate, IPTV Smarters, etc.) ---\nPlaylist Name: Orca 4K TV\nUsername: ${iptv_username}\nPassword: ${iptv_password}\nHost/URL: ${hostUrl}\n\n--- M3U LINK ---\n${m3u_url}\n\n--- EPG LINK ---\n${epgUrl}${portal_url ? `\n\n--- PORTAL URL ---\n${portal_url}` : ''}\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nLove it? Upgrade for full access: https://orca4ktv.com/#pricing\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${name},\n\nYour Orca 4K TV access is ready.\n\nThis is a ${duration_hours}-hour trial — expires ${expiryFormatted}.\n\nActivate your access here:\n${activation_url}\n\nAfter activation, your login details will be available on your dashboard at https://orca4ktv.com/dashboard/trial\n\nNeed help getting set up?\nhttps://orca4ktv.com/setup-guide\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
-          <h1 style="margin:0;font-size:24px;font-weight:900;">Your Free Trial Is Ready!</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Orca 4K TV — 22,000+ live channels, 4K sports &amp; VOD</p>
+          <h1 style="margin:0;font-size:24px;font-weight:900;">Your access is ready</h1>
+          <p style="margin:8px 0 0;opacity:.85;">Orca 4K TV</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${name}</strong>,</p>
-          <p style="color:#d1d5db;">Your free trial is now active. Use the credentials below to start watching.</p>
+          <p style="color:#d1d5db;">Your Orca 4K TV access is ready. Click below to activate your account and view your login details on your dashboard.</p>
 
-          <div style="background:#92400e;border:1px solid #f59e0b;border-radius:12px;padding:16px 20px;margin:24px 0;text-align:center;">
-            <p style="margin:0 0 4px;color:#fbbf24;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;">Trial Expiry</p>
-            <p style="margin:0;color:#fef3c7;font-size:15px;font-weight:700;">${expiryFormatted}</p>
+          <div style="background:#0c2a47;border:1px solid #1e3a5f;border-radius:12px;padding:16px 20px;margin:24px 0;text-align:center;">
+            <p style="margin:0 0 4px;color:#93c5fd;font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;">${duration_hours}-hour trial</p>
+            <p style="margin:0;color:#dbeafe;font-size:15px;font-weight:700;">Expires ${expiryFormatted}</p>
           </div>
 
-          <!-- Xtream Codes -->
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
-            <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Xtream Codes</p>
-            <p style="margin:0 0 16px;color:#6b7280;font-size:11px;">For TiviMate, IPTV Smarters, Smart IPTV, etc.</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Playlist Name</td><td style="color:#fff;font-family:monospace;text-align:right;">Orca 4K TV</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_username}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${iptv_password}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Host / URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;word-break:break-all;">${hostUrl}</td></tr>
-            </table>
+          <div style="text-align:center;margin:28px 0 12px;">
+            <a href="${activation_url}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:900;font-size:15px;display:inline-block;">Activate my access</a>
           </div>
+          <p style="color:#9ca3af;font-size:13px;text-align:center;margin:0 0 32px;">Your login details will appear on your dashboard right after activation.</p>
 
-          <!-- M3U + EPG -->
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
-            <p style="margin:0 0 16px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Links</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3u_url}</td></tr>
-              ${epgUrl ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">EPG URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${epgUrl}</td></tr>` : ''}
-              ${portal_url ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;white-space:nowrap;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${portal_url}</td></tr>` : ''}
-            </table>
+          <div style="text-align:center;margin:0 0 8px;">
+            <a href="https://orca4ktv.com/setup-guide" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">Setup guide</a>
           </div>
-
-          <div style="text-align:center;margin:28px 0 8px;">
-            <a href="https://orca4ktv.com/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
-          </div>
-          <p style="color:#6b7280;font-size:12px;text-align:center;margin:0 0 24px;">Step-by-step video tutorials for every device — Firestick, Apple, Android &amp; more.</p>
-
-          <div style="text-align:center;margin:0 0 32px;">
-            <a href="https://orca4ktv.com/#pricing" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;border:1px solid #a855f7/30;">Love it? Upgrade for full access &rarr;</a>
-          </div>
+          <p style="color:#6b7280;font-size:12px;text-align:center;margin:8px 0 0;">Step-by-step instructions for every device.</p>
         </div>
         <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
           &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
