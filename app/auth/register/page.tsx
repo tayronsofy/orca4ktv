@@ -52,12 +52,49 @@ function RegisterForm() {
     setLoading(true)
 
     const supabase = createClient()
+
+    // Trial activation flow: server creates the user with email_confirm=true
+    // (signup_token already proves email ownership), then we sign in client-side.
+    if (trialToken && trialContext.valid) {
+      try {
+        const res = await fetch('/api/trial/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: trialToken, password, fullName, phone }),
+        })
+        if (res.status === 409) {
+          router.push(`/auth/login?message=existing-account&next=${encodeURIComponent(next)}`)
+          return
+        }
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}))
+          setError(data?.error === 'invalid_password' ? 'Password must be at least 8 characters.' : 'Could not activate your trial. Please try again or contact support.')
+          setLoading(false)
+          return
+        }
+        const { error: signInErr } = await supabase.auth.signInWithPassword({ email, password })
+        if (signInErr) {
+          setError(signInErr.message)
+          setLoading(false)
+          return
+        }
+        router.push(next)
+        router.refresh()
+        return
+      } catch {
+        setError('Network error. Please try again.')
+        setLoading(false)
+        return
+      }
+    }
+
+    // Standard paid-shop signup flow — keep email confirmation as a baseline.
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: { full_name: fullName, phone },
-        emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}${trialToken ? `&trial=${encodeURIComponent(trialToken)}` : ''}`,
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
       },
     })
 
@@ -71,16 +108,6 @@ function RegisterForm() {
     const { data: { session } } = await supabase.auth.getSession()
     if (session) {
       await supabase.from('profiles').update({ phone, full_name: fullName }).eq('id', session.user.id)
-
-      // If activating a trial, link it to the new account
-      if (trialToken) {
-        await fetch('/api/trial/link-account', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ token: trialToken }),
-        }).catch(() => {})
-      }
-
       router.push(next)
       router.refresh()
     } else {
