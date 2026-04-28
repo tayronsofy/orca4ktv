@@ -135,6 +135,7 @@ export default async function TrialPage() {
             {trial.iptv_password && (
               <RevealCredential label="Password" value={trial.iptv_password} secret />
             )}
+            <RevealCredential label="Host URL" value="http://line.trxdnscloud.ru" isUrl />
             {trial.m3u_url && (
               <RevealCredential label="M3U URL" value={trial.m3u_url} isUrl />
             )}

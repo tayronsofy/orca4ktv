@@ -95,6 +95,7 @@ export default async function SubscriptionPage() {
             {sub.iptv_password && (
               <RevealCredential label="Password" value={sub.iptv_password} secret />
             )}
+            <RevealCredential label="Host URL" value="http://line.trxdnscloud.ru" isUrl />
             {sub.m3u_url && (
               <RevealCredential label="M3U URL" value={sub.m3u_url} isUrl />
             )}
