@@ -3,9 +3,9 @@
 # Usage: ./deploy.sh "your commit message"
 set -e
 
-VPS_HOST="smart4k-vps"
-VPS_PATH="/var/www/smart4k"
-PM2_APP="smart4k"
+VPS_HOST="smart4k-vps"               # SSH alias from ~/.ssh/config — points at srv1622309
+VPS_PATH="/home/deploy/orca4ktv"
+PM2_APP="orca4ktv"
 
 MSG="${1:-deploy: $(date '+%Y-%m-%d %H:%M')}"
 
@@ -30,5 +30,5 @@ ssh "$VPS_HOST" bash << ENDSSH
   pm2 restart "$PM2_APP" 2>/dev/null || pm2 start npm --name "$PM2_APP" -- start
   pm2 save
   echo ""
-  echo "✅  Deploy complete! Live at https://smart4k.io"
+  echo "✅  Deploy complete! Live at https://orca4ktv.com"
 ENDSSH

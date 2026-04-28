@@ -18,12 +18,12 @@ jobs:
           script: |
             set -e
             export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_deploy -o StrictHostKeyChecking=no"
-            cd /var/www/smart4k
-            git config --global --add safe.directory /var/www/smart4k
-            git remote set-url origin git@github.com:yenesim/smart4k.git
+            cd /home/deploy/orca4ktv
+            git config --global --add safe.directory /home/deploy/orca4ktv
+            git remote set-url origin git@github.com:yenesim/orca4ktv.git
             git fetch origin main
             git reset --hard origin/main
             npm install
             npm run build
-            pm2 restart smart4k || pm2 start npm --name "smart4k" -- start
-            curl -s https://smart4k.io/api/indexnow || true
+            pm2 restart orca4ktv || pm2 start npm --name "orca4ktv" -- start
+            curl -s https://orca4ktv.com/api/indexnow || true
