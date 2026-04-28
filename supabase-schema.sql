@@ -159,3 +159,45 @@ ALTER TABLE trials
 
 CREATE INDEX IF NOT EXISTS idx_trials_signup_token ON trials(signup_token);
 CREATE INDEX IF NOT EXISTS idx_trials_auth_user_id ON trials(auth_user_id);
+
+-- ============================================================
+-- COUPONS — added 2026-04-28
+-- ============================================================
+
+ALTER TABLE orders
+  ADD COLUMN IF NOT EXISTS coupon_code      TEXT,
+  ADD COLUMN IF NOT EXISTS discount_amount  DECIMAL(10,2) NOT NULL DEFAULT 0,
+  ADD COLUMN IF NOT EXISTS original_amount  DECIMAL(10,2);
+
+CREATE TABLE IF NOT EXISTS coupons (
+  code                TEXT PRIMARY KEY,
+  description         TEXT,
+  discount_percent    INT NOT NULL CHECK (discount_percent BETWEEN 1 AND 100),
+  active              BOOLEAN NOT NULL DEFAULT true,
+  valid_until         TIMESTAMPTZ,
+  uses_remaining      INT,
+  applies_to_plans    TEXT[],
+  new_customers_only  BOOLEAN NOT NULL DEFAULT true,
+  created_at          TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+INSERT INTO coupons (code, description, discount_percent, new_customers_only)
+VALUES ('WELCOME15', '15% off your first ORCA 4K TV IPTV subscription', 15, true)
+ON CONFLICT (code) DO UPDATE
+  SET discount_percent = 15, active = true, new_customers_only = true;
+
+CREATE TABLE IF NOT EXISTS coupon_redemptions (
+  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  coupon_code     TEXT NOT NULL REFERENCES coupons(code),
+  user_id         UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  order_id        UUID REFERENCES orders(id) ON DELETE SET NULL,
+  discount_amount DECIMAL(10,2) NOT NULL,
+  redeemed_at     TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE (coupon_code, user_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_coupon_redemptions_user_id ON coupon_redemptions(user_id);
+
+ALTER TABLE coupons              ENABLE ROW LEVEL SECURITY;
+ALTER TABLE coupon_redemptions   ENABLE ROW LEVEL SECURITY;
+-- No policies = service-role-only access (API routes use admin client)

@@ -5,13 +5,7 @@ import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { SHOP_PLANS, getPlanBySlug } from '@/data/shopPlans'
-
-const CONNECTIONS_PRICES: Record<string, number[]> = {
-  '1-month':   [21, 36, 49, 62],
-  '3-months':  [45, 75, 105, 129],
-  '6-months':  [69, 115, 159, 199],
-  '12-months': [95, 159, 220, 279],
-}
+import { getPlanPrice } from '@/lib/pricing'
 
 const COUNTRIES = [
   'Afghanistan','Albania','Algeria','Andorra','Angola','Argentina','Armenia','Australia',
@@ -40,7 +34,7 @@ function OrderForm() {
   const initConnections = parseInt(searchParams.get('connections') || '1')
 
   const plan = getPlanBySlug(planSlug) || SHOP_PLANS[1]
-  const prices = CONNECTIONS_PRICES[plan.slug] || CONNECTIONS_PRICES['3-months']
+  const couponFromUrl = (searchParams.get('coupon') || '').trim().toUpperCase()
 
   const [connections, setConnections] = useState(Math.min(Math.max(initConnections, 1), 4))
   const [phone, setPhone] = useState('')
@@ -56,7 +50,29 @@ function OrderForm() {
   const [authLoading, setAuthLoading] = useState(false)
   const [authError, setAuthError] = useState('')
 
-  const amount = prices[connections - 1]
+  // Coupon state
+  const [couponInput, setCouponInput] = useState(couponFromUrl)
+  const [appliedCoupon, setAppliedCoupon] = useState<{
+    code: string
+    discountPercent: number
+    discountAmount: number
+    finalAmount: number
+  } | null>(null)
+  const [couponError, setCouponError] = useState('')
+  const [couponLoading, setCouponLoading] = useState(false)
+
+  const originalAmount = getPlanPrice(plan.slug, connections) ?? 0
+  const finalAmount = appliedCoupon?.finalAmount ?? originalAmount
+  const amount = finalAmount
+
+  // Re-validate coupon whenever plan or connections change (price changes invalidate the saved discount)
+  useEffect(() => {
+    if (appliedCoupon) {
+      setAppliedCoupon(null)
+      setCouponError('')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [plan.slug, connections])
 
   useEffect(() => {
     const supabase = createClient()
@@ -171,6 +187,66 @@ function OrderForm() {
     setAuthLoading(false)
   }
 
+  const handleApplyCoupon = async (e?: { preventDefault(): void }) => {
+    e?.preventDefault()
+    setCouponError('')
+    const code = couponInput.trim().toUpperCase()
+    if (!code) {
+      setCouponError('Enter a coupon code')
+      return
+    }
+    setCouponLoading(true)
+    try {
+      const res = await fetch('/api/coupons/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, planSlug: plan.slug, connections }),
+      })
+      const data = await res.json()
+      if (data.valid) {
+        setAppliedCoupon({
+          code: data.code,
+          discountPercent: data.discountPercent,
+          discountAmount: data.discountAmount,
+          finalAmount: data.finalAmount,
+        })
+        setCouponError('')
+      } else {
+        const reasons: Record<string, string> = {
+          invalid_code: 'Coupon not found',
+          expired: 'Coupon has expired',
+          inactive: 'Coupon is no longer active',
+          exhausted: 'Coupon has reached its usage limit',
+          not_for_this_plan: 'Coupon does not apply to this plan',
+          already_used: 'You have already used this coupon',
+          not_eligible: 'Coupon is for new customers only',
+          invalid_plan: 'Invalid plan',
+          invalid_connections: 'Invalid connections',
+        }
+        setAppliedCoupon(null)
+        setCouponError(reasons[data.reason] || 'Coupon could not be applied')
+      }
+    } catch {
+      setCouponError('Something went wrong. Please try again.')
+    } finally {
+      setCouponLoading(false)
+    }
+  }
+
+  // Auto-apply coupon from URL param once user is authenticated
+  useEffect(() => {
+    if (authStep === 'done' && couponFromUrl && !appliedCoupon && !couponLoading) {
+      handleApplyCoupon()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [authStep, couponFromUrl])
+
+  const removeCoupon = () => {
+    setAppliedCoupon(null)
+    setCouponError('')
+    setCouponInput('')
+  }
+
   const handleSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault()
     setError('')
@@ -180,7 +256,13 @@ function OrderForm() {
       const res = await fetch('/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ planSlug: plan.slug, planName: plan.name, connections, amount, phone, country }),
+        body: JSON.stringify({
+          planSlug: plan.slug,
+          connections,
+          phone,
+          country,
+          ...(appliedCoupon && { couponCode: appliedCoupon.code }),
+        }),
       })
 
       if (!res.ok) {
@@ -257,6 +339,49 @@ function OrderForm() {
               </div>
             </div>
 
+            {/* Coupon code input */}
+            <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Coupon code <span className="text-gray-600 normal-case font-normal">(optional)</span></p>
+              {appliedCoupon ? (
+                <div className="flex items-center justify-between bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-xl px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <i className="fas fa-check-circle text-[#00E5FF]"></i>
+                    <div>
+                      <p className="text-white font-bold text-sm">{appliedCoupon.code}</p>
+                      <p className="text-[#00E5FF] text-xs">{appliedCoupon.discountPercent}% off — saved ${appliedCoupon.discountAmount.toFixed(2)}</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={removeCoupon}
+                    className="text-gray-500 hover:text-white text-xs uppercase tracking-wider"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                  <input
+                    type="text"
+                    value={couponInput}
+                    onChange={e => setCouponInput(e.target.value.toUpperCase())}
+                    placeholder="WELCOME15"
+                    className="flex-1 bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#00E5FF] transition-colors uppercase tracking-wider font-mono text-sm"
+                  />
+                  <button
+                    type="submit"
+                    disabled={couponLoading || !couponInput.trim()}
+                    className="px-5 py-3 bg-[#00E5FF] text-[#001f3f] font-black uppercase text-xs tracking-wider rounded-xl hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {couponLoading ? '…' : 'Apply'}
+                  </button>
+                </form>
+              )}
+              {couponError && (
+                <p className="mt-2 text-red-400 text-xs">{couponError}</p>
+              )}
+            </div>
+
             {/* Price card */}
             <div className="bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-2xl p-6 border border-purple-500/20">
               <div className="flex items-center justify-between mb-2">
@@ -266,10 +391,30 @@ function OrderForm() {
               {plan.savings && (
                 <div className="text-xs text-green-400 mb-3">Save {plan.savings}</div>
               )}
-              <div className="flex items-end gap-2">
-                <span className="text-4xl font-black text-white">${amount}</span>
-                <span className="text-gray-400 text-sm mb-1">one-time</span>
-              </div>
+              {appliedCoupon ? (
+                <>
+                  <div className="flex items-center justify-between text-sm text-gray-400 mb-1">
+                    <span>Subtotal</span>
+                    <span className="line-through">${originalAmount.toFixed(2)}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm text-[#00E5FF] mb-2">
+                    <span>Coupon ({appliedCoupon.code})</span>
+                    <span>-${appliedCoupon.discountAmount.toFixed(2)}</span>
+                  </div>
+                  <div className="flex items-end justify-between gap-2 pt-2 border-t border-white/10">
+                    <span className="text-white text-sm font-bold">Total</span>
+                    <div>
+                      <span className="text-4xl font-black text-white">${amount.toFixed(2)}</span>
+                      <span className="text-gray-400 text-sm ml-2">one-time</span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-end gap-2">
+                  <span className="text-4xl font-black text-white">${amount.toFixed(2)}</span>
+                  <span className="text-gray-400 text-sm mb-1">one-time</span>
+                </div>
+              )}
               <ul className="mt-4 space-y-1">
                 {['22,000+ live channels', '4K & HD quality', 'Buffer-free streaming', 'Instant activation after payment'].map(f => (
                   <li key={f} className="text-sm text-gray-400 flex items-center gap-2">
@@ -446,7 +591,7 @@ function OrderForm() {
                     disabled={loading}
                     className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
                   >
-                    {loading ? 'Placing order…' : `Place Order — $${amount}`}
+                    {loading ? 'Placing order…' : `Place Order — $${amount.toFixed(2)}`}
                   </button>
 
                   <p className="text-xs text-gray-600 text-center">
