@@ -161,6 +161,11 @@ CREATE INDEX IF NOT EXISTS idx_trials_signup_token ON trials(signup_token);
 CREATE INDEX IF NOT EXISTS idx_trials_auth_user_id ON trials(auth_user_id);
 
 -- ============================================================
+-- ORDERS — customer IP for fraud / geolocation lookup in admin
+-- ============================================================
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS customer_ip TEXT;
+
+-- ============================================================
 -- COUPONS — added 2026-04-28
 -- ============================================================
 
