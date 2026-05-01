@@ -26,28 +26,28 @@ const NetherlandsPricing = () => {
 
   const PRICING_TIERS = {
     1: [
-      { title: "1 Maand", price: 21.00, duration: "maand", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=20", formUrl: FORM_URL_1_MONTH },
-      { title: "3 Maanden", price: 45.00, duration: "kwartaal", savings: "30% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=46", formUrl: FORM_URL_3_MONTHS },
-      { title: "6 Maanden", price: 69.00, duration: "halfjaar", savings: "45% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=52", formUrl: FORM_URL_6_MONTHS },
-      { title: "12 Maanden", price: 95.00, duration: "jaar", savings: "62% besparen", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=53", formUrl: FORM_URL_12_MONTHS },
+      { title: "1 Maand", price: 21.00, duration: "maand", savings: null, isPopular: false, link: "https://orca4ktv.com/order?plan=1-month&connections=1", formUrl: FORM_URL_1_MONTH },
+      { title: "3 Maanden", price: 45.00, duration: "kwartaal", savings: "30% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=3-months&connections=1", formUrl: FORM_URL_3_MONTHS },
+      { title: "6 Maanden", price: 69.00, duration: "halfjaar", savings: "45% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=6-months&connections=1", formUrl: FORM_URL_6_MONTHS },
+      { title: "12 Maanden", price: 95.00, duration: "jaar", savings: "62% besparen", isPopular: true, link: "https://orca4ktv.com/order?plan=12-months&connections=1", formUrl: FORM_URL_12_MONTHS },
     ],
     2: [
-      { title: "1 Maand", price: 36.00, duration: "maand", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=54" },
-      { title: "3 Maanden", price: 72.00, duration: "kwartaal", savings: "30% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=55" },
-      { title: "6 Maanden", price: 110.00, duration: "halfjaar", savings: "47% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=56" },
-      { title: "12 Maanden", price: 152.00, duration: "jaar", savings: "63% besparen", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=57" },
+      { title: "1 Maand", price: 36.00, duration: "maand", savings: null, isPopular: false, link: "https://orca4ktv.com/order?plan=1-month&connections=2" },
+      { title: "3 Maanden", price: 72.00, duration: "kwartaal", savings: "30% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=3-months&connections=2" },
+      { title: "6 Maanden", price: 110.00, duration: "halfjaar", savings: "47% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=6-months&connections=2" },
+      { title: "12 Maanden", price: 152.00, duration: "jaar", savings: "63% besparen", isPopular: true, link: "https://orca4ktv.com/order?plan=12-months&connections=2" },
     ],
     3: [
-      { title: "1 Maand", price: 49.00, duration: "maand", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=58" },
-      { title: "3 Maanden", price: 99.00, duration: "kwartaal", savings: "28% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=59" },
-      { title: "6 Maanden", price: 150.00, duration: "halfjaar", savings: "46% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=60" },
-      { title: "12 Maanden", price: 210.00, duration: "jaar", savings: "62% besparen", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=61" },
+      { title: "1 Maand", price: 49.00, duration: "maand", savings: null, isPopular: false, link: "https://orca4ktv.com/order?plan=1-month&connections=3" },
+      { title: "3 Maanden", price: 99.00, duration: "kwartaal", savings: "28% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=3-months&connections=3" },
+      { title: "6 Maanden", price: 150.00, duration: "halfjaar", savings: "46% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=6-months&connections=3" },
+      { title: "12 Maanden", price: 210.00, duration: "jaar", savings: "62% besparen", isPopular: true, link: "https://orca4ktv.com/order?plan=12-months&connections=3" },
     ],
     4: [
-      { title: "1 Maand", price: 64.00, duration: "maand", savings: null, isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=62" },
-      { title: "3 Maanden", price: 125.00, duration: "kwartaal", savings: "28% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=63" },
-      { title: "6 Maanden", price: 190.00, duration: "halfjaar", savings: "45% besparen", isPopular: false, link: "https://checkout.smart4k.io/checkout/?add-to-cart=64" },
-      { title: "12 Maanden", price: 260.00, duration: "jaar", savings: "63% besparen", isPopular: true, link: "https://checkout.smart4k.io/checkout/?add-to-cart=65" },
+      { title: "1 Maand", price: 64.00, duration: "maand", savings: null, isPopular: false, link: "https://orca4ktv.com/order?plan=1-month&connections=4" },
+      { title: "3 Maanden", price: 125.00, duration: "kwartaal", savings: "28% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=3-months&connections=4" },
+      { title: "6 Maanden", price: 190.00, duration: "halfjaar", savings: "45% besparen", isPopular: false, link: "https://orca4ktv.com/order?plan=6-months&connections=4" },
+      { title: "12 Maanden", price: 260.00, duration: "jaar", savings: "63% besparen", isPopular: true, link: "https://orca4ktv.com/order?plan=12-months&connections=4" },
     ],
   };
 
