@@ -19,7 +19,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backup, mac_addresses } = body
+  const { slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backups, mac_addresses } = body
 
   const slotNum = Number(slot)
   if (!Number.isInteger(slotNum) || slotNum < 1 || slotNum > 4) {
@@ -80,6 +80,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     subscriptionId = newSub.id
   }
 
+  // Filter & cap host_url_backups at 3 entries
+  const cleanBackups = Array.isArray(host_url_backups)
+    ? host_url_backups
+        .map((s: unknown) => (typeof s === 'string' ? s.trim() : ''))
+        .filter((s: string) => s.length > 0)
+        .slice(0, 3)
+    : []
+
   // Upsert the credential into the requested slot
   const { error: credErr } = await admin
     .from('subscription_credentials')
@@ -91,7 +99,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         iptv_password,
         m3u_url,
         portal_url: portal_url || null,
-        host_url_backup: host_url_backup || null,
+        host_url_backups: cleanBackups.length ? cleanBackups : null,
         mac_addresses: mac_addresses?.length ? mac_addresses : null,
       },
       { onConflict: 'subscription_id,slot' }

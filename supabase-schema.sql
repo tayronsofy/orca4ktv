@@ -172,21 +172,38 @@ ALTER TABLE orders ADD COLUMN IF NOT EXISTS customer_ip TEXT;
 -- on the panel)
 -- ============================================================
 CREATE TABLE IF NOT EXISTS subscription_credentials (
-  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  subscription_id UUID REFERENCES subscriptions(id) ON DELETE CASCADE NOT NULL,
-  slot            INT NOT NULL,
-  iptv_username   TEXT,
-  iptv_password   TEXT,
-  m3u_url         TEXT,
-  portal_url      TEXT,
-  host_url_backup TEXT,
-  mac_addresses   TEXT[],
-  created_at      TIMESTAMPTZ DEFAULT NOW(),
-  updated_at      TIMESTAMPTZ DEFAULT NOW(),
+  id               UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  subscription_id  UUID REFERENCES subscriptions(id) ON DELETE CASCADE NOT NULL,
+  slot             INT NOT NULL,
+  iptv_username    TEXT,
+  iptv_password    TEXT,
+  m3u_url          TEXT,
+  portal_url       TEXT,
+  host_url_backups TEXT[],
+  mac_addresses    TEXT[],
+  created_at       TIMESTAMPTZ DEFAULT NOW(),
+  updated_at       TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE (subscription_id, slot)
 );
 
-ALTER TABLE subscription_credentials ADD COLUMN IF NOT EXISTS host_url_backup TEXT;
+ALTER TABLE subscription_credentials ADD COLUMN IF NOT EXISTS host_url_backups TEXT[];
+
+-- Backfill from the old single-value column if it exists and has data
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name = 'subscription_credentials' AND column_name = 'host_url_backup'
+  ) THEN
+    EXECUTE $sql$
+      UPDATE subscription_credentials
+      SET host_url_backups = ARRAY[host_url_backup]
+      WHERE host_url_backup IS NOT NULL
+        AND host_url_backup <> ''
+        AND (host_url_backups IS NULL OR array_length(host_url_backups, 1) IS NULL)
+    $sql$;
+  END IF;
+END $$;
 
 CREATE INDEX IF NOT EXISTS idx_sub_creds_subscription_id ON subscription_credentials(subscription_id);
 

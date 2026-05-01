@@ -46,7 +46,7 @@ interface OrderData {
       iptv_password: string | null
       m3u_url: string | null
       portal_url: string | null
-      host_url_backup: string | null
+      host_url_backups: string[] | null
       mac_addresses: string[] | null
     }> | null
   }>
@@ -57,7 +57,7 @@ interface CredFormState {
   iptv_password: string
   m3u_url: string
   portal_url: string
-  host_url_backup: string
+  host_url_backups: [string, string, string]
   mac_addresses: string
 }
 
@@ -66,12 +66,13 @@ const emptyCredForm: CredFormState = {
   iptv_password: '',
   m3u_url: '',
   portal_url: '',
-  host_url_backup: '',
+  host_url_backups: ['', '', ''],
   mac_addresses: '',
 }
 
 // Always render 4 slots — admin can fill 1..order.connections (or extras)
 const TOTAL_SLOTS = 4
+const MAX_HOST_BACKUPS = 3
 
 const statusLabel: Record<string, string> = {
   pending_payment: 'Awaiting Payment',
@@ -114,6 +115,11 @@ export default function OrderDetailPage() {
 
         // Hydrate from per-slot rows when present
         const slotRows = sub?.subscription_credentials || []
+        const padBackups = (arr: string[] | null | undefined): [string, string, string] => {
+          const a = (arr || []).slice(0, MAX_HOST_BACKUPS)
+          while (a.length < MAX_HOST_BACKUPS) a.push('')
+          return [a[0], a[1], a[2]]
+        }
         for (let i = 1; i <= TOTAL_SLOTS; i++) {
           const row = slotRows.find(r => r.slot === i)
           if (row) {
@@ -122,7 +128,7 @@ export default function OrderDetailPage() {
               iptv_password: row.iptv_password || '',
               m3u_url: row.m3u_url || '',
               portal_url: row.portal_url || '',
-              host_url_backup: row.host_url_backup || '',
+              host_url_backups: padBackups(row.host_url_backups),
               mac_addresses: (row.mac_addresses || []).join('\n'),
             }
           } else if (i === 1 && sub?.iptv_username) {
@@ -132,11 +138,11 @@ export default function OrderDetailPage() {
               iptv_password: sub.iptv_password || '',
               m3u_url: sub.m3u_url || '',
               portal_url: sub.portal_url || '',
-              host_url_backup: '',
+              host_url_backups: ['', '', ''],
               mac_addresses: (sub.mac_addresses || []).join('\n'),
             }
           } else {
-            seeded[i] = { ...emptyCredForm }
+            seeded[i] = { ...emptyCredForm, host_url_backups: ['', '', ''] }
           }
         }
         setCredsBySlot(seeded)
@@ -178,11 +184,20 @@ export default function OrderDetailPage() {
       .split('\n')
       .map(m => m.trim())
       .filter(Boolean)
+    const backups = c.host_url_backups.map(b => b.trim()).filter(Boolean)
 
     const res = await fetch(`/api/admin/orders/${id}/credentials`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slot, ...c, mac_addresses: macs }),
+      body: JSON.stringify({
+        slot,
+        iptv_username: c.iptv_username,
+        iptv_password: c.iptv_password,
+        m3u_url: c.m3u_url,
+        portal_url: c.portal_url,
+        host_url_backups: backups,
+        mac_addresses: macs,
+      }),
     })
     setSaving(false)
     const data = await res.json()
@@ -195,11 +210,20 @@ export default function OrderDetailPage() {
     }
   }
 
-  const updateSlotField = (slot: number, field: keyof CredFormState, value: string) => {
+  const updateSlotField = (slot: number, field: Exclude<keyof CredFormState, 'host_url_backups'>, value: string) => {
     setCredsBySlot(prev => ({
       ...prev,
       [slot]: { ...(prev[slot] ?? emptyCredForm), [field]: value },
     }))
+  }
+
+  const updateSlotBackup = (slot: number, index: number, value: string) => {
+    setCredsBySlot(prev => {
+      const current = prev[slot] ?? emptyCredForm
+      const backups: [string, string, string] = [...current.host_url_backups]
+      backups[index] = value
+      return { ...prev, [slot]: { ...current, host_url_backups: backups } }
+    })
   }
 
   const saveNotes = async () => {
@@ -391,11 +415,10 @@ export default function OrderDetailPage() {
                     {isFilled && <span className="text-[10px] text-green-400">✓ Saved</span>}
                   </div>
                   <div className="space-y-2.5">
-                    {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url', 'host_url_backup'] as const).map(field => (
+                    {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url'] as const).map(field => (
                       <div key={field}>
                         <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">
-                          {field === 'host_url_backup' ? 'Host URL Backup' : field.replace('_', ' ')}
-                          {field === 'host_url_backup' && <span className="text-gray-600 normal-case ml-1">— use if Portal URL fails</span>}
+                          {field.replace('_', ' ')}
                         </label>
                         <input
                           type="text"
@@ -404,13 +427,29 @@ export default function OrderDetailPage() {
                           placeholder={
                             field === 'm3u_url' ? 'http://server.com/get.php?…'
                             : field === 'portal_url' ? 'http://server.com (optional)'
-                            : field === 'host_url_backup' ? 'http://backup-server.com (optional)'
                             : ''
                           }
                           className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
                         />
                       </div>
                     ))}
+                    <div className="pt-1">
+                      <label className="block text-[10px] text-gray-500 mb-1.5 uppercase tracking-wider">
+                        Host URL Backups <span className="text-gray-600 normal-case">— use if Portal URL fails</span>
+                      </label>
+                      <div className="space-y-1.5">
+                        {[0, 1, 2].map(idx => (
+                          <input
+                            key={idx}
+                            type="text"
+                            value={c.host_url_backups[idx]}
+                            onChange={e => updateSlotBackup(slot, idx, e.target.value)}
+                            placeholder={`Backup ${idx + 1} (optional)`}
+                            className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                          />
+                        ))}
+                      </div>
+                    </div>
                     <div>
                       <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">MAC Addresses (optional)</label>
                       <textarea
