@@ -41,6 +41,7 @@ interface CredentialSlot {
   password: string
   m3uUrl: string
   portalUrl?: string
+  hostUrlBackup?: string
 }
 
 interface SendCredentialsProps {
@@ -194,7 +195,14 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     .map(c => {
       const heading = showSlotLabel ? `--- Connection ${c.slot} ---\n` : ''
       const m3u = normalizeM3u(c.m3uUrl)
-      return `${heading}Username: ${c.username}\nPassword: ${c.password}\nM3U URL: ${m3u}${c.portalUrl ? `\nPortal URL: ${c.portalUrl}` : ''}`
+      const lines = [
+        `${heading}Username: ${c.username}`,
+        `Password: ${c.password}`,
+        `M3U URL: ${m3u}`,
+      ]
+      if (c.portalUrl) lines.push(`Portal URL: ${c.portalUrl}`)
+      if (c.hostUrlBackup) lines.push(`Host URL (backup): ${c.hostUrlBackup}`)
+      return lines.join('\n')
     })
     .join('\n\n')
 
@@ -212,6 +220,7 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
             <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${c.password}</td></tr>
             <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3u}</td></tr>
             ${c.portalUrl ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${c.portalUrl}</td></tr>` : ''}
+            ${c.hostUrlBackup ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Host URL <span style="color:#6b7280;font-size:11px;">(backup)</span></td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;word-break:break-all;">${c.hostUrlBackup}</td></tr>` : ''}
           </table>
         </div>`
     })

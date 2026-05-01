@@ -46,6 +46,7 @@ interface OrderData {
       iptv_password: string | null
       m3u_url: string | null
       portal_url: string | null
+      host_url_backup: string | null
       mac_addresses: string[] | null
     }> | null
   }>
@@ -56,6 +57,7 @@ interface CredFormState {
   iptv_password: string
   m3u_url: string
   portal_url: string
+  host_url_backup: string
   mac_addresses: string
 }
 
@@ -64,8 +66,12 @@ const emptyCredForm: CredFormState = {
   iptv_password: '',
   m3u_url: '',
   portal_url: '',
+  host_url_backup: '',
   mac_addresses: '',
 }
+
+// Always render 4 slots — admin can fill 1..order.connections (or extras)
+const TOTAL_SLOTS = 4
 
 const statusLabel: Record<string, string> = {
   pending_payment: 'Awaiting Payment',
@@ -104,12 +110,11 @@ export default function OrderDetailPage() {
         setNotes(data.notes || '')
 
         const sub = data.subscriptions?.[0]
-        const totalSlots = data.connections || 1
         const seeded: Record<number, CredFormState> = {}
 
         // Hydrate from per-slot rows when present
         const slotRows = sub?.subscription_credentials || []
-        for (let i = 1; i <= totalSlots; i++) {
+        for (let i = 1; i <= TOTAL_SLOTS; i++) {
           const row = slotRows.find(r => r.slot === i)
           if (row) {
             seeded[i] = {
@@ -117,6 +122,7 @@ export default function OrderDetailPage() {
               iptv_password: row.iptv_password || '',
               m3u_url: row.m3u_url || '',
               portal_url: row.portal_url || '',
+              host_url_backup: row.host_url_backup || '',
               mac_addresses: (row.mac_addresses || []).join('\n'),
             }
           } else if (i === 1 && sub?.iptv_username) {
@@ -126,6 +132,7 @@ export default function OrderDetailPage() {
               iptv_password: sub.iptv_password || '',
               m3u_url: sub.m3u_url || '',
               portal_url: sub.portal_url || '',
+              host_url_backup: '',
               mac_addresses: (sub.mac_addresses || []).join('\n'),
             }
           } else {
@@ -355,11 +362,11 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* IPTV Credentials — one card per connection slot */}
+        {/* IPTV Credentials — always 4 slots; admin fills as many as needed */}
         <div className="md:col-span-2 bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2">
             <i className="fas fa-key text-yellow-400"></i> IPTV Credentials
-            <span className="text-xs text-gray-400 font-normal">({order.connections} connection{order.connections > 1 ? 's' : ''})</span>
+            <span className="text-xs text-gray-400 font-normal">({order.connections} ordered · {TOTAL_SLOTS} slots available)</span>
             {sub?.status === 'active' && (
               <span className="ml-auto text-xs text-green-400 bg-green-500/20 px-2 py-0.5 rounded-full border border-green-500/20">Active</span>
             )}
@@ -369,27 +376,37 @@ export default function OrderDetailPage() {
           )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {Array.from({ length: order.connections }, (_, i) => i + 1).map(slot => {
+            {Array.from({ length: TOTAL_SLOTS }, (_, i) => i + 1).map(slot => {
               const c = credsBySlot[slot] ?? emptyCredForm
               const isFilled = !!c.iptv_username && !!c.iptv_password && !!c.m3u_url
+              const beyondOrder = slot > order.connections
               return (
-                <div key={slot} className="bg-[#001f3f] rounded-xl p-4 border border-white/5">
+                <div key={slot} className={`rounded-xl p-4 border ${beyondOrder ? 'bg-[#001f3f]/50 border-white/5 border-dashed' : 'bg-[#001f3f] border-white/5'}`}>
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-white font-bold text-sm flex items-center gap-2">
                       <span className="bg-yellow-500/20 text-yellow-400 text-xs font-mono px-2 py-0.5 rounded-full border border-yellow-500/20">#{slot}</span>
                       Connection {slot}
+                      {beyondOrder && <span className="text-[10px] text-gray-500 font-normal">(extra)</span>}
                     </h3>
                     {isFilled && <span className="text-[10px] text-green-400">✓ Saved</span>}
                   </div>
                   <div className="space-y-2.5">
-                    {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url'] as const).map(field => (
+                    {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url', 'host_url_backup'] as const).map(field => (
                       <div key={field}>
-                        <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">{field.replace('_', ' ')}</label>
+                        <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">
+                          {field === 'host_url_backup' ? 'Host URL Backup' : field.replace('_', ' ')}
+                          {field === 'host_url_backup' && <span className="text-gray-600 normal-case ml-1">— use if Portal URL fails</span>}
+                        </label>
                         <input
-                          type={field === 'iptv_password' ? 'password' : 'text'}
+                          type="text"
                           value={c[field]}
                           onChange={e => updateSlotField(slot, field, e.target.value)}
-                          placeholder={field === 'm3u_url' ? 'http://server.com/get.php?…' : field === 'portal_url' ? 'http://server.com (optional)' : ''}
+                          placeholder={
+                            field === 'm3u_url' ? 'http://server.com/get.php?…'
+                            : field === 'portal_url' ? 'http://server.com (optional)'
+                            : field === 'host_url_backup' ? 'http://backup-server.com (optional)'
+                            : ''
+                          }
                           className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
                         />
                       </div>

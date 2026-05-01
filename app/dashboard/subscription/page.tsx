@@ -90,6 +90,7 @@ export default async function SubscriptionPage() {
             iptv_password: string | null
             m3u_url: string | null
             portal_url: string | null
+            host_url_backup: string | null
           }> = ((sub as any).subscription_credentials || [])
             .slice()
             .sort((a: { slot: number }, b: { slot: number }) => a.slot - b.slot)
@@ -98,7 +99,7 @@ export default async function SubscriptionPage() {
           const credSlots = slotRows.length > 0
             ? slotRows
             : sub.iptv_username
-              ? [{ slot: 1, iptv_username: sub.iptv_username, iptv_password: sub.iptv_password, m3u_url: sub.m3u_url, portal_url: sub.portal_url }]
+              ? [{ slot: 1, iptv_username: sub.iptv_username, iptv_password: sub.iptv_password, m3u_url: sub.m3u_url, portal_url: sub.portal_url, host_url_backup: null }]
               : []
 
           if (credSlots.length === 0) {
@@ -133,6 +134,9 @@ export default async function SubscriptionPage() {
                     )}
                     {c.portal_url && (
                       <RevealCredential label="Portal URL" value={c.portal_url} isUrl />
+                    )}
+                    {c.host_url_backup && (
+                      <RevealCredential label="Host URL (Backup)" value={c.host_url_backup} isUrl />
                     )}
                   </div>
                 </div>

@@ -57,7 +57,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
     const { data: credRows } = await admin
       .from('subscription_credentials')
-      .select('slot, iptv_username, iptv_password, m3u_url, portal_url')
+      .select('slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backup')
       .eq('subscription_id', subscription.id)
       .order('slot', { ascending: true })
 
@@ -69,6 +69,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         password: c.iptv_password as string,
         m3uUrl: c.m3u_url as string,
         portalUrl: c.portal_url || undefined,
+        hostUrlBackup: c.host_url_backup || undefined,
       }))
 
     if (credentials.length === 0) {

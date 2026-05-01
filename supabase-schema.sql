@@ -179,11 +179,14 @@ CREATE TABLE IF NOT EXISTS subscription_credentials (
   iptv_password   TEXT,
   m3u_url         TEXT,
   portal_url      TEXT,
+  host_url_backup TEXT,
   mac_addresses   TEXT[],
   created_at      TIMESTAMPTZ DEFAULT NOW(),
   updated_at      TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE (subscription_id, slot)
 );
+
+ALTER TABLE subscription_credentials ADD COLUMN IF NOT EXISTS host_url_backup TEXT;
 
 CREATE INDEX IF NOT EXISTS idx_sub_creds_subscription_id ON subscription_credentials(subscription_id);
 

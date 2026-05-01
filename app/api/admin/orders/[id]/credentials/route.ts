@@ -19,11 +19,11 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { slot, iptv_username, iptv_password, m3u_url, portal_url, mac_addresses } = body
+  const { slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backup, mac_addresses } = body
 
   const slotNum = Number(slot)
-  if (!Number.isInteger(slotNum) || slotNum < 1) {
-    return NextResponse.json({ error: 'slot must be a positive integer' }, { status: 400 })
+  if (!Number.isInteger(slotNum) || slotNum < 1 || slotNum > 4) {
+    return NextResponse.json({ error: 'slot must be an integer between 1 and 4' }, { status: 400 })
   }
   if (!iptv_username || !iptv_password || !m3u_url) {
     return NextResponse.json({ error: 'Username, password and M3U URL are required' }, { status: 400 })
@@ -38,13 +38,6 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     .single()
 
   if (orderErr || !order) return NextResponse.json({ error: 'Order not found' }, { status: 404 })
-
-  if (slotNum > order.connections) {
-    return NextResponse.json(
-      { error: `slot ${slotNum} exceeds order's ${order.connections} connection(s)` },
-      { status: 400 }
-    )
-  }
 
   const startDate = new Date()
   const months = PLAN_MONTHS[order.plan_slug] || 1
@@ -98,6 +91,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         iptv_password,
         m3u_url,
         portal_url: portal_url || null,
+        host_url_backup: host_url_backup || null,
         mac_addresses: mac_addresses?.length ? mac_addresses : null,
       },
       { onConflict: 'subscription_id,slot' }
