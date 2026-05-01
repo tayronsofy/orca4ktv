@@ -105,10 +105,32 @@ export async function POST(request: NextRequest) {
     .eq('order_id', order.id)
     .single()
 
+  let subscriptionId: string | null = null
+
   if (existing) {
     await admin.from('subscriptions').update(subData).eq('id', existing.id)
+    subscriptionId = existing.id
   } else {
-    await admin.from('subscriptions').insert(subData)
+    const { data: created } = await admin.from('subscriptions').insert(subData).select('id').single()
+    subscriptionId = created?.id ?? null
+  }
+
+  // Mirror credentials into subscription_credentials slot 1 — multi-connection orders
+  // need slots 2..N filled in manually by the admin afterwards.
+  if (subscriptionId) {
+    await admin
+      .from('subscription_credentials')
+      .upsert(
+        {
+          subscription_id: subscriptionId,
+          slot: 1,
+          iptv_username: account.username,
+          iptv_password: account.password,
+          m3u_url: account.m3uUrl,
+          portal_url: panelBase ? `${panelBase}/portal` : null,
+        },
+        { onConflict: 'subscription_id,slot' }
+      )
   }
 
   // 10. Mark order active
@@ -131,10 +153,13 @@ export async function POST(request: NextRequest) {
       endDate: endDate.toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric',
       }),
-      username: account.username,
-      password: account.password,
-      m3uUrl: account.m3uUrl,
-      portalUrl: panelBase ? `${panelBase}/portal` : undefined,
+      credentials: [{
+        slot: 1,
+        username: account.username,
+        password: account.password,
+        m3uUrl: account.m3uUrl,
+        portalUrl: panelBase ? `${panelBase}/portal` : undefined,
+      }],
     }).catch(err => console.error('Flutterwave webhook: email send failed', err))
   }
 

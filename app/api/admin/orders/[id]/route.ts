@@ -15,7 +15,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 
   const { data, error } = await admin
     .from('orders')
-    .select('*, profiles(*), invoices(*), subscriptions(*)')
+    .select('*, profiles(*), invoices(*), subscriptions(*, subscription_credentials(*))')
     .eq('id', id)
     .single()
 

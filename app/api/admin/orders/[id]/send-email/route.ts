@@ -51,7 +51,27 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
   }
 
   if (type === 'credentials') {
-    if (!subscription?.iptv_username) {
+    if (!subscription?.id) {
+      return NextResponse.json({ error: 'No subscription created for this order yet.' }, { status: 400 })
+    }
+
+    const { data: credRows } = await admin
+      .from('subscription_credentials')
+      .select('slot, iptv_username, iptv_password, m3u_url, portal_url')
+      .eq('subscription_id', subscription.id)
+      .order('slot', { ascending: true })
+
+    const credentials = (credRows || [])
+      .filter(c => c.iptv_username && c.iptv_password && c.m3u_url)
+      .map(c => ({
+        slot: c.slot,
+        username: c.iptv_username as string,
+        password: c.iptv_password as string,
+        m3uUrl: c.m3u_url as string,
+        portalUrl: c.portal_url || undefined,
+      }))
+
+    if (credentials.length === 0) {
       return NextResponse.json({ error: 'No credentials saved for this order yet.' }, { status: 400 })
     }
 
@@ -62,10 +82,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       endDate: subscription.end_date
         ? new Date(subscription.end_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
         : 'N/A',
-      username: subscription.iptv_username,
-      password: subscription.iptv_password,
-      m3uUrl: subscription.m3u_url,
-      portalUrl: subscription.portal_url,
+      credentials,
     })
   }
 

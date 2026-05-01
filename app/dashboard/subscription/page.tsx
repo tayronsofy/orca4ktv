@@ -13,7 +13,7 @@ export default async function SubscriptionPage() {
 
   const { data: subscriptions } = await supabase
     .from('subscriptions')
-    .select('*, orders(plan_name, plan_slug)')
+    .select('*, orders(plan_name, plan_slug), subscription_credentials(*)')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
 
@@ -77,34 +77,69 @@ export default async function SubscriptionPage() {
         </div>
       </div>
 
-      {/* Credentials */}
+      {/* Credentials — one card per connection slot */}
       {sub.status === 'pending' ? (
         <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-6 text-blue-300">
           <i className="fas fa-hourglass-half mr-2"></i>
           Your credentials are being prepared. You&apos;ll receive an email once your subscription is activated.
         </div>
-      ) : (
-        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
-          <h2 className="text-white font-bold mb-5 flex items-center gap-2">
-            <i className="fas fa-key text-purple-400"></i> IPTV Credentials
-          </h2>
-          <div className="space-y-4">
-            {sub.iptv_username && (
-              <RevealCredential label="Username" value={sub.iptv_username} />
-            )}
-            {sub.iptv_password && (
-              <RevealCredential label="Password" value={sub.iptv_password} secret />
-            )}
-            <RevealCredential label="Host URL" value="http://line.trxdnscloud.ru" isUrl />
-            {sub.m3u_url && (
-              <RevealCredential label="M3U URL" value={sub.m3u_url} isUrl />
-            )}
-            {sub.portal_url && (
-              <RevealCredential label="Portal URL" value={sub.portal_url} isUrl />
-            )}
-          </div>
-        </div>
-      )}
+      ) : (() => {
+          const slotRows: Array<{
+            slot: number
+            iptv_username: string | null
+            iptv_password: string | null
+            m3u_url: string | null
+            portal_url: string | null
+          }> = ((sub as any).subscription_credentials || [])
+            .slice()
+            .sort((a: { slot: number }, b: { slot: number }) => a.slot - b.slot)
+
+          // Legacy fallback: pre-migration single-credential subscriptions
+          const credSlots = slotRows.length > 0
+            ? slotRows
+            : sub.iptv_username
+              ? [{ slot: 1, iptv_username: sub.iptv_username, iptv_password: sub.iptv_password, m3u_url: sub.m3u_url, portal_url: sub.portal_url }]
+              : []
+
+          if (credSlots.length === 0) {
+            return (
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-6 text-blue-300 mb-6">
+                <i className="fas fa-hourglass-half mr-2"></i>
+                Your credentials are being prepared. You&apos;ll receive an email once your subscription is activated.
+              </div>
+            )
+          }
+
+          const showSlotLabel = credSlots.length > 1
+
+          return (
+            <div className="space-y-6 mb-6">
+              {credSlots.map(c => (
+                <div key={c.slot} className="bg-[#002952] rounded-2xl p-6 border border-white/5">
+                  <h2 className="text-white font-bold mb-5 flex items-center gap-2">
+                    <i className="fas fa-key text-purple-400"></i>
+                    {showSlotLabel ? `Connection ${c.slot} of ${credSlots.length}` : 'IPTV Credentials'}
+                  </h2>
+                  <div className="space-y-4">
+                    {c.iptv_username && (
+                      <RevealCredential label="Username" value={c.iptv_username} />
+                    )}
+                    {c.iptv_password && (
+                      <RevealCredential label="Password" value={c.iptv_password} secret />
+                    )}
+                    <RevealCredential label="Host URL" value="http://line.trxdnscloud.ru" isUrl />
+                    {c.m3u_url && (
+                      <RevealCredential label="M3U URL" value={c.m3u_url} isUrl />
+                    )}
+                    {c.portal_url && (
+                      <RevealCredential label="Portal URL" value={c.portal_url} isUrl />
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )
+        })()}
 
       {/* Device MACs */}
       {sub.mac_addresses && sub.mac_addresses.length > 0 && (

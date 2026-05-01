@@ -39,7 +39,32 @@ interface OrderData {
     start_date: string | null
     end_date: string | null
     status: string
+    subscription_credentials: Array<{
+      id: string
+      slot: number
+      iptv_username: string | null
+      iptv_password: string | null
+      m3u_url: string | null
+      portal_url: string | null
+      mac_addresses: string[] | null
+    }> | null
   }>
+}
+
+interface CredFormState {
+  iptv_username: string
+  iptv_password: string
+  m3u_url: string
+  portal_url: string
+  mac_addresses: string
+}
+
+const emptyCredForm: CredFormState = {
+  iptv_username: '',
+  iptv_password: '',
+  m3u_url: '',
+  portal_url: '',
+  mac_addresses: '',
 }
 
 const statusLabel: Record<string, string> = {
@@ -63,14 +88,8 @@ export default function OrderDetailPage() {
   const [paymentLink, setPaymentLink] = useState('')
   const [invoiceStatus, setInvoiceStatus] = useState('')
 
-  // Credentials form state
-  const [creds, setCreds] = useState({
-    iptv_username: '',
-    iptv_password: '',
-    m3u_url: '',
-    portal_url: '',
-    mac_addresses: '',
-  })
+  // Credentials form state — one form per connection slot, keyed by slot number
+  const [credsBySlot, setCredsBySlot] = useState<Record<number, CredFormState>>({})
 
   // Notes
   const [notes, setNotes] = useState('')
@@ -78,21 +97,42 @@ export default function OrderDetailPage() {
   useEffect(() => {
     fetch(`/api/admin/orders/${id}`)
       .then(r => r.json())
-      .then(data => {
+      .then((data: OrderData) => {
         setOrder(data)
         setPaymentLink(data.invoices?.[0]?.payment_link || '')
         setInvoiceStatus(data.invoices?.[0]?.status || 'pending')
         setNotes(data.notes || '')
+
         const sub = data.subscriptions?.[0]
-        if (sub) {
-          setCreds({
-            iptv_username: sub.iptv_username || '',
-            iptv_password: sub.iptv_password || '',
-            m3u_url: sub.m3u_url || '',
-            portal_url: sub.portal_url || '',
-            mac_addresses: (sub.mac_addresses || []).join('\n'),
-          })
+        const totalSlots = data.connections || 1
+        const seeded: Record<number, CredFormState> = {}
+
+        // Hydrate from per-slot rows when present
+        const slotRows = sub?.subscription_credentials || []
+        for (let i = 1; i <= totalSlots; i++) {
+          const row = slotRows.find(r => r.slot === i)
+          if (row) {
+            seeded[i] = {
+              iptv_username: row.iptv_username || '',
+              iptv_password: row.iptv_password || '',
+              m3u_url: row.m3u_url || '',
+              portal_url: row.portal_url || '',
+              mac_addresses: (row.mac_addresses || []).join('\n'),
+            }
+          } else if (i === 1 && sub?.iptv_username) {
+            // Legacy fallback: pre-migration single-credential subscription
+            seeded[i] = {
+              iptv_username: sub.iptv_username || '',
+              iptv_password: sub.iptv_password || '',
+              m3u_url: sub.m3u_url || '',
+              portal_url: sub.portal_url || '',
+              mac_addresses: (sub.mac_addresses || []).join('\n'),
+            }
+          } else {
+            seeded[i] = { ...emptyCredForm }
+          }
         }
+        setCredsBySlot(seeded)
         setLoading(false)
       })
       .catch(() => setLoading(false))
@@ -123,9 +163,11 @@ export default function OrderDetailPage() {
     }
   }
 
-  const saveCredentials = async () => {
+  const saveCredentialsForSlot = async (slot: number) => {
+    const c = credsBySlot[slot]
+    if (!c) return
     setSaving(true)
-    const macs = creds.mac_addresses
+    const macs = c.mac_addresses
       .split('\n')
       .map(m => m.trim())
       .filter(Boolean)
@@ -133,18 +175,24 @@ export default function OrderDetailPage() {
     const res = await fetch(`/api/admin/orders/${id}/credentials`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...creds, mac_addresses: macs }),
+      body: JSON.stringify({ slot, ...c, mac_addresses: macs }),
     })
     setSaving(false)
     const data = await res.json()
     if (res.ok) {
-      notify(`Credentials saved. Expires ${data.end_date}`)
-      // Refresh
+      notify(`Connection ${slot} saved. Expires ${data.end_date}`)
       const fresh = await fetch(`/api/admin/orders/${id}`).then(r => r.json())
       setOrder(fresh)
     } else {
-      notify(data.error || 'Failed to save credentials', 'error')
+      notify(data.error || `Failed to save connection ${slot}`, 'error')
     }
+  }
+
+  const updateSlotField = (slot: number, field: keyof CredFormState, value: string) => {
+    setCredsBySlot(prev => ({
+      ...prev,
+      [slot]: { ...(prev[slot] ?? emptyCredForm), [field]: value },
+    }))
   }
 
   const saveNotes = async () => {
@@ -307,48 +355,76 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* IPTV Credentials */}
-        <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
+        {/* IPTV Credentials — one card per connection slot */}
+        <div className="md:col-span-2 bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2">
             <i className="fas fa-key text-yellow-400"></i> IPTV Credentials
+            <span className="text-xs text-gray-400 font-normal">({order.connections} connection{order.connections > 1 ? 's' : ''})</span>
             {sub?.status === 'active' && (
               <span className="ml-auto text-xs text-green-400 bg-green-500/20 px-2 py-0.5 rounded-full border border-green-500/20">Active</span>
             )}
           </h2>
           {sub?.end_date && (
-            <p className="text-xs text-gray-500 mb-3">Expires: <span className="text-gray-300">{sub.end_date}</span></p>
+            <p className="text-xs text-gray-500 mb-4">Expires: <span className="text-gray-300">{sub.end_date}</span></p>
           )}
-          <div className="space-y-3">
-            {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url'] as const).map(field => (
-              <div key={field}>
-                <label className="block text-xs text-gray-500 mb-1.5 capitalize">{field.replace('_', ' ')}</label>
-                <input
-                  type={field === 'iptv_password' ? 'password' : 'text'}
-                  value={creds[field]}
-                  onChange={e => setCreds(c => ({ ...c, [field]: e.target.value }))}
-                  placeholder={field === 'm3u_url' ? 'http://server.com/get.php?username=...&password=...&type=m3u' : field === 'portal_url' ? 'http://server.com (optional)' : ''}
-                  className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
-                />
-              </div>
-            ))}
-            <div>
-              <label className="block text-xs text-gray-500 mb-1.5">MAC Addresses (one per line, optional)</label>
-              <textarea
-                value={creds.mac_addresses}
-                onChange={e => setCreds(c => ({ ...c, mac_addresses: e.target.value }))}
-                placeholder={'00:1A:79:XX:XX:XX\n00:1A:79:YY:YY:YY'}
-                rows={3}
-                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2 text-white text-sm font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500 resize-none"
-              />
-            </div>
-            <div className="flex gap-2">
-              <button onClick={saveCredentials} disabled={saving} className="flex-1 bg-yellow-500/20 text-yellow-400 text-sm font-bold py-2.5 rounded-xl hover:bg-yellow-500/30 transition-colors border border-yellow-500/20 disabled:opacity-50">
-                Save Credentials
-              </button>
-              <button onClick={() => sendEmail('credentials')} disabled={saving || !creds.iptv_username} className="flex-1 bg-purple-600 text-white text-sm font-bold py-2.5 rounded-xl hover:bg-purple-500 transition-colors disabled:opacity-50">
-                <i className="fas fa-paper-plane mr-1"></i> Send to Customer
-              </button>
-            </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {Array.from({ length: order.connections }, (_, i) => i + 1).map(slot => {
+              const c = credsBySlot[slot] ?? emptyCredForm
+              const isFilled = !!c.iptv_username && !!c.iptv_password && !!c.m3u_url
+              return (
+                <div key={slot} className="bg-[#001f3f] rounded-xl p-4 border border-white/5">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-white font-bold text-sm flex items-center gap-2">
+                      <span className="bg-yellow-500/20 text-yellow-400 text-xs font-mono px-2 py-0.5 rounded-full border border-yellow-500/20">#{slot}</span>
+                      Connection {slot}
+                    </h3>
+                    {isFilled && <span className="text-[10px] text-green-400">✓ Saved</span>}
+                  </div>
+                  <div className="space-y-2.5">
+                    {(['iptv_username', 'iptv_password', 'm3u_url', 'portal_url'] as const).map(field => (
+                      <div key={field}>
+                        <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">{field.replace('_', ' ')}</label>
+                        <input
+                          type={field === 'iptv_password' ? 'password' : 'text'}
+                          value={c[field]}
+                          onChange={e => updateSlotField(slot, field, e.target.value)}
+                          placeholder={field === 'm3u_url' ? 'http://server.com/get.php?…' : field === 'portal_url' ? 'http://server.com (optional)' : ''}
+                          className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                        />
+                      </div>
+                    ))}
+                    <div>
+                      <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">MAC Addresses (optional)</label>
+                      <textarea
+                        value={c.mac_addresses}
+                        onChange={e => updateSlotField(slot, 'mac_addresses', e.target.value)}
+                        placeholder={'00:1A:79:XX:XX:XX'}
+                        rows={2}
+                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500 resize-none"
+                      />
+                    </div>
+                    <button
+                      onClick={() => saveCredentialsForSlot(slot)}
+                      disabled={saving}
+                      className="w-full bg-yellow-500/20 text-yellow-400 text-xs font-bold py-2 rounded-lg hover:bg-yellow-500/30 transition-colors border border-yellow-500/20 disabled:opacity-50"
+                    >
+                      Save Connection {slot}
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-white/5">
+            <button
+              onClick={() => sendEmail('credentials')}
+              disabled={saving || !Object.values(credsBySlot).some(c => c.iptv_username)}
+              className="w-full bg-purple-600 text-white text-sm font-bold py-2.5 rounded-xl hover:bg-purple-500 transition-colors disabled:opacity-50"
+            >
+              <i className="fas fa-paper-plane mr-1"></i> Send All Credentials to Customer
+            </button>
           </div>
         </div>
 

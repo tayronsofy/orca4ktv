@@ -166,6 +166,42 @@ CREATE INDEX IF NOT EXISTS idx_trials_auth_user_id ON trials(auth_user_id);
 ALTER TABLE orders ADD COLUMN IF NOT EXISTS customer_ip TEXT;
 
 -- ============================================================
+-- SUBSCRIPTION CREDENTIALS — multi-credential per subscription
+-- (one row per "connection slot" so multi-connection orders can have
+-- N independent IPTV logins, e.g. 4 connections → 4 separate users
+-- on the panel)
+-- ============================================================
+CREATE TABLE IF NOT EXISTS subscription_credentials (
+  id              UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  subscription_id UUID REFERENCES subscriptions(id) ON DELETE CASCADE NOT NULL,
+  slot            INT NOT NULL,
+  iptv_username   TEXT,
+  iptv_password   TEXT,
+  m3u_url         TEXT,
+  portal_url      TEXT,
+  mac_addresses   TEXT[],
+  created_at      TIMESTAMPTZ DEFAULT NOW(),
+  updated_at      TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE (subscription_id, slot)
+);
+
+CREATE INDEX IF NOT EXISTS idx_sub_creds_subscription_id ON subscription_credentials(subscription_id);
+
+CREATE OR REPLACE TRIGGER subscription_credentials_updated_at
+  BEFORE UPDATE ON subscription_credentials
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+-- Backfill: copy any existing single-credential subscriptions into slot 1
+INSERT INTO subscription_credentials (subscription_id, slot, iptv_username, iptv_password, m3u_url, portal_url, mac_addresses)
+SELECT id, 1, iptv_username, iptv_password, m3u_url, portal_url, mac_addresses
+FROM subscriptions
+WHERE iptv_username IS NOT NULL
+ON CONFLICT (subscription_id, slot) DO NOTHING;
+
+ALTER TABLE subscription_credentials ENABLE ROW LEVEL SECURITY;
+-- No public policies → service-role-only access (admin client + API routes)
+
+-- ============================================================
 -- COUPONS — added 2026-04-28
 -- ============================================================
 

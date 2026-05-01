@@ -35,15 +35,20 @@ interface SendPaymentLinkProps {
   paymentLink: string
 }
 
+interface CredentialSlot {
+  slot: number
+  username: string
+  password: string
+  m3uUrl: string
+  portalUrl?: string
+}
+
 interface SendCredentialsProps {
   to: string
   customerName: string
   planName: string
   endDate: string
-  username: string
-  password: string
-  m3uUrl: string
-  portalUrl?: string
+  credentials: CredentialSlot[]
 }
 
 interface AdminNewOrderAlertProps {
@@ -177,16 +182,52 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
 }
 
 export async function sendCredentialsReady(props: SendCredentialsProps) {
-  const { to, customerName, planName, endDate, username, password, portalUrl } = props
-  const m3uUrl = props.m3uUrl.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
+  const { to, customerName, planName, endDate, credentials } = props
+
+  const normalizeM3u = (url: string) =>
+    url.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
+
+  const total = credentials.length
+  const showSlotLabel = total > 1
+
+  const textBlocks = credentials
+    .map(c => {
+      const heading = showSlotLabel ? `--- Connection ${c.slot} ---\n` : ''
+      const m3u = normalizeM3u(c.m3uUrl)
+      return `${heading}Username: ${c.username}\nPassword: ${c.password}\nM3U URL: ${m3u}${c.portalUrl ? `\nPortal URL: ${c.portalUrl}` : ''}`
+    })
+    .join('\n\n')
+
+  const htmlBlocks = credentials
+    .map(c => {
+      const heading = showSlotLabel
+        ? `<p style="margin:0 0 12px;color:#fbbf24;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;">Connection ${c.slot} of ${total}</p>`
+        : `<p style="margin:0 0 16px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Setup Information</p>`
+      const m3u = normalizeM3u(c.m3uUrl)
+      return `
+        <div style="background:#2c3034;border-radius:12px;padding:20px;margin:0 0 16px;">
+          ${heading}
+          <table style="width:100%;border-collapse:collapse;">
+            <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${c.username}</td></tr>
+            <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${c.password}</td></tr>
+            <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3u}</td></tr>
+            ${c.portalUrl ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${c.portalUrl}</td></tr>` : ''}
+          </table>
+        </div>`
+    })
+    .join('')
+
+  const introLine = showSlotLabel
+    ? `Your subscription is now active. You have ${total} independent connections — each with its own login. Use a different one on each device or share with family.`
+    : `Your subscription is now active. Below are your setup details — keep them somewhere safe.`
+
   return getResend().emails.send({
     from: FROM,
     to,
     replyTo: REPLY_TO,
-    // "Credentials" and "Ready!" are phishing triggers — rewritten
     subject: `Your Orca 4K TV subscription is now active`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\nSetup information:\nUsername: ${username}\nPassword: ${password}\nM3U URL: ${m3uUrl}${portalUrl ? `\nPortal URL: ${portalUrl}` : ''}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\n${textBlocks}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -195,16 +236,8 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
-          <p style="color:#d1d5db;">Your subscription is now active. Below are your setup details — keep them somewhere safe.</p>
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
-            <p style="margin:0 0 16px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Setup Information</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Username</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${username}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Password</td><td style="color:#a855f7;font-family:monospace;text-align:right;">${password}</td></tr>
-              <tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">M3U URL</td><td style="color:#60a5fa;font-family:monospace;font-size:11px;text-align:right;word-break:break-all;">${m3uUrl}</td></tr>
-              ${portalUrl ? `<tr><td style="color:#9ca3af;padding:8px 0;vertical-align:top;">Portal URL</td><td style="color:#60a5fa;font-family:monospace;font-size:12px;text-align:right;">${portalUrl}</td></tr>` : ''}
-            </table>
-          </div>
+          <p style="color:#d1d5db;">${introLine}</p>
+          ${htmlBlocks}
           <p style="color:#d1d5db;font-size:13px;">You can also access these details at any time from your dashboard:</p>
           <div style="text-align:center;margin:24px 0;">
             <a href="https://orca4ktv.com/dashboard/subscription" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
