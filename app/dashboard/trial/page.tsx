@@ -139,6 +139,11 @@ export default async function TrialPage() {
             {trial.m3u_url && (
               <RevealCredential label="M3U URL" value={trial.m3u_url} isUrl />
             )}
+            <RevealCredential label="Host URL (Backup 1)" value="http://line.smartcloudtv.com" isUrl />
+            <RevealCredential label="Host URL (Backup 2)" value="http://vpn.smartcloudtv.com" isUrl />
+            <RevealCredential label="Host URL (Backup 3)" value="http://es.smartcloudtv.com" isUrl />
+            <RevealCredential label="Host URL (Backup 4)" value="http://gr.smartcloudtv.com" isUrl />
+            <RevealCredential label="Host URL (Backup 5)" value="http://it.smartcloudtv.com" isUrl />
             {trial.portal_url && (
               <RevealCredential label="Portal URL" value={trial.portal_url} isUrl />
             )}
