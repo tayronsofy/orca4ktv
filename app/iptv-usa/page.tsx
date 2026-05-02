@@ -4,9 +4,9 @@ import USAHomePage from '@/page-components/usa/USAHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV USA 2026 — NFL, NBA, MLB in 4K HDR | ORCA 4K TV',
-  description: 'Best IPTV USA 2026: NFL, NBA, MLB, NHL in 4K HDR. 22,000+ channels, ABC, CBS, NBC, FOX, ESPN. Anti Freeze CDN, multi-device. From $7.92/mo.',
-  keywords: 'best iptv usa 2026, usa local channels iptv, nfl sunday ticket iptv alternative, american sports iptv hd, iptv service for firestick usa, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support',
+  title: 'Best IPTV USA 2026 — Live Sports & US Networks | ORCA 4K TV',
+  description: 'Best IPTV USA 2026: American football, US pro basketball, US pro baseball, North American pro hockey in 4K HDR. 22,000+ channels, all major US free-to-air and sports networks. Anti Freeze CDN, multi-device. From $7.92/mo.',
+  keywords: 'best iptv usa 2026, usa local channels iptv, american sports iptv hd, iptv service for firestick usa, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, cord cutting usa',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-usa',
     languages: {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV USA 2026 - USA Local Channels, NFL & Sports',
-    description: 'Watch 22,000+ USA live channels, NFL, NBA, and local networks. Buffer-free 4K streaming.',
+    title: 'Best IPTV USA 2026 - USA Local Channels & Live Sports',
+    description: 'Watch 22,000+ USA live channels, American football, US pro basketball, and local networks. Buffer-free 4K streaming.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-usa',
     images: [{ url: 'https://orca4ktv.com/images/usa-coverage.jpg', width: 1200, height: 630 }],
@@ -44,7 +44,7 @@ export default function USAPage() {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-usa#product",
                 "name": "Best IPTV USA 2026 — ORCA 4K TV",
-                "description": "Premium IPTV subscription for the United States — 22,000+ live channels including NFL, NBA, MLB, NHL, ESPN, FOX, NBC, CBS, ABC and USA local channels by ZIP code, in 4K HDR with HDR10+ and Dolby Vision.",
+                "description": "Premium IPTV subscription for the United States — 22,000+ live channels covering American football, US pro basketball, US pro baseball, North American pro hockey, all major US sports and free-to-air networks, plus USA local channels by ZIP code, in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/usa-coverage.jpg",
                 "brand": { "@type": "Brand", "name": "ORCA 4K TV" },
                 "category": "IPTV Streaming Service",
@@ -74,7 +74,7 @@ export default function USAPage() {
                 "areaServed": { "@type": "Country", "name": "United States" },
                 "audience": {
                   "@type": "Audience",
-                  "audienceType": "American cord-cutters, sports fans, premium streaming households"
+                  "audienceType": "American cord-cutters, live-sports households, premium streaming households"
                 },
                 "hoursAvailable": {
                   "@type": "OpeningHoursSpecification",
@@ -82,7 +82,7 @@ export default function USAPage() {
                   "opens": "00:00",
                   "closes": "23:59"
                 },
-                "description": "Premium IPTV streaming service for US cord-cutters: 22,000+ live channels, NFL, NBA, MLB, NHL, USA local affiliates by ZIP, 4K HDR streaming, AES-256 encryption, Anti Freeze CDN with edge servers in NYC, LA, Chicago, Dallas and Atlanta, multi-device compatibility across Firestick 4K Max, Roku Ultra, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
+                "description": "Premium IPTV streaming service for US cord-cutters: 22,000+ live channels, American football, US pro basketball, US pro baseball, North American pro hockey, USA local affiliates by ZIP, 4K HDR streaming, AES-256 encryption, Anti Freeze CDN with edge servers in NYC, LA, Chicago, Dallas and Atlanta, multi-device compatibility across Firestick 4K Max, Roku Ultra, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
               }
             ]
           })
@@ -95,19 +95,19 @@ export default function USAPage() {
       <section className="bg-[#001f3f] py-20 px-4">
         <div className="max-w-4xl mx-auto space-y-7">
           <p className="text-center text-blue-400 text-xs font-black uppercase tracking-[0.3em]">
-            Best IPTV USA 2026 · NFL Sunday Ticket Alternative
+            Best IPTV USA 2026 · Cable TV Alternative
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            Best IPTV USA 2026 — Stream NFL, NBA, MLB &amp; USA Local Channels in 4K HDR
+            Best IPTV USA 2026 — Stream American Football, Basketball, Baseball &amp; USA Local Channels in 4K HDR
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
             <strong className="text-white">ORCA 4K TV</strong> is the best IPTV USA 2026 for cord-cutters who want
             every game, every channel, every screen — without the $147/month cable bill. Stream{' '}
-            <strong className="text-white">Super Bowl LX</strong> at Levi&apos;s Stadium on February 8, 2026, every
-            week of the NFL regular season and playoffs, <strong className="text-white">March Madness 2026</strong>,
-            the World Series, the NBA Finals, the Stanley Cup, US Open Tennis, the Masters, and 22,000+ live channels
+            <strong className="text-white">the championship game in February 2026</strong>, every
+            week of the American football regular season and playoffs, <strong className="text-white">the spring US college basketball tournament</strong>,
+            the US baseball championship series, US basketball championship finals, the North American hockey championship, the late-summer Grand Slam tennis fortnight, the spring golf majors, and 22,000+ live channels
             in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Buffer-free streaming
             powered by our Anti Freeze CDN with US edge servers in New York, Los Angeles, Chicago, Dallas, and Atlanta.
           </p>
@@ -116,9 +116,7 @@ export default function USAPage() {
             The average US cable bill hit <strong className="text-white">$147/month</strong> in 2025. ORCA 4K TV
             delivers more channels, more sports packages, and more on-demand titles for{' '}
             <strong className="text-white">$7.92/month</strong> on the{' '}
-            <a href="/iptv-shop/12-months" className="text-blue-400 hover:underline">12-month plan</a>. A true{' '}
-            <strong className="text-white">NFL Sunday Ticket IPTV alternative</strong>, NBA League Pass alternative,
-            MLB Extra Innings alternative, NHL Center Ice alternative — every regional sports network, every league,
+            <a href="/iptv-shop/12-months" className="text-blue-400 hover:underline">12-month plan</a>. Every regional sports network, every league,
             one IPTV subscription. Cord-cut Comcast Xfinity, Spectrum, DirecTV, DISH, Hulu Live, YouTube TV, fubo, and
             Sling TV in one move.
           </p>
@@ -132,13 +130,13 @@ export default function USAPage() {
           </p>
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">USA local channels:</strong> ABC, CBS, NBC, FOX, PBS, The CW (regional affiliates by ZIP)</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Sports:</strong> ESPN, ESPN2, ESPNU, ESPN+, FS1, FS2, NFL Network, NFL RedZone, NBA TV, MLB Network, NHL Network, Tennis Channel, Golf Channel, beIN Sports</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">News:</strong> CNN, Fox News, MSNBC, NewsNation, Bloomberg, CNBC, BBC America</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Premium entertainment:</strong> HBO, Showtime, Starz, AMC, FX, USA, Bravo, TNT, TBS</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Lifestyle:</strong> Discovery, History, Nat Geo, Food Network, HGTV, Travel Channel, A&amp;E</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Kids:</strong> Disney Channel, Disney Jr, Cartoon Network, Nickelodeon, PBS Kids, Boomerang</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand movies</strong> with same-day Hollywood releases — Marvel, Pixar, Disney+, Apple TV+, Peacock, Paramount+ titles</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">USA local channels:</strong> all major US free-to-air networks and their HD/regional variants (regional affiliates by ZIP)</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Sports:</strong> all major US sports networks, regional sports networks, dedicated channels for American football, US pro basketball, US pro baseball, North American pro hockey, tennis and golf</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">News:</strong> all major US 24-hour news networks plus financial and international news</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Premium entertainment:</strong> premium movie channels and major basic-cable entertainment networks</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Lifestyle:</strong> documentary, history, food, home and travel networks</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Kids:</strong> premium kids&apos; channels and educational programming</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand movies</strong> with same-day Hollywood releases — major studio blockbusters and premium streaming-platform-style originals</span></li>
             <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">7-day catch up TV</strong> on every channel via the smart EPG guide</span></li>
           </ul>
 
@@ -148,9 +146,8 @@ export default function USAPage() {
 
           <p className="text-gray-300 text-lg leading-relaxed">
             The 2026 US sports calendar is the most demanding year in broadcast history:{' '}
-            <strong className="text-white">Super Bowl LX</strong>, the College Football Playoff, March Madness, MLB
-            Opening Day, the NBA Finals, the Stanley Cup, the US Open Tennis Championship, and the{' '}
-            <strong className="text-white">FIFA World Cup 2026</strong> with US host cities Atlanta, Boston, Dallas,
+            <strong className="text-white">the championship game in February</strong>, the college football playoff, the spring college basketball tournament, the baseball season opener, the basketball championship finals, the hockey championship, the late-summer US Grand Slam tennis fortnight, and the{' '}
+            <strong className="text-white">summer 2026 international football tournament</strong> with US host cities Atlanta, Boston, Dallas,
             Houston, Kansas City, Los Angeles, Miami, New York/New Jersey, Philadelphia, San Francisco Bay Area, and
             Seattle. Our Anti Freeze CDN routes around peak-event traffic in real time so every subscriber — Brooklyn
             to Beverly Hills, Boston to Boise — gets the same buffer-free 4K HDR streaming. AES-256 encrypted (

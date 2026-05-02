@@ -7,16 +7,16 @@ const USAFAQ: React.FC = () => {
 
   const usaFaqData = [
     {
-      question: "Is ORCA 4K TV a real NFL Sunday Ticket alternative for 2026?",
-      answer: "Yes. Every NFL regular-season game (early window, late window, Sunday Night Football, Monday Night Football, Thursday Night Football), every playoff round, the Pro Bowl, and Super Bowl LX at Levi's Stadium on February 8, 2026 are all included. NFL Network, NFL RedZone, ESPN, FOX, CBS and NBC Sunday broadcasts all stream live in 4K HDR — no separate Sunday Ticket subscription, no DirecTV satellite required."
+      question: "Does ORCA 4K TV cover American football for 2026?",
+      answer: "Yes. Every American football regular-season game (early window, late window, Sunday and Monday evening showpieces, Thursday primetime), every playoff round, the all-star showcase, and the championship game in February 2026 are all covered. The dedicated American football network, the supplemental whip-around channel and the major US free-to-air broadcasters' Sunday slates all stream live in 4K HDR — no separate satellite subscription required."
     },
     {
-      question: "Does the subscription include NBA League Pass, MLB Extra Innings, and NHL Center Ice content?",
-      answer: "Yes. NBA TV, ESPN, TNT, ABC, NBA League Pass-equivalent out-of-market coverage, MLB Network, MLB.tv-equivalent regional access, NHL Network and NHL Center Ice-equivalent matchups across all 32 NHL teams. Stanley Cup, World Series, NBA Finals, March Madness — every major American sports event in 4K HDR with the smart EPG guide showing live scores."
+      question: "Does the subscription include out-of-market basketball, baseball and hockey content?",
+      answer: "Yes. The dedicated basketball network, the basketball cable broadcasters, out-of-market basketball coverage, the dedicated baseball network with regional access, the dedicated hockey network and out-of-market hockey matchups across all 32 hockey teams. The hockey championship, baseball championship series, basketball championship finals, college basketball spring tournament — every major American sports event in 4K HDR with the smart EPG guide showing live scores."
     },
     {
-      question: "Are USA local channels (ABC, CBS, NBC, FOX) included by ZIP code?",
-      answer: "Yes. ABC, CBS, NBC, FOX, PBS, The CW and local news affiliates are pulled by your ZIP code so you get the right regional broadcast — Bay Area NBC for 49ers fans, Dallas FOX for Cowboys fans, NYC ABC for Yankees broadcasts. Full HD on every local affiliate, 4K where the local station provides it."
+      question: "Are USA local channels included by ZIP code?",
+      answer: "Yes. All major US free-to-air networks plus PBS, The CW and local news affiliates are pulled by your ZIP code so you get the right regional broadcast — Bay Area, Dallas, NYC and every other metro pulls the correct local affiliates. Full HD on every local affiliate, 4K where the local station provides it."
     },
     {
       question: "Will Comcast Xfinity, Spectrum, Cox or AT&T Fiber throttle my IPTV streams?",

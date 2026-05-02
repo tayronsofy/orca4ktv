@@ -5,14 +5,14 @@ import React from 'react';
 const NETHERLANDS_FEATURES = [
   {
     title: 'Landelijke dekking met Amsterdam-edge server',
-    description: 'Een dedicated Amsterdam-edge server houdt de latentie onder 25 ms — of je nu de Eredivisie-topper kijkt in Amsterdam, een Champions League-avond in Rotterdam of de Olympische Winterspelen-hoogtepunten in Eindhoven. Anti Freeze CDN herleidt piekverkeer in real-time, zodat elke aftrap, elke pitstop en elke gouden medaille buffervrij in 4K HDR aankomt.',
+    description: 'Een dedicated Amsterdam-edge server houdt de latentie onder 25 ms — of je nu de topvoetbal-topper kijkt in Amsterdam, een top Europese clubvoetbal-avond in Rotterdam of de Olympische Winterspelen-hoogtepunten in Eindhoven. Anti Freeze CDN herleidt piekverkeer in real-time, zodat elke aftrap, elke pitstop en elke gouden medaille buffervrij in 4K HDR aankomt.',
     imageUrl: '/images/netherlands-coverage.jpg',
-    altText: 'Twee Nederlandse Eredivisie-fans op de bank kijken een Eredivisie-wedstrijd in 4K HDR live op een Smart TV — buffervrij IPTV Nederland streamen via ORCA 4K TV.',
+    altText: 'Twee Nederlandse voetbalfans op de bank kijken een topvoetbal-wedstrijd in 4K HDR live op een Smart TV — buffervrij IPTV Nederland streamen via ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Slimme programmagids voor de Nederlandse sportkalender',
-    description: 'De ORCA 4K TV-programmagids kent jouw week — Eredivisie-weekend, Champions League op dinsdag en woensdag, F1-zondagen met Max Verstappen, KNVB-beker-avonden en Olympische hoogtepunten uit Milaan-Cortina. Live ticker, snelle zenderwissels, 7-dagen catch-up tv en AI-gestuurd zoeken ("Wat is er nu te zien?") voor NPO, RTL, SBS6, Veronica, Ziggo Sport en ESPN NL.',
+    description: 'De ORCA 4K TV-programmagids kent jouw week — topvoetbal-weekend, top Europees clubvoetbal op dinsdag en woensdag, motorsport-zondagen, nationale beker-avonden en Olympische hoogtepunten. Live ticker, snelle zenderwissels, 7-dagen catch-up tv en AI-gestuurd zoeken ("Wat is er nu te zien?") voor alle belangrijke Nederlandse free-to-air en sportzenders.',
     imageUrl: '/images/netherlands-epg.jpg',
     altText: 'Volwassene met afstandsbediening kijkt naar de Smart TV-programmagids op een 4K Smart TV — ORCA 4K TV Nederland IPTV-abonnement met elektronische programmagids en 7-dagen catch-up tv.',
     reverse: true

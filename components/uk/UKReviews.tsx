@@ -4,15 +4,15 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every Liverpool fixture in 4K HDR on my Apple TV 4K — zero buffering, even on the 3pm Saturday kick-offs. Cancelled satellite TV and saved over £75 a month.",
+        text: "Watched every home top-flight football fixture in 4K HDR on my Apple TV 4K — zero buffering, even on the 3pm Saturday kick-offs. Cancelled satellite TV and saved over £75 a month.",
         device: "Apple TV 4K — Liverpool",
     },
     {
-        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Six Nations matches, Premier League midweek, F1 Sundays — all crystal clear. Smart EPG is sharper than anything I've used.",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. International rugby Saturdays, midweek European football, motorsport Sundays — all crystal clear. Smart EPG is sharper than anything I've used.",
         device: "Firestick 4K Max — Manchester",
     },
     {
-        text: "Switched from BT after years of paying for premium sports add-ons. Same Premier League and Champions League coverage, plus Wimbledon and county cricket, all in 4K HDR on my LG OLED.",
+        text: "Switched after years of paying for premium sports add-ons. Same UK football and top European football coverage, plus the summer Grand Slam tennis fortnight and county cricket, all in 4K HDR on my LG OLED.",
         device: "LG webOS + iPhone — London",
     },
 ];
@@ -31,7 +31,7 @@ const UKReviews: React.FC = () => {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Verified British cord-cutters who switched from satellite TV — buffer-free 4K HDR, every Premier League fixture, every Six Nations match, every UK terrestrial channel, one IPTV subscription.
+                        Verified British cord-cutters who switched from satellite TV — buffer-free 4K HDR, every UK top-flight football fixture, every Northern hemisphere international rugby match, every UK terrestrial channel, one IPTV subscription.
                     </p>
                 </div>
 

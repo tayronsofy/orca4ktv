@@ -4,15 +4,15 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every Bills Sunday game in 4K HDR on my Firestick 4K Max — zero buffering during the playoffs, even on Sunday Night Football. Cancelled DirecTV and saved $130/month.",
+        text: "Watched every home American football Sunday game in 4K HDR on my Firestick 4K Max — zero buffering during the playoffs, even on the Sunday evening showpieces. Cancelled my satellite plan and saved $130/month.",
         device: "Firestick 4K Max — Buffalo, NY",
     },
     {
-        text: "Set up in under 5 minutes with IPTV Smarters Pro on my Apple TV 4K. NFL RedZone, NBA TV, MLB Network all crystal clear. The smart EPG guide is sharper than YouTube TV.",
+        text: "Set up in under 5 minutes with IPTV Smarters Pro on my Apple TV 4K. The whip-around football channel, basketball cable broadcasters, baseball network — all crystal clear. The smart EPG guide is sharper than the streaming-bundle alternatives.",
         device: "Apple TV 4K — Dallas, TX",
     },
     {
-        text: "Switched from Spectrum after their 7th rate hike. Same local channels (KCAL, KTLA, KABC), every Lakers game, plus 100+ extra international channels. Streams beautifully in 4K HDR on my LG OLED.",
+        text: "Switched from cable after their 7th rate hike. Same LA local channels by ZIP, every home basketball game, plus 100+ extra international channels. Streams beautifully in 4K HDR on my LG OLED.",
         device: "LG webOS + iPhone — Los Angeles, CA",
     },
 ];

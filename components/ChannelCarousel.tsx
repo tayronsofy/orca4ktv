@@ -4,20 +4,20 @@
 import React from 'react';
 
 const LOGO_ASSETS = [
-  { name: 'Netflix', src: '/images/netflix.svg' },
-  { name: 'HBO', src: '/images/hbo.svg' },
-  { name: 'DAZN', src: '/images/dazn.svg' },
-  { name: 'TNT', src: '/images/tnt.svg' },
-  { name: 'Paramount+', src: '/images/paramount_plus.svg' },
-  { name: 'FOX', src: '/images/fox.svg' },
-  { name: '24Kitchen', src: '/images/24kitchen.svg' },
-  { name: 'Eurosport', src: '/images/eurosport.svg' },
-  { name: 'NLZIET', src: '/images/nlziet.png' },
-  { name: 'Peacock', src: '/images/peacock.svg' },
-  { name: 'SYFY', src: '/images/syfy.svg' },
-  { name: 'Hulu', src: '/images/hulu.svg' },
-  { name: 'Sky Sports', src: '/images/sky_sports.svg' },
-  { name: 'HBO Max', src: '/images/hbo_max.svg' },
+  { name: 'Smart TV', src: '/images/devices/smart-tv.svg' },
+  { name: 'Firestick', src: '/images/devices/firestick.svg' },
+  { name: 'Apple TV', src: '/images/devices/apple-tv.svg' },
+  { name: 'Android TV', src: '/images/devices/android-tv.svg' },
+  { name: 'Android Box', src: '/images/devices/android-box.svg' },
+  { name: 'Roku', src: '/images/devices/roku.svg' },
+  { name: 'MAG', src: '/images/devices/mag.svg' },
+  { name: 'Formuler', src: '/images/devices/formuler.svg' },
+  { name: 'iOS', src: '/images/devices/ios.svg' },
+  { name: 'iPad', src: '/images/devices/ipad.svg' },
+  { name: 'Windows', src: '/images/devices/windows.svg' },
+  { name: 'macOS', src: '/images/devices/macos.svg' },
+  { name: 'Chromecast', src: '/images/devices/chromecast.svg' },
+  { name: 'Web Player', src: '/images/devices/web.svg' },
 ];
 
 const ChannelCarousel: React.FC = () => {
@@ -29,7 +29,7 @@ const ChannelCarousel: React.FC = () => {
 
       <div className="container mx-auto px-6 mb-2 relative z-10">
         <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#00E5FF] text-center mb-10 opacity-60">
-          Official Media Partners
+          Compatible With Every Device
         </p>
       </div>
 

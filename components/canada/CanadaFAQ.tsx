@@ -7,16 +7,16 @@ const CanadaFAQ: React.FC = () => {
 
   const canadaFaqData = [
     {
-      question: "Can I watch every NHL game — including Stanley Cup playoffs in 4K HDR?",
-      answer: "Yes. Every NHL regular-season game (Hockey Night in Canada, midweek matchups, all 32 teams), the entire Stanley Cup playoffs, IIHF World Hockey Championship 2026, and the World Junior Championship are all included live in 4K HDR where the broadcaster supplies it. TSN, Sportsnet, and the regional Sportsnet East / West / Pacific feeds are all on board — no separate sports add-on, no Center Ice subscription required."
+      question: "Can I watch every North American pro hockey game — including the late-season playoffs in 4K HDR?",
+      answer: "Yes. Every regular-season North American pro hockey game (Saturday-night hockey broadcasts, midweek matchups, all 32 teams), the entire late-season playoffs, the spring international hockey championship, and the World Junior Championship are all included live in 4K HDR where the upstream feed supplies it. The premium Canadian sports tier and its regional feeds are all on board — no separate sports add-on, no out-of-market subscription required."
     },
     {
-      question: "Is the 2026 Winter Olympics and FIFA World Cup coverage included?",
-      answer: "Yes. The Milano-Cortina 2026 Winter Olympics (February 6–22) — every event, every medal final, every Team Canada moment — is live in 4K HDR. The FIFA World Cup 2026 in June and July is also fully included, including the matches Toronto BMO Field and Vancouver BC Place host as part of the United States / Canada / Mexico tri-nation event. CBC and TSN broadcasts both available."
+      question: "Is the 2026 Winter Games and summer international football coverage included?",
+      answer: "Yes. The 2026 Winter Games (February 6–22) — every event, every medal final, every Team Canada moment — is live in 4K HDR. The summer 2026 international football tournament in June and July is also fully included, including the matches Toronto and Vancouver host as part of the tri-nation event. Both English and French Canadian broadcasts available."
     },
     {
-      question: "Are CBC, CTV, Global, Citytv and French-language channels included?",
-      answer: "Yes, by postcode. CBC, CTV, CTV 2, Global TV, Citytv, CP24 plus the French-language Radio-Canada (ICI Télé), TVA, Noovo, Télé-Québec, ICI RDI, LCN, RDS, RDS2 and TVA Sports are all included. Hockey Night in Canada and La Soirée du hockey both available — perfect for bilingual Quebec households."
+      question: "Are all the Canadian English and French free-to-air networks included?",
+      answer: "Yes, by postcode. All major Canadian English-language free-to-air networks plus all major French-language Canadian free-to-air networks and 24-hour news channels are included. Saturday-night hockey broadcasts in both English and French are available — perfect for bilingual Quebec households."
     },
     {
       question: "Will Rogers Ignite, Bell Fibe, Shaw Direct or Telus throttle my IPTV streams?",
@@ -28,7 +28,7 @@ const CanadaFAQ: React.FC = () => {
     },
     {
       question: "How many simultaneous streams can my household run?",
-      answer: "Plans ship with up to 4 simultaneous connections so the living room TV, the kid's tablet, and a phone in the garage can all run different channels at the same time — perfect for a Stanley Cup night with the Habs game in the basement and Hockey Night in the lounge. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
+      answer: "Plans ship with up to 4 simultaneous connections so the living room TV, the kid's tablet, and a phone in the garage can all run different channels at the same time — perfect for a hockey playoff night with one game in the basement and Saturday-night hockey in the lounge. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
     },
     {
       question: "Is there a free trial — and is the support bilingual?",

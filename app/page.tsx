@@ -41,11 +41,11 @@ export default function HomePage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            The Best IPTV Service of 2026 — Built for the Year of FIFA World Cup, Super Bowl LX &amp; Champions League
+            The Best IPTV Service of 2026 — Built for the Biggest Year in Live Sports
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            <strong className="text-white">ORCA 4K TV</strong> is the next-generation <strong className="text-white">IPTV streaming service</strong> engineered for 2026 — the biggest year in live sports streaming since the platform began. Watch every <strong className="text-white">FIFA World Cup 2026</strong> match live in 4K Ultra-HD with HDR10+ and Dolby Vision, every <strong className="text-white">Super Bowl LX</strong> commercial, every <strong className="text-white">UEFA Champions League</strong> knockout, every Premier League weekend, every NBA Finals quarter — across <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies</strong>, and an AI-powered smart EPG guide that actually understands what you want.
+            <strong className="text-white">ORCA 4K TV</strong> is the next-generation <strong className="text-white">IPTV streaming service</strong> engineered for 2026 — the biggest year in live sports streaming since the platform began. Watch every major international football tournament live in 4K Ultra-HD with HDR10+ and Dolby Vision, the championship game in February, every top European club football knockout, every UK football weekend, every US pro basketball playoff quarter — across <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies</strong>, and an AI-powered smart EPG guide that actually understands what you want.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
@@ -84,11 +84,11 @@ export default function HomePage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            ORCA 4K TV is purpose-built for live sports streaming. Coverage spans <strong className="text-white">FIFA World Cup 2026</strong> (US/Canada/Mexico hosts, June–July 2026), <strong className="text-white">Super Bowl LX</strong> at Levi's Stadium (February 8, 2026), <strong className="text-white">UEFA Champions League</strong>, <strong className="text-white">Premier League</strong>, <strong className="text-white">Bundesliga</strong>, <strong className="text-white">Serie A</strong>, <strong className="text-white">La Liga</strong>, <strong className="text-white">Eredivisie</strong>, the <strong className="text-white">NFL</strong>, <strong className="text-white">NBA</strong>, <strong className="text-white">NHL</strong>, <strong className="text-white">MLB</strong>, <strong className="text-white">UFC</strong>, <strong className="text-white">Formula 1</strong>, MMA promotions, ATP/WTA tennis, golf majors, NCAA, and <strong className="text-white">Olympic events</strong>. Live in 4K HDR where the broadcaster supplies it, otherwise crisp Full-HD across multi-device — see <a href="/live-matches" className="text-[#00E5FF] hover:underline">today's live matches</a> for what's on right now.
+            ORCA 4K TV is purpose-built for live sports streaming. Coverage spans the biggest <strong className="text-white">international football tournament of summer 2026</strong> across US, Canada and Mexico host cities, the <strong className="text-white">championship game in February</strong>, top European club football midweeks, every domestic top-flight football league across the UK, Germany, Italy, Spain and the Netherlands, plus American football, US pro basketball, North American pro hockey, US pro baseball, MMA pay-per-views, top-tier open-wheel motorsport, premier motorcycle racing, Grand Slam tennis, major golf tournaments, US college sports, and the <strong className="text-white">2026 Winter Games</strong>. Live in 4K HDR where the upstream feed supplies it, otherwise crisp Full-HD across multi-device — see <a href="/live-matches" className="text-[#00E5FF] hover:underline">today's live matches</a> for what's on right now.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Region-specific coverage tunes the channel mix for your audience: dedicated landings for <a href="/iptv-usa" className="text-[#00E5FF] hover:underline">IPTV USA</a> (NFL, NBA, MLB, ESPN, Fox, NBC, CBS), <a href="/iptv-uk" className="text-[#00E5FF] hover:underline">IPTV UK</a> (Sky Sports alternative, Premier League, BBC, ITV), <a href="/iptv-canada" className="text-[#00E5FF] hover:underline">IPTV Canada</a> (NHL, TSN, Sportsnet), <a href="/iptv-germany" className="text-[#00E5FF] hover:underline">IPTV Deutschland</a> (Bundesliga, Sky Sport, ARD/ZDF) and <a href="/iptv-netherlands" className="text-[#00E5FF] hover:underline">IPTV Nederland</a> (Eredivisie, Ziggo / KPN alternative).
+            Region-specific coverage tunes the channel mix for your audience: dedicated landings for <a href="/iptv-usa" className="text-[#00E5FF] hover:underline">IPTV USA</a> (American football, US pro basketball, US pro baseball, all major US free-to-air and sports networks), <a href="/iptv-uk" className="text-[#00E5FF] hover:underline">IPTV UK</a> (UK football, premium UK sports tier, all major UK free-to-air networks), <a href="/iptv-canada" className="text-[#00E5FF] hover:underline">IPTV Canada</a> (North American pro hockey, all major Canadian sports and free-to-air networks), <a href="/iptv-germany" className="text-[#00E5FF] hover:underline">IPTV Deutschland</a> (top-tier German football, premium German sports tier, all major German free-to-air networks) and <a href="/iptv-netherlands" className="text-[#00E5FF] hover:underline">IPTV Nederland</a> (top-tier Dutch football, premium Dutch sports tier, all major Dutch free-to-air networks).
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">
@@ -163,7 +163,7 @@ export default function HomePage() {
                     "@type": "Review",
                     "author": { "@type": "Person", "name": "James R." },
                     "datePublished": "2026-03-15",
-                    "reviewBody": "Best IPTV service I've used. Absolutely zero buffering during the Champions League finals, even in 4K. Setup took less than 5 minutes on my Firestick.",
+                    "reviewBody": "Best IPTV service I've used. Absolutely zero buffering during the European football finals night, even in 4K. Setup took less than 5 minutes on my Firestick.",
                     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
                   },
                   {
@@ -177,7 +177,7 @@ export default function HomePage() {
                     "@type": "Review",
                     "author": { "@type": "Person", "name": "Mike T." },
                     "datePublished": "2026-04-01",
-                    "reviewBody": "Great service overall. The 4K sports streams are incredible. Would love more South American football channels but everything else is perfect.",
+                    "reviewBody": "Great service overall. The 4K sports streams are incredible. Would love more South American football coverage but everything else is perfect.",
                     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
                   }
                 ]

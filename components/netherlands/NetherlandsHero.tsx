@@ -27,7 +27,7 @@ const NetherlandsHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Onze Nederland-concierge is even offline, maar elke Eredivisie-aftrap, F1-ronde en NPO-uitzending blijft buffervrij in 4K HDR beschikbaar.");
+      setAiResponse("Onze Nederland-concierge is even offline, maar elke topvoetbal-aftrap, motorsport-ronde en publieke-omroep-uitzending blijft buffervrij in 4K HDR beschikbaar.");
     } finally {
       setIsSearching(false);
     }
@@ -68,11 +68,11 @@ const NetherlandsHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Elke Eredivisie-aftrap. Elke Champions League-avond. Elke F1-ronde van Max Verstappen — in 4K HDR, zonder Ziggo-contract.
+          Elke topvoetbal-aftrap. Elke top-Europese clubvoetbal-avond. Elke open-wheel motorsport-ronde — in 4K HDR, zonder kabelvertrag.
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Het echte Ziggo- en KPN-alternatief voor 2026: Eredivisie-topper, KNVB-beker tot de finale in De Kuip, UEFA Champions League, Formule 1 met Max Verstappen, WK voetbal 2026 met het Nederlands elftal en de Olympische Winterspelen Milaan-Cortina — live op een Amsterdam-edge server, AES-256 versleuteld, met onze AI-concierge die elke kanaalvraag direct beantwoordt.
+          Het echte kabel- en IPTV-alternatief voor 2026: Nederlands topvoetbal, de nationale beker tot de finale in De Kuip, top Europees clubvoetbal, open-wheel motorsport met de Nederlandse topcoureur, het zomerse internationale voetbaltoernooi 2026 met het Nederlands elftal en de Olympische Winterspelen 2026 — live op een Amsterdam-edge server, AES-256 versleuteld, met onze AI-concierge die elke kanaalvraag direct beantwoordt.
         </p>
 
         {/* AI Search Bar Area */}
@@ -84,7 +84,7 @@ const NetherlandsHero: React.FC = () => {
               aria-label="Zoeken naar zenders of inhoud"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Vraag wat je wilt: 'Eredivisie vanavond?' · 'F1-race zondag?' · 'KNVB-beker finale?'"
+              placeholder="Vraag wat je wilt: 'Topvoetbal vanavond?' · 'Motorsport-race zondag?' · 'Bekerfinale?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#21468B]/50 transition-all text-lg shadow-2xl"
             />
             <button

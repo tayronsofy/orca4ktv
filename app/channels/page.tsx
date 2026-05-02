@@ -5,8 +5,8 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
   title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
-  description: 'Browse 22,000+ live IPTV channels across 150+ countries. Premier League, NFL, NBA, NHL, Bundesliga, F1 2026 in 4K HDR. Smart EPG, multi-device.',
-  keywords: 'iptv channel list 2026, premium iptv channels, live tv channels, iptv 22000 channels, iptv channels usa, iptv channels uk, iptv channels canada, iptv channels germany, iptv channels netherlands, iptv channels france, iptv sports channels, premier league iptv channels, nfl iptv channels, nba iptv channels, nhl iptv channels, mlb iptv channels, bundesliga iptv channels, eredivisie iptv channels, f1 2026 iptv channels, espn iptv, bbc iptv, sky sports iptv, tnt sports iptv, dazn iptv, ard iptv, zdf iptv, rtl iptv, npo iptv, ziggo sport iptv, sportsnet iptv, tsn iptv, iptv news channels, iptv kids channels, iptv movie channels, iptv music channels, iptv international channels, 4k iptv channels, hdr iptv, hdr10+, dolby vision, smart epg, 7-day catch-up, electronic program guide, multi-device iptv, AES-256 encryption, anti freeze cdn, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg',
+  description: 'Browse 22,000+ live IPTV channels across 150+ countries. Live sports, news, movies, kids and international programming in 4K HDR. Smart EPG, multi-device.',
+  keywords: 'iptv channel list 2026, premium iptv channels, live tv channels, iptv 22000 channels, iptv channels usa, iptv channels uk, iptv channels canada, iptv channels germany, iptv channels netherlands, iptv channels france, iptv sports channels, iptv news channels, iptv kids channels, iptv movie channels, iptv music channels, iptv international channels, 4k iptv channels, hdr iptv, hdr10+, dolby vision, smart epg, 7-day catch-up, electronic program guide, multi-device iptv, AES-256 encryption, anti freeze cdn, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg',
   alternates: {
     canonical: 'https://orca4ktv.com/channels',
     languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
-    description: '22,000+ IPTV channels across 150+ countries. Premier League, NFL, NBA, NHL, Bundesliga, F1 2026 in 4K HDR. Smart EPG.',
+    description: '22,000+ IPTV channels across 150+ countries. Live sports, news, movies, kids and international programming in 4K HDR. Smart EPG.',
     url: 'https://orca4ktv.com/channels',
     type: 'website',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
@@ -36,11 +36,11 @@ const channelFaqs = [
   },
   {
     q: 'Which sports channels are included in the IPTV channel list?',
-    a: 'Premier League, La Liga, Serie A, Bundesliga, Eredivisie, MLS, NFL, NBA, NHL, MLB, NCAA, F1 2026 with the new regulations era, MotoGP, UEFA Champions League, Europa League, Conference League, FIFA World Cup 2026, the Olympic Winter Games Milano-Cortina 2026, ESPN, Sky Sports, TNT Sports, DAZN, NBC Sports, beIN Sports, Sportsnet, TSN, Ziggo Sport, ARD Sportschau, NHL Network, Tennis Channel, and Eurosport. All in 4K HDR.',
+    a: 'Top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey, college sports; top European club football midweek; the 2026 international football tournament; the 2026 Winter Games; top-tier open-wheel motorsport with the new 2026 regulations; premier motorcycle racing; major golf tournaments; all four Grand Slam tennis tournaments; MMA pay-per-views; plus 24/7 dedicated sports networks across all major regions. All in 4K HDR where the upstream feed supplies it.',
   },
   {
     q: 'Are local channels for the USA, UK, Canada, Germany, and Netherlands included?',
-    a: 'Yes. The full national networks for every region: ABC, CBS, NBC, FOX, PBS, ESPN (USA); BBC, ITV, Channel 4, Sky, TNT Sports (UK); CBC, CTV, Global, TSN, Sportsnet (Canada); ARD, ZDF, RTL, ProSieben, Sat.1, Vox (Germany); NPO 1, NPO 2, NPO 3, RTL 4, RTL 5, SBS6, Veronica, Ziggo Sport (Netherlands), plus 30+ regional and international channel groups in French, Spanish, Italian, Portuguese, Arabic, and Eastern European languages.',
+    a: 'Yes. Full national lineups for every region: all major US free-to-air networks and local affiliates by ZIP code; all major UK free-to-air networks; all major Canadian English and French free-to-air networks; all major German free-to-air networks; all major Dutch free-to-air networks. Plus 30+ regional and international channel groups in French, Spanish, Italian, Portuguese, Arabic, and Eastern European languages.',
   },
   {
     q: 'Are the IPTV channels in 4K HDR with HDR10+ and Dolby Vision?',
@@ -85,7 +85,7 @@ export default function ChannelsListPage() {
                 url: 'https://orca4ktv.com/channels',
                 name: 'IPTV Channel List 2026 — 22,000+ Premium IPTV Channels',
                 description:
-                  'Complete IPTV channel list for 2026: 22,000+ live TV channels across 150+ countries — sports, news, movies, kids, music, and international programming. Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, BBC, ESPN, ARD, ZDF, RTL, NPO. 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV.',
+                  'Complete IPTV channel list for 2026: 22,000+ live TV channels across 150+ countries — sports, news, movies, kids, music, and international programming. Coverage spans top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey; the 2026 international football tournament; the 2026 Winter Games. 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV.',
                 isPartOf: { '@id': 'https://orca4ktv.com/#website' },
               },
               {
@@ -97,7 +97,7 @@ export default function ChannelsListPage() {
                 areaServed: { '@type': 'Place', name: 'Worldwide (150+ countries)' },
                 audience: {
                   '@type': 'Audience',
-                  audienceType: 'Cord-cutters, sports fans, multi-language households, premium streaming households',
+                  audienceType: 'Cord-cutters, live-sports households, multi-language households, premium streaming households',
                 },
                 availableLanguage: ['English', 'Spanish', 'French', 'German', 'Italian', 'Portuguese', 'Dutch', 'Arabic', 'Polish', 'Turkish'],
                 hoursAvailable: {
@@ -107,7 +107,7 @@ export default function ChannelsListPage() {
                   closes: '23:59',
                 },
                 description:
-                  '22,000+ live TV channels and 100,000+ on-demand titles across 150+ countries — sports (Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, Olympics Milano-Cortina, FIFA World Cup 2026), news (BBC News, CNN, NOS, ARD Tagesschau, n-tv), movies and series (Hollywood, Apple TV+, Prime Video, Netflix-style), kids (Disney Channel, Nickelodeon, Cartoon Network, NPO Zapp, KiKa), music (MTV, VH1, Stingray), international (30+ language groups). 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV, multi-device IPTV, AES-256 encryption, Anti Freeze CDN.',
+                  '22,000+ live TV channels and 100,000+ on-demand titles across 150+ countries — live sports across every major league and international event, news, movies and series, kids, music, international (30+ language groups). 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV, multi-device IPTV, AES-256 encryption, Anti Freeze CDN.',
               },
               {
                 '@type': 'ItemList',
@@ -115,14 +115,14 @@ export default function ChannelsListPage() {
                 name: 'IPTV Channel Categories',
                 description: 'Top categories in the ORCA 4K TV IPTV channel library.',
                 itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Sports IPTV channels — Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026' },
-                  { '@type': 'ListItem', position: 2, name: 'News IPTV channels — BBC News, CNN, Fox News, NOS, ARD Tagesschau, n-tv, Sky News' },
-                  { '@type': 'ListItem', position: 3, name: 'Movie IPTV channels — Hollywood, premium cinema, Apple TV+, Prime Video' },
-                  { '@type': 'ListItem', position: 4, name: 'Kids IPTV channels — Disney, Nickelodeon, Cartoon Network, NPO Zapp, KiKa' },
-                  { '@type': 'ListItem', position: 5, name: 'Music IPTV channels — MTV, VH1, Stingray, MTV Hits' },
-                  { '@type': 'ListItem', position: 6, name: 'Documentary IPTV channels — Discovery, History, National Geographic, Animal Planet' },
+                  { '@type': 'ListItem', position: 1, name: 'Sports IPTV channels — top-tier football, American football, US pro basketball, North American pro hockey, motorsport' },
+                  { '@type': 'ListItem', position: 2, name: 'News IPTV channels — all major 24-hour news networks across the US, UK, Germany, Netherlands and Canada' },
+                  { '@type': 'ListItem', position: 3, name: 'Movie IPTV channels — Hollywood, premium cinema, premium streaming-platform-equivalent originals' },
+                  { '@type': 'ListItem', position: 4, name: 'Kids IPTV channels — premium kids and family channels and educational programming' },
+                  { '@type': 'ListItem', position: 5, name: 'Music IPTV channels — major music video networks and 24/7 music streams' },
+                  { '@type': 'ListItem', position: 6, name: 'Documentary IPTV channels — major documentary, history, science and nature networks' },
                   { '@type': 'ListItem', position: 7, name: 'International IPTV channels — 30+ language groups across 150+ countries' },
-                  { '@type': 'ListItem', position: 8, name: 'Local IPTV channels — ABC, CBS, NBC, FOX, BBC, ITV, CBC, CTV, ARD, ZDF, RTL, NPO' },
+                  { '@type': 'ListItem', position: 8, name: 'Local IPTV channels — all major US, UK, Canadian, German and Dutch free-to-air networks' },
                 ],
               },
               {
@@ -162,7 +162,7 @@ export default function ChannelsListPage() {
                 </h3>
 
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  The ORCA 4K TV IPTV channel list covers the entire global sports calendar in 4K HDR: every <strong className="text-white">Premier League</strong> match, every <strong className="text-white">La Liga</strong>, <strong className="text-white">Serie A</strong>, <strong className="text-white">Bundesliga</strong>, and <strong className="text-white">Eredivisie</strong> matchday, MLS, NCAA, every <strong className="text-white">NFL</strong> Sunday and Monday Night Football, every <strong className="text-white">NBA</strong> regular-season and playoff game, every <strong className="text-white">NHL</strong> Stanley Cup match including Hockey Night in Canada, every <strong className="text-white">MLB</strong> regular-season and World Series game, every <strong className="text-white">UEFA Champions League</strong>, Europa League, and Conference League knockout, the <strong className="text-white">FIFA World Cup 2026</strong> in the USA, Canada, and Mexico, the <strong className="text-white">Olympic Winter Games Milano-Cortina 2026</strong>, every <strong className="text-white">F1 2026</strong> Grand Prix in the new-regulation era with Audi entering, MotoGP, F2, F3, NASCAR, IndyCar, golf majors (Masters, US Open, The Open, PGA Championship), every Grand Slam tennis tournament (Australian Open, Roland-Garros, Wimbledon, US Open), boxing and UFC pay-per-views, plus dedicated 24/7 sports networks: <strong className="text-white">ESPN</strong>, ESPN2, ESPN+, <strong className="text-white">TNT Sports</strong>, <strong className="text-white">Sky Sports</strong>, <strong className="text-white">DAZN</strong>, NBC Sports, beIN Sports, <strong className="text-white">Sportsnet</strong>, <strong className="text-white">TSN</strong>, <strong className="text-white">Ziggo Sport</strong>, ESPN NL, ARD Sportschau, ZDF SPORTextra, Sport1, Eurosport 1 &amp; 2, NHL Network, NBA TV, MLB Network, Tennis Channel, and Golf Channel.
+                  The ORCA 4K TV IPTV channel list covers the entire global sports calendar in 4K HDR: <strong className="text-white">top-tier football</strong> across the UK, Spain, Italy, Germany and the Netherlands, plus second-tier and lower-league competitions, US top-flight football, college sports; every <strong className="text-white">American football</strong> Sunday and Monday-night showpiece, every <strong className="text-white">US pro basketball</strong> regular-season and playoff game, every <strong className="text-white">North American pro hockey</strong> match including Saturday-night hockey broadcasts, every <strong className="text-white">US pro baseball</strong> regular-season and championship-series game, every <strong className="text-white">top European club football</strong> midweek knockout and supplemental European competition, the <strong className="text-white">2026 international football tournament</strong> in the USA, Canada, and Mexico, the <strong className="text-white">2026 Winter Games</strong>, every round of the new-regulation <strong className="text-white">2026 open-wheel motorsport</strong> season, premier motorcycle racing, junior and electric formulas, all four golf majors, all four Grand Slam tennis tournaments, MMA pay-per-views, plus dedicated 24/7 sports networks across all major regions.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -174,14 +174,14 @@ export default function ChannelsListPage() {
                 </p>
 
                 <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">USA IPTV channels:</strong> ABC, CBS, NBC, FOX, PBS, The CW, Telemundo, Univision, Bravo, USA Network, TNT, TBS, FX, AMC, A&amp;E, History, Discovery, National Geographic. <Link href="/iptv-usa" className="text-purple-400 hover:underline">View IPTV USA</Link></span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">UK IPTV channels:</strong> BBC One, BBC Two, BBC Three, BBC Four, ITV, ITV2, ITV3, ITV4, Channel 4, More4, E4, Channel 5, Sky News, Sky Sports News, BT Sport. <Link href="/iptv-uk" className="text-purple-400 hover:underline">View IPTV UK</Link></span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Canada IPTV channels:</strong> CBC, CTV, Global, City, TSN, Sportsnet, NHL Network, OMNI, APTN, plus French-language Radio-Canada, TVA, Noovo, RDS. <Link href="/iptv-canada" className="text-purple-400 hover:underline">View IPTV Canada</Link></span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Germany IPTV channels:</strong> Das Erste, ZDF, ARD-Regionalsender (BR, NDR, WDR, MDR, SWR, HR, RBB, SR), RTL, RTL2, Vox, ProSieben, Sat.1, Kabel Eins, Sport1, Eurosport. <Link href="/iptv-germany" className="text-purple-400 hover:underline">View IPTV Deutschland</Link></span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Netherlands IPTV channels:</strong> NPO 1, NPO 2, NPO 3, RTL 4, RTL 5, RTL 7, RTL 8, RTL Z, SBS6, Net5, Veronica, Ziggo Sport, ESPN NL. <Link href="/iptv-netherlands" className="text-purple-400 hover:underline">View IPTV Nederland</Link></span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">France, Spain, Italy, Portugal:</strong> TF1, France 2, France 3, M6, Canal+, RTVE La1, La2, Antena 3, Telecinco, Rai 1, Rai 2, Rai 3, Mediaset Italia, RTP1, RTP2, SIC, TVI.</span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Latin America &amp; Brazil:</strong> Globo, SBT, Record, Band, RedeTV, Telemundo, Univision, Caracol, RCN, Televisa, Azteca.</span></li>
-                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">MENA &amp; international:</strong> MBC, Al Jazeera, Al Arabiya, OSN, Bein MENA, plus dedicated Arabic, Turkish, Polish, Greek, Russian, Indian, and Pakistani channel groups.</span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">USA IPTV channels:</strong> all major US free-to-air networks and local affiliates by ZIP code, plus the major basic-cable entertainment, lifestyle, history, documentary and discovery networks. <Link href="/iptv-usa" className="text-purple-400 hover:underline">View IPTV USA</Link></span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">UK IPTV channels:</strong> all major UK free-to-air networks, their HD/+1/regional variants, plus the premium UK sports tier. <Link href="/iptv-uk" className="text-purple-400 hover:underline">View IPTV UK</Link></span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Canada IPTV channels:</strong> all major Canadian English-language free-to-air networks, all major French-language Canadian networks, plus the premium Canadian sports tier. <Link href="/iptv-canada" className="text-purple-400 hover:underline">View IPTV Canada</Link></span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Germany IPTV channels:</strong> all major German public free-to-air networks and their regional programming, all major German private free-to-air networks, plus the premium German sports tier. <Link href="/iptv-germany" className="text-purple-400 hover:underline">View IPTV Deutschland</Link></span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Netherlands IPTV channels:</strong> all major Dutch public and commercial free-to-air networks, regional broadcasters, plus the premium Dutch sports tier. <Link href="/iptv-netherlands" className="text-purple-400 hover:underline">View IPTV Nederland</Link></span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">France, Spain, Italy, Portugal:</strong> all major free-to-air networks for each country plus their HD/themed sister channels.</span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Latin America &amp; Brazil:</strong> all major Brazilian free-to-air networks plus the principal Spanish-language broadcasters across Mexico, Colombia and the wider region.</span></li>
+                  <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">MENA &amp; international:</strong> all major Arabic-language free-to-air and pay-TV networks, plus dedicated Arabic, Turkish, Polish, Greek, Russian, Indian, and Pakistani channel groups.</span></li>
                 </ul>
 
                 <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -189,7 +189,7 @@ export default function ChannelsListPage() {
                 </h3>
 
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Beyond sports and local networks, the IPTV channel list ships every premium category. <strong className="text-white">Movie IPTV channels:</strong> HBO, Showtime, Cinemax, Starz, Epix, plus 24/7 themed cinema feeds (Action, Comedy, Drama, Horror, Sci-Fi, Family). <strong className="text-white">News IPTV channels:</strong> BBC News, CNN, Fox News, MSNBC, Sky News, Al Jazeera English, NOS Journaal, Tagesschau, n-tv, Welt, France 24, RT, NHK World. <strong className="text-white">Kids IPTV channels:</strong> Disney Channel, Disney Junior, Nickelodeon, Nick Jr, Cartoon Network, Boomerang, NPO Zapp, KiKa, Super RTL, Toggo Plus. <strong className="text-white">Music IPTV channels:</strong> MTV, MTV Hits, MTV Live HD, VH1, Stingray Music, CMT, BET, Trace Urban. <strong className="text-white">Documentary IPTV channels:</strong> Discovery, Discovery Science, Investigation Discovery, History, History 2, National Geographic, Nat Geo Wild, Animal Planet, Travel Channel, DMAX, ServusTV, Geo Television, NPO Doc.
+                  Beyond sports and local networks, the IPTV channel list ships every premium category. <strong className="text-white">Movie IPTV channels:</strong> premium movie networks plus 24/7 themed cinema feeds (Action, Comedy, Drama, Horror, Sci-Fi, Family). <strong className="text-white">News IPTV channels:</strong> all major 24-hour news networks across the US, UK, Germany, Netherlands, France, Canada and the Middle East, plus financial and international news. <strong className="text-white">Kids IPTV channels:</strong> premium kids and family channels and educational programming. <strong className="text-white">Music IPTV channels:</strong> major music video networks and 24/7 music streams across pop, urban, country and electronic genres. <strong className="text-white">Documentary IPTV channels:</strong> major documentary, history, science, nature, travel and lifestyle networks.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">

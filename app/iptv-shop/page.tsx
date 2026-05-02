@@ -70,7 +70,7 @@ export default function IPTVShopPage() {
                   closes: '23:59',
                 },
                 description:
-                  '22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, smart EPG with 7-day catch-up TV, multi-device IPTV (Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS, Android), AES-256 encryption (NIST FIPS 197), Anti Freeze CDN, instant M3U + Xtream codes activation, no contract, free trial. Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, Olympics Milano-Cortina, FIFA World Cup 2026.',
+                  '22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, smart EPG with 7-day catch-up TV, multi-device IPTV (Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS, Android), AES-256 encryption (NIST FIPS 197), Anti Freeze CDN, instant M3U + Xtream codes activation, no contract, free trial. Coverage spans top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey; the 2026 international football tournament; the 2026 Winter Games; top-tier open-wheel motorsport.',
               },
               {
                 '@type': 'Product',
@@ -183,7 +183,7 @@ export default function IPTVShopPage() {
               </span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-              Premium IPTV subscription plans from <strong className="text-white">$7.92/month</strong>. 22,000+ live channels in 4K Ultra-HD with HDR10+ &amp; Dolby Vision, 100,000+ on-demand movies &amp; series, smart EPG with 7-day catch-up TV, every Premier League match, every NFL Sunday, every Bundesliga, every F1 2026 Grand Prix — buffer-free on Anti Freeze CDN.
+              Premium IPTV subscription plans from <strong className="text-white">$7.92/month</strong>. 22,000+ live channels in 4K Ultra-HD with HDR10+ &amp; Dolby Vision, 100,000+ on-demand movies &amp; series, smart EPG with 7-day catch-up TV, every UK top-flight football match, every American football Sunday, every German top-tier football matchday, every 2026 open-wheel motorsport Grand Prix — buffer-free on Anti Freeze CDN.
             </p>
 
             {/* Trust Badges */}
@@ -355,8 +355,8 @@ export default function IPTVShopPage() {
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">22,000+ live channels</strong> across entertainment, news, sports, kids, and 30+ international languages</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand titles</strong> — Hollywood blockbusters, Apple TV+ originals, Prime Video, Netflix-style series</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Live sports:</strong> Premier League, NFL, NBA, NHL, MLB, MLS, NCAA, Bundesliga, La Liga, Serie A, Eredivisie, F1 2026, Olympics Milano-Cortina, FIFA World Cup 2026</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand titles</strong> — major studio Hollywood blockbusters and premium streaming-platform-equivalent originals</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Live sports:</strong> top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey, US top-flight football, college sports; top European club football midweek; the 2026 international football tournament; the 2026 Winter Games; top-tier open-wheel motorsport</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">4K HDR streaming</strong> with HDR10+ and Dolby Vision on every channel that broadcasts in 4K</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Smart EPG</strong> with 7-day catch-up TV — never miss a match or episode again</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Multi-device IPTV:</strong> 1–4 simultaneous connections per plan — pick at checkout</span></li>

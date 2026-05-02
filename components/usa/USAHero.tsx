@@ -29,7 +29,7 @@ const USAHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our USA concierge is offline right now — but yes, ORCA 4K TV ships every major US network including ESPN, NFL Network, NBA TV, MLB Network, FOX, NBC, CBS, ABC, and your local affiliates by ZIP code.");
+      setAiResponse("Our USA concierge is offline right now — but yes, ORCA 4K TV ships all major US sports and free-to-air networks plus dedicated channels for American football, US pro basketball, US pro baseball and North American pro hockey, with your local affiliates picked up by ZIP code.");
     } finally {
       setIsSearching(false);
     }
@@ -74,7 +74,7 @@ const USAHero: React.FC = () => {
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          From the Super Bowl LX kickoff at Levi&apos;s Stadium to March Madness, the NBA Finals, the World Series, and every NFL Sunday in between — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with five US edge servers (NYC, LA, Chicago, Dallas, Atlanta) keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Roku Ultra, Apple TV 4K, and every Smart TV — just ask the AI concierge what&apos;s on.
+          From the championship game in February to the spring college basketball tournament, the basketball championship finals, the baseball championship series, and every American football Sunday in between — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with five US edge servers (NYC, LA, Chicago, Dallas, Atlanta) keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Roku Ultra, Apple TV 4K, and every Smart TV — just ask the AI concierge what&apos;s on.
         </p>
 
         {/* AI Search Bar Area */}
@@ -86,7 +86,7 @@ const USAHero: React.FC = () => {
               aria-label="Search for US channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Ask anything: 'NBA Finals tonight?' · 'College football Saturday?' · 'NHL Center Ice?'"
+              placeholder="Ask anything: 'Basketball finals tonight?' · 'College football Saturday?' · 'Out-of-market hockey?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg shadow-2xl"
             />
             <button

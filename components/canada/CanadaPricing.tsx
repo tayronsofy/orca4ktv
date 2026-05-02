@@ -11,8 +11,8 @@ const CanadaPricing = () => {
 
   // Canada-specific unique text
   const CANADA_FEATURES = [
-    "All Canadian Networks (CBC, CTV, Global, TSN, Sportsnet)",
-    "NHL, CFL, MLB, NBA — Every Game Live in 4K HDR",
+    "All Major Canadian Free-to-Air Networks (EN + FR) & Premium Sports Tier",
+    "Hockey, Canadian Football, Baseball, Basketball — Every Game Live in 4K HDR",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",

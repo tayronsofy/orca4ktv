@@ -27,7 +27,7 @@ const NetherlandsVideoSection: React.FC<NetherlandsVideoSectionProps> = ({ onScr
           </h2>
 
           <p className="text-gray-300 text-lg md:text-xl font-medium mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Ontdek de ultieme IPTV-ervaring in Nederland. Duik in een enorme 4K-bibliotheek met Nederlandse series, live Eredivisie en premium sport, en lokaal nieuws uit heel Nederland.
+            Ontdek de ultieme IPTV-ervaring in Nederland. Duik in een enorme 4K-bibliotheek met Nederlandse series, live topvoetbal en premium sport, en lokaal nieuws uit heel Nederland.
           </p>
 
           <div className="flex flex-col gap-4 mb-10 items-center lg:items-start">

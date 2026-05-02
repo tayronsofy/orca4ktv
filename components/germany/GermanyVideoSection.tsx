@@ -27,7 +27,7 @@ const GermanyVideoSection: React.FC<GermanyVideoSectionProps> = ({ onScrollToPri
           </h2>
 
           <p className="text-gray-300 text-lg md:text-xl font-medium mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Erlebe das ultimative IPTV-Erlebnis in Deutschland. Tauche ein in eine riesige 4K-Bibliothek mit deutschen Serien, Live-Bundesliga und Premium-Sport sowie lokalen Nachrichten aus ganz Deutschland.
+            Erlebe das ultimative IPTV-Erlebnis in Deutschland. Tauche ein in eine riesige 4K-Bibliothek mit deutschen Serien, Live-Spitzenfußball und Premium-Sport sowie lokalen Nachrichten aus ganz Deutschland.
           </p>
 
           <div className="flex flex-col gap-4 mb-10 items-center lg:items-start">

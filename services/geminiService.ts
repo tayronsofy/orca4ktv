@@ -62,11 +62,11 @@ export const generateSetupGuide = async (device: string, userQuery: string, type
 // --- FUNCTION 3: Live Ticker (Static) ---
 export const generateLiveTicker = async (): Promise<string[]> => {
   const HEADLINES = [
-    "🔴 LIVE NOW: English Premier League 2026 Action",
+    "🔴 LIVE NOW: UK top-flight football 2026 action",
     "⚡ INSTANT ACTIVATION: Get your credentials in 5 minutes",
-    "🏎️ F1 SEASON: Watch every Grand Prix in 4K UHD",
-    "🏀 NBA LEAGUE PASS: All games included in Premium",
-    "🥊 UFC FIGHT NIGHT: PPV Events included for free",
+    "🏎️ MOTORSPORT 2026: Watch every Grand Prix in 4K UHD",
+    "🏀 OUT-OF-MARKET BASKETBALL: All games included in Premium",
+    "🥊 MMA FIGHT NIGHT: PPV events included for free",
     "🎬 VOD UPDATE: 50+ New Movies added today",
     "🌍 GLOBAL CHANNELS: US, UK, CA, and 50+ countries",
     "🔒 PRIVACY FIRST: 100% Anonymous & Secure Streaming"

@@ -7,16 +7,16 @@ const UKFAQ: React.FC = () => {
 
   const ukFaqData = [
     {
-      question: "Can I watch every Premier League match — including 3pm Saturday kick-offs?",
-      answer: "Yes. Every Premier League fixture is included — the early Saturday windows, the 3pm Saturday kick-offs, late Saturday, Sunday afternoons, Sunday Night Football, Monday Night Football, plus every cup tie. Champions League knockouts, Europa League, FA Cup, EFL Cup and Scottish Premiership are all live in 4K HDR. No FA-blackout limitation, no separate sports add-on."
+      question: "Can I watch every UK top-flight football match — including 3pm Saturday kick-offs?",
+      answer: "Yes. Every UK top-flight football fixture is covered — the early Saturday windows, the 3pm Saturday kick-offs, late Saturday, Sunday afternoons, the Sunday and Monday evening showpiece games, plus every domestic cup tie. Top European club football knockouts, second-tier and lower-league competitions, and the Scottish top flight all stream in 4K HDR. No regional blackout limitation, no separate sports add-on."
     },
     {
-      question: "Does this cover the Six Nations 2026, Wimbledon, F1 and cricket?",
-      answer: "Yes. Six Nations 2026 (kick-off Friday 6 February), Premiership Rugby, the British & Irish Lions tour, Wimbledon late June through mid-July, The Open Championship in July, every F1 grand prix of the new 2026 era, MotoGP, Test cricket, the Ashes, T20 Blast and The Hundred — all included on every plan."
+      question: "Does this cover Northern hemisphere international rugby, the summer tennis fortnight, motorsport and cricket?",
+      answer: "Yes. The Northern hemisphere international rugby championship (kick-off Friday 6 February 2026), top-flight UK rugby, the touring international squad of 2026, the summer London grass-court Grand Slam tennis fortnight late June through mid-July, the Open golf championship in July, every round of the new 2026-era open-wheel motorsport season, premier motorcycle racing, Test cricket, the home England-Australia Test series, top-tier T20 domestic competition and the short-format city tournament — all included on every plan."
     },
     {
-      question: "Are BBC, ITV, Channel 4 and Channel 5 included?",
-      answer: "Yes. BBC One, BBC Two, BBC Three, BBC Four, BBC News, ITV1, ITV2, ITV3, ITV4, Channel 4, E4, Film4, More4, Channel 5 are all included with regional affiliates by postcode. The smart EPG guide shows live now-playing data for every UK terrestrial channel, plus 7-day catch up TV — a clean BBC iPlayer / ITVX-style replay experience built into the player."
+      question: "Are all the UK free-to-air networks included?",
+      answer: "Yes. All major UK free-to-air networks and their HD/+1/regional variants are included with regional affiliates picked up by postcode. The smart EPG guide shows live now-playing data for every UK terrestrial channel, plus 7-day catch up TV — a clean catch-up streaming-equivalent replay experience built into the player."
     },
     {
       question: "Will Virgin Media, BT, Sky Broadband or TalkTalk throttle my IPTV streams?",

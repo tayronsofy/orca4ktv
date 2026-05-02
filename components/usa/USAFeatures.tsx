@@ -5,14 +5,14 @@ import React from 'react';
 const USA_FEATURES = [
   {
     title: 'Coast-to-Coast Coverage with US Edge Servers',
-    description: 'Five North American POPs — New York, Los Angeles, Chicago, Dallas, and Atlanta — keep latency under 30ms whether you are catching the NFL early window in Buffalo or the late game in Seattle. Anti Freeze CDN reroutes around peak Super Bowl LX and March Madness traffic in real time, so every snap, every clutch shot, every walk-off lands buffer-free in 4K HDR.',
+    description: 'Five North American POPs — New York, Los Angeles, Chicago, Dallas, and Atlanta — keep latency under 30ms whether you are catching the American football early window in Buffalo or the late game in Seattle. Anti Freeze CDN reroutes around peak championship-game and college spring tournament traffic in real time, so every snap, every clutch shot, every walk-off lands buffer-free in 4K HDR.',
     imageUrl: '/images/usa-coverage.jpg',
     altText: 'Two American football fans on a navy sofa watching a live 4K HDR football match on a wall-mounted Smart TV — buffer-free IPTV USA streaming on ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Smart EPG Built for the American Sports Calendar',
-    description: 'The ORCA 4K TV smart EPG guide knows your week — NFL Sundays, NBA back-to-backs, MLB doubleheaders, Stanley Cup playoff nights, college football Saturdays. Live scores, channel-jump shortcuts, 7-day catch up TV, and AI-powered "what is on right now" search across ESPN, NFL Network, NFL RedZone, NBA TV, MLB Network, NHL Network and every regional RSN.',
+    description: 'The ORCA 4K TV smart EPG guide knows your week — American football Sundays, basketball back-to-backs, baseball doubleheaders, hockey playoff nights, college football Saturdays. Live scores, channel-jump shortcuts, 7-day catch up TV, and AI-powered "what is on right now" search across all major US sports networks and every regional sports network.',
     imageUrl: '/images/usa-epg.jpg',
     altText: 'Adult holding a TV remote browsing the Smart EPG channel guide on a 4K Smart TV — ORCA 4K TV USA IPTV subscription with electronic program guide and 7-day catch up TV.',
     reverse: true

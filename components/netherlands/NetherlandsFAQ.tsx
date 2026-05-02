@@ -7,16 +7,16 @@ const NetherlandsFAQ: React.FC = () => {
 
   const netherlandsFaqData = [
     {
-      question: "Kan ik elke Eredivisie-wedstrijd inclusief de zaterdagavondtopper in 4K HDR kijken?",
-      answer: "Ja. Elke Eredivisie-wedstrijd van het seizoen 2025–26 en 2026–27 (vrijdagavond, zaterdag, zondag-topper, maandagavond), de complete Keuken Kampioen Divisie, de gehele KNVB-beker tot aan de finale eind april 2026 in De Kuip, alle UEFA Champions League-knockouts, Europa League en Conference League zijn live in 4K HDR inbegrepen — geen apart sportpakket, geen toeslag."
+      question: "Kan ik elke topvoetbal-wedstrijd inclusief de zaterdagavondtopper in 4K HDR kijken?",
+      answer: "Ja. Elke Nederlandse topvoetbal-wedstrijd van het seizoen 2025–26 en 2026–27 (vrijdagavond, zaterdag, zondag-topper, maandagavond), de complete tweede divisie, het gehele nationale bekertoernooi tot aan de finale eind april 2026 in De Kuip, alle top Europese clubvoetbal-knockouts en aanvullende Europese clubcompetities zijn live in 4K HDR inbegrepen — geen apart sportpakket, geen toeslag."
     },
     {
-      question: "Zijn het WK voetbal 2026, de Olympische Winterspelen Milaan-Cortina en de F1 met Max Verstappen erbij?",
-      answer: "Ja. Het FIFA WK voetbal 2026 in de VS, Canada en Mexico met het Nederlands elftal wordt live in 4K HDR uitgezonden. De Olympische Winterspelen Milaan-Cortina (6–22 februari 2026) — schaatsen, snowboard, ijshockey, curling, alle medaillebeslissingen met TeamNL — zijn ook volledig opgenomen. Het Formule 1-seizoen 2026 met geheel nieuwe reglementen en Max Verstappen die zijn vijfde wereldtitel najaagt, zenden wij elke Grand Prix live uit."
+      question: "Zijn het zomerse internationale voetbaltoernooi 2026, de Olympische Winterspelen 2026 en de open-wheel motorsport met de Nederlandse topcoureur erbij?",
+      answer: "Ja. Het zomerse internationale voetbaltoernooi 2026 in de VS, Canada en Mexico met het Nederlands elftal wordt live in 4K HDR uitgezonden. De Olympische Winterspelen 2026 (6–22 februari 2026) — schaatsen, snowboard, ijshockey, curling, alle medaillebeslissingen met TeamNL — zijn ook volledig opgenomen. Het open-wheel motorsport-seizoen 2026 met geheel nieuwe reglementen waarin de Nederlandse topcoureur zijn vijfde wereldtitel najaagt, zenden wij elke race live uit."
     },
     {
-      question: "Zijn NPO, RTL, SBS6, Veronica en Ziggo Sport inbegrepen?",
-      answer: "Ja, volledig. NPO 1, NPO 2, NPO 3, NPO Politiek, NPO Nieuws, NPO Zapp, NPO Cultura, alle regionale omroepen (AT5, RTV Noord-Holland, Omroep Brabant, RTV Utrecht), RTL 4, RTL 5, RTL 7, RTL 8, RTL Z, SBS6, SBS9, Net5, Veronica, Comedy Central en alle Ziggo Sport-alternatieven plus ESPN NL-kanalen zijn allemaal aanwezig. Inclusief NOS Journaal, RTL Nieuws, BNR en alle catch-up-content via NLZIET-equivalenten."
+      question: "Zijn alle belangrijke Nederlandse free-to-air zenders inbegrepen?",
+      answer: "Ja, volledig. Alle belangrijke Nederlandse publieke en commerciële free-to-air zenders, hun thematische zusterkanalen en de regionale omroepen, plus de Nederlandse premium sportlaag zijn allemaal aanwezig. Inclusief alle belangrijke Nederlandse nieuwszenders en alle catch-up-content via een catch-up streaming-equivalent."
     },
     {
       question: "Beperken Ziggo, KPN, T-Mobile of Odido mijn IPTV-streams?",
@@ -28,7 +28,7 @@ const NetherlandsFAQ: React.FC = () => {
     },
     {
       question: "Hoeveel gelijktijdige streams kan mijn huishouden gebruiken?",
-      answer: "Abonnementen bieden tot 4 gelijktijdige verbindingen — daarmee kunnen de huiskamer-tv, de tablet in de kinderkamer en een smartphone in de keuken tegelijkertijd verschillende zenders tonen. Perfect voor een Eredivisie-weekend met de topper in de huiskamer en de NOS Studio Sport-samenvatting op de tablet. Het 1-maand-abonnement start met 1 verbinding; het 12-maanden-abonnement bevat standaard tot 4 verbindingen zonder meerprijs."
+      answer: "Abonnementen bieden tot 4 gelijktijdige verbindingen — daarmee kunnen de huiskamer-tv, de tablet in de kinderkamer en een smartphone in de keuken tegelijkertijd verschillende zenders tonen. Perfect voor een topvoetbal-weekend met de topper in de huiskamer en het sportoverzicht op de tablet. Het 1-maand-abonnement start met 1 verbinding; het 12-maanden-abonnement bevat standaard tot 4 verbindingen zonder meerprijs."
     },
     {
       question: "Is er een gratis proefperiode — en een contract of opzegkosten?",
@@ -65,7 +65,7 @@ const NetherlandsFAQ: React.FC = () => {
             IPTV Nederland <span className="text-[#21468B]">FAQ</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 font-medium">Duidelijke antwoorden voor Nederlandse cord-cutters en Eredivisie-fans.</p>
+          <p className="mt-6 text-gray-400 font-medium">Duidelijke antwoorden voor Nederlandse cord-cutters en live-sport-fans.</p>
         </div>
 
         <div className="space-y-4">

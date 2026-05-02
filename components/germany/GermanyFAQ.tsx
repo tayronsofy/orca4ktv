@@ -7,16 +7,16 @@ const GermanyFAQ: React.FC = () => {
 
   const germanyFaqData = [
     {
-      question: "Kann ich jedes Bundesliga-Spiel inklusive Topspiel-Samstag in 4K HDR sehen?",
-      answer: "Ja. Jedes Bundesliga-Spiel der Saison 2025–26 und 2026–27 (Freitagabend, Samstag-Konferenz, Topspiel um 18:30 Uhr, Sonntag) sowie die komplette 2. Bundesliga, der gesamte DFB-Pokal bis zum Finale Ende Mai 2026 in Berlin, alle UEFA Champions League K.o.-Spiele, Europa League und Conference League sind live in 4K HDR enthalten – kein separates Sport-Paket, keine Zusatzgebühr."
+      question: "Kann ich jeden deutschen Spitzenfußball-Anstoß inklusive Topspiel-Samstag in 4K HDR sehen?",
+      answer: "Ja. Jeder deutsche Spitzenfußball-Anstoß der Saison 2025–26 und 2026–27 (Freitagabend, Samstag-Konferenz, Topspiel um 18:30 Uhr, Sonntag) sowie die komplette zweite Liga, das gesamte nationale Pokalturnier bis zum Finale Ende Mai 2026 in Berlin, alle top europäischen Klubfußball-K.o.-Spiele und ergänzenden europäischen Vereinswettbewerbe sind live in 4K HDR enthalten – kein separates Sport-Paket, keine Zusatzgebühr."
     },
     {
-      question: "Sind die Fußball-WM 2026, Olympia Mailand-Cortina und die F1 mit Audi-Einstieg dabei?",
-      answer: "Ja. Die Fußball-WM 2026 in den USA, Kanada und Mexiko mit der DFB-Elf läuft live in 4K HDR. Die Olympischen Winterspiele Mailand-Cortina (6.–22. Februar 2026) – Biathlon, Skispringen, Eishockey, Curling, alle Medaillenentscheidungen – sind ebenfalls vollständig enthalten. Die Formel-1-Saison 2026 mit Audi als deutschem Werksteam und kompletten neuen Reglements zeigen wir bei jedem Grand Prix live."
+      question: "Sind das Sommer-Internationalturnier 2026, die Winterspiele 2026 und die Open-Wheel-Saison mit deutschem Werkseinstieg dabei?",
+      answer: "Ja. Das Sommer-Internationalturnier 2026 in den USA, Kanada und Mexiko mit der DFB-Elf läuft live in 4K HDR. Die Winterspiele 2026 (6.–22. Februar 2026) – Biathlon, Skispringen, Eishockey, Curling, alle Medaillenentscheidungen – sind ebenfalls vollständig enthalten. Die Open-Wheel-Saison 2026 mit dem deutschen Werksteam und komplett neuen Reglements zeigen wir bei jedem Grand Prix live."
     },
     {
-      question: "Sind ARD, ZDF, RTL, ProSieben, Sat.1 und Vox enthalten?",
-      answer: "Ja, vollständig nach Postleitzahl. Das Erste, ZDF, alle ARD-Regionalsender (BR, NDR, WDR, MDR, SWR, HR, RBB, SR), Arte, 3sat, Phoenix, KiKa, RTL, RTL2, RTL Plus, Vox, ProSieben, ProSieben Maxx, Sat.1, Sat.1 Gold, Kabel Eins, Sport1 und Eurosport sind alle dabei. Inklusive Tagesschau, ZDFheute, n-tv, Welt und allen Mediathek-Inhalten."
+      question: "Sind alle wichtigen deutschen Free-TV-Sender enthalten?",
+      answer: "Ja, vollständig nach Postleitzahl. Alle wichtigen öffentlich-rechtlichen Vollprogramme und ihre Regionalprogramme, alle wichtigen privaten Vollprogramme und ihre Schwester-Spartensender, Themen-, Kultur-, Bildungs- und Kindersender sowie Sportkanäle sind alle dabei. Inklusive aller Hauptnachrichtensender und Mediathek-Inhalten."
     },
     {
       question: "Drosseln Vodafone, Telekom, 1&1 oder PYUR meine IPTV-Streams?",
@@ -28,7 +28,7 @@ const GermanyFAQ: React.FC = () => {
     },
     {
       question: "Wie viele gleichzeitige Streams kann mein Haushalt nutzen?",
-      answer: "Tarife bieten bis zu 4 gleichzeitige Verbindungen – damit können der Wohnzimmer-TV, das Tablet im Kinderzimmer und ein Smartphone in der Küche unterschiedliche Sender gleichzeitig zeigen. Perfekt für ein Bundesliga-Wochenende mit dem Topspiel im Wohnzimmer und der Konferenz auf dem Tablet. Der 1-Monats-Tarif startet mit 1 Verbindung; der 12-Monats-Tarif enthält standardmäßig bis zu 4 Verbindungen ohne Aufpreis."
+      answer: "Tarife bieten bis zu 4 gleichzeitige Verbindungen – damit können der Wohnzimmer-TV, das Tablet im Kinderzimmer und ein Smartphone in der Küche unterschiedliche Sender gleichzeitig zeigen. Perfekt für ein Spitzenfußball-Wochenende mit dem Topspiel im Wohnzimmer und der Konferenz auf dem Tablet. Der 1-Monats-Tarif startet mit 1 Verbindung; der 12-Monats-Tarif enthält standardmäßig bis zu 4 Verbindungen ohne Aufpreis."
     },
     {
       question: "Gibt es einen kostenlosen Test – und einen Vertrag oder Kündigungsgebühren?",
@@ -65,7 +65,7 @@ const GermanyFAQ: React.FC = () => {
             IPTV Deutschland <span className="text-yellow-400">FAQ</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-red-700 to-yellow-500 mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-400 font-medium">Klare Antworten für deutsche Cord-Cutter und Bundesliga-Fans.</p>
+          <p className="mt-6 text-gray-400 font-medium">Klare Antworten für deutsche Cord-Cutter und Live-Sport-Fans.</p>
         </div>
 
         <div className="space-y-4">

@@ -147,7 +147,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "Sophie M.",
         "location": "London, UK",
         "rating": 5,
-        "text": "Subscribed for the Premier League. The 4K quality is flawless on every match. I'm definitely renewing."
+        "text": "Subscribed for the top-tier UK football. The 4K quality is flawless on every match. I'm definitely renewing."
       },
       {
         "name": "Carlos R.",
@@ -253,7 +253,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "Marcus L.",
         "location": "Manchester, UK",
         "rating": 5,
-        "text": "I'm two months in, and the 4K quality for every Champions League match is stunning. This iptv quarterly plan is absolutely worth the price."
+        "text": "I'm two months in, and the 4K quality for every top European club football match is stunning. This iptv quarterly plan is absolutely worth the price."
       },
       {
         "name": "Aisha N.",
@@ -345,11 +345,11 @@ export const SHOP_PLANS: ShopPlan[] = [
       },
       {
         "q": "Does the **6 month iptv subscription** cover an entire sports season? Considering this **iptv subscription deal**, is the **iptv half year plan** of **iptv 6 months** the **best iptv plan 2026** for comprehensive sports coverage?",
-        "a": "Yes. Our iptv half year plan is the best iptv plan 2026 for sports. This iptv subscription deal gives iptv 6 months of NFL, Premier League, NBA, Serie A, Champions League, and more. The 6 month iptv subscription includes 4K streams where available."
+        "a": "Yes. Our iptv half year plan is the best iptv plan 2026 for sports. This iptv subscription deal gives iptv 6 months of American football, top-tier UK football, US pro basketball, top-tier Italian football, top European club football, and more. The 6 month iptv subscription includes 4K streams where available."
       },
       {
         "q": "Which sports channels are available?",
-        "a": "Gain access to thousands of sports broadcasters, including Sky Sports, BT Sport, ESPN, beIN Sports, DAZN, and Eurosport. With NBC Sports, TNT Sports, and hundreds of regional networks, no major live event is missed."
+        "a": "Gain access to thousands of sports broadcasters, including the premium UK sports broadcaster, premium UK sports broadcaster, major US sports broadcaster, Middle Eastern sports network, premium sports streaming, and major European sports network. With major US sports broadcaster, premium UK sports broadcaster, and hundreds of regional networks, no major live event is missed."
       },
       {
         "q": "Is service disconnected immediately if a renewal is late?",
@@ -365,7 +365,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "David K.",
         "location": "Los Angeles, USA",
         "rating": 5,
-        "text": "I'm 4 months into using my **iptv half year plan**. The 4K quality for the NBA season was incredible—so much better than my old cable service. This is the best viewing experience I've had."
+        "text": "I'm 4 months into using my **iptv half year plan**. The 4K quality for the US pro basketball season was incredible—so much better than my old cable service. This is the best viewing experience I've had."
       },
       {
         "name": "Elena P.",
@@ -377,7 +377,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "Ryan O.",
         "location": "Dublin, Ireland",
         "rating": 5,
-        "text": "I followed all the action from the Rugby World Cup, Champions League, and Premier League. The stream integrity was perfect, with no interruptions. You won't find a better IPTV service."
+        "text": "I followed all the action from the the international rugby tournament, top European club football, and top-tier UK football. The stream integrity was perfect, with no interruptions. You won't find a better IPTV service."
       }
     ],
     "ratingValue": 4.9,
@@ -457,7 +457,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       },
       {
         "q": "What sports programming is included for the full year?",
-        "a": "Your full-year plan provides continuous access to the entire Premier League season, La Liga, Serie A, Bundesliga, Champions League, and Europa League. It also includes the complete NFL regular season and playoffs, NBA, MLB, NHL, UFC/MMA, Formula 1, boxing, tennis Grand Slams, cricket, rugby, and many others, with 4K resolution on available broadcasts."
+        "a": "Your full-year plan provides continuous access to the entire top-tier UK football season, top-tier Spanish football, top-tier Italian football, top-tier German football, top European club football, and secondary European club football. It also includes the complete American football regular season and playoffs, US pro basketball, US pro baseball, North American pro hockey, MMA pay-per-views, top-tier open-wheel motorsport, boxing, tennis Grand Slams, cricket, rugby, and many others, with 4K resolution on available broadcasts."
       },
       {
         "q": "Is the IPTV yearly subscription billed all at once?",
@@ -481,7 +481,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "Michael B.",
         "location": "New York, USA",
         "rating": 5,
-        "text": "This iptv 12 months plan is the best iptv value 2026. For $95, my iptv yearly subscription gave me every NFL, NBA, and UFC event in 4K. It's the best iptv annual plan 2026. My iptv annual plan means no more cable."
+        "text": "This iptv 12 months plan is the best iptv value 2026. For $95, my iptv yearly subscription gave me every American football, US pro basketball, and MMA pay-per-views event in 4K. It's the best iptv annual plan 2026. My iptv annual plan means no more cable."
       },
       {
         "name": "Priya S.",
@@ -493,7 +493,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "Pierre L.",
         "location": "Paris, France",
         "rating": 5,
-        "text": "My French channels, including beIN Sports and the Canal+ alternative, all function perfectly. At $7.92/month, it's the best deal I've found for 2026."
+        "text": "My French channels, including Middle Eastern sports network and the Canal+ alternative, all function perfectly. At $7.92/month, it's the best deal I've found for 2026."
       }
     ],
     "ratingValue": 4.9,

@@ -161,7 +161,7 @@ export default function SecurityPage() {
             <p className="text-gray-300 leading-relaxed mb-3">
               Our proprietary <strong>Anti Freeze technology</strong> picks the lowest-latency CDN
               edge for each connection in real time and reroutes around regional congestion during
-              high-load events — World Cup matches, Champions League finals, Super Bowl Sunday.
+              high-load events — major international football tournaments, top European club football finals, the championship game in February.
               This is the engine behind our <strong>buffer-free streaming</strong> and{' '}
               <strong>zero buffering</strong> claims for customers on a 25 Mbps+ connection.
             </p>

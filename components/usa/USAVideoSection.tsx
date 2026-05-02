@@ -27,7 +27,7 @@ const USAVideoSection: React.FC<USAVideoSectionProps> = ({ onScrollToPricing }) 
           </h2>
 
           <p className="text-gray-300 text-lg md:text-xl font-medium mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Unlock the ultimate USA IPTV experience. Dive into a massive 4K library of obsession-worthy US series, live NFL & NBA games, and local news broadcasts nationwide.
+            Unlock the ultimate USA IPTV experience. Dive into a massive 4K library of obsession-worthy US series, live American football & basketball games, and local news broadcasts nationwide.
           </p>
 
           <div className="flex flex-col gap-4 mb-10 items-center lg:items-start">

@@ -17,9 +17,9 @@ const features = [
   },
   {
     title: 'Global Sports Coverage',
-    description: 'Premier League, NFL, NBA, UFC, Formula 1, Champions League and more — all live, in 4K, on any device. Never miss a match again.',
+    description: 'UK football, American football, US pro basketball, MMA pay-per-views, top-tier open-wheel motorsport, top European club football and more — all live, in 4K, on any device. Never miss a match again.',
     image: '/images/trial-sports.jpg',
-    alt: 'IPTV sports – Premier League, Formula 1, NBA live streaming',
+    alt: 'IPTV sports – UK football, motorsport, basketball live streaming',
   },
   {
     title: 'Movies & VOD Library',

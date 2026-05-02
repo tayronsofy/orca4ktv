@@ -4,15 +4,15 @@ import React from 'react';
 
 const reviewsRaw = [
   {
-    text: "Elke Eredivisie-topper en alle Champions League-avonden in 4K HDR op mijn Apple TV 4K — geen hapering, zelfs niet op de beslissende speeldag in mei. Ziggo opgezegd en meer dan €45 per maand bespaard.",
+    text: "Elke topvoetbal-topper en alle top Europese clubvoetbal-avonden in 4K HDR op mijn Apple TV 4K — geen hapering, zelfs niet op de beslissende speeldag in mei. Mijn kabelpakket opgezegd en meer dan €45 per maand bespaard.",
     device: "Apple TV 4K – Amsterdam",
   },
   {
-    text: "In minder dan 5 minuten via TiviMate ingesteld op de Firestick 4K Max. F1-zondagen met Max Verstappen, KNVB-beker-avonden, Olympische hoogtepunten uit Milaan-Cortina — alles haarscherp. De EPG is overzichtelijker dan alles wat ik daarvoor had.",
+    text: "In minder dan 5 minuten via TiviMate ingesteld op de Firestick 4K Max. Motorsport-zondagen, nationale beker-avonden, Olympische hoogtepunten — alles haarscherp. De EPG is overzichtelijker dan alles wat ik daarvoor had.",
     device: "Firestick 4K Max – Rotterdam",
   },
   {
-    text: "Na de zoveelste prijsverhoging van KPN overgestapt. Dezelfde Eredivisie, dezelfde NPO Start, plus 100+ internationale zenders. Streamt vlekkeloos in 4K HDR op mijn LG OLED.",
+    text: "Na de zoveelste prijsverhoging overgestapt. Hetzelfde topvoetbal, dezelfde publieke-omroep-content, plus 100+ internationale zenders. Streamt vlekkeloos in 4K HDR op mijn LG OLED.",
     device: "LG webOS + iPhone – Eindhoven",
   },
 ];
@@ -30,7 +30,7 @@ const NetherlandsReviews: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Geverifieerde Nederlandse cord-cutters van Amsterdam tot Eindhoven — buffervrij 4K HDR, elke Eredivisie-wedstrijd, elke F1-Grand Prix, elk Olympisch moment, één enkel IPTV-abonnement.
+            Geverifieerde Nederlandse cord-cutters van Amsterdam tot Eindhoven — buffervrij 4K HDR, elke topvoetbal-wedstrijd, elke open-wheel motorsport-race, elk Winterspelen-moment, één enkel IPTV-abonnement.
           </p>
         </div>
 

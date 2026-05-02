@@ -216,11 +216,11 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
           )
         })()}
 
-        {/* World Cup 2026 CTA */}
+        {/* Summer 2026 international football tournament CTA */}
         <div className="mt-16 rounded-2xl border border-white/10 bg-[#000a1c] p-8 md:p-10">
           <div className="mb-4">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-green-400">
-              ⚽ World Cup 2026 Offer
+              ⚽ Summer 2026 Tournament Offer
             </span>
           </div>
           <h3 className="mb-3 text-2xl font-black text-white md:text-3xl">
@@ -237,7 +237,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             href="/#pricing"
             className="inline-block rounded-xl bg-green-500 px-8 py-3.5 text-sm font-black uppercase tracking-widest text-white transition-colors hover:bg-green-400"
           >
-            Claim World Cup Deal →
+            Claim Tournament Deal →
           </a>
           <p className="mt-4 text-xs text-gray-600">
             Offer valid for new subscribers and single-device plans only.

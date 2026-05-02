@@ -8,7 +8,7 @@ const reviewsRaw = [
     device: "Firestick 4K Max – United States",
   },
   {
-    text: "No credit card needed, no spam emails, just instant access. Champions League in 4K was flawless. Best free IPTV trial I've ever tested.",
+    text: "No credit card needed, no spam emails, just instant access. Top European club football in 4K was flawless. Best free IPTV trial I've ever tested.",
     device: "Samsung Smart TV – United Kingdom",
   },
   {

@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Stream FIFA World Cup 2026, Super Bowl LX, Champions League finals and every premium IPTV channel in 4K Ultra-HD with HDR10+ and Dolby Vision support. Powered by Anti Freeze CDN, AES-256 encrypted, multi-device ready, and backed by an AI concierge that finds your show in seconds.
+          Stream the biggest international football tournament of 2026, the championship game in February, top European club football finals and every premium IPTV channel in 4K Ultra-HD with HDR10+ and Dolby Vision support. Powered by Anti Freeze CDN, AES-256 encrypted, multi-device ready, and backed by an AI concierge that finds your show in seconds.
         </p>
 
         {/* AI Search Bar Area */}
@@ -102,7 +102,7 @@ const Hero: React.FC = () => {
               aria-label="Search for channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Ask anything: 'Is Sky Sports in 4K?' · 'NFL on Firestick?' · 'World Cup 2026?'"
+              placeholder="Ask anything: 'Live sports in 4K tonight?' · 'IPTV setup on Firestick?' · 'Best sports tier?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00E5FF]/50 transition-all text-lg shadow-2xl"
             />
             <button

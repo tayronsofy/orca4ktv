@@ -4,15 +4,15 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every Leafs playoff game in 4K HDR on my Apple TV 4K — zero buffering during overtime, even during the Cup final. Dropped Rogers Ignite and saved over $90 a month.",
+        text: "Watched every home hockey playoff game in 4K HDR on my Apple TV 4K — zero buffering during overtime, even during the championship final. Dropped my cable plan and saved over $90 a month.",
         device: "Apple TV 4K — Toronto, ON",
     },
     {
-        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Canucks games on Sportsnet, CFL Fridays on TSN, even the Olympic curling final from Milano — all crystal clear. Bilingual EPG is a killer feature.",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Local hockey games on the premium sports tier, Canadian football Fridays, even the 2026 Winter Games curling final — all crystal clear. Bilingual EPG is a killer feature.",
         device: "Firestick 4K Max — Vancouver, BC",
     },
     {
-        text: "Switched from Bell Fibe after the umpteenth price hike. Same TVA Sports, RDS and ICI Télé coverage I had before, plus 100+ extra international channels. Service à la clientèle en français — nickel.",
+        text: "Switched after the umpteenth price hike. Same French-language sports and free-to-air coverage I had before, plus 100+ extra international channels. Service à la clientèle en français — nickel.",
         device: "LG webOS + iPhone — Montréal, QC",
     },
 ];
@@ -31,7 +31,7 @@ const CanadaReviews: React.FC = () => {
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Verified Canadian cord-cutters from Toronto to Vancouver to Montréal — buffer-free 4K HDR, every NHL game, every Olympic final, every CBC and Radio-Canada feed, one bilingual IPTV subscription.
+                        Verified Canadian cord-cutters from Toronto to Vancouver to Montréal — buffer-free 4K HDR, every North American pro hockey game, every Winter Games final, every Canadian English and French free-to-air feed, one bilingual IPTV subscription.
                     </p>
                 </div>
 

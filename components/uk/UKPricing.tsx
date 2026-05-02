@@ -11,8 +11,8 @@ const UKPricing = () => {
 
   // UK-specific unique text
   const UK_FEATURES = [
-    "All UK Networks (BBC, ITV, Channel 4, Sky, TNT Sports)",
-    "Premier League, Champions League, F1 — Every Match",
+    "All Major UK Free-to-Air Networks & Premium UK Sports Tier",
+    "UK Football, Top European Football, Motorsport — Every Match",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",

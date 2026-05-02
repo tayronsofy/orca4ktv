@@ -11,8 +11,8 @@ const USAPricing = () => {
 
   // USA-specific unique text
   const USA_FEATURES = [
-    "All US Local & National Networks (ABC, CBS, NBC, FOX, PBS)",
-    "NFL, NBA, MLB, NHL — Every Game Live in 4K HDR",
+    "All Major US Free-to-Air Networks & Local Affiliates by ZIP",
+    "American Football, Basketball, Baseball, Hockey — Every Game Live in 4K HDR",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",

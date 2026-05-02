@@ -10,8 +10,8 @@ const NetherlandsPricing = () => {
   const [activeDeviceCount, setActiveDeviceCount] = useState<1 | 2 | 3 | 4>(1);
 
   const NETHERLANDS_FEATURES = [
-    "Alle Nederlandse zenders (NPO, RTL, Ziggo Sport)",
-    "Eredivisie, KNVB-beker, Champions League, F1",
+    "Alle belangrijke Nederlandse free-to-air zenders en premium sportlaag",
+    "Topvoetbal, nationale beker, top Europees clubvoetbal, open-wheel motorsport",
     "22.000+ internationale live-kanalen wereldwijd",
     "100.000+ films & series on-demand",
     "Echte 4K HDR met HDR10+ en Dolby Vision",

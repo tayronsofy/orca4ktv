@@ -68,7 +68,7 @@ export default function CouponPopup() {
           </h2>
 
           <p className="text-gray-400 mb-6 leading-relaxed">
-            22,000+ live channels in 4K HDR — Premier League, NFL, F1 2026, every match. Use the code below at checkout.
+            22,000+ live channels in 4K HDR — UK football, American football, 2026 open-wheel motorsport, every match. Use the code below at checkout.
           </p>
 
           <div className="bg-black/40 border-2 border-dashed border-[#00E5FF]/50 rounded-2xl p-4 mb-6">

@@ -5,14 +5,14 @@ import React from 'react';
 const UK_FEATURES = [
   {
     title: 'London-to-Edinburgh Coverage with a UK Edge POP',
-    description: 'A dedicated London edge server keeps latency under 25ms whether you are watching the 3pm Saturday kick-offs from Manchester, the Six Nations from Cardiff, or Wimbledon late-night highlights from Edinburgh. Anti Freeze CDN reroutes around peak Premier League and Champions League match-day congestion in real time, so every goal, every try, every set point lands buffer-free in 4K HDR.',
+    description: 'A dedicated London edge server keeps latency under 25ms whether you are watching the 3pm Saturday kick-offs from Manchester, the Northern hemisphere international rugby from Cardiff, or summer Grand Slam tennis late-night highlights from Edinburgh. Anti Freeze CDN reroutes around peak UK football and top European football match-day congestion in real time, so every goal, every try, every set point lands buffer-free in 4K HDR.',
     imageUrl: '/images/uk-coverage.jpg',
-    altText: 'Two British football fans on a navy sofa watching a live 4K HDR Premier League match on a wall-mounted Smart TV — buffer-free IPTV UK streaming on ORCA 4K TV.',
+    altText: 'Two British football fans on a navy sofa watching a live 4K HDR football match on a wall-mounted Smart TV — buffer-free IPTV UK streaming on ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Smart EPG Built for the British Sports Calendar',
-    description: 'The ORCA 4K TV smart EPG guide knows your week — Premier League weekends, Champions League midweek, Six Nations Saturdays, F1 Sunday races, Wimbledon late evenings, county cricket weekdays. Live scores, channel-jump shortcuts, 7-day catch up TV across BBC iPlayer-style content, ITVX-style on-demand, and AI-powered "what is on right now" search across every UK broadcaster.',
+    description: 'The ORCA 4K TV smart EPG guide knows your week — UK football weekends, top European football midweek, Northern hemisphere international rugby Saturdays, motorsport Sunday races, summer Grand Slam tennis late evenings, county cricket weekdays. Live scores, channel-jump shortcuts, 7-day catch up TV across catch-up streaming-equivalent content, premium on-demand, and AI-powered "what is on right now" search across every UK broadcaster.',
     imageUrl: '/images/uk-epg.jpg',
     altText: 'Adult holding a TV remote browsing the Smart EPG channel guide on a 4K Smart TV — ORCA 4K TV UK IPTV subscription with electronic program guide and 7-day catch up TV.',
     reverse: true

@@ -5,14 +5,14 @@ import React from 'react';
 const CANADA_FEATURES = [
   {
     title: 'Coast-to-Coast Coverage with Toronto + Vancouver Edge POPs',
-    description: 'Two Canadian edge servers — Toronto and Vancouver — keep latency under 25ms whether you are watching a Stanley Cup playoff shift in Halifax, the 2026 Olympic curling final in Calgary, or a CFL Friday night in Winnipeg. Anti Freeze CDN reroutes around peak match-day congestion in real time, so every goal, every gold-medal moment, every Toronto Blue Jays at-bat lands buffer-free in 4K HDR.',
+    description: 'Two Canadian edge servers — Toronto and Vancouver — keep latency under 25ms whether you are watching a hockey playoff shift in Halifax, the 2026 Winter Games curling final in Calgary, or a Canadian football Friday night in Winnipeg. Anti Freeze CDN reroutes around peak match-day congestion in real time, so every goal, every gold-medal moment, every home US pro baseball at-bat from Toronto lands buffer-free in 4K HDR.',
     imageUrl: '/images/canada-coverage.jpg',
-    altText: 'Two Canadian hockey fans on a navy sofa watching a live 4K HDR NHL Stanley Cup playoff match on a wall-mounted Smart TV — buffer-free IPTV Canada streaming on ORCA 4K TV.',
+    altText: 'Two Canadian hockey fans on a navy sofa watching a live 4K HDR North American pro hockey playoff match on a wall-mounted Smart TV — buffer-free IPTV Canada streaming on ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Bilingual Smart EPG — English + Français',
-    description: 'The ORCA 4K TV smart EPG guide knows your week in both official languages — Hockey Night in Canada Saturdays, La Soirée du hockey on Radio-Canada, CFL Fridays, the Olympic medal table from Milano-Cortina, World Cup match days at BMO Field. Live scores, channel-jump shortcuts, 7-day catch up TV, AI-powered "what is on right now" search across CBC, CTV, Global, Citytv, TSN, Sportsnet, RDS and TVA Sports.',
+    description: 'The ORCA 4K TV smart EPG guide knows your week in both official languages — Saturday-night hockey broadcasts in English and French, Canadian football Fridays, the 2026 Winter Games medal table, summer international football match days at the Toronto host venue. Live scores, channel-jump shortcuts, 7-day catch up TV, AI-powered "what is on right now" search across all major Canadian English and French free-to-air networks and the premium Canadian sports tier.',
     imageUrl: '/images/canada-epg.jpg',
     altText: 'Adult holding a TV remote browsing the bilingual Smart EPG channel guide on a 4K Smart TV — ORCA 4K TV Canada IPTV subscription with electronic program guide and 7-day catch up TV.',
     reverse: true

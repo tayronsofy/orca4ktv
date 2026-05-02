@@ -3,7 +3,7 @@ import { CheckCircle2, Zap, Globe, Shield, Tv2, Clock } from 'lucide-react'
 const ITEMS = [
   { icon: Tv2,         label: '4K Ultra-HD',             sub: 'Every match in crystal-clear resolution' },
   { icon: Zap,         label: 'Zero Buffer Technology',   sub: 'Peak servers built for match-day traffic' },
-  { icon: Globe,       label: '2026 Fiber Optimized',     sub: 'Infrastructure upgraded for World Cup load' },
+  { icon: Globe,       label: '2026 Fiber Optimized',     sub: 'Infrastructure upgraded for major international tournament load' },
   { icon: Shield,      label: 'Stable 99.9% Uptime',      sub: 'No downtime during the big moments' },
   { icon: CheckCircle2,label: 'Works on Any Device',      sub: 'Smart TV, Firestick, iOS, Android, PC' },
   { icon: Clock,       label: 'Instant Activation',       sub: 'Stream within minutes of signing up' },

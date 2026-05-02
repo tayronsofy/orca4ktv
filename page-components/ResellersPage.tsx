@@ -57,7 +57,7 @@ const ResellersPage: React.FC = () => {
         {
             icon: 'fa-tv',
             title: '22,000+ channels & 100,000+ VOD',
-            body: 'Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, Olympics Milano-Cortina — every league your clients want, in 4K HDR.'
+            body: 'Top-tier UK, Spanish, Italian, German and Dutch football, American football, US pro basketball, North American pro hockey, US pro baseball, top-tier open-wheel motorsport, the 2026 Winter Games — every league your clients want, in 4K HDR.'
         },
         {
             icon: 'fa-shield-halved',
@@ -125,15 +125,15 @@ const ResellersPage: React.FC = () => {
 
     const testimonials = [
         {
-            text: "Switched my Berlin reseller business to ORCA 4K TV in early 2026 — now running 80+ active subscribers on Bundesliga / Champions League. Margins jumped from 55% to 81% on the 240-credit package. Anti Freeze CDN is the real differentiator: my churn dropped by half because clients stopped complaining about buffering.",
+            text: "Switched my Berlin reseller business to ORCA 4K TV in early 2026 — now running 80+ active subscribers on the German top-tier football and top European club football tier. Margins jumped from 55% to 81% on the 240-credit package. Anti Freeze CDN is the real differentiator: my churn dropped by half because clients stopped complaining about buffering.",
             partner: "Andre M. — IPTV reseller · Berlin"
         },
         {
-            text: "Operating a sub-reseller network across Manchester for Premier League, F1, and TNT Sports clients. Sub-reseller hierarchy lets me onboard new partners in 5 minutes. Credit-based provisioning means zero waiting — I create accounts on-demand and customers stream in 4K HDR within 60 seconds. The 24/7 dealer queue is the cleanest support I've used.",
+            text: "Operating a sub-reseller network across Manchester for UK football, motorsport and premium UK sports clients. Sub-reseller hierarchy lets me onboard new partners in 5 minutes. Credit-based provisioning means zero waiting — I create accounts on-demand and customers stream in 4K HDR within 60 seconds. The 24/7 dealer queue is the cleanest support I've used.",
             partner: "Sam W. — IPTV reseller · Manchester"
         },
         {
-            text: "Boutique IPTV reseller out of Lisbon, mostly multilingual Eredivisie and Liga Portugal clients. The white-label panel is straightforward — even my non-technical clients are streaming under my brand within 60 seconds. Bulk credits at $2.10 each on the 500-credit tier means I can resell at €15/month for 86% margin. Best IPTV reseller program I've found in 2026.",
+            text: "Boutique IPTV reseller out of Lisbon, mostly multilingual Dutch and Portuguese top-tier football clients. The white-label panel is straightforward — even my non-technical clients are streaming under my brand within 60 seconds. Bulk credits at $2.10 each on the 500-credit tier means I can resell at €15/month for 86% margin. Best IPTV reseller program I've found in 2026.",
             partner: "Lucia P. — IPTV reseller · Lisbon"
         }
     ];
@@ -387,7 +387,7 @@ const ResellersPage: React.FC = () => {
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        What makes ORCA 4K TV different from every other IPTV reseller program: <strong className="text-white">Anti Freeze CDN</strong> with regional edge servers, <strong className="text-white">22,000+ live channels</strong> covering Premier League, NFL, NBA, NHL, MLB, Bundesliga, Eredivisie, F1 2026, the Olympic Winter Games Milano-Cortina, and the FIFA World Cup 2026, plus <strong className="text-white">100,000+ on-demand titles</strong> from Hollywood, Apple TV+, Prime Video, and major premium series. Your clients get true 4K HDR with HDR10+ and Dolby Vision on every device — Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS, and any modern web browser. The ORCA 4K TV white-label IPTV dealer panel provisions M3U URLs and Xtream codes (TLS 1.3 / AES-256, NIST FIPS 197) instantly via credit-based provisioning, with full sub-reseller hierarchy, geo-restriction controls, bulk credit operations, and flexible 1–24 month subscription durations.
+                        What makes ORCA 4K TV different from every other IPTV reseller program: <strong className="text-white">Anti Freeze CDN</strong> with regional edge servers, <strong className="text-white">22,000+ live channels</strong> covering top-tier football across the UK, Spain, Italy, Germany and the Netherlands, American football, US pro basketball, US pro baseball, North American pro hockey, top European club football midweek, the 2026 Winter Games, the 2026 international football tournament, and top-tier open-wheel motorsport, plus <strong className="text-white">100,000+ on-demand titles</strong> from Hollywood, premium streaming-platform-equivalent originals, and major premium series. Your clients get true 4K HDR with HDR10+ and Dolby Vision on every device — Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS, and any modern web browser. The ORCA 4K TV white-label IPTV dealer panel provisions M3U URLs and Xtream codes (TLS 1.3 / AES-256, NIST FIPS 197) instantly via credit-based provisioning, with full sub-reseller hierarchy, geo-restriction controls, bulk credit operations, and flexible 1–24 month subscription durations.
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
@@ -395,7 +395,7 @@ const ResellersPage: React.FC = () => {
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        We back every ORCA 4K TV IPTV reseller with comprehensive onboarding, a dedicated 24/7 dealer support queue (separate from end-user support, so partners always route to a senior engineer), and multilingual support across English. Whether you serve <a href="/iptv-usa" className="text-[#00E5FF] hover:underline">US households</a>, <a href="/iptv-uk" className="text-[#00E5FF] hover:underline">UK Premier League fans</a>, <a href="/iptv-canada" className="text-[#00E5FF] hover:underline">Canadian NHL viewers</a>, <a href="/iptv-germany" className="text-[#00E5FF] hover:underline">German Bundesliga audiences</a>, or <a href="/iptv-netherlands" className="text-[#00E5FF] hover:underline">Dutch Eredivisie clients</a>, your reseller panel ships them buffer-free 4K HDR streaming on day one. Need product specs to share with your clients? See our <a href="/iptv-shop" className="text-[#00E5FF] hover:underline">IPTV plans</a>, the <a href="/iptv-shop/12-months" className="text-[#00E5FF] hover:underline">12-month subscription</a>, our <a href="/security" className="text-[#00E5FF] hover:underline">security &amp; encryption details</a>, the <a href="/setup-guide" className="text-[#00E5FF] hover:underline">device setup guide</a>, the <a href="/glossary" className="text-[#00E5FF] hover:underline">IPTV glossary</a>, or the <a href="/trial" className="text-[#00E5FF] hover:underline">free trial</a> page so prospective customers can test before they commit.
+                        We back every ORCA 4K TV IPTV reseller with comprehensive onboarding, a dedicated 24/7 dealer support queue (separate from end-user support, so partners always route to a senior engineer), and multilingual support across English. Whether you serve <a href="/iptv-usa" className="text-[#00E5FF] hover:underline">US households</a>, <a href="/iptv-uk" className="text-[#00E5FF] hover:underline">UK live-sports fans</a>, <a href="/iptv-canada" className="text-[#00E5FF] hover:underline">Canadian hockey viewers</a>, <a href="/iptv-germany" className="text-[#00E5FF] hover:underline">German live-sports audiences</a>, or <a href="/iptv-netherlands" className="text-[#00E5FF] hover:underline">Dutch live-sports clients</a>, your reseller panel ships them buffer-free 4K HDR streaming on day one. Need product specs to share with your clients? See our <a href="/iptv-shop" className="text-[#00E5FF] hover:underline">IPTV plans</a>, the <a href="/iptv-shop/12-months" className="text-[#00E5FF] hover:underline">12-month subscription</a>, our <a href="/security" className="text-[#00E5FF] hover:underline">security &amp; encryption details</a>, the <a href="/setup-guide" className="text-[#00E5FF] hover:underline">device setup guide</a>, the <a href="/glossary" className="text-[#00E5FF] hover:underline">IPTV glossary</a>, or the <a href="/trial" className="text-[#00E5FF] hover:underline">free trial</a> page so prospective customers can test before they commit.
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">

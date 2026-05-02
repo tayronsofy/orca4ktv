@@ -29,7 +29,7 @@ const UKHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our UK concierge is offline right now — but yes, ORCA 4K TV ships every major British broadcaster including BBC One, BBC Two, ITV, Channel 4, Channel 5, plus Premier League, Champions League, Six Nations Rugby, F1, Wimbledon, cricket and more.");
+      setAiResponse("Our UK concierge is offline right now — but yes, ORCA 4K TV ships all major UK free-to-air networks plus full UK football coverage, top European football midweek, Northern hemisphere international rugby, motorsport, the summer Grand Slam tennis fortnight, cricket and more.");
     } finally {
       setIsSearching(false);
     }
@@ -70,11 +70,11 @@ const UKHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Every 3pm Kick-Off. Every Six Nations Try. Every Wimbledon Set — In 4K HDR, Without the Satellite Bill
+          Every 3pm Kick-Off. Every International Rugby Try. Every Grand Slam Set — In 4K HDR, Without the Satellite Bill
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          From the Premier League title race to the Six Nations 2026 in February, Wimbledon and The Open Championship in summer, every F1 grand prix of the new 2026 era, every Champions League knockout — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with a London edge keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Apple TV 4K, Smart TV — just ask the AI concierge what&apos;s on tonight.
+          From the UK football title race to the Northern hemisphere international rugby championship in February, the summer Grand Slam tennis fortnight and the Open golf championship, every round of the new 2026-era open-wheel motorsport season, every top European club football knockout — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with a London edge keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Apple TV 4K, Smart TV — just ask the AI concierge what&apos;s on tonight.
         </p>
 
         {/* AI Search Bar Area */}
@@ -86,7 +86,7 @@ const UKHero: React.FC = () => {
               aria-label="Search for UK channels or content"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Ask anything: 'Premier League tonight?' · 'Six Nations Saturday?' · 'F1 race weekend?'"
+              placeholder="Ask anything: 'UK football tonight?' · 'Rugby international Saturday?' · 'Motorsport race weekend?'"
               className="relative w-full bg-black/40 border border-white/10 backdrop-blur-3xl rounded-full px-10 py-6 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all text-lg shadow-2xl"
             />
             <button

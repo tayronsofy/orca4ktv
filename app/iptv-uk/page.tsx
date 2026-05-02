@@ -4,9 +4,9 @@ import UKHomePage from '@/page-components/uk/UKHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
-  description: 'Best IPTV UK 2026: every Premier League match, Champions League, F1, Wimbledon in 4K HDR. 22,000+ channels, BBC, ITV, Channel 4. Multi-device, instant.',
-  keywords: 'best iptv uk 2026, premier league iptv, premier league iptv no buffering, uk tv channels iptv hd, champions league iptv uk, six nations rugby iptv, F1 iptv uk 2026, wimbledon iptv 2026, the open championship iptv, cricket iptv uk, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, BBC iPlayer alternative, ITVX alternative, Channel 4 alternative, satellite TV alternative UK',
+  title: 'Best IPTV UK 2026 — Live Sports & UK Networks | ORCA 4K TV',
+  description: 'Best IPTV UK 2026: every UK football matchday, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. 22,000+ channels, all major UK free-to-air networks. Multi-device, instant.',
+  keywords: 'best iptv uk 2026, iptv uk, uk iptv subscription, uk live tv channels iptv hd, iptv uk no buffering, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, satellite TV alternative UK, cord cutting uk',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-uk',
     languages: {
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
-    description: 'Best IPTV UK 2026: every Premier League, Champions League, F1, Wimbledon in 4K HDR. 22,000+ channels, BBC, ITV. Multi-device, instant.',
+    title: 'Best IPTV UK 2026 — Live Sports & UK Networks | ORCA 4K TV',
+    description: 'Best IPTV UK 2026: every UK football matchday, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. 22,000+ channels, all major UK free-to-air networks. Multi-device, instant.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-uk',
     images: [{ url: 'https://orca4ktv.com/images/uk-coverage.jpg', width: 1200, height: 630 }],
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best IPTV UK 2026 — Premier League, BBC, ITV | ORCA 4K TV',
-    description: 'Premier League, Champions League, F1, Wimbledon in 4K HDR. Anti Freeze CDN. AES-256 encrypted. £/mo plans.',
+    title: 'Best IPTV UK 2026 — Live Sports & UK Networks | ORCA 4K TV',
+    description: 'UK football, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. Anti Freeze CDN. AES-256 encrypted. £/mo plans.',
   },
 }
 
@@ -50,7 +50,7 @@ export default function UKPage() {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-uk#product",
                 "name": "Best IPTV UK 2026 — ORCA 4K TV",
-                "description": "Premium IPTV subscription for the United Kingdom — 22,000+ live channels including Premier League, BBC, ITV, Channel 4, Channel 5, Six Nations Rugby, F1, Wimbledon, cricket and more, in 4K HDR with HDR10+ and Dolby Vision.",
+                "description": "Premium IPTV subscription for the United Kingdom — 22,000+ live channels covering UK football, top European football midweek, premium UK sports tier, all major UK free-to-air networks, motorsport, Grand Slam tennis, cricket and rugby — in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/uk-coverage.jpg",
                 "brand": { "@type": "Brand", "name": "ORCA 4K TV" },
                 "category": "IPTV Streaming Service",
@@ -80,7 +80,7 @@ export default function UKPage() {
                 "areaServed": { "@type": "Country", "name": "United Kingdom" },
                 "audience": {
                   "@type": "Audience",
-                  "audienceType": "British cord-cutters, Premier League fans, premium streaming households"
+                  "audienceType": "British cord-cutters, live-sports households, premium streaming households"
                 },
                 "hoursAvailable": {
                   "@type": "OpeningHoursSpecification",
@@ -88,7 +88,7 @@ export default function UKPage() {
                   "opens": "00:00",
                   "closes": "23:59"
                 },
-                "description": "Premium IPTV streaming service for UK cord-cutters: 22,000+ live channels, Premier League, BBC, ITV, Channel 4, Channel 5, Six Nations Rugby, F1, Wimbledon, cricket, 4K HDR streaming, AES-256 encryption, Anti Freeze CDN with a London edge POP, multi-device compatibility across Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
+                "description": "Premium IPTV streaming service for UK cord-cutters: 22,000+ live channels, UK football coverage, top European club football midweek, premium UK sports tier, all major UK free-to-air networks, motorsport, Grand Slam tennis, rugby and cricket, 4K HDR streaming, AES-256 encryption, Anti Freeze CDN with a London edge POP, multi-device compatibility across Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
               }
             ]
           })
@@ -105,15 +105,15 @@ export default function UKPage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            Best IPTV UK 2026 — Stream the Premier League, BBC, ITV &amp; Every Match in 4K HDR
+            Best IPTV UK 2026 — Stream UK Football, Live Sports &amp; Every UK Network in 4K HDR
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            <strong className="text-white">ORCA 4K TV</strong> is the best IPTV UK 2026 for cord-cutters who want every match, every channel, every screen — without the £85+ satellite-TV bill. Watch every <strong className="text-white">3pm Saturday kick-off</strong> live in 4K HDR, every <strong className="text-white">Premier League title-race fixture</strong>, every <strong className="text-white">Champions League knockout</strong>, the <strong className="text-white">Six Nations 2026</strong> in February, every F1 grand prix of the new 2026 regulations, <strong className="text-white">Wimbledon</strong>, <strong className="text-white">The Open Championship</strong>, the Ashes, county cricket, Premiership Rugby, British boxing — 22,000+ live channels in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Buffer-free streaming powered by our Anti Freeze CDN with a dedicated London edge server.
+            <strong className="text-white">ORCA 4K TV</strong> is the best IPTV UK 2026 for cord-cutters who want every match, every channel, every screen — without the £85+ satellite-TV bill. Watch every <strong className="text-white">3pm Saturday kick-off</strong> live in 4K HDR, every UK top-flight football fixture, every top European club football knockout night, the Northern hemisphere international rugby championship in February, every round of the new 2026-era open-wheel motorsport season, the summer Grand Slam tennis fortnight, the Open golf championship, the home cricket Test series, top-flight UK rugby — 22,000+ live channels in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Buffer-free streaming powered by our Anti Freeze CDN with a dedicated London edge server.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            UK satellite-TV packages averaged <strong className="text-white">£85+/month</strong> in 2025 once you bundled Premier League, premium sports, films, and a HD box rental. ORCA 4K TV ships more channels, more sports, more on-demand titles for{' '}
+            UK satellite-TV packages averaged <strong className="text-white">£85+/month</strong> in 2025 once you bundled premium UK football, premium sports, films, and a HD box rental. ORCA 4K TV ships more channels, more sports, more on-demand titles for{' '}
             <strong className="text-white">£6.50/month</strong> on the{' '}
             <a href="/iptv-shop/12-months" className="text-blue-400 hover:underline">12-month plan</a>. Cord-cut Virgin Media, BT TV, NOW, fubo and the entire satellite-box era in one move. No installer visit, no aerial dish, no contract trap.
           </p>
@@ -127,14 +127,14 @@ export default function UKPage() {
           </p>
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">UK terrestrial:</strong> BBC One, BBC Two, ITV1, ITV2, ITV3, ITV4, Channel 4, Channel 5, E4, More4, Film4, Dave, Quest, BBC Three, BBC Four, BBC News, Sky News (free-to-air)</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Premier League &amp; football:</strong> every Premier League match including 3pm Saturdays, Champions League knockouts, Europa League, EFL Cup, FA Cup, Scottish Premiership</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Rugby:</strong> Six Nations 2026, Premiership Rugby, World Rugby, the British &amp; Irish Lions tour, Rugby League Super League</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Cricket:</strong> The Hundred, T20 Blast, Test cricket, the Ashes, ICC tournaments</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">F1 &amp; motorsport:</strong> every F1 grand prix of the 2026 era, MotoGP, Formula E, British Touring Cars, Le Mans</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Tennis &amp; golf:</strong> Wimbledon 2026, Queen&apos;s, ATP / WTA tours, The Open Championship, US Open, PGA, Ryder Cup</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Boxing &amp; MMA:</strong> headline UK fight nights, world title bouts, UFC pay-per-view fights at no extra cost</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand films &amp; series</strong> with same-week Hollywood releases — every Marvel, Pixar, Apple TV+, Prime Video and HBO Original</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">UK terrestrial:</strong> all major UK free-to-air networks and their HD/+1 variants, plus regional affiliates by postcode (free-to-air)</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">UK football:</strong> every UK top-flight match including 3pm Saturdays, top European club football knockouts, second-tier and lower-league fixtures, domestic cup competitions and Scottish top-flight</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Rugby:</strong> Northern hemisphere international championship 2026, top-flight UK rugby, World Rugby internationals, the touring international squad of 2026, top-tier UK rugby league</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Cricket:</strong> the short-format city tournament, top-tier T20 domestic competition, Test cricket, the home England-Australia series, international tournaments</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Motorsport:</strong> every round of the new 2026-era open-wheel championship, premier motorcycle racing, all-electric single-seater racing, top-tier UK touring cars, endurance racing</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Tennis &amp; golf:</strong> all four Grand Slam tennis tournaments, the early-summer London grass-court warm-up, ATP / WTA tour stops, the Open golf championship, all four golf majors, biennial transatlantic team golf</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Boxing &amp; MMA:</strong> headline UK fight nights, world title bouts, MMA pay-per-view fights at no extra cost</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand films &amp; series</strong> with same-week Hollywood releases — major studio blockbusters and premium streaming-platform-style originals</span></li>
           </ul>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-blue-500/15">
@@ -143,10 +143,10 @@ export default function UKPage() {
 
           <p className="text-gray-300 text-lg leading-relaxed">
             The 2026 UK sports calendar is the most demanding broadcast year in history:{' '}
-            <strong className="text-white">Six Nations 2026</strong> kicks off Friday 6 February, the Premier League title race intensifies through May,{' '}
-            <strong className="text-white">Wimbledon 2026</strong> runs late June through mid-July,{' '}
-            <strong className="text-white">The Open Championship 2026</strong> arrives mid-July, the new-rules <strong className="text-white">F1 2026 season</strong> opens in March, and the{' '}
-            <strong className="text-white">FIFA World Cup 2026</strong> follows in June with England in the running. Our Anti Freeze CDN routes around peak match-day congestion in real time — Manchester to Cardiff, Glasgow to Plymouth — so every kick-off, every set point, every breakaway lands buffer-free in 4K HDR. AES-256 encrypted (
+            the <strong className="text-white">Northern hemisphere international rugby championship</strong> kicks off Friday 6 February, the UK football title race intensifies through May,{' '}
+            the <strong className="text-white">summer Grand Slam tennis fortnight</strong> runs late June through mid-July,{' '}
+            the <strong className="text-white">Open golf championship</strong> arrives mid-July, the <strong className="text-white">new-rules 2026 open-wheel motorsport season</strong> opens in March, and the{' '}
+            <strong className="text-white">summer 2026 international football tournament</strong> follows in June with England in the running. Our Anti Freeze CDN routes around peak match-day congestion in real time — Manchester to Cardiff, Glasgow to Plymouth — so every kick-off, every set point, every breakaway lands buffer-free in 4K HDR. AES-256 encrypted (
             <a href="/security" className="text-blue-400 hover:underline">NIST FIPS 197</a>), VPN traffic welcomed, 24/7 IPTV customer support with average first reply under 5 minutes.
           </p>
 

@@ -35,7 +35,7 @@ The Amazon Firestick remains the absolute best device for IPTV in 2026. Its powe
 
 But out of the box, your Firestick isn't optimized for raw streaming performance. 
 
-In this guide, we'll walk you through unlocking the true potential of your device, ensuring you enjoy **Premier League**, **NFL**, and **4K Movies** without a single dropped frame.
+In this guide, we'll walk you through unlocking the true potential of your device, ensuring you enjoy **top-tier UK football**, **American football**, and **4K Movies** without a single dropped frame.
 
 ## Step 1: Prepare Your Device (The "Jailbreak" Phase)
 
@@ -74,11 +74,11 @@ Once you sign up for a ORCA 4K TV trial or subscription, you are provided with *
 
 Open TiviMate, select *Add Playlist*, choose *Xtream Codes Login*, and carefully enter those three details. 
 
-Within 30 seconds, your device will download 22,000+ live TV channels, and thousands of movies instantly categorized by country (USA Local Channels, UK Sports, Canada NHL Center Ice).
+Within 30 seconds, your device will download 22,000+ live TV channels, and thousands of movies instantly categorized by country (USA Local Channels, UK Sports, Canada out-of-market hockey package).
 
 ## Why You Need a Premium Provider
 
-You can have the best hardware in the world—a Firestick 4K Max wired directly to your gigabit router via ethernet—but if your IPTV provider suffers from server congestion during a massive **NFL Sunday** or a **UFC Pay-Per-View**, your stream will buffer.
+You can have the best hardware in the world—a Firestick 4K Max wired directly to your gigabit router via ethernet—but if your IPTV provider suffers from server congestion during a massive **American football Sunday** or a **MMA pay-per-view**, your stream will buffer.
 
 That's why ORCA 4K TV utilizes our proprietary global CDN network spanning 60+ countries, load-balancing traffic instantly to guarantee a flawless 99.9% uptime. 
 

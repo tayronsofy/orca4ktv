@@ -4,9 +4,9 @@ import CanadaHomePage from '@/page-components/canada/CanadaHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
-  description: 'Best IPTV Canada 2026: every NHL Stanley Cup match, CFL, MLB, 2026 Olympics in 4K HDR. 22,000+ channels, CBC, CTV, TSN, Sportsnet. Bilingual EN/FR.',
-  keywords: 'best iptv canada 2026, iptv canada, nhl iptv canada, stanley cup playoffs iptv, cfl iptv canada, tsn iptv canada, sportsnet iptv canada, cbc iptv, ctv iptv, global tv iptv canada, citytv iptv, french canadian iptv channels, rds iptv quebec, tva sports iptv, radio-canada iptv, milano cortina 2026 olympics canada, fifa world cup 2026 toronto vancouver, raptors iptv toronto, blue jays iptv, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, multi-device compatibility, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, cord cutting canada 2026',
+  title: 'Best IPTV Canada 2026 — Hockey, Live Sports & CA Networks | ORCA 4K TV',
+  description: 'Best IPTV Canada 2026: every North American pro hockey playoff, Canadian football, US pro baseball and the 2026 Winter Games in 4K HDR. 22,000+ channels, all major Canadian sports and free-to-air networks. Bilingual EN/FR.',
+  keywords: 'best iptv canada 2026, iptv canada, canadian iptv subscription, hockey iptv canada, canadian football iptv, french canadian iptv channels, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, multi-device compatibility, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, cord cutting canada 2026',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-canada',
     languages: {
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
-    description: 'Every Stanley Cup match, 2026 Olympics, World Cup. CBC, CTV, TSN, Sportsnet — bilingual EN/FR coverage in 4K HDR.',
+    title: 'Best IPTV Canada 2026 — Hockey, Live Sports & CA Networks | ORCA 4K TV',
+    description: 'Every hockey playoff, the 2026 Winter Games, summer international football. All major Canadian free-to-air and sports networks — bilingual EN/FR coverage in 4K HDR.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-canada',
     images: [{ url: 'https://orca4ktv.com/images/canada-coverage.jpg', width: 1200, height: 630 }],
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best IPTV Canada 2026 — NHL, TSN, CBC | ORCA 4K TV',
-    description: 'Every Stanley Cup, 2026 Olympic final, World Cup match. Bilingual EN/FR. From $/mo in CAD.',
+    title: 'Best IPTV Canada 2026 — Hockey, Live Sports & CA Networks | ORCA 4K TV',
+    description: 'Every hockey playoff, 2026 Winter Games, summer international football. Bilingual EN/FR. From $/mo in CAD.',
   },
 }
 
@@ -51,7 +51,7 @@ export default function CanadaPage() {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-canada#product",
                 "name": "Best IPTV Canada 2026 — ORCA 4K TV",
-                "description": "Premium IPTV subscription for Canada — 22,000+ live channels including every NHL game, CFL season, the 2026 Milano-Cortina Winter Olympics, FIFA World Cup 2026 matches in Toronto and Vancouver, plus CBC, CTV, Global, Citytv, TSN, Sportsnet, RDS, TVA Sports — bilingual EN/FR coverage in 4K HDR with HDR10+ and Dolby Vision.",
+                "description": "Premium IPTV subscription for Canada — 22,000+ live channels covering every North American pro hockey game, Canadian football, the 2026 Winter Games, summer international football matches in Toronto and Vancouver, plus all major Canadian English and French free-to-air networks and premium sports tier — bilingual EN/FR coverage in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/canada-coverage.jpg",
                 "brand": { "@type": "Brand", "name": "ORCA 4K TV" },
                 "category": "IPTV Streaming Service",
@@ -90,7 +90,7 @@ export default function CanadaPage() {
                   "opens": "00:00",
                   "closes": "23:59"
                 },
-                "description": "Premium IPTV streaming service for Canadian cord-cutters: 22,000+ live channels, every NHL game, CFL season, 2026 Olympics, FIFA World Cup matches at Toronto and Vancouver, plus CBC, CTV, Global, Citytv, TSN, Sportsnet, RDS, TVA Sports — bilingual EN/FR. 4K HDR, AES-256 encrypted, Anti Freeze CDN with Toronto and Vancouver edge servers, multi-device compatibility across Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
+                "description": "Premium IPTV streaming service for Canadian cord-cutters: 22,000+ live channels, every North American pro hockey game, Canadian football, the 2026 Winter Games, summer international football matches at Toronto and Vancouver, plus all major Canadian English and French free-to-air networks and premium sports tier — bilingual EN/FR. 4K HDR, AES-256 encrypted, Anti Freeze CDN with Toronto and Vancouver edge servers, multi-device compatibility across Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, iOS and Android, with 24/7 customer support."
               }
             ]
           })
@@ -107,17 +107,17 @@ export default function CanadaPage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            Best IPTV Canada 2026 — Stream Every NHL Game, the Olympics &amp; World Cup in 4K HDR
+            Best IPTV Canada 2026 — Stream Every Hockey Game, the Winter Games &amp; International Football in 4K HDR
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            <strong className="text-white">ORCA 4K TV</strong> is the best IPTV Canada 2026 for cord-cutters who want every game, every channel, every screen — without the $130+ Rogers, Bell or Shaw cable bill. Watch every <strong className="text-white">Stanley Cup playoff shift</strong> in 4K HDR, the entire <strong className="text-white">Milano-Cortina 2026 Winter Olympics</strong> (February 6–22), every match the Toronto BMO Field and Vancouver BC Place host during the <strong className="text-white">FIFA World Cup 2026</strong> in June and July, every CFL Friday, every Blue Jays home game at Rogers Centre, every Raptors night at Scotiabank Arena — 22,000+ live channels in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Buffer-free streaming powered by our Anti Freeze CDN with dedicated edge servers in Toronto and Vancouver.
+            <strong className="text-white">ORCA 4K TV</strong> is the best IPTV Canada 2026 for cord-cutters who want every game, every channel, every screen — without the $130+ Rogers, Bell or Shaw cable bill. Watch every <strong className="text-white">North American pro hockey playoff shift</strong> in 4K HDR, the entire <strong className="text-white">2026 Winter Games</strong> (February 6–22), every match the Toronto and Vancouver host venues stage during the <strong className="text-white">summer 2026 international football tournament</strong> in June and July, every Canadian football Friday, every home US pro baseball game from Toronto, every home US pro basketball night from Toronto — 22,000+ live channels in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Buffer-free streaming powered by our Anti Freeze CDN with dedicated edge servers in Toronto and Vancouver.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Canadian cable averaged <strong className="text-white">$130+/month</strong> in 2025 — and that was before adding TSN+, Sportsnet+ or any premium sports tier. ORCA 4K TV ships every league, every regional sports network, every Canadian terrestrial channel for{' '}
+            Canadian cable averaged <strong className="text-white">$130+/month</strong> in 2025 — and that was before adding any premium sports tier. ORCA 4K TV ships every league, every regional sports network, every Canadian terrestrial channel for{' '}
             <strong className="text-white">$10.99/month CAD</strong> on the{' '}
-            <a href="/iptv-shop/12-months" className="text-red-400 hover:underline">12-month plan</a>. Cord-cut Rogers Ignite, Bell Fibe, Shaw Direct, Telus Optik and the entire satellite-box era. Bilingual support in English and French — perfect for Quebec viewers who want both <em>Hockey Night in Canada</em> and <em>La Soirée du hockey</em>.
+            <a href="/iptv-shop/12-months" className="text-red-400 hover:underline">12-month plan</a>. Cord-cut Rogers Ignite, Bell Fibe, Shaw Direct, Telus Optik and the entire satellite-box era. Bilingual support in English and French — perfect for Quebec viewers who want both Saturday-night hockey broadcasts and the French-language equivalent.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-red-500/15">
@@ -129,14 +129,14 @@ export default function CanadaPage() {
           </p>
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">English Canadian:</strong> CBC, CTV, CTV 2, Global TV, Citytv, CP24, CBC News Network, CTV News Channel, Global News, Discovery Canada, History Canada, Food Network Canada, HGTV Canada</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">French Canadian / Québécois:</strong> Radio-Canada (ICI Télé), TVA, Noovo (V Télé), Télé-Québec, ICI RDI, LCN, Canal Vie, Casa, Z Télé, MAX</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">NHL &amp; hockey:</strong> every regular-season game, Stanley Cup playoffs, Hockey Night in Canada, IIHF World Hockey Championship 2026, World Junior Championship, AHL minor league</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Sports networks:</strong> TSN, TSN2, TSN3, TSN4, TSN5, Sportsnet, Sportsnet One, Sportsnet 360, Sportsnet World, Sportsnet East/West/Pacific, RDS, RDS2, TVA Sports</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">CFL, MLB, NBA, NFL:</strong> entire CFL season, Toronto Blue Jays, Toronto Raptors, every NFL Sunday including the playoffs and Super Bowl LX</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Olympics &amp; international:</strong> 2026 Milano-Cortina Winter Olympics, FIFA World Cup 2026 (Toronto + Vancouver host cities), Commonwealth Games qualifying</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Curling, F1 &amp; tennis:</strong> the Brier, Tournament of Hearts, Olympic curling, every F1 grand prix, Canadian Open / Rogers Cup, US Open, Wimbledon, Australian Open</span></li>
-            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand films &amp; series</strong> with same-day Hollywood releases, Marvel, Pixar, Apple TV+, Crave-style premium catalogue</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">English Canadian:</strong> all major English-language Canadian free-to-air networks plus 24-hour news, lifestyle and documentary channels</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">French Canadian / Québécois:</strong> all major French-language Canadian free-to-air networks plus 24-hour Québécois news and lifestyle channels</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Hockey:</strong> every regular-season North American pro hockey game, the late-season hockey playoffs, Saturday-night hockey broadcasts, the spring international hockey championship, the World Junior Championship, minor league</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Sports networks:</strong> all major Canadian English and French sports networks and their regional variants</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Other major leagues:</strong> the entire Canadian football season, home US pro baseball games from Toronto, home US pro basketball games from Toronto, every American football Sunday including the playoffs and the championship game in February</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">International events:</strong> the 2026 Winter Games, summer 2026 international football tournament (Toronto + Vancouver host venues), Commonwealth Games qualifying</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">Curling, motorsport &amp; tennis:</strong> the national and provincial curling championships, Winter Games curling, every round of the open-wheel motorsport season, the Canadian summer hard-court tennis Masters, all four Grand Slam tennis tournaments</span></li>
+            <li className="flex gap-3"><span className="text-red-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand films &amp; series</strong> with same-day Hollywood releases, major studio blockbusters and premium streaming-platform-style originals</span></li>
           </ul>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-red-500/15">
@@ -144,7 +144,7 @@ export default function CanadaPage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            The 2026 Canadian sports calendar is the most demanding broadcast year in history. <strong className="text-white">Stanley Cup playoffs</strong> run April through mid-June. The <strong className="text-white">Milano-Cortina 2026 Winter Olympics</strong> open Friday 6 February with hockey, curling, snowboard, biathlon and figure skating — every event live. The <strong className="text-white">FIFA World Cup 2026</strong> arrives in June with Toronto BMO Field and Vancouver BC Place hosting matches alongside the United States and Mexico. Add the IIHF Worlds in May, the CFL season from June, MLB Opening Day with Toronto Blue Jays at home, the Raptors NBA season — and you have a CDN that runs hard from January to December. Our Toronto and Vancouver edge servers route around peak traffic in real time so every subscriber from Halifax to Victoria gets buffer-free 4K HDR. AES-256 encrypted (
+            The 2026 Canadian sports calendar is the most demanding broadcast year in history. The <strong className="text-white">North American pro hockey playoffs</strong> run April through mid-June. The <strong className="text-white">2026 Winter Games</strong> open Friday 6 February with hockey, curling, snowboard, biathlon and figure skating — every event live. The <strong className="text-white">summer 2026 international football tournament</strong> arrives in June with Toronto and Vancouver hosting matches alongside the United States and Mexico. Add the spring international hockey championship in May, the Canadian football season from June, the US pro baseball season opener with home games from Toronto, the home US pro basketball season — and you have a CDN that runs hard from January to December. Our Toronto and Vancouver edge servers route around peak traffic in real time so every subscriber from Halifax to Victoria gets buffer-free 4K HDR. AES-256 encrypted (
             <a href="/security" className="text-red-400 hover:underline">NIST FIPS 197</a>), VPN traffic welcomed, 24/7 IPTV customer support in English and French.
           </p>
 

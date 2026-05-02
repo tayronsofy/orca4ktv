@@ -10,8 +10,8 @@ const GermanyPricing = () => {
   const [activeDeviceCount, setActiveDeviceCount] = useState<1 | 2 | 3 | 4>(1);
 
   const GERMANY_FEATURES = [
-    "Alle deutschen Sender (ARD, ZDF, RTL, Sky, ProSieben)",
-    "Bundesliga, DFB-Pokal, Champions League, Formel 1",
+    "Alle wichtigen deutschen Free-TV-Sender und Premium-Sportstufe",
+    "Spitzenfußball, nationaler Pokal, top europäischer Klubfußball, Open-Wheel-Motorsport",
     "22.000+ internationale Live-Kanäle weltweit",
     "100.000+ Filme & Serien on-demand",
     "Echtes 4K HDR mit HDR10+ und Dolby Vision",

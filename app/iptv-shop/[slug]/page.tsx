@@ -401,7 +401,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
             Ready to start streaming the best IPTV subscription in 2026?
           </h2>
           <p className="text-gray-400 text-lg mb-8">
-            Get instant access to 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, and every Premier League · NFL · NBA · NHL · MLB · Bundesliga · Eredivisie · F1 2026 match. Activate your {plan.shortName} plan with M3U URL + Xtream codes in under 5 minutes — buffer-free on Anti Freeze CDN, AES-256 encrypted, multi-device IPTV ready.
+            Get instant access to 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, and every UK top-flight football · American football · US pro basketball · North American pro hockey · US pro baseball · German top-tier football · Dutch top-tier football · 2026 open-wheel motorsport match. Activate your {plan.shortName} plan with M3U URL + Xtream codes in under 5 minutes — buffer-free on Anti Freeze CDN, AES-256 encrypted, multi-device IPTV ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

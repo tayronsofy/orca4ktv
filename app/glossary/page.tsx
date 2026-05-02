@@ -63,7 +63,7 @@ const GLOSSARY: GlossaryEntry[] = [
   {
     term: 'VOD (Video On Demand)',
     definition:
-      "VOD is the on-demand library — movies and series you start whenever you want, like Netflix. ORCA 4K TV's VOD library exceeds 100,000 titles in HD and 4K, refreshed continuously, available across multi-device compatibility. On-demand movies stream alongside live channels under the same IPTV subscription.",
+      "VOD is the on-demand library — movies and series you start whenever you want, similar to a streaming-platform catalogue. ORCA 4K TV's VOD library exceeds 100,000 titles in HD and 4K, refreshed continuously, available across multi-device compatibility. On-demand movies stream alongside live channels under the same IPTV subscription.",
   },
   {
     term: '4K Ultra-HD Streaming',
@@ -78,7 +78,7 @@ const GLOSSARY: GlossaryEntry[] = [
   {
     term: 'Anti-Freeze Technology',
     definition:
-      'Anti Freeze technology is the ORCA 4K TV proprietary CDN routing layer that picks the lowest-latency edge in real time and reroutes around regional congestion during high-load events (Champions League final, Super Bowl, World Cup matches). It is what underpins the buffer-free streaming and zero buffering claims for customers on a 25+ Mbps connection.',
+      'Anti Freeze technology is the ORCA 4K TV proprietary CDN routing layer that picks the lowest-latency edge in real time and reroutes around regional congestion during high-load events (top European club football finals, the championship game in February, major international football tournament matches). It is what underpins the buffer-free streaming and zero buffering claims for customers on a 25+ Mbps connection.',
   },
   {
     term: 'Multi-Device Compatibility',
