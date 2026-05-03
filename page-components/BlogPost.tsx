@@ -33,9 +33,10 @@ const extractHeadings = (markdown: string): Heading[] => {
 
 interface BlogPostProps {
   post: BlogPostType
+  relatedPosts?: BlogPostType[]
 }
 
-const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
+const BlogPostContent: React.FC<BlogPostProps> = ({ post, relatedPosts = [] }) => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [post.slug])
@@ -62,28 +63,8 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
 
   const toc = post.contentFormat === 'html' ? [] : extractHeadings(post.content)
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "description": post.excerpt,
-    "image": [`https://orca4ktv.com${post.imageUrl}`],
-    "datePublished": new Date(post.date).toISOString(),
-    "dateModified": new Date(post.date).toISOString(),
-    "author": [{
-      "@type": "Person",
-      "name": post.author,
-      "jobTitle": post.authorRole
-    }]
-  }
-
   return (
     <div className="min-h-screen bg-[#00050d] pt-[120px] pb-24 px-6 md:px-12 lg:px-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-
       <div className="max-w-4xl mx-auto animate-fade-in text-white/90">
         <div className="mb-8">
           <Link href="/blog" className="inline-flex items-center text-red-500 hover:text-white transition-colors uppercase font-black text-xs tracking-widest bg-red-500/10 px-4 py-2 rounded-full border border-red-500/20">
@@ -96,7 +77,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
           {post.imageUrl && (
             <Image
               src={post.imageUrl}
-              alt={`${post.title} - ${post.seoKeywords.split(',')[0]}`}
+              alt={post.imageAlt || `${post.title} - ${post.seoKeywords.split(',')[0]}`}
               title={post.excerpt}
               fill
               className="object-cover"
@@ -108,10 +89,16 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             <div className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
               {post.category}
             </div>
-            <div className="text-gray-300 text-sm font-bold flex items-center gap-2">
+            <div className="text-gray-300 text-sm font-bold flex flex-wrap items-center gap-2">
               <span>{post.date}</span>
               <span className="opacity-50">•</span>
               <span>{post.readTime}</span>
+              {post.dateModified && post.dateModified !== post.date && (
+                <>
+                  <span className="opacity-50">•</span>
+                  <span className="text-green-400">Last reviewed: {post.dateModified}</span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -120,7 +107,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
           {post.title}
         </h1>
 
-        <div className="flex items-center gap-4 mb-16 pb-8 border-b border-white/10">
+        <div className="flex items-center gap-4 mb-10 pb-8 border-b border-white/10">
           <div className="w-12 h-12 rounded-full bg-red-600/20 text-red-500 flex items-center justify-center font-black text-xl border border-red-500/20">
             {post.author.charAt(0)}
           </div>
@@ -129,6 +116,18 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             <div className="text-red-400 font-semibold text-sm">{post.authorRole}</div>
           </div>
         </div>
+
+        {post.summary && (
+          <div className="tldr-summary mb-12 rounded-2xl border-2 border-[#00E5FF]/40 bg-gradient-to-br from-[#00E5FF]/10 to-[#003580]/10 p-6 md:p-8 backdrop-blur-md">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.3em] text-[#00E5FF]">
+              <span>🎯</span>
+              <span>Quick Answer</span>
+            </div>
+            <p className="text-lg md:text-xl leading-relaxed text-white font-medium">
+              {post.summary}
+            </p>
+          </div>
+        )}
 
         {toc.length > 0 && (
           <div className="bg-black/50 border border-white/10 p-6 md:p-8 rounded-3xl mb-16 shadow-2xl backdrop-blur-md">
@@ -169,6 +168,29 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             </ReactMarkdown>
           )}
         </div>
+
+        {/* People Also Ask */}
+        {post.faqs && post.faqs.length > 0 && (
+          <section className="mt-16 border-t border-white/10 pt-10">
+            <h2 className="mb-6 text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+              <span className="text-[#00E5FF]">💬</span>
+              People Also Ask
+            </h2>
+            <div className="space-y-3">
+              {post.faqs.map((faq, idx) => (
+                <details key={idx} className="group rounded-xl border border-white/10 bg-[#001a36] open:bg-[#002952] transition-colors">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 px-5 py-4 text-base md:text-lg font-bold text-white list-none [&::-webkit-details-marker]:hidden">
+                    <span>{faq.q}</span>
+                    <span className="flex-shrink-0 text-[#00E5FF] text-xl transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 text-gray-300 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Social Share */}
         {(() => {
@@ -215,6 +237,29 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post }) => {
             </div>
           )
         })()}
+
+        {/* Related Posts */}
+        {relatedPosts.length > 0 && (
+          <section className="mt-16 border-t border-white/10 pt-10">
+            <h2 className="mb-6 text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+              <span className="text-[#00E5FF]">📚</span>
+              Related Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedPosts.slice(0, 3).map((rp) => (
+                <Link
+                  key={rp.slug}
+                  href={`/blog/${rp.slug}`}
+                  className="block rounded-xl border border-white/10 bg-[#001a36] p-5 transition-all hover:border-[#00E5FF]/40 hover:bg-[#002952]"
+                >
+                  <div className="text-[10px] font-black uppercase tracking-widest text-[#00E5FF] mb-2">{rp.category}</div>
+                  <h3 className="text-white font-bold text-base leading-snug mb-2">{rp.title}</h3>
+                  <div className="text-gray-500 text-xs">{rp.date} · {rp.readTime}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Summer 2026 international football tournament CTA */}
         <div className="mt-16 rounded-2xl border border-white/10 bg-[#000a1c] p-8 md:p-10">

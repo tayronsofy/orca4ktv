@@ -16,6 +16,10 @@ export interface BlogPost {
   category: string
   seoKeywords: string
   status: 'published' | 'draft'
+  summary?: string
+  faqs?: { q: string; a: string }[]
+  dateModified?: string
+  imageAlt?: string
 }
 
 const POSTS_FILE = path.join(process.cwd(), 'data', 'posts.json')
