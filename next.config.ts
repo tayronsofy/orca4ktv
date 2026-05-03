@@ -34,6 +34,17 @@ const nextConfig: NextConfig = {
         destination: 'https://orca4ktv.com/:path*',
         permanent: true,
       },
+      // Legacy blog slug redirects — old slugs contained third-party trademarks
+      { source: '/blog/stream-bundesliga-live-iptv-4k-no-blackouts',     destination: '/blog/stream-german-football-live-iptv-4k',                  permanent: true },
+      { source: '/blog/stream-serie-a-live-iptv-4k-no-blackouts',        destination: '/blog/stream-italian-football-live-iptv-4k',                 permanent: true },
+      { source: '/blog/stream-la-liga-live-iptv-4k-no-blackouts',        destination: '/blog/stream-spanish-football-live-iptv-4k',                 permanent: true },
+      { source: '/blog/stream-premier-league-live-iptv-4k-no-blackouts', destination: '/blog/stream-uk-football-live-iptv-4k',                      permanent: true },
+      { source: '/blog/stream-nhl-hockey-live-iptv-no-blackouts',        destination: '/blog/stream-pro-hockey-live-iptv-4k',                       permanent: true },
+      { source: '/blog/stream-mlb-baseball-live-iptv-no-blackouts',      destination: '/blog/stream-pro-baseball-live-iptv',                        permanent: true },
+      { source: '/blog/stream-nba-basketball-live-iptv-no-blackouts',    destination: '/blog/stream-pro-basketball-live-iptv-4k',                   permanent: true },
+      { source: '/blog/stream-nfl-football-live-iptv-no-blackouts',      destination: '/blog/stream-american-football-live-iptv',                   permanent: true },
+      { source: '/blog/how-to-watch-fifa-world-cup-2026',                destination: '/blog/how-to-stream-summer-2026-football-tournament',        permanent: true },
+      { source: '/blog/how-to-watch-world-cup-2026',                     destination: '/blog/summer-2026-football-tournament-streaming-guide',      permanent: true },
     ]
   },
   images: {
