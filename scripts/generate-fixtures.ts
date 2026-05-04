@@ -18,6 +18,43 @@ import type { Fixture } from '../lib/sports-api'
 import { config } from 'dotenv'
 config({ path: join(process.cwd(), '.env.local') })
 
+// ─── Trademark scrub — applied to every league/round string from the API ────
+// API returns trademarked league names ("Premier League", "Bundesliga", etc.).
+// MarkScan/DAZN crawl for these as DMCA targets, so we substitute generic
+// descriptors before the data hits matches.json.
+
+const TRADEMARK_SUBSTITUTIONS: ReadonlyArray<readonly [RegExp, string]> = [
+  [/\bUEFA Champions League, Women, Knockout stage\b/gi, "Top European women's club football, Knockout stage"],
+  [/\bUEFA Champions League, Women\b/gi, "Top European women's club football"],
+  [/\bUEFA Champions League\b/gi, 'Top European club football'],
+  [/\bChampions League, Women\b/gi, "Top European women's club football"],
+  [/\bChampions League live\b/gi, 'Top European club football live'],
+  [/\bChampions League\b/gi, 'Top European club football'],
+  [/\bUEFA Europa League\b/gi, 'Secondary European club football'],
+  [/\bEuropa League\b/gi, 'Secondary European club football'],
+  [/\bUEFA Conference League\b/gi, 'Tertiary European club football'],
+  [/\bConference League\b/gi, 'Tertiary European club football'],
+  [/\bUEFA\b/gi, 'European football'],
+  [/\bFIFA World Cup\b/gi, 'International football tournament'],
+  [/\bWorld Cup\b/gi, 'International football tournament'],
+  [/\bFIFA\b/gi, 'International football'],
+  [/\bPremier League\b/gi, 'UK top-flight football'],
+  [/\bBundesliga\b/gi, 'German top-flight football'],
+  [/\bSerie A\b/gi, 'Italian top-flight football'],
+  [/\bLa Liga\b/gi, 'Spanish top-flight football'],
+  [/\bEredivisie\b/gi, 'Dutch top-flight football'],
+  [/\bLigue 1\b/gi, 'French top-flight football'],
+  [/\bMLS\b/gi, 'US top-flight football'],
+]
+
+function scrubTrademarks(s: string): string {
+  let out = s
+  for (const [pat, repl] of TRADEMARK_SUBSTITUTIONS) {
+    out = out.replace(pat, repl)
+  }
+  return out
+}
+
 // ─── Description templates ────────────────────────────────────────────────────
 
 function generateDescription(f: Fixture): string {
@@ -46,8 +83,11 @@ function generateDescription(f: Fixture): string {
 
 function generateTags(f: Fixture): string[] {
   const tags = [f.league, f.round, f.homeTeam, f.awayTeam, 'live stream', '4K IPTV', 'watch online']
-  if (f.league.toLowerCase().includes('world cup')) tags.push('FIFA World Cup 2026', 'World Cup live')
-  if (f.league.toLowerCase().includes('champions')) tags.push('UCL', 'Champions League live')
+  // Note: f.league is already trademark-scrubbed at fixture-load time, so any
+  // category-add-ons here use the scrubbed terms too.
+  const lname = f.league.toLowerCase()
+  if (lname.includes('international football tournament')) tags.push('summer international football 2026', 'international football live')
+  if (lname.includes('top european club football')) tags.push('European club football midweek', 'European club football live')
   return [...new Set(tags)]
 }
 
@@ -56,8 +96,15 @@ function generateTags(f: Fixture): string[] {
 async function main() {
   console.log('⚡ Fetching fixtures from AllSportsAPI…')
 
-  const fixtures = await fetchUpcomingFixtures(30)
-  console.log(`   Found ${fixtures.length} fixtures`)
+  const rawFixtures = await fetchUpcomingFixtures(30)
+  console.log(`   Found ${rawFixtures.length} fixtures`)
+
+  // Scrub trademarked league/round names from API response BEFORE downstream uses
+  const fixtures = rawFixtures.map(f => ({
+    ...f,
+    league: scrubTrademarks(f.league),
+    round: scrubTrademarks(f.round),
+  }))
 
   const enriched = fixtures.map(f => ({
     ...f,
