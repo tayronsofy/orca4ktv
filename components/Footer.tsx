@@ -50,6 +50,44 @@ const Footer: React.FC = () => {
             <p className="text-sm text-gray-400 leading-relaxed">
               Premium IPTV service with 22,000+ channels in HD &amp; 4K. Trusted by cord-cutters worldwide.
             </p>
+            <div className="flex items-center gap-3 justify-center md:justify-start mt-2">
+              <a
+                href="https://www.facebook.com/people/Orca-4K-TV/61562824543929/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Orca 4K TV on Facebook"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#1877f2]/20 hover:border-[#1877f2]/40 hover:text-[#1877f2] transition-colors"
+              >
+                <i className="fab fa-facebook-f text-sm"></i>
+              </a>
+              <a
+                href="https://x.com/orca4ktv"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Orca 4K TV on X (Twitter)"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-white/10 hover:border-white/30 hover:text-white transition-colors"
+              >
+                <i className="fab fa-x-twitter text-sm"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@orca4ktv"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Subscribe to Orca 4K TV on YouTube"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#ff0000]/20 hover:border-[#ff0000]/40 hover:text-[#ff0000] transition-colors"
+              >
+                <i className="fab fa-youtube text-sm"></i>
+              </a>
+              <a
+                href="https://www.pinterest.com/orca4ktv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Orca 4K TV on Pinterest"
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#e60023]/20 hover:border-[#e60023]/40 hover:text-[#e60023] transition-colors"
+              >
+                <i className="fab fa-pinterest-p text-sm"></i>
+              </a>
+            </div>
           </div>
         </div>
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
