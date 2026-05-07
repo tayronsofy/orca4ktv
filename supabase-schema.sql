@@ -219,7 +219,13 @@ WHERE iptv_username IS NOT NULL
 ON CONFLICT (subscription_id, slot) DO NOTHING;
 
 ALTER TABLE subscription_credentials ENABLE ROW LEVEL SECURITY;
--- No public policies → service-role-only access (admin client + API routes)
+
+-- Allow users to read credentials belonging to their own subscriptions.
+-- Writes still go through the admin client (service role bypasses RLS).
+DROP POLICY IF EXISTS "sub_creds_select_own" ON subscription_credentials;
+CREATE POLICY "sub_creds_select_own" ON subscription_credentials FOR SELECT USING (
+  subscription_id IN (SELECT id FROM subscriptions WHERE user_id = auth.uid())
+);
 
 -- ============================================================
 -- COUPONS — added 2026-04-28
@@ -261,4 +267,24 @@ CREATE INDEX IF NOT EXISTS idx_coupon_redemptions_user_id ON coupon_redemptions(
 
 ALTER TABLE coupons              ENABLE ROW LEVEL SECURITY;
 ALTER TABLE coupon_redemptions   ENABLE ROW LEVEL SECURITY;
+
+-- ============================================================================
+-- IPTV Tools rate limiting
+-- Backs the public utility pages at /iptv-tools/* (M3U checker, EPG validator).
+-- Stores hashed IPs only (never raw) — privacy-friendly, rotated daily by cron.
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS tool_rate_limits (
+  ip_hash    TEXT NOT NULL,
+  tool       TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY (ip_hash, tool, created_at)
+);
+
+CREATE INDEX IF NOT EXISTS idx_tool_rate_limits_lookup
+  ON tool_rate_limits (ip_hash, tool, created_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_tool_rate_limits_target
+  ON tool_rate_limits (tool, created_at DESC);
+
+ALTER TABLE tool_rate_limits ENABLE ROW LEVEL SECURITY;
 -- No policies = service-role-only access (API routes use admin client)
