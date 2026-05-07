@@ -1,11 +1,11 @@
 /**
- * AllSportsAPI2 client (via RapidAPI proxy — allsportsapi2.p.rapidapi.com)
+ * AllSportsAPI2 client (via RapidAPI proxy - allsportsapi2.p.rapidapi.com)
  * Data source: Sofascore-backed API
  *
  * Endpoints used:
- *   GET /api/matches/top/{day}/{month}/{year}  — top matches for a date
- *   GET /api/match/{id}                        — single match details (live score)
- *   GET /api/matches/live                      — all currently live matches
+ *   GET /api/matches/top/{day}/{month}/{year}  - top matches for a date
+ *   GET /api/match/{id}                        - single match details (live score)
+ *   GET /api/matches/live                      - all currently live matches
  *
  * Team/league logos are served from Sofascore's public CDN (no auth required):
  *   https://img.sofascore.com/api/v1/team/{id}/image
@@ -150,7 +150,7 @@ function mapEvent(raw: Record<string, any>): Fixture {
 // ─── Tournament filter ────────────────────────────────────────────────────────
 // Controls which tournaments are included in the fixture store.
 
-// Top 5 domestic league tournament IDs (exact — avoids matching other
+// Top 5 domestic league tournament IDs (exact - avoids matching other
 // countries whose leagues share the same name, e.g. many "Premier Leagues").
 const DOMESTIC_IDS = new Set([
   1,   // English Premier League
@@ -164,16 +164,16 @@ function isTargetTournament(ev: Record<string, any>): boolean {
   const tid  = ev.tournament?.id  ?? 0
   const name = (ev.tournament?.name ?? '').toLowerCase()
 
-  // Top-5 domestic leagues — matched by exact tournament ID
+  // Top-5 domestic leagues - matched by exact tournament ID
   if (DOMESTIC_IDS.has(tid)) return true
 
-  // UEFA club competitions — must start with "UEFA" to exclude AFC/CAF variants
+  // UEFA club competitions - must start with "UEFA" to exclude AFC/CAF variants
   // and domestic cup rounds like "Pro League, Conference League Playoffs"
   if (name.startsWith('uefa champions league')) return true
   if (name.startsWith('uefa europa league'))    return true
   if (name.startsWith('uefa conference league')) return true
 
-  // FIFA World Cup (men's) — exclude Women's qualifiers
+  // FIFA World Cup (men's) - exclude Women's qualifiers
   if (name.includes('world cup') && !name.includes('women') && !name.includes('qualification'))
     return true
 

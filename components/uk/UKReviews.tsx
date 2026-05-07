@@ -4,16 +4,16 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every home top-flight football fixture in 4K HDR on my Apple TV 4K — zero buffering, even on the 3pm Saturday kick-offs. Cancelled satellite TV and saved over £75 a month.",
-        device: "Apple TV 4K — Liverpool",
+        text: "Watched every home top-flight football fixture in 4K HDR on my Apple TV 4K - zero buffering, even on the 3pm Saturday kick-offs. Cancelled satellite TV and saved over £75 a month.",
+        device: "Apple TV 4K - Liverpool",
     },
     {
-        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. International rugby Saturdays, midweek European football, motorsport Sundays — all crystal clear. Smart EPG is sharper than anything I've used.",
-        device: "Firestick 4K Max — Manchester",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. International rugby Saturdays, midweek European football, motorsport Sundays - all crystal clear. Smart EPG is sharper than anything I've used.",
+        device: "Firestick 4K Max - Manchester",
     },
     {
         text: "Switched after years of paying for premium sports add-ons. Same UK football and top European football coverage, plus the summer Grand Slam tennis fortnight and county cricket, all in 4K HDR on my LG OLED.",
-        device: "LG webOS + iPhone — London",
+        device: "LG webOS + iPhone - London",
     },
 ];
 
@@ -27,11 +27,11 @@ const UKReviews: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                        UK IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">User Reviews</span>
+                        UK IPTV - <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">User Reviews</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Verified British cord-cutters who switched from satellite TV — buffer-free 4K HDR, every UK top-flight football fixture, every Northern hemisphere international rugby match, every UK terrestrial channel, one IPTV subscription.
+                        Verified British cord-cutters who switched from satellite TV - buffer-free 4K HDR, every UK top-flight football fixture, every Northern hemisphere international rugby match, every UK terrestrial channel, one IPTV subscription.
                     </p>
                 </div>
 

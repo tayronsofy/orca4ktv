@@ -64,7 +64,7 @@ export default function CountdownTimer({ kickoff }: Props) {
 
       {isImminent && (
         <p className="text-[#00e676] text-sm font-bold animate-pulse">
-          Starting very soon — get your stream ready!
+          Starting very soon - get your stream ready!
         </p>
       )}
     </div>

@@ -12,11 +12,11 @@ const USAPricing = () => {
   // USA-specific unique text
   const USA_FEATURES = [
     "All Major US Free-to-Air Networks & Local Affiliates by ZIP",
-    "American Football, Basketball, Baseball, Hockey — Every Game Live in 4K HDR",
+    "American Football, Basketball, Baseball, Hockey - Every Game Live in 4K HDR",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",
-    "Anti Freeze CDN — Buffer-Free Streaming",
+    "Anti Freeze CDN - Buffer-Free Streaming",
     "24/7 Customer Support · Instant US Activation"
   ];
 
@@ -67,7 +67,7 @@ const USAPricing = () => {
             USA IPTV Pricing. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">Cancel Anytime.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            One global IPTV subscription — every American network plus 22,000+ international live channels in 4K HDR. Pay in USD, cancel anytime.
+            One global IPTV subscription - every American network plus 22,000+ international live channels in 4K HDR. Pay in USD, cancel anytime.
           </p>
 
           <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-blue-600/30 shadow-xl shadow-blue-500/10">

@@ -12,11 +12,11 @@ const UKPricing = () => {
   // UK-specific unique text
   const UK_FEATURES = [
     "All Major UK Free-to-Air Networks & Premium UK Sports Tier",
-    "UK Football, Top European Football, Motorsport — Every Match",
+    "UK Football, Top European Football, Motorsport - Every Match",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",
-    "Anti Freeze CDN — Buffer-Free Streaming",
+    "Anti Freeze CDN - Buffer-Free Streaming",
     "24/7 Customer Support · Instant UK Activation"
   ];
 
@@ -66,7 +66,7 @@ const UKPricing = () => {
             UK IPTV Pricing. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">Cancel Anytime.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            One global IPTV subscription — every UK network plus 22,000+ international live channels in 4K HDR. Pay in GBP, cancel anytime.
+            One global IPTV subscription - every UK network plus 22,000+ international live channels in 4K HDR. Pay in GBP, cancel anytime.
           </p>
 
           <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-blue-600/30 shadow-xl shadow-blue-500/10">

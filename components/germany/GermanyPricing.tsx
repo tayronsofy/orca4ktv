@@ -15,7 +15,7 @@ const GermanyPricing = () => {
     "22.000+ internationale Live-Kanäle weltweit",
     "100.000+ Filme & Serien on-demand",
     "Echtes 4K HDR mit HDR10+ und Dolby Vision",
-    "Anti Freeze CDN — Streaming ohne Pufferung",
+    "Anti Freeze CDN - Streaming ohne Pufferung",
     "24/7 Support · Sofortige Aktivierung"
   ];
 
@@ -65,7 +65,7 @@ const GermanyPricing = () => {
             IPTV Deutschland Preise. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400">Jederzeit kündbar.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Ein globales IPTV-Abonnement — alle deutschen Sender plus 22.000+ internationale Live-Kanäle in 4K HDR. Zahlung in EUR, jederzeit kündbar.
+            Ein globales IPTV-Abonnement - alle deutschen Sender plus 22.000+ internationale Live-Kanäle in 4K HDR. Zahlung in EUR, jederzeit kündbar.
           </p>
 
           <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-red-700/30 shadow-xl shadow-red-500/10">

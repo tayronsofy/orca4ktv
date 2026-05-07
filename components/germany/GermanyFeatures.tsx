@@ -5,23 +5,23 @@ import React from 'react';
 const GERMANY_FEATURES = [
   {
     title: 'Bundesweite Abdeckung mit Frankfurt-Edge-Server',
-    description: 'Ein dedizierter Frankfurt-Edge-Server hält die Latenz unter 25 ms – egal ob du den Spitzenfußball-Topspiel-Samstag in Berlin schaust, einen europäischen Klubfußball-Abend in München oder die Winterspiele-Highlights in Hamburg. Anti Freeze CDN lenkt Spitzenlast in Echtzeit um, sodass jeder Anstoß, jede Boxen-Stopp-Entscheidung und jeder Goldmedaillen-Moment pufferungsfrei in 4K HDR ankommt.',
+    description: 'Ein dedizierter Frankfurt-Edge-Server hält die Latenz unter 25 ms - egal ob du den Spitzenfußball-Topspiel-Samstag in Berlin schaust, einen europäischen Klubfußball-Abend in München oder die Winterspiele-Highlights in Hamburg. Anti Freeze CDN lenkt Spitzenlast in Echtzeit um, sodass jeder Anstoß, jede Boxen-Stopp-Entscheidung und jeder Goldmedaillen-Moment pufferungsfrei in 4K HDR ankommt.',
     imageUrl: '/images/germany-coverage.jpg',
-    altText: 'Zwei deutsche Fußball-Fans auf dem Sofa beim Live-Streaming eines 4K-HDR-Spitzenfußball-Spiels auf einem Smart TV – pufferungsfreies IPTV Deutschland Streaming auf ORCA 4K TV.',
+    altText: 'Zwei deutsche Fußball-Fans auf dem Sofa beim Live-Streaming eines 4K-HDR-Spitzenfußball-Spiels auf einem Smart TV - pufferungsfreies IPTV Deutschland Streaming auf ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Intelligenter Programmführer für den deutschen Sportkalender',
-    description: 'Der ORCA 4K TV Programmführer kennt deine Woche – Spitzenfußball-Wochenende, top europäischer Klubfußball dienstags und mittwochs, Motorsport-Sonntage, Pokal-Mittwoch, Winterspiele-Highlights. Live-Ticker, Sender-Sprünge, 7-Tage-Catch-Up-TV und KI-gestützte Suche („Was läuft jetzt?") für alle wichtigen deutschen Free-TV- und Sportsender.',
+    description: 'Der ORCA 4K TV Programmführer kennt deine Woche - Spitzenfußball-Wochenende, top europäischer Klubfußball dienstags und mittwochs, Motorsport-Sonntage, Pokal-Mittwoch, Winterspiele-Highlights. Live-Ticker, Sender-Sprünge, 7-Tage-Catch-Up-TV und KI-gestützte Suche („Was läuft jetzt?") für alle wichtigen deutschen Free-TV- und Sportsender.',
     imageUrl: '/images/germany-epg.jpg',
-    altText: 'Erwachsener mit Fernbedienung sieht den Smart-TV-Programmführer auf einem 4K-Smart-TV – ORCA 4K TV Deutschland IPTV-Abonnement mit elektronischem Programmführer und 7-Tage-Catch-Up-TV.',
+    altText: 'Erwachsener mit Fernbedienung sieht den Smart-TV-Programmführer auf einem 4K-Smart-TV - ORCA 4K TV Deutschland IPTV-Abonnement mit elektronischem Programmführer und 7-Tage-Catch-Up-TV.',
     reverse: true
   },
   {
-    title: 'Auf jedem deutschen Streaming-Gerät – ein Abo',
-    description: 'Multi-Device-Kompatibilität in jedem Tarif: Firestick 4K Max, Apple TV 4K (3. Gen), Android TV 14, Chromecast mit Google TV, Samsung Tizen, LG webOS, MAG-Box, iOS, Android, Windows, macOS und jeder Webbrowser. Bis zu vier gleichzeitige Streams. Identische deutsche Senderbibliothek und EPG auf jedem Bildschirm – TiviMate, IPTV Smarters Pro und OTT Navigator werden unterstützt.',
+    title: 'Auf jedem deutschen Streaming-Gerät - ein Abo',
+    description: 'Multi-Device-Kompatibilität in jedem Tarif: Firestick 4K Max, Apple TV 4K (3. Gen), Android TV 14, Chromecast mit Google TV, Samsung Tizen, LG webOS, MAG-Box, iOS, Android, Windows, macOS und jeder Webbrowser. Bis zu vier gleichzeitige Streams. Identische deutsche Senderbibliothek und EPG auf jedem Bildschirm - TiviMate, IPTV Smarters Pro und OTT Navigator werden unterstützt.',
     imageUrl: '/images/germany-multi-device.jpg',
-    altText: 'Couchtisch mit Firestick 4K Max Fernbedienung, Apple TV 4K Box, Roku-Player, Smartphone und Tablet in einem deutschen Wohnzimmer – Multi-Device-IPTV-Kompatibilität auf ORCA 4K TV Deutschland.',
+    altText: 'Couchtisch mit Firestick 4K Max Fernbedienung, Apple TV 4K Box, Roku-Player, Smartphone und Tablet in einem deutschen Wohnzimmer - Multi-Device-IPTV-Kompatibilität auf ORCA 4K TV Deutschland.',
     reverse: false
   }
 ];
@@ -38,7 +38,7 @@ const GermanyFeatures: React.FC = () => {
             Warum ORCA 4K TV das beste IPTV Deutschland 2026 ist
           </h2>
           <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
-            Pufferungsfreies 4K-HDR-Streaming, jeder deutsche Sender, jede Liga – Anti Freeze CDN mit Frankfurt-Edge-Server, AES-256-verschlüsselt, Multi-Device-IPTV ready.
+            Pufferungsfreies 4K-HDR-Streaming, jeder deutsche Sender, jede Liga - Anti Freeze CDN mit Frankfurt-Edge-Server, AES-256-verschlüsselt, Multi-Device-IPTV ready.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-red-700 to-yellow-500 mx-auto mt-6"></div>
         </div>

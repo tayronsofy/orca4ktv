@@ -8,11 +8,11 @@ const GermanyFAQ: React.FC = () => {
   const germanyFaqData = [
     {
       question: "Kann ich jeden deutschen Spitzenfußball-Anstoß inklusive Topspiel-Samstag in 4K HDR sehen?",
-      answer: "Ja. Jeder deutsche Spitzenfußball-Anstoß der Saison 2025–26 und 2026–27 (Freitagabend, Samstag-Konferenz, Topspiel um 18:30 Uhr, Sonntag) sowie die komplette zweite Liga, das gesamte nationale Pokalturnier bis zum Finale Ende Mai 2026 in Berlin, alle top europäischen Klubfußball-K.o.-Spiele und ergänzenden europäischen Vereinswettbewerbe sind live in 4K HDR enthalten – kein separates Sport-Paket, keine Zusatzgebühr."
+      answer: "Ja. Jeder deutsche Spitzenfußball-Anstoß der Saison 2025-26 und 2026-27 (Freitagabend, Samstag-Konferenz, Topspiel um 18:30 Uhr, Sonntag) sowie die komplette zweite Liga, das gesamte nationale Pokalturnier bis zum Finale Ende Mai 2026 in Berlin, alle top europäischen Klubfußball-K.o.-Spiele und ergänzenden europäischen Vereinswettbewerbe sind live in 4K HDR enthalten - kein separates Sport-Paket, keine Zusatzgebühr."
     },
     {
       question: "Sind das Sommer-Internationalturnier 2026, die Winterspiele 2026 und die Open-Wheel-Saison mit deutschem Werkseinstieg dabei?",
-      answer: "Ja. Das Sommer-Internationalturnier 2026 in den USA, Kanada und Mexiko mit der DFB-Elf läuft live in 4K HDR. Die Winterspiele 2026 (6.–22. Februar 2026) – Biathlon, Skispringen, Eishockey, Curling, alle Medaillenentscheidungen – sind ebenfalls vollständig enthalten. Die Open-Wheel-Saison 2026 mit dem deutschen Werksteam und komplett neuen Reglements zeigen wir bei jedem Grand Prix live."
+      answer: "Ja. Das Sommer-Internationalturnier 2026 in den USA, Kanada und Mexiko mit der DFB-Elf läuft live in 4K HDR. Die Winterspiele 2026 (6.-22. Februar 2026) - Biathlon, Skispringen, Eishockey, Curling, alle Medaillenentscheidungen - sind ebenfalls vollständig enthalten. Die Open-Wheel-Saison 2026 mit dem deutschen Werksteam und komplett neuen Reglements zeigen wir bei jedem Grand Prix live."
     },
     {
       question: "Sind alle wichtigen deutschen Free-TV-Sender enthalten?",
@@ -20,23 +20,23 @@ const GermanyFAQ: React.FC = () => {
     },
     {
       question: "Drosseln Vodafone, Telekom, 1&1 oder PYUR meine IPTV-Streams?",
-      answer: "Unsere Streams nutzen TLS 1.3 mit AES-256-Verschlüsselung (NIST FIPS 197), wodurch Traffic-Shaping für ISPs unzuverlässig wird. Solltest du dennoch Drosselung sehen – häufig in Spitzenzeiten auf stark ausgelasteten deutschen Anschlüssen – ist IPTV mit VPN in jedem Tarif vollständig unterstützt, ohne Geschwindigkeitslimit. Die meisten deutschen Haushalte erleben gar keine Drosselung."
+      answer: "Unsere Streams nutzen TLS 1.3 mit AES-256-Verschlüsselung (NIST FIPS 197), wodurch Traffic-Shaping für ISPs unzuverlässig wird. Solltest du dennoch Drosselung sehen - häufig in Spitzenzeiten auf stark ausgelasteten deutschen Anschlüssen - ist IPTV mit VPN in jedem Tarif vollständig unterstützt, ohne Geschwindigkeitslimit. Die meisten deutschen Haushalte erleben gar keine Drosselung."
     },
     {
-      question: "Welche Streaming-Geräte funktionieren – Firestick 4K Max, Apple TV 4K, Smart TV?",
+      question: "Welche Streaming-Geräte funktionieren - Firestick 4K Max, Apple TV 4K, Smart TV?",
       answer: "Alle. Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3. Generation), Android TV 14 Boxen (Nvidia Shield, Onn 4K Pro, Chromecast mit Google TV), Samsung Tizen, LG webOS, MAG-Box, sowie iOS / iPadOS / Android-Smartphones und -Tablets, Windows / macOS / Linux PCs und jeder HTML5-Browser. Gleiche Senderbibliothek und EPG auf jedem Bildschirm via TiviMate, IPTV Smarters Pro oder OTT Navigator."
     },
     {
       question: "Wie viele gleichzeitige Streams kann mein Haushalt nutzen?",
-      answer: "Tarife bieten bis zu 4 gleichzeitige Verbindungen – damit können der Wohnzimmer-TV, das Tablet im Kinderzimmer und ein Smartphone in der Küche unterschiedliche Sender gleichzeitig zeigen. Perfekt für ein Spitzenfußball-Wochenende mit dem Topspiel im Wohnzimmer und der Konferenz auf dem Tablet. Der 1-Monats-Tarif startet mit 1 Verbindung; der 12-Monats-Tarif enthält standardmäßig bis zu 4 Verbindungen ohne Aufpreis."
+      answer: "Tarife bieten bis zu 4 gleichzeitige Verbindungen - damit können der Wohnzimmer-TV, das Tablet im Kinderzimmer und ein Smartphone in der Küche unterschiedliche Sender gleichzeitig zeigen. Perfekt für ein Spitzenfußball-Wochenende mit dem Topspiel im Wohnzimmer und der Konferenz auf dem Tablet. Der 1-Monats-Tarif startet mit 1 Verbindung; der 12-Monats-Tarif enthält standardmäßig bis zu 4 Verbindungen ohne Aufpreis."
     },
     {
-      question: "Gibt es einen kostenlosen Test – und einen Vertrag oder Kündigungsgebühren?",
+      question: "Gibt es einen kostenlosen Test - und einen Vertrag oder Kündigungsgebühren?",
       answer: "Kostenloser IPTV-Test ohne Kreditkarte, sofortige Aktivierung, voller Zugang zur 22.000-Sender-Bibliothek, volles 4K HDR. Teste, bevor du zahlst. Tarife laufen monatlich oder als vergünstigte Quartals-, 6- oder 12-Monats-Pakete. Keine automatische Vertragsverlängerung, keine versteckten Gebühren, keine Kündigungsstrafe. Jederzeit kündbar."
     },
     {
       question: "Wie schnell erhalte ich meine Zugangsdaten nach der Bestellung?",
-      answer: "IPTV Sofortstart: Vom Checkout bis zum ersten Live-Sender vergehen typischerweise unter 5 Minuten. Zugangsdaten (M3U-URL + Xtream-Codes) werden automatisch per E-Mail verschickt, sobald die Zahlung eingeht. Die Einrichtung mit jedem kompatiblen Player dauert weitere 60 Sekunden – siehe die Schritt-für-Schritt-Einrichtungsanleitung für dein Gerät."
+      answer: "IPTV Sofortstart: Vom Checkout bis zum ersten Live-Sender vergehen typischerweise unter 5 Minuten. Zugangsdaten (M3U-URL + Xtream-Codes) werden automatisch per E-Mail verschickt, sobald die Zahlung eingeht. Die Einrichtung mit jedem kompatiblen Player dauert weitere 60 Sekunden - siehe die Schritt-für-Schritt-Einrichtungsanleitung für dein Gerät."
     }
   ];
 

@@ -131,8 +131,8 @@ export default function AdminOrdersPage() {
               className="grid grid-cols-1 md:grid-cols-6 gap-2 md:gap-4 px-6 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors cursor-pointer"
             >
               <div className="md:col-span-2">
-                <p className="text-white text-sm font-medium">{order.profiles?.full_name || '—'}</p>
-                <p className="text-gray-500 text-xs">{order.profiles?.email || '—'}</p>
+                <p className="text-white text-sm font-medium">{order.profiles?.full_name || '-'}</p>
+                <p className="text-gray-500 text-xs">{order.profiles?.email || '-'}</p>
               </div>
               <div>
                 <p className="text-gray-300 text-sm">{order.plan_name}</p>

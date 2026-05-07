@@ -3,14 +3,14 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata = {
   title: {
-    absolute: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
+    absolute: 'IPTV Setup Guide 2026 - 5-Minute Install | ORCA 4K TV',
   },
   description:
     'Step-by-step IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, EPG, AI troubleshooter. Stream in 5 minutes.',
   keywords:
     'iptv setup guide 2026, how to install iptv, iptv installation tutorial, iptv firestick 4k max setup, iptv apple tv 4k setup, iptv android tv 14 setup, iptv smart tv samsung lg setup, iptv mag box setup, iptv formuler setup, iptv ios iphone ipad setup, iptv android setup, iptv windows mac setup, tivimate iptv setup, iptv smarters pro setup, ott navigator iptv setup, gse smart iptv setup, smart iptv setup, m3u playlist setup, m3u url setup, xtream codes setup, iptv epg setup, electronic program guide setup, 7-day catch-up tv setup, iptv buffering fix, iptv black screen fix, iptv login failed fix, iptv credentials, iptv with vpn, vpn allowed iptv, iptv anti freeze cdn, iptv aes-256 encryption, multi-device iptv, instant activation iptv, rapid iptv setup, fast iptv setup, 5-minute iptv setup, iptv troubleshooting, iptv setup ai assistant',
   openGraph: {
-    title: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
+    title: 'IPTV Setup Guide 2026 - 5-Minute Install | ORCA 4K TV',
     description:
       'IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, EPG, AI troubleshooter. Stream in 5 minutes.',
     url: 'https://orca4ktv.com/setup-guide',
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image' as const,
-    title: 'IPTV Setup Guide 2026 — 5-Minute Install | ORCA 4K TV',
+    title: 'IPTV Setup Guide 2026 - 5-Minute Install | ORCA 4K TV',
     description:
       'IPTV setup for Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV. M3U + Xtream codes, AI troubleshooter.',
   },
@@ -54,7 +54,7 @@ export default function SetupGuidePage() {
                 '@type': 'WebPage',
                 '@id': 'https://orca4ktv.com/setup-guide#webpage',
                 url: 'https://orca4ktv.com/setup-guide',
-                name: 'IPTV Setup Guide 2026 — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV',
+                name: 'IPTV Setup Guide 2026 - Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV',
                 description:
                   'Complete 5-minute IPTV setup guide for 2026. Install IPTV on Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV, MAG-box, iOS, Android, Windows, macOS via TiviMate, IPTV Smarters Pro, OTT Navigator. M3U URL + Xtream codes + EPG configuration with AI troubleshooter.',
                 isPartOf: { '@id': 'https://orca4ktv.com/#website' },
@@ -63,7 +63,7 @@ export default function SetupGuidePage() {
               {
                 '@type': 'Service',
                 '@id': 'https://orca4ktv.com/setup-guide#service',
-                name: 'ORCA 4K TV — IPTV Installation & Activation Service',
+                name: 'ORCA 4K TV - IPTV Installation & Activation Service',
                 serviceType: 'IPTV Setup, Installation & 24/7 Customer Support',
                 provider: { '@id': 'https://orca4ktv.com/#organization' },
                 areaServed: { '@type': 'Place', name: 'Worldwide' },
@@ -109,7 +109,7 @@ export default function SetupGuidePage() {
                     '@type': 'HowToStep',
                     position: 1,
                     name: 'Receive your IPTV credentials (instant activation)',
-                    text: 'After checkout, ORCA 4K TV emails your unique M3U URL, EPG URL, and Xtream Codes (server URL, username, password) within minutes — IPTV instant start, no waiting, AES-256 encrypted.',
+                    text: 'After checkout, ORCA 4K TV emails your unique M3U URL, EPG URL, and Xtream Codes (server URL, username, password) within minutes - IPTV instant start, no waiting, AES-256 encrypted.',
                     url: 'https://orca4ktv.com/setup-guide#credentials',
                   },
                   {
@@ -123,14 +123,14 @@ export default function SetupGuidePage() {
                     '@type': 'HowToStep',
                     position: 3,
                     name: 'Add your M3U playlist or Xtream codes',
-                    text: 'Open the player, choose Add Playlist, and paste your M3U URL — or enter your Xtream Codes (server URL, username, password) separately. The smart EPG guide and 7-day catch-up TV populate automatically once the playlist syncs.',
+                    text: 'Open the player, choose Add Playlist, and paste your M3U URL - or enter your Xtream Codes (server URL, username, password) separately. The smart EPG guide and 7-day catch-up TV populate automatically once the playlist syncs.',
                     url: 'https://orca4ktv.com/setup-guide#playlist',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 4,
                     name: 'Start streaming in 4K HDR',
-                    text: 'Pick any of the 22,000+ live channels or 100,000+ on-demand titles and play. Buffer-free streaming kicks in via Anti Freeze CDN on a 25 Mbps+ connection. VPN allowed throughout — IPTV with VPN is fully supported on every plan.',
+                    text: 'Pick any of the 22,000+ live channels or 100,000+ on-demand titles and play. Buffer-free streaming kicks in via Anti Freeze CDN on a 25 Mbps+ connection. VPN allowed throughout - IPTV with VPN is fully supported on every plan.',
                     url: 'https://orca4ktv.com/setup-guide#start',
                   },
                 ],

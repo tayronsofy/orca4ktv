@@ -13,13 +13,13 @@ const ResellersPage: React.FC = () => {
 
     const SHARED_FEATURES = [
         "White-label IPTV reseller panel with full admin control",
-        "Credit-based provisioning — instant M3U + Xtream codes",
+        "Credit-based provisioning - instant M3U + Xtream codes",
         "Sub-reseller hierarchy with tiered pricing rights",
         "22,000+ live channels & 100,000+ on-demand titles",
-        "Anti Freeze CDN — 4K HDR streaming for your clients",
+        "Anti Freeze CDN - 4K HDR streaming for your clients",
         "Geo-restriction & per-region channel customization",
-        "24/7 priority dealer support — separate queue from end-users",
-        "Flexible 1–24 month subscription durations",
+        "24/7 priority dealer support - separate queue from end-users",
+        "Flexible 1-24 month subscription durations",
         "Comprehensive onboarding & dealer training included"
     ];
 
@@ -52,22 +52,22 @@ const ResellersPage: React.FC = () => {
         {
             icon: 'fa-percentage',
             title: 'Industry-leading margins',
-            body: 'Bulk credits average $2.10–$3.33 per month per subscriber. Resell at $15–$20/month and keep 78–86% margin on every customer.'
+            body: 'Bulk credits average $2.10-$3.33 per month per subscriber. Resell at $15-$20/month and keep 78-86% margin on every customer.'
         },
         {
             icon: 'fa-tv',
             title: '22,000+ channels & 100,000+ VOD',
-            body: 'Top-tier UK, Spanish, Italian, German and Dutch football, American football, US pro basketball, North American pro hockey, US pro baseball, top-tier open-wheel motorsport, the 2026 Winter Games — every league your clients want, in 4K HDR.'
+            body: 'Top-tier UK, Spanish, Italian, German and Dutch football, American football, US pro basketball, North American pro hockey, US pro baseball, top-tier open-wheel motorsport, the 2026 Winter Games - every league your clients want, in 4K HDR.'
         },
         {
             icon: 'fa-shield-halved',
-            title: 'Anti Freeze CDN — sticky clients',
+            title: 'Anti Freeze CDN - sticky clients',
             body: 'Buffer-free streaming on Anti Freeze CDN means fewer churn-causing freezes. Sticky clients = recurring revenue you keep collecting.'
         },
         {
             icon: 'fa-sitemap',
             title: 'White-label dealer panel',
-            body: 'Sub-reseller hierarchy, geo-restriction controls, bulk credit operations, custom subscription durations — full B2B IPTV distribution toolset.'
+            body: 'Sub-reseller hierarchy, geo-restriction controls, bulk credit operations, custom subscription durations - full B2B IPTV distribution toolset.'
         },
         {
             icon: 'fa-bolt',
@@ -77,45 +77,45 @@ const ResellersPage: React.FC = () => {
         {
             icon: 'fa-headset',
             title: '24/7 priority dealer support',
-            body: 'Resellers route to a separate priority queue. Telegram, email, panel chat — bilingual English support team responds within minutes.'
+            body: 'Resellers route to a separate priority queue. Telegram, email, panel chat - bilingual English support team responds within minutes.'
         }
     ];
 
     const howItWorks = [
-        { step: '01', title: 'Choose your reseller package', body: 'Pick 120, 240, or 500 credits based on your market size. Pay once via Telegram — no recurring contract.' },
+        { step: '01', title: 'Choose your reseller package', body: 'Pick 120, 240, or 500 credits based on your market size. Pay once via Telegram - no recurring contract.' },
         { step: '02', title: 'Get reseller-panel access in <5 min', body: 'Login + bulk credit balance dropped into your white-label IPTV dealer panel. Full admin oversight from minute one.' },
         { step: '03', title: 'Create customers or sub-resellers', body: 'Spend 1 credit per 1-month single-connection account, more for longer durations or multi-connection plans. Set custom expiry, devices, geo restrictions.' },
-        { step: '04', title: 'Deliver M3U / Xtream credentials', body: 'System auto-issues credentials. Email them to your client, paste them into TiviMate / IPTV Smarters / OTT Navigator — they stream in 4K HDR within 60 seconds.' }
+        { step: '04', title: 'Deliver M3U / Xtream credentials', body: 'System auto-issues credentials. Email them to your client, paste them into TiviMate / IPTV Smarters / OTT Navigator - they stream in 4K HDR within 60 seconds.' }
     ];
 
     const faqs = [
         {
             q: "What is the ORCA 4K TV IPTV Reseller Program?",
-            a: "The ORCA 4K TV Reseller Program is a wholesale, white-label IPTV partnership for dealers, distributors, and B2B operators. You purchase bulk credits (each credit ≈ 1 month of single-connection IPTV service), then provision subscriptions for your own clients through our dedicated reseller panel. You set retail pricing, you keep 78–86% margins, and we run the infrastructure (22,000+ channels, Anti Freeze CDN, AES-256, 24/7 dealer support)."
+            a: "The ORCA 4K TV Reseller Program is a wholesale, white-label IPTV partnership for dealers, distributors, and B2B operators. You purchase bulk credits (each credit ≈ 1 month of single-connection IPTV service), then provision subscriptions for your own clients through our dedicated reseller panel. You set retail pricing, you keep 78-86% margins, and we run the infrastructure (22,000+ channels, Anti Freeze CDN, AES-256, 24/7 dealer support)."
         },
         {
             q: "How does credit-based provisioning work?",
-            a: "Each credit unlocks 1 month of single-connection IPTV service. Longer durations and multi-connection plans cost proportional credits — for example, a 12-month / 2-device subscription costs roughly 24 credits. Spend credits inside your reseller panel and the system auto-issues an M3U URL plus Xtream codes (username, password, host) within 60 seconds. No ticketing, no manual approval, no waiting."
+            a: "Each credit unlocks 1 month of single-connection IPTV service. Longer durations and multi-connection plans cost proportional credits - for example, a 12-month / 2-device subscription costs roughly 24 credits. Spend credits inside your reseller panel and the system auto-issues an M3U URL plus Xtream codes (username, password, host) within 60 seconds. No ticketing, no manual approval, no waiting."
         },
         {
             q: "Can I create sub-resellers and set tiered pricing for them?",
-            a: "Yes. The ORCA 4K TV reseller panel supports a full sub-reseller hierarchy. You allocate a portion of your credit balance to each sub-reseller, set their per-credit retail price, and they manage their own customer base — while you collect the wholesale margin on every credit they spend. Useful for regional distributors, multi-language teams, or partner networks."
+            a: "Yes. The ORCA 4K TV reseller panel supports a full sub-reseller hierarchy. You allocate a portion of your credit balance to each sub-reseller, set their per-credit retail price, and they manage their own customer base - while you collect the wholesale margin on every credit they spend. Useful for regional distributors, multi-language teams, or partner networks."
         },
         {
             q: "What technical setup is required to start reselling?",
-            a: "None on your end. The reseller panel is a hosted web app — log in from any browser. Customers receive M3U URLs and Xtream codes that work with every major IPTV player: TiviMate, IPTV Smarters Pro, OTT Navigator, Smart IPTV, Perfect Player, plus native Firestick, Apple TV, Android TV, Smart TV, iOS, and Android apps. No servers to provision, no streaming infrastructure to maintain."
+            a: "None on your end. The reseller panel is a hosted web app - log in from any browser. Customers receive M3U URLs and Xtream codes that work with every major IPTV player: TiviMate, IPTV Smarters Pro, OTT Navigator, Smart IPTV, Perfect Player, plus native Firestick, Apple TV, Android TV, Smart TV, iOS, and Android apps. No servers to provision, no streaming infrastructure to maintain."
         },
         {
             q: "How fast is customer activation after I create an account?",
             a: "Under 60 seconds. The moment you spend a credit, the panel issues credentials, your customer logs into their player, and they're streaming live in 4K HDR. Average end-to-end onboarding from a customer paying you to them watching their first channel is under 5 minutes."
         },
         {
-            q: "Do you support white-labeling — can my clients see my brand?",
-            a: "Yes. M3U URLs and Xtream credentials are anonymous from the customer's perspective — they never see ORCA 4K TV branding in their player. You email credentials under your own brand, your own support email, and your own pricing. The IPTV reseller panel itself is for your eyes only; customers never see it."
+            q: "Do you support white-labeling - can my clients see my brand?",
+            a: "Yes. M3U URLs and Xtream credentials are anonymous from the customer's perspective - they never see ORCA 4K TV branding in their player. You email credentials under your own brand, your own support email, and your own pricing. The IPTV reseller panel itself is for your eyes only; customers never see it."
         },
         {
             q: "Are there sales quotas, contracts, or recurring fees?",
-            a: "None. You buy credits when you need them — no monthly commitment, no minimum sales, no contract, no recurring panel fee. Restock credits in any package size whenever your balance runs low. Cancel by simply not restocking — your existing customers continue streaming until their credits expire."
+            a: "None. You buy credits when you need them - no monthly commitment, no minimum sales, no contract, no recurring panel fee. Restock credits in any package size whenever your balance runs low. Cancel by simply not restocking - your existing customers continue streaming until their credits expire."
         },
         {
             q: "What payment methods are accepted for restocking credits?",
@@ -125,16 +125,16 @@ const ResellersPage: React.FC = () => {
 
     const testimonials = [
         {
-            text: "Switched my Berlin reseller business to ORCA 4K TV in early 2026 — now running 80+ active subscribers on the German top-tier football and top European club football tier. Margins jumped from 55% to 81% on the 240-credit package. Anti Freeze CDN is the real differentiator: my churn dropped by half because clients stopped complaining about buffering.",
-            partner: "Andre M. — IPTV reseller · Berlin"
+            text: "Switched my Berlin reseller business to ORCA 4K TV in early 2026 - now running 80+ active subscribers on the German top-tier football and top European club football tier. Margins jumped from 55% to 81% on the 240-credit package. Anti Freeze CDN is the real differentiator: my churn dropped by half because clients stopped complaining about buffering.",
+            partner: "Andre M. - IPTV reseller · Berlin"
         },
         {
-            text: "Operating a sub-reseller network across Manchester for UK football, motorsport and premium UK sports clients. Sub-reseller hierarchy lets me onboard new partners in 5 minutes. Credit-based provisioning means zero waiting — I create accounts on-demand and customers stream in 4K HDR within 60 seconds. The 24/7 dealer queue is the cleanest support I've used.",
-            partner: "Sam W. — IPTV reseller · Manchester"
+            text: "Operating a sub-reseller network across Manchester for UK football, motorsport and premium UK sports clients. Sub-reseller hierarchy lets me onboard new partners in 5 minutes. Credit-based provisioning means zero waiting - I create accounts on-demand and customers stream in 4K HDR within 60 seconds. The 24/7 dealer queue is the cleanest support I've used.",
+            partner: "Sam W. - IPTV reseller · Manchester"
         },
         {
-            text: "Boutique IPTV reseller out of Lisbon, mostly multilingual Dutch and Portuguese top-tier football clients. The white-label panel is straightforward — even my non-technical clients are streaming under my brand within 60 seconds. Bulk credits at $2.10 each on the 500-credit tier means I can resell at €15/month for 86% margin. Best IPTV reseller program I've found in 2026.",
-            partner: "Lucia P. — IPTV reseller · Lisbon"
+            text: "Boutique IPTV reseller out of Lisbon, mostly multilingual Dutch and Portuguese top-tier football clients. The white-label panel is straightforward - even my non-technical clients are streaming under my brand within 60 seconds. Bulk credits at $2.10 each on the 500-credit tier means I can resell at €15/month for 86% margin. Best IPTV reseller program I've found in 2026.",
+            partner: "Lucia P. - IPTV reseller · Lisbon"
         }
     ];
 
@@ -155,7 +155,7 @@ const ResellersPage: React.FC = () => {
                                 Business in 2026
                             </h1>
                             <p className="text-xl text-gray-300 font-medium mb-8 max-w-2xl leading-relaxed">
-                                Become a profitable IPTV reseller with the industry's leading white-label dealer panel. Credit-based provisioning, instant M3U + Xtream codes activation, sub-reseller hierarchy, 22,000+ live channels in 4K HDR, multi-device delivery, and 24/7 priority dealer support — all under your own brand.
+                                Become a profitable IPTV reseller with the industry's leading white-label dealer panel. Credit-based provisioning, instant M3U + Xtream codes activation, sub-reseller hierarchy, 22,000+ live channels in 4K HDR, multi-device delivery, and 24/7 priority dealer support - all under your own brand.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
@@ -179,7 +179,7 @@ const ResellersPage: React.FC = () => {
                                 <div className="absolute inset-0 bg-purple-600/20 rounded-3xl blur-[40px] group-hover:bg-purple-600/30 transition-all duration-500"></div>
                                 <img
                                     src={resellersHero}
-                                    alt="IPTV reseller working at a modern desk on the ORCA 4K TV white-label dealer panel — credit-based provisioning, instant activation, 22,000+ channels in 4K HDR — photo-realistic professional B2B IPTV reseller business scene."
+                                    alt="IPTV reseller working at a modern desk on the ORCA 4K TV white-label dealer panel - credit-based provisioning, instant activation, 22,000+ channels in 4K HDR - photo-realistic professional B2B IPTV reseller business scene."
                                     width={1536}
                                     height={1024}
                                     loading="eager"
@@ -191,7 +191,7 @@ const ResellersPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Why ORCA 4K TV — Reseller Value Props */}
+            {/* Why ORCA 4K TV - Reseller Value Props */}
             <section className="py-20 bg-[#001530]">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto text-center mb-16">
@@ -200,7 +200,7 @@ const ResellersPage: React.FC = () => {
                             Why ORCA 4K TV is the best IPTV reseller program in 2026
                         </h2>
                         <p className="text-gray-400 text-lg mt-4 leading-relaxed">
-                            Highest margins, deepest channel library, white-label dealer panel — built for serious IPTV resellers, dealers, and B2B distributors.
+                            Highest margins, deepest channel library, white-label dealer panel - built for serious IPTV resellers, dealers, and B2B distributors.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -249,7 +249,7 @@ const ResellersPage: React.FC = () => {
                             IPTV Reseller <span className="text-[#00E5FF]">Credit Packages</span>
                         </h2>
                         <p className="text-gray-400 text-lg mt-4 leading-relaxed">
-                            Pay once for bulk credits. Resell at $15–$20/month per subscriber. Keep 78–86% margins. No contracts, no minimums, restock anytime.
+                            Pay once for bulk credits. Resell at $15-$20/month per subscriber. Keep 78-86% margins. No contracts, no minimums, restock anytime.
                         </p>
                     </div>
 
@@ -305,7 +305,7 @@ const ResellersPage: React.FC = () => {
                     <div className="text-center mb-16">
                         <p className="text-[#00E5FF] text-xs font-black uppercase tracking-[0.3em] mb-3">Reseller FAQ</p>
                         <h2 className="text-3xl md:text-5xl font-black text-white leading-tight">
-                            IPTV Reseller Program — frequently asked questions
+                            IPTV Reseller Program - frequently asked questions
                         </h2>
                     </div>
                     <div className="space-y-4">
@@ -383,15 +383,15 @@ const ResellersPage: React.FC = () => {
                     </h2>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        <strong className="text-white">ORCA 4K TV</strong> is the best IPTV reseller program in 2026 for dealers, distributors, and B2B operators who want highest margins, deepest channel coverage, and the lowest churn in the industry. The cord-cutting market is bigger than ever — 60+ million households across the US, UK, Canada, Germany, and the Netherlands have already canceled cable in favor of IPTV, and 2026 is the year resellers who move first capture the bulk of that recurring revenue. Whether you're a solo IPTV reseller running 50 clients out of a single chat group, or a B2B distributor operating a multi-tier sub-reseller hierarchy across multiple regions, the ORCA 4K TV reseller panel scales with you.
+                        <strong className="text-white">ORCA 4K TV</strong> is the best IPTV reseller program in 2026 for dealers, distributors, and B2B operators who want highest margins, deepest channel coverage, and the lowest churn in the industry. The cord-cutting market is bigger than ever - 60+ million households across the US, UK, Canada, Germany, and the Netherlands have already canceled cable in favor of IPTV, and 2026 is the year resellers who move first capture the bulk of that recurring revenue. Whether you're a solo IPTV reseller running 50 clients out of a single chat group, or a B2B distributor operating a multi-tier sub-reseller hierarchy across multiple regions, the ORCA 4K TV reseller panel scales with you.
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        What makes ORCA 4K TV different from every other IPTV reseller program: <strong className="text-white">Anti Freeze CDN</strong> with regional edge servers, <strong className="text-white">22,000+ live channels</strong> covering top-tier football across the UK, Spain, Italy, Germany and the Netherlands, American football, US pro basketball, US pro baseball, North American pro hockey, top European club football midweek, the 2026 Winter Games, the 2026 international football tournament, and top-tier open-wheel motorsport, plus <strong className="text-white">100,000+ on-demand titles</strong> from Hollywood, premium streaming-platform-equivalent originals, and major premium series. Your clients get true 4K HDR with HDR10+ and Dolby Vision on every device — Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS, and any modern web browser. The ORCA 4K TV white-label IPTV dealer panel provisions M3U URLs and Xtream codes (TLS 1.3 / AES-256, NIST FIPS 197) instantly via credit-based provisioning, with full sub-reseller hierarchy, geo-restriction controls, bulk credit operations, and flexible 1–24 month subscription durations.
+                        What makes ORCA 4K TV different from every other IPTV reseller program: <strong className="text-white">Anti Freeze CDN</strong> with regional edge servers, <strong className="text-white">22,000+ live channels</strong> covering top-tier football across the UK, Spain, Italy, Germany and the Netherlands, American football, US pro basketball, US pro baseball, North American pro hockey, top European club football midweek, the 2026 Winter Games, the 2026 international football tournament, and top-tier open-wheel motorsport, plus <strong className="text-white">100,000+ on-demand titles</strong> from Hollywood, premium streaming-platform-equivalent originals, and major premium series. Your clients get true 4K HDR with HDR10+ and Dolby Vision on every device - Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS, and any modern web browser. The ORCA 4K TV white-label IPTV dealer panel provisions M3U URLs and Xtream codes (TLS 1.3 / AES-256, NIST FIPS 197) instantly via credit-based provisioning, with full sub-reseller hierarchy, geo-restriction controls, bulk credit operations, and flexible 1-24 month subscription durations.
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">
-                        The credit economics make this the most profitable IPTV reseller program in 2026. On the 500-credit package at <strong className="text-white">$1,050</strong>, your effective wholesale cost is <strong className="text-white">$2.10 per month per single-connection subscriber</strong>. Resell at $15/month and you keep <strong className="text-white">$12.90 — 86% margin</strong>. On the 240-credit package at <strong className="text-white">$700</strong>, you're at $2.92/credit; resell at $15 and keep 81% margin. Even the entry 120-credit package at $400 ($3.33/credit) returns 78% margin at retail $15/month. Every credit issued provisions an instant M3U URL plus Xtream codes — your customer goes from paying you to streaming their first 4K HDR channel in under 60 seconds. The IPTV reseller panel handles all the infrastructure: server provisioning, channel sourcing, CDN routing, encryption, and 24/7 monitoring. You focus on customer acquisition and retention.
+                        The credit economics make this the most profitable IPTV reseller program in 2026. On the 500-credit package at <strong className="text-white">$1,050</strong>, your effective wholesale cost is <strong className="text-white">$2.10 per month per single-connection subscriber</strong>. Resell at $15/month and you keep <strong className="text-white">$12.90 - 86% margin</strong>. On the 240-credit package at <strong className="text-white">$700</strong>, you're at $2.92/credit; resell at $15 and keep 81% margin. Even the entry 120-credit package at $400 ($3.33/credit) returns 78% margin at retail $15/month. Every credit issued provisions an instant M3U URL plus Xtream codes - your customer goes from paying you to streaming their first 4K HDR channel in under 60 seconds. The IPTV reseller panel handles all the infrastructure: server provisioning, channel sourcing, CDN routing, encryption, and 24/7 monitoring. You focus on customer acquisition and retention.
                     </p>
 
                     <p className="text-gray-300 text-lg leading-relaxed">

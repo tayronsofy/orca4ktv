@@ -46,7 +46,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       {
         '@type': 'Service',
         '@id': `https://orca4ktv.com/iptv-shop/${plan.slug}#service`,
-        name: `${plan.name} — Premium IPTV Subscription`,
+        name: `${plan.name} - Premium IPTV Subscription`,
         serviceType: 'Premium IPTV Streaming Subscription',
         provider: { '@id': 'https://orca4ktv.com/#organization' },
         areaServed: { '@type': 'Place', name: 'Worldwide' },
@@ -74,7 +74,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
         category: 'IPTV Subscription / Streaming Service',
         offers: plan.deviceTiers.map(tier => ({
           '@type': 'Offer',
-          name: `${plan.name} — ${tier.label}`,
+          name: `${plan.name} - ${tier.label}`,
           url: `https://orca4ktv.com${tier.checkoutLink}`,
           priceCurrency: 'USD',
           price: tier.price.toFixed(2),
@@ -149,7 +149,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 </span>
               )}
               <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-                {plan.name} — Premium 4K IPTV
+                {plan.name} - Premium 4K IPTV
               </h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-6">{plan.description}</p>
 
@@ -208,7 +208,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                   href={plan.deviceTiers[0].checkoutLink}
                   className="block w-full text-center bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-black py-4 rounded-xl uppercase tracking-wide transition-all hover:scale-105 shadow-lg shadow-purple-500/30"
                 >
-                  Buy Now — ${plan.basePrice.toFixed(0)}
+                  Buy Now - ${plan.basePrice.toFixed(0)}
                 </Link>
                 <Link
                   href="/trial"
@@ -235,10 +235,10 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       <section className="bg-[#001a36] py-16 px-4 border-y border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-3">
-            Choose Your IPTV Connections — 1, 2, 3 or 4 Simultaneous Streams
+            Choose Your IPTV Connections - 1, 2, 3 or 4 Simultaneous Streams
           </h2>
           <p className="text-gray-400 text-center mb-10">
-            Watch on multiple devices simultaneously — one IPTV subscription, multiple screens. Perfect for families and multi-room households.
+            Watch on multiple devices simultaneously - one IPTV subscription, multiple screens. Perfect for families and multi-room households.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {plan.deviceTiers.map((tier) => (
@@ -307,10 +307,10 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-3">
-            Compatible with Every IPTV Device — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
+            Compatible with Every IPTV Device - Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
           </h2>
           <p className="text-gray-400 text-center mb-10">
-            Stream on any screen — TV, phone, tablet or computer. Compatible with TiviMate, IPTV Smarters Pro, OTT Navigator. Setup takes under 5 minutes via M3U URL or Xtream codes.
+            Stream on any screen - TV, phone, tablet or computer. Compatible with TiviMate, IPTV Smarters Pro, OTT Navigator. Setup takes under 5 minutes via M3U URL or Xtream codes.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {COMPATIBLE_DEVICES.map(device => (
@@ -342,7 +342,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
                 ))}
               </div>
               <span className="text-white font-black text-xl">{plan.ratingValue}</span>
-              <span className="text-gray-400">out of 5 — {plan.reviewCount.toLocaleString()} verified reviews</span>
+              <span className="text-gray-400">out of 5 - {plan.reviewCount.toLocaleString()} verified reviews</span>
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -374,7 +374,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
       <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-10">
-            {plan.shortName} Plan — FAQ
+            {plan.shortName} Plan - FAQ
           </h2>
           <div className="space-y-4">
             {plan.faq.map((item) => (
@@ -401,7 +401,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
             Ready to start streaming the best IPTV subscription in 2026?
           </h2>
           <p className="text-gray-400 text-lg mb-8">
-            Get instant access to 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, and every UK top-flight football · American football · US pro basketball · North American pro hockey · US pro baseball · German top-tier football · Dutch top-tier football · 2026 open-wheel motorsport match. Activate your {plan.shortName} plan with M3U URL + Xtream codes in under 5 minutes — buffer-free on Anti Freeze CDN, AES-256 encrypted, multi-device IPTV ready.
+            Get instant access to 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision, 100,000+ on-demand movies and series, and every UK top-flight football · American football · US pro basketball · North American pro hockey · US pro baseball · German top-tier football · Dutch top-tier football · 2026 open-wheel motorsport match. Activate your {plan.shortName} plan with M3U URL + Xtream codes in under 5 minutes - buffer-free on Anti Freeze CDN, AES-256 encrypted, multi-device IPTV ready.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -409,7 +409,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-black py-4 px-10 rounded-full uppercase tracking-wide transition-all hover:scale-105 shadow-xl shadow-purple-500/30 text-lg"
             >
               <i className="fas fa-bolt" />
-              Buy {plan.shortName} — ${plan.basePrice.toFixed(0)}
+              Buy {plan.shortName} - ${plan.basePrice.toFixed(0)}
             </Link>
             <Link
               href="/iptv-shop"

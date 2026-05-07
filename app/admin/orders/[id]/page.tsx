@@ -70,7 +70,7 @@ const emptyCredForm: CredFormState = {
   mac_addresses: '',
 }
 
-// Always render 4 slots — admin can fill 1..order.connections (or extras)
+// Always render 4 slots - admin can fill 1..order.connections (or extras)
 const TOTAL_SLOTS = 4
 const MAX_HOST_BACKUPS = 3
 
@@ -95,7 +95,7 @@ export default function OrderDetailPage() {
   const [paymentLink, setPaymentLink] = useState('')
   const [invoiceStatus, setInvoiceStatus] = useState('')
 
-  // Credentials form state — one form per connection slot, keyed by slot number
+  // Credentials form state - one form per connection slot, keyed by slot number
   const [credsBySlot, setCredsBySlot] = useState<Record<number, CredFormState>>({})
 
   // Notes
@@ -303,14 +303,14 @@ export default function OrderDetailPage() {
         <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-user text-purple-400"></i> Customer</h2>
           <dl className="space-y-2 text-sm">
-            <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{order.profiles?.full_name || '—'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{order.profiles?.full_name || '-'}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Email</dt><dd className="text-blue-400">{order.profiles?.email}</dd></div>
-            <div className="flex justify-between"><dt className="text-gray-500">Phone</dt><dd className="text-white">{order.profiles?.phone || '—'}</dd></div>
-            <div className="flex justify-between"><dt className="text-gray-500">Country</dt><dd className="text-white">{order.profiles?.country || '—'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Phone</dt><dd className="text-white">{order.profiles?.phone || '-'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Country</dt><dd className="text-white">{order.profiles?.country || '-'}</dd></div>
             <div className="flex justify-between items-center gap-2">
               <dt className="text-gray-500">IP Address</dt>
               <dd className="flex items-center gap-2">
-                <span className="text-white font-mono text-xs">{order.customer_ip || '—'}</span>
+                <span className="text-white font-mono text-xs">{order.customer_ip || '-'}</span>
                 {order.customer_ip && order.customer_ip !== 'unknown' && (
                   <a href={`https://whatismyipaddress.com/ip/${order.customer_ip}`} target="_blank" rel="noopener noreferrer" className="text-purple-400 text-xs hover:underline">Lookup →</a>
                 )}
@@ -386,7 +386,7 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* IPTV Credentials — always 4 slots; admin fills as many as needed */}
+        {/* IPTV Credentials - always 4 slots; admin fills as many as needed */}
         <div className="md:col-span-2 bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4 flex items-center gap-2">
             <i className="fas fa-key text-yellow-400"></i> IPTV Credentials
@@ -435,7 +435,7 @@ export default function OrderDetailPage() {
                     ))}
                     <div className="pt-1">
                       <label className="block text-[10px] text-gray-500 mb-1.5 uppercase tracking-wider">
-                        Host URL Backups <span className="text-gray-600 normal-case">— use if Portal URL fails</span>
+                        Host URL Backups <span className="text-gray-600 normal-case">- use if Portal URL fails</span>
                       </label>
                       <div className="space-y-1.5">
                         {[0, 1, 2].map(idx => (

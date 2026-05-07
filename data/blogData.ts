@@ -39,7 +39,7 @@ In this guide, we'll walk you through unlocking the true potential of your devic
 
 ## Step 1: Prepare Your Device (The "Jailbreak" Phase)
 
-Don't let the word "jailbreak" scare you—you're not voiding your warranty. You're simply allowing your device to install third-party applications (sideloading), an essential step to get the best IPTV players like **TiviMate**, **IPTV Smarters Pro**, or our custom ORCA 4K TV application.
+Don't let the word "jailbreak" scare you-you're not voiding your warranty. You're simply allowing your device to install third-party applications (sideloading), an essential step to get the best IPTV players like **TiviMate**, **IPTV Smarters Pro**, or our custom ORCA 4K TV application.
 
 1. Go to **Settings** (the gear icon on the far right of the home screen).
 2. Select **My Fire TV**.
@@ -78,7 +78,7 @@ Within 30 seconds, your device will download 22,000+ live TV channels, and thous
 
 ## Why You Need a Premium Provider
 
-You can have the best hardware in the world—a Firestick 4K Max wired directly to your gigabit router via ethernet—but if your IPTV provider suffers from server congestion during a massive **American football Sunday** or a **MMA pay-per-view**, your stream will buffer.
+You can have the best hardware in the world-a Firestick 4K Max wired directly to your gigabit router via ethernet-but if your IPTV provider suffers from server congestion during a massive **American football Sunday** or a **MMA pay-per-view**, your stream will buffer.
 
 That's why ORCA 4K TV utilizes our proprietary global CDN network spanning 60+ countries, load-balancing traffic instantly to guarantee a flawless 99.9% uptime. 
 

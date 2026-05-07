@@ -160,7 +160,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post, relatedPosts = [] }) =
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSlug]}
               components={{
-                // Demote any in-body H1 to H2 — the page already has one H1 (post title)
+                // Demote any in-body H1 to H2 - the page already has one H1 (post title)
                 h1: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
               }}
             >
@@ -269,7 +269,7 @@ const BlogPostContent: React.FC<BlogPostProps> = ({ post, relatedPosts = [] }) =
             </span>
           </div>
           <h3 className="mb-3 text-2xl font-black text-white md:text-3xl">
-            Orca 4K TV is the most stable IPTV – watch every match without buffering
+            Orca 4K TV is the most stable IPTV - watch every match without buffering
           </h3>
           <p className="mb-4 text-gray-400 font-semibold">
             3M +1 FREE &bull; 6M +2 FREE &bull; 12M +3 FREE

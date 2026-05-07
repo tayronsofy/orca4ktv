@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
 export const metadata: Metadata = {
-  title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
-  description: 'Free IPTV trial with instant activation. Test ORCA 4K TV — 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
+  title: 'Free IPTV Trial 2026 - Instant Activation | ORCA 4K TV',
+  description: 'Free IPTV trial with instant activation. Test ORCA 4K TV - 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
   keywords: 'free iptv trial, iptv test, iptv free trial 2026, IPTV instant start, instant activation, rapid setup, fast IPTV setup, IPTV subscription plans, IPTV subscription, multi-device compatibility, IPTV multi-device, buffer-free streaming, zero buffering, premium IPTV channels, 4K streaming, HDR streaming',
   alternates: { canonical: 'https://orca4ktv.com/trial' },
   openGraph: {
-    title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
-    description: 'Test ORCA 4K TV — 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
+    title: 'Free IPTV Trial 2026 - Instant Activation | ORCA 4K TV',
+    description: 'Test ORCA 4K TV - 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
     type: 'website',
     url: 'https://orca4ktv.com/trial',
     images: [{ url: 'https://orca4ktv.com/og-image.jpg', width: 1200, height: 630 }],
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free IPTV Trial 2026 — Instant Activation | ORCA 4K TV',
+    title: 'Free IPTV Trial 2026 - Instant Activation | ORCA 4K TV',
     description: 'No credit card. 22,000+ channels in 4K HDR. Smart EPG, multi-device.',
     images: ['https://orca4ktv.com/og-image.jpg'],
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function TrialPage() {
   return (
     <>
-      {/* FAQPage JSON-LD — server-rendered for Google rich results */}
+      {/* FAQPage JSON-LD - server-rendered for Google rich results */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -38,7 +38,7 @@ export default function TrialPage() {
                 "name": "What is included in the free IPTV trial?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The free IPTV trial gives you full access to ORCA 4K TV's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
+                  "text": "The free IPTV trial gives you full access to ORCA 4K TV's complete service - 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
                 }
               },
               {
@@ -54,7 +54,7 @@ export default function TrialPage() {
                 "name": "Do I need a credit card for the free trial?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
+                  "text": "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device - that's all."
                 }
               },
               {
@@ -78,7 +78,7 @@ export default function TrialPage() {
                 "name": "What happens after the trial ends?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "After your free trial ends, your access will pause. There is no automatic charge — you decide if and when to subscribe. Plans start from $21/month with no contract or auto-renewal."
+                  "text": "After your free trial ends, your access will pause. There is no automatic charge - you decide if and when to subscribe. Plans start from $21/month with no contract or auto-renewal."
                 }
               }
             ]
@@ -108,7 +108,7 @@ export default function TrialPage() {
               "priceCurrency": "USD",
               "availability": "https://schema.org/InStock",
               "url": "https://orca4ktv.com/trial",
-              "description": "Free IPTV trial — no credit card required"
+              "description": "Free IPTV trial - no credit card required"
             },
             "areaServed": {
               "@type": "Place",

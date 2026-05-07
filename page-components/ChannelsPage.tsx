@@ -124,10 +124,10 @@ const ChannelsPage: React.FC<ChannelsPageProps> = ({ seoContent }) => {
                         IPTV Channel Directory · 2026
                     </span>
                     <h1 className="text-4xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-6 leading-tight">
-                        IPTV Channel List 2026 — 22,000+ Live Channels Across 150+ Countries
+                        IPTV Channel List 2026 - 22,000+ Live Channels Across 150+ Countries
                     </h1>
                     <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-                        Browse the complete ORCA 4K TV IPTV channel list — <span className="text-white font-bold">22,000+ live TV channels</span> in 4K HDR with HDR10+ and Dolby Vision, plus <span className="text-white font-bold">100,000+ on-demand titles</span>. Premium IPTV channels from the USA, UK, Canada, Germany, Netherlands, France, Spain, Italy, Portugal, Latin America, MENA, and more — sports, news, movies, kids, music, and 30+ international languages. Click any country to view its channel lineup.
+                        Browse the complete ORCA 4K TV IPTV channel list - <span className="text-white font-bold">22,000+ live TV channels</span> in 4K HDR with HDR10+ and Dolby Vision, plus <span className="text-white font-bold">100,000+ on-demand titles</span>. Premium IPTV channels from the USA, UK, Canada, Germany, Netherlands, France, Spain, Italy, Portugal, Latin America, MENA, and more - sports, news, movies, kids, music, and 30+ international languages. Click any country to view its channel lineup.
                     </p>
                 </div>
 

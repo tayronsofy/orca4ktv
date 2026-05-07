@@ -54,7 +54,7 @@ export interface SsrfCheckOptions {
 }
 
 const DEFAULT_OPTIONS: Required<SsrfCheckOptions> = {
-  // Common IPTV ports — 80/443 standard, 8080/8880 alt-http, 25461 popular Xtream port,
+  // Common IPTV ports - 80/443 standard, 8080/8880 alt-http, 25461 popular Xtream port,
   // 8000/8001/2052/2082/2086/2095 also seen in the wild.
   allowedPorts: [80, 443, 8080, 8880, 8000, 8001, 25461, 2052, 2082, 2086, 2095],
   allowedSchemes: ['http:', 'https:'],

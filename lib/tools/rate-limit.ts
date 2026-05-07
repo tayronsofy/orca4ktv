@@ -37,7 +37,7 @@ export async function checkAndRecord(
   try {
     admin = createAdminClient()
   } catch {
-    // No service-role key set (local dev) — fail open so the tool stays usable.
+    // No service-role key set (local dev) - fail open so the tool stays usable.
     return { ok: true, remaining: max, retryAfterSec: 0 }
   }
 
@@ -49,7 +49,7 @@ export async function checkAndRecord(
     .gte('created_at', since)
 
   if (countError) {
-    // DB error — fail open (don't block legitimate users on infrastructure hiccups)
+    // DB error - fail open (don't block legitimate users on infrastructure hiccups)
     return { ok: true, remaining: max, retryAfterSec: 0 }
   }
 

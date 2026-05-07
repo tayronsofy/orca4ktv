@@ -44,7 +44,7 @@ const VideoSection: React.FC<VideoSectionProps> = ({ onScrollToPricing }) => {
           </div>
 
           <div className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight uppercase">
-            START STREAMING TODAY — FROM JUST $21/MO.
+            START STREAMING TODAY - FROM JUST $21/MO.
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

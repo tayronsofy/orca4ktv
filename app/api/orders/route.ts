@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid connections (must be 1-4)' }, { status: 400 })
   }
 
-  // Server-side amount calculation — never trust client-sent prices.
+  // Server-side amount calculation - never trust client-sent prices.
   const originalAmount = getPlanPrice(planSlug, connections)!
   const planName = getPlanName(planSlug)!
 
@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
     // Decrement uses_remaining if the coupon has a finite count
     await admin.rpc('decrement_coupon_uses', { p_code: appliedCouponCode }).then(
       () => {},
-      // RPC may not exist — fall back to a manual decrement
+      // RPC may not exist - fall back to a manual decrement
       async () => {
         const { data: c } = await admin.from('coupons').select('uses_remaining').eq('code', appliedCouponCode!).single()
         if (c?.uses_remaining != null) {

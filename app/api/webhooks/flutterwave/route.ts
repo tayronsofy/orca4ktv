@@ -42,13 +42,13 @@ export async function POST(request: NextRequest) {
 
   console.log('FLW webhook: found order', order.id, 'status:', order.status)
 
-  // 4. Idempotency guard — skip if already processed
+  // 4. Idempotency guard - skip if already processed
   if (order.status === 'active') {
     console.log('FLW webhook: order already active, skipping')
     return NextResponse.json({ ok: true })
   }
 
-  // 5. Amount verification (fraud prevention — allow minor floating-point variance)
+  // 5. Amount verification (fraud prevention - allow minor floating-point variance)
   if (Number(paidAmount) < Number(order.amount) - 0.01) {
     console.error(`Flutterwave webhook: amount mismatch for order ${order.id}. Expected ${order.amount}, got ${paidAmount}`)
     return NextResponse.json({ error: 'Amount mismatch' }, { status: 400 })
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     subscriptionId = created?.id ?? null
   }
 
-  // Mirror credentials into subscription_credentials slot 1 — multi-connection orders
+  // Mirror credentials into subscription_credentials slot 1 - multi-connection orders
   // need slots 2..N filled in manually by the admin afterwards.
   if (subscriptionId) {
     await admin
@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
   // 10. Mark order active
   await admin.from('orders').update({ status: 'active' }).eq('id', order.id)
 
-  // 11. Send credentials email (fire-and-forget — don't fail webhook on email error)
+  // 11. Send credentials email (fire-and-forget - don't fail webhook on email error)
   const { data: profile } = await admin
     .from('profiles')
     .select('full_name, email')

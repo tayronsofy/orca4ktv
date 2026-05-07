@@ -4,7 +4,7 @@ import USAHomePage from '@/page-components/usa/USAHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Best IPTV USA 2026 — Live Sports & US Networks | ORCA 4K TV',
+  title: 'Best IPTV USA 2026 - Live Sports & US Networks | ORCA 4K TV',
   description: 'Best IPTV USA 2026: live US sports + every major free-to-air network in 4K HDR. 22,000+ channels, multi-device, no contract. From $7.92/mo.',
   keywords: 'best iptv usa 2026, usa local channels iptv, american sports iptv hd, iptv service for firestick usa, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, cord cutting usa',
   alternates: {
@@ -43,8 +43,8 @@ export default function USAPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-usa#product",
-                "name": "Best IPTV USA 2026 — ORCA 4K TV",
-                "description": "Premium IPTV subscription for the United States — 22,000+ live channels covering American football, US pro basketball, US pro baseball, North American pro hockey, all major US sports and free-to-air networks, plus USA local channels by ZIP code, in 4K HDR with HDR10+ and Dolby Vision.",
+                "name": "Best IPTV USA 2026 - ORCA 4K TV",
+                "description": "Premium IPTV subscription for the United States - 22,000+ live channels covering American football, US pro basketball, US pro baseball, North American pro hockey, all major US sports and free-to-air networks, plus USA local channels by ZIP code, in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/usa-coverage.jpg",
                 "brand": { "@type": "Brand", "name": "ORCA 4K TV" },
                 "category": "IPTV Streaming Service",
@@ -99,12 +99,12 @@ export default function USAPage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            Best IPTV USA 2026 — Stream American Football, Basketball, Baseball &amp; USA Local Channels in 4K HDR
+            Best IPTV USA 2026 - Stream American Football, Basketball, Baseball &amp; USA Local Channels in 4K HDR
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
             <strong className="text-white">ORCA 4K TV</strong> is the best IPTV USA 2026 for cord-cutters who want
-            every game, every channel, every screen — without the $147/month cable bill. Stream{' '}
+            every game, every channel, every screen - without the $147/month cable bill. Stream{' '}
             <strong className="text-white">the championship game in February 2026</strong>, every
             week of the American football regular season and playoffs, <strong className="text-white">the spring US college basketball tournament</strong>,
             the US baseball championship series, US basketball championship finals, the North American hockey championship, the late-summer Grand Slam tennis fortnight, the spring golf majors, and 22,000+ live channels
@@ -136,12 +136,12 @@ export default function USAPage() {
             <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Premium entertainment:</strong> premium movie channels and major basic-cable entertainment networks</span></li>
             <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Lifestyle:</strong> documentary, history, food, home and travel networks</span></li>
             <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">Kids:</strong> premium kids&apos; channels and educational programming</span></li>
-            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand movies</strong> with same-day Hollywood releases — major studio blockbusters and premium streaming-platform-style originals</span></li>
+            <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand movies</strong> with same-day Hollywood releases - major studio blockbusters and premium streaming-platform-style originals</span></li>
             <li className="flex gap-3"><span className="text-blue-400 font-black mt-0.5">▸</span><span><strong className="text-white">7-day catch up TV</strong> on every channel via the smart EPG guide</span></li>
           </ul>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-blue-500/15">
-            Anti Freeze CDN — Built for the American Sports Calendar
+            Anti Freeze CDN - Built for the American Sports Calendar
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
@@ -149,8 +149,8 @@ export default function USAPage() {
             <strong className="text-white">the championship game in February</strong>, the college football playoff, the spring college basketball tournament, the baseball season opener, the basketball championship finals, the hockey championship, the late-summer US Grand Slam tennis fortnight, and the{' '}
             <strong className="text-white">summer 2026 international football tournament</strong> with US host cities Atlanta, Boston, Dallas,
             Houston, Kansas City, Los Angeles, Miami, New York/New Jersey, Philadelphia, San Francisco Bay Area, and
-            Seattle. Our Anti Freeze CDN routes around peak-event traffic in real time so every subscriber — Brooklyn
-            to Beverly Hills, Boston to Boise — gets the same buffer-free 4K HDR streaming. AES-256 encrypted (
+            Seattle. Our Anti Freeze CDN routes around peak-event traffic in real time so every subscriber - Brooklyn
+            to Beverly Hills, Boston to Boise - gets the same buffer-free 4K HDR streaming. AES-256 encrypted (
             <a href="/security" className="text-blue-400 hover:underline">NIST FIPS 197</a>), VPN traffic welcomed,
             24/7 IPTV customer support with average first reply under 5 minutes.
           </p>
@@ -165,7 +165,7 @@ export default function USAPage() {
             <strong className="text-white">Apple TV 4K (3rd gen)</strong>,{' '}
             <strong className="text-white">Android TV 14</strong>, Chromecast with Google TV, Samsung Tizen, LG webOS,
             MAG box, iOS, Android, Windows, macOS, and any modern web browser. Up to four simultaneous streams per
-            account. Setup is rapid — most US households are watching live channels within five minutes of checkout.
+            account. Setup is rapid - most US households are watching live channels within five minutes of checkout.
             See the <a href="/setup-guide" className="text-blue-400 hover:underline">step-by-step setup guide</a> for
             your device, or check the <a href="/glossary" className="text-blue-400 hover:underline">IPTV glossary</a>
             {' '}if any terms are new.
@@ -178,7 +178,7 @@ export default function USAPage() {
           <p className="text-gray-300 text-lg leading-relaxed">
             No installer visit, no satellite dish, no equipment lease, no early-termination fee, no auto-renewal trap.
             Pay month-to-month or save up to 62% on the 12-month <a href="/iptv-shop" className="text-blue-400 hover:underline">IPTV subscription plan</a>.
-            Cancel any time. Test it free first — our{' '}
+            Cancel any time. Test it free first - our{' '}
             <a href="/trial" className="text-blue-400 hover:underline font-bold">free IPTV trial</a> requires no credit
             card and unlocks instant activation with the full 22,000-channel library and 4K HDR streaming.
           </p>

@@ -81,7 +81,7 @@ export default async function TrialPage() {
     ? new Date(trial.expires_at).toLocaleDateString('en-US', {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
       })
-    : '—'
+    : '-'
 
   return (
     <div>
@@ -91,7 +91,7 @@ export default async function TrialPage() {
       <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="text-gray-400 text-sm mb-1">Orca 4K TV — {trial.duration_hours ?? '—'}-hour trial</p>
+            <p className="text-gray-400 text-sm mb-1">Orca 4K TV - {trial.duration_hours ?? '-'}-hour trial</p>
             {expired ? (
               <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border bg-gray-500/20 text-gray-400 border-gray-500/30">
                 Expired
@@ -154,7 +154,7 @@ export default async function TrialPage() {
       {/* CTAs */}
       <div className="bg-[#002952] rounded-2xl p-6 border border-white/5 mb-6">
         <h2 className="text-white font-bold mb-2">Get set up in minutes</h2>
-        <p className="text-gray-400 text-sm mb-4">Step-by-step video tutorials for every device — Firestick, Apple TV, Android, smart TVs, MAG and more.</p>
+        <p className="text-gray-400 text-sm mb-4">Step-by-step video tutorials for every device - Firestick, Apple TV, Android, smart TVs, MAG and more.</p>
         <Link
           href="/setup-guide"
           className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity text-sm"

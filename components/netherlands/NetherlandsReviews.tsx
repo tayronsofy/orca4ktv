@@ -4,16 +4,16 @@ import React from 'react';
 
 const reviewsRaw = [
   {
-    text: "Elke topvoetbal-topper en alle top Europese clubvoetbal-avonden in 4K HDR op mijn Apple TV 4K — geen hapering, zelfs niet op de beslissende speeldag in mei. Mijn kabelpakket opgezegd en meer dan €45 per maand bespaard.",
-    device: "Apple TV 4K – Amsterdam",
+    text: "Elke topvoetbal-topper en alle top Europese clubvoetbal-avonden in 4K HDR op mijn Apple TV 4K - geen hapering, zelfs niet op de beslissende speeldag in mei. Mijn kabelpakket opgezegd en meer dan €45 per maand bespaard.",
+    device: "Apple TV 4K - Amsterdam",
   },
   {
-    text: "In minder dan 5 minuten via TiviMate ingesteld op de Firestick 4K Max. Motorsport-zondagen, nationale beker-avonden, Olympische hoogtepunten — alles haarscherp. De EPG is overzichtelijker dan alles wat ik daarvoor had.",
-    device: "Firestick 4K Max – Rotterdam",
+    text: "In minder dan 5 minuten via TiviMate ingesteld op de Firestick 4K Max. Motorsport-zondagen, nationale beker-avonden, Olympische hoogtepunten - alles haarscherp. De EPG is overzichtelijker dan alles wat ik daarvoor had.",
+    device: "Firestick 4K Max - Rotterdam",
   },
   {
     text: "Na de zoveelste prijsverhoging overgestapt. Hetzelfde topvoetbal, dezelfde publieke-omroep-content, plus 100+ internationale zenders. Streamt vlekkeloos in 4K HDR op mijn LG OLED.",
-    device: "LG webOS + iPhone – Eindhoven",
+    device: "LG webOS + iPhone - Eindhoven",
   },
 ];
 
@@ -26,11 +26,11 @@ const NetherlandsReviews: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-            IPTV Nederland – <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AE1C28] to-[#21468B]">Gebruikersreviews</span>
+            IPTV Nederland - <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AE1C28] to-[#21468B]">Gebruikersreviews</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Geverifieerde Nederlandse cord-cutters van Amsterdam tot Eindhoven — buffervrij 4K HDR, elke topvoetbal-wedstrijd, elke open-wheel motorsport-race, elk Winterspelen-moment, één enkel IPTV-abonnement.
+            Geverifieerde Nederlandse cord-cutters van Amsterdam tot Eindhoven - buffervrij 4K HDR, elke topvoetbal-wedstrijd, elke open-wheel motorsport-race, elk Winterspelen-moment, één enkel IPTV-abonnement.
           </p>
         </div>
 

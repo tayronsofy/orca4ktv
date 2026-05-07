@@ -12,11 +12,11 @@ const CanadaPricing = () => {
   // Canada-specific unique text
   const CANADA_FEATURES = [
     "All Major Canadian Free-to-Air Networks (EN + FR) & Premium Sports Tier",
-    "Hockey, Canadian Football, Baseball, Basketball — Every Game Live in 4K HDR",
+    "Hockey, Canadian Football, Baseball, Basketball - Every Game Live in 4K HDR",
     "22,000+ International Live Channels Worldwide",
     "100,000+ On-Demand Movies & Series Library",
     "True 4K HDR with HDR10+ & Dolby Vision",
-    "Anti Freeze CDN — Buffer-Free Streaming",
+    "Anti Freeze CDN - Buffer-Free Streaming",
     "24/7 Customer Support · Instant Canadian Activation"
   ];
 
@@ -66,7 +66,7 @@ const CanadaPricing = () => {
             Canada IPTV Pricing. <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">Cancel Anytime.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            One global IPTV subscription — every Canadian network plus 22,000+ international live channels in 4K HDR. Pay in CAD, cancel anytime.
+            One global IPTV subscription - every Canadian network plus 22,000+ international live channels in 4K HDR. Pay in CAD, cancel anytime.
           </p>
 
           <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-red-600/30 shadow-xl shadow-red-500/10">

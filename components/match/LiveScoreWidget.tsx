@@ -51,7 +51,7 @@ export default function LiveScoreWidget({ fixtureId, initial, homeTeam, awayTeam
 
         <div className="flex flex-col items-center">
           <span className="text-5xl md:text-7xl font-black text-white tabular-nums leading-none">
-            {homeScore} <span className="text-gray-600">–</span> {awayScore}
+            {homeScore} <span className="text-gray-600">-</span> {awayScore}
           </span>
         </div>
 

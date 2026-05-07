@@ -10,7 +10,7 @@ function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { label: string; color: string }> = {
     active:          { label: 'Active',          color: 'bg-green-500/20 text-green-400 border-green-500/30' },
     pending_payment: { label: 'Awaiting Payment', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' },
-    paid:            { label: 'Paid — Activating', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
+    paid:            { label: 'Paid - Activating', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
     expired:         { label: 'Expired',         color: 'bg-gray-500/20 text-gray-400 border-gray-500/30' },
     cancelled:       { label: 'Cancelled',       color: 'bg-red-500/20 text-red-400 border-red-500/30' },
   }
@@ -124,7 +124,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                 return paymentLink ? (
                   <div className="bg-green-500/10 border border-green-500/30 rounded-xl px-4 py-3">
                     <p className="text-green-300 text-sm font-semibold mb-2">
-                      <i className="fas fa-check-circle mr-2"></i>Your invoice is ready — complete your payment to activate
+                      <i className="fas fa-check-circle mr-2"></i>Your invoice is ready - complete your payment to activate
                     </p>
                     <a
                       href={paymentLink}
@@ -138,7 +138,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                 ) : (
                   <p className="text-yellow-400/80 text-sm bg-yellow-500/10 rounded-xl px-3 py-2">
                     <i className="fas fa-clock mr-2"></i>
-                    Waiting for payment link — we&apos;ll email you shortly.
+                    Waiting for payment link - we&apos;ll email you shortly.
                   </p>
                 )
               })()}

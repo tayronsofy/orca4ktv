@@ -7,12 +7,12 @@ import { getPublishedPosts } from '@/lib/posts'
 import TrustFacts from '@/components/seo/TrustFacts'
 
 export const metadata: Metadata = {
-  title: 'ORCA 4K TV IPTV — 22,000+ Live Channels in 4K HDR',
+  title: 'ORCA 4K TV IPTV - 22,000+ Live Channels in 4K HDR',
   description: 'Premium IPTV: 22,000+ live channels, 100,000+ movies in 4K HDR. Anti Freeze CDN, AES-256, multi-device. Firestick, Smart TV, Apple TV. From $7.92/mo.',
   keywords: 'IPTV subscription, IPTV plans, IPTV service provider, IPTV streaming service, IPTV subscription plans, 4K IPTV subscription, HD IPTV service, 4K streaming, HDR streaming, live channels, on-demand movies, premium IPTV channels, premium channels, live TV streaming, buffer-free streaming, zero buffering, Anti Freeze technology, multi-device compatibility, IPTV multi-device, IPTV device compatibility, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, IPTV instant start, rapid setup, fast IPTV setup, secure streaming, AES-256 encryption, secure IPTV access, encrypted IPTV streaming, VPN allowed, IPTV with VPN, 24/7 customer support, IPTV customer support',
   alternates: { canonical: 'https://orca4ktv.com/' },
   openGraph: {
-    title: 'ORCA 4K TV IPTV — 22,000+ Live Channels in 4K HDR',
+    title: 'ORCA 4K TV IPTV - 22,000+ Live Channels in 4K HDR',
     description: 'Premium IPTV streaming with 22,000+ live channels in 4K HDR, on-demand movies, AES-256 encrypted, multi-device, instant activation. From $7.92/mo.',
     type: 'website',
     url: 'https://orca4ktv.com/',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ORCA 4K TV IPTV — 22,000+ Live Channels in 4K HDR',
+    title: 'ORCA 4K TV IPTV - 22,000+ Live Channels in 4K HDR',
     description: 'Premium IPTV in 4K HDR: 22,000+ channels, AES-256 encrypted, multi-device, instant activation. From $7.92/mo.',
     images: ['https://orca4ktv.com/og-image.jpg'],
   },
@@ -41,15 +41,15 @@ export default function HomePage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            The Best IPTV Service of 2026 — Built for the Biggest Year in Live Sports
+            The Best IPTV Service of 2026 - Built for the Biggest Year in Live Sports
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            <strong className="text-white">ORCA 4K TV</strong> is the next-generation <strong className="text-white">IPTV streaming service</strong> engineered for 2026 — the biggest year in live sports streaming since the platform began. Watch every major international football tournament live in 4K Ultra-HD with HDR10+ and Dolby Vision, the championship game in February, every top European club football knockout, every UK football weekend, every US pro basketball playoff quarter — across <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies</strong>, and an AI-powered smart EPG guide that actually understands what you want.
+            <strong className="text-white">ORCA 4K TV</strong> is the next-generation <strong className="text-white">IPTV streaming service</strong> engineered for 2026 - the biggest year in live sports streaming since the platform began. Watch every major international football tournament live in 4K Ultra-HD with HDR10+ and Dolby Vision, the championship game in February, every top European club football knockout, every UK football weekend, every US pro basketball playoff quarter - across <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies</strong>, and an AI-powered smart EPG guide that actually understands what you want.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Powered by our proprietary <strong className="text-white">Anti Freeze technology</strong> CDN, every stream lands buffer-free even during peak match-day traffic. Encrypted end-to-end with <strong className="text-white">AES-256</strong> (<a href="/security" className="text-[#00E5FF] hover:underline">NIST FIPS 197</a>), VPN-friendly, and ready on Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG, iOS and Android — full <a href="/iptv-shop" className="text-[#00E5FF] hover:underline">multi-device compatibility</a> on every IPTV subscription plan we ship.
+            Powered by our proprietary <strong className="text-white">Anti Freeze technology</strong> CDN, every stream lands buffer-free even during peak match-day traffic. Encrypted end-to-end with <strong className="text-white">AES-256</strong> (<a href="/security" className="text-[#00E5FF] hover:underline">NIST FIPS 197</a>), VPN-friendly, and ready on Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Samsung Tizen, LG webOS, MAG, iOS and Android - full <a href="/iptv-shop" className="text-[#00E5FF] hover:underline">multi-device compatibility</a> on every IPTV subscription plan we ship.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-[#00E5FF]/15">
@@ -57,34 +57,34 @@ export default function HomePage() {
           </h3>
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">22,000+ live channels</strong> — premium IPTV channels from USA, UK, Canada, Germany, Netherlands, MENA, LATAM, and Asia</span></li>
+            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">22,000+ live channels</strong> - premium IPTV channels from USA, UK, Canada, Germany, Netherlands, MENA, LATAM, and Asia</span></li>
             <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">4K HDR streaming</strong> with HDR10+ and Dolby Vision on supported channels</span></li>
             <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">Anti Freeze CDN</strong> with edge POPs auto-routed for zero buffering</span></li>
-            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">AI-powered IPTV concierge</strong> — ask in plain English, get the channel</span></li>
+            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">AI-powered IPTV concierge</strong> - ask in plain English, get the channel</span></li>
             <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">Smart EPG guide</strong> with 7-day catch up TV and recommendations</span></li>
-            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">AES-256 encrypted</strong> secure IPTV access — VPN allowed, no throttling</span></li>
-            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">Instant activation</strong> — IPTV instant start in under 5 minutes</span></li>
-            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">24/7 customer support</strong> — average first reply under 5 minutes</span></li>
+            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">AES-256 encrypted</strong> secure IPTV access - VPN allowed, no throttling</span></li>
+            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">Instant activation</strong> - IPTV instant start in under 5 minutes</span></li>
+            <li className="flex gap-3"><span className="text-[#00E5FF] font-black mt-0.5">▸</span><span><strong className="text-white">24/7 customer support</strong> - average first reply under 5 minutes</span></li>
           </ul>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-[#00E5FF]/15">
-            From Cable to Cord-Cutter — Why 2026 Is the Year to Switch
+            From Cable to Cord-Cutter - Why 2026 Is the Year to Switch
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Cable subscriptions averaged <strong className="text-white">$120+ per month</strong> in 2025 with rigid contracts and a 200-channel cap. ORCA 4K TV starts at <strong className="text-white">$7.92/month</strong> on the <a href="/iptv-shop/12-months" className="text-[#00E5FF] hover:underline">12-month plan</a> — over 100× the channel count, 4K HDR streaming on tap, and zero install fees. Whether you're a Firestick 4K Max household, a Smart TV family, or a multi-device IPTV power user with up to 4 simultaneous connections, you get the same complete library on every screen.
+            Cable subscriptions averaged <strong className="text-white">$120+ per month</strong> in 2025 with rigid contracts and a 200-channel cap. ORCA 4K TV starts at <strong className="text-white">$7.92/month</strong> on the <a href="/iptv-shop/12-months" className="text-[#00E5FF] hover:underline">12-month plan</a> - over 100× the channel count, 4K HDR streaming on tap, and zero install fees. Whether you're a Firestick 4K Max household, a Smart TV family, or a multi-device IPTV power user with up to 4 simultaneous connections, you get the same complete library on every screen.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Want to test it first? Start with our <a href="/trial" className="text-[#00E5FF] hover:underline font-bold">free IPTV trial</a> — no credit card, instant activation, full 4K HDR access. Browse the <a href="/channels" className="text-[#00E5FF] hover:underline">premium IPTV channel list</a>, read up on <a href="/security" className="text-[#00E5FF] hover:underline">our AES-256 encryption</a>, or check the <a href="/glossary" className="text-[#00E5FF] hover:underline">IPTV glossary</a> if any terminology is new. Setup takes under 5 minutes — see the <a href="/setup-guide" className="text-[#00E5FF] hover:underline">step-by-step rapid setup guide</a> for your device.
+            Want to test it first? Start with our <a href="/trial" className="text-[#00E5FF] hover:underline font-bold">free IPTV trial</a> - no credit card, instant activation, full 4K HDR access. Browse the <a href="/channels" className="text-[#00E5FF] hover:underline">premium IPTV channel list</a>, read up on <a href="/security" className="text-[#00E5FF] hover:underline">our AES-256 encryption</a>, or check the <a href="/glossary" className="text-[#00E5FF] hover:underline">IPTV glossary</a> if any terminology is new. Setup takes under 5 minutes - see the <a href="/setup-guide" className="text-[#00E5FF] hover:underline">step-by-step rapid setup guide</a> for your device.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-[#00E5FF]/15">
-            Live Sports Streaming in 2026 — Every Major Event, Every League
+            Live Sports Streaming in 2026 - Every Major Event, Every League
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            ORCA 4K TV is purpose-built for live sports streaming. Coverage spans the biggest <strong className="text-white">international football tournament of summer 2026</strong> across US, Canada and Mexico host cities, the <strong className="text-white">championship game in February</strong>, top European club football midweeks, every domestic top-flight football league across the UK, Germany, Italy, Spain and the Netherlands, plus American football, US pro basketball, North American pro hockey, US pro baseball, MMA pay-per-views, top-tier open-wheel motorsport, premier motorcycle racing, Grand Slam tennis, major golf tournaments, US college sports, and the <strong className="text-white">2026 Winter Games</strong>. Live in 4K HDR where the upstream feed supplies it, otherwise crisp Full-HD across multi-device — see <a href="/live-matches" className="text-[#00E5FF] hover:underline">today's live matches</a> for what's on right now.
+            ORCA 4K TV is purpose-built for live sports streaming. Coverage spans the biggest <strong className="text-white">international football tournament of summer 2026</strong> across US, Canada and Mexico host cities, the <strong className="text-white">championship game in February</strong>, top European club football midweeks, every domestic top-flight football league across the UK, Germany, Italy, Spain and the Netherlands, plus American football, US pro basketball, North American pro hockey, US pro baseball, MMA pay-per-views, top-tier open-wheel motorsport, premier motorcycle racing, Grand Slam tennis, major golf tournaments, US college sports, and the <strong className="text-white">2026 Winter Games</strong>. Live in 4K HDR where the upstream feed supplies it, otherwise crisp Full-HD across multi-device - see <a href="/live-matches" className="text-[#00E5FF] hover:underline">today's live matches</a> for what's on right now.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed">

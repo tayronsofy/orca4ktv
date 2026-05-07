@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const trialFaqData = [
   {
     question: "What is included in the free IPTV trial?",
-    answer: "The free IPTV trial gives you full access to ORCA 4K TV's complete service — 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
+    answer: "The free IPTV trial gives you full access to ORCA 4K TV's complete service - 22,000+ live channels, 4K sports, movies, VOD library, and EPG guide. No features are locked or restricted during the trial period."
   },
   {
     question: "How long does the free trial last?",
@@ -13,7 +13,7 @@ const trialFaqData = [
   },
   {
     question: "Do I need a credit card for the free trial?",
-    answer: "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device — that's all."
+    answer: "No. The ORCA 4K TV free trial requires no credit card, no payment details, and no commitment. Simply submit the request form with your name, email, and device - that's all."
   },
   {
     question: "How quickly will I receive my trial credentials?",
@@ -25,7 +25,7 @@ const trialFaqData = [
   },
   {
     question: "What happens after the trial ends?",
-    answer: "After your free trial ends, your access will pause. There is no automatic charge — you decide if and when to subscribe. Plans start from $21/month with no contract or auto-renewal."
+    answer: "After your free trial ends, your access will pause. There is no automatic charge - you decide if and when to subscribe. Plans start from $21/month with no contract or auto-renewal."
   },
 ]
 

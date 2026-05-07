@@ -30,17 +30,17 @@ function fixM3uUrl(rawUrl: string): string {
   try {
     const parsed = new URL(rawUrl)
 
-    // Host is empty — e.g. http:///get.php?...
+    // Host is empty - e.g. http:///get.php?...
     if (!parsed.host) {
       return `${serverBase}${parsed.pathname}${parsed.search}`
     }
 
-    // Host looks like a PHP filename — e.g. http://get.php?...
+    // Host looks like a PHP filename - e.g. http://get.php?...
     if (/\.php$/i.test(parsed.host)) {
       return `${serverBase}/${parsed.host}${parsed.search}`
     }
 
-    // Valid URL — replace host with the streaming server
+    // Valid URL - replace host with the streaming server
     return `${serverBase}${parsed.pathname}${parsed.search}`
   } catch {
     const pathPart = rawUrl.replace(/^https?:\/\/[^/]*/, '')

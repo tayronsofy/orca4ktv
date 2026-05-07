@@ -42,7 +42,7 @@ const COLORS = [
 ]
 
 const BLOCK_DEFS = [
-  { type: 'faqToggle',   icon: '❓', label: 'FAQ Toggle',    desc: 'Collapsible Q&A — Google rich snippet',  attrs: {} },
+  { type: 'faqToggle',   icon: '❓', label: 'FAQ Toggle',    desc: 'Collapsible Q&A - Google rich snippet',  attrs: {} },
   { type: 'callout',     icon: '💡', label: 'Tip Callout',   desc: 'Tip / Warning / Info highlight box',     attrs: { variant: 'tip', title: 'Pro Tip', body: 'Your tip here.' } },
   { type: 'callout',     icon: '⚠️', label: 'Warning',       desc: 'Important alert callout',                attrs: { variant: 'warning', title: 'Important', body: 'Your warning here.' } },
   { type: 'ctaBox',      icon: '📣', label: 'CTA Box',       desc: 'Full banner with headline & button',     attrs: {} },
@@ -160,7 +160,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
         {divider}
 
         {/* Lists */}
-        <button onClick={() => editor.chain().focus().toggleBulletList().run()} className={btn(editor.isActive('bulletList'))} title="Bullet list">• —</button>
+        <button onClick={() => editor.chain().focus().toggleBulletList().run()} className={btn(editor.isActive('bulletList'))} title="Bullet list">• -</button>
         <button onClick={() => editor.chain().focus().toggleOrderedList().run()} className={btn(editor.isActive('orderedList'))} title="Ordered list">1.</button>
         <button onClick={() => editor.chain().focus().toggleBlockquote().run()} className={btn(editor.isActive('blockquote'))} title="Blockquote">"</button>
         <button onClick={() => editor.chain().focus().toggleCodeBlock().run()} className={btn(editor.isActive('codeBlock'))} title="Code block">{'{}'}</button>
@@ -216,7 +216,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
         <button onClick={insertLink} className={btn(editor.isActive('link'))} title="Insert link">🔗</button>
         <button onClick={insertImage} className={btn(false)} title="Insert image">🖼</button>
         <button onClick={insertYoutube} className={btn(false)} title="Insert YouTube video">▶</button>
-        <button onClick={() => editor.chain().focus().setHorizontalRule().run()} className={btn(false)} title="Horizontal rule">—</button>
+        <button onClick={() => editor.chain().focus().setHorizontalRule().run()} className={btn(false)} title="Horizontal rule">-</button>
         {divider}
 
         {/* Blocks panel toggle */}
@@ -238,7 +238,7 @@ export default function RichTextEditor({ content, onChange, placeholder = 'Start
         <div className="border-b border-white/10 bg-[#000a1c] px-4 py-4">
           <div className="flex items-center justify-between mb-3">
             <p className="text-xs font-black text-gray-400 uppercase tracking-wider">Insert Block</p>
-            <p className="text-xs text-gray-600">Click a block to insert at cursor — blocks survive re-editing</p>
+            <p className="text-xs text-gray-600">Click a block to insert at cursor - blocks survive re-editing</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {BLOCK_DEFS.map((block, i) => (

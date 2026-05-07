@@ -7,21 +7,21 @@ const UK_FEATURES = [
     title: 'London-to-Edinburgh Coverage with a UK Edge POP',
     description: 'A dedicated London edge server keeps latency under 25ms whether you are watching the 3pm Saturday kick-offs from Manchester, the Northern hemisphere international rugby from Cardiff, or summer Grand Slam tennis late-night highlights from Edinburgh. Anti Freeze CDN reroutes around peak UK football and top European football match-day congestion in real time, so every goal, every try, every set point lands buffer-free in 4K HDR.',
     imageUrl: '/images/uk-coverage.jpg',
-    altText: 'Two British football fans on a navy sofa watching a live 4K HDR football match on a wall-mounted Smart TV — buffer-free IPTV UK streaming on ORCA 4K TV.',
+    altText: 'Two British football fans on a navy sofa watching a live 4K HDR football match on a wall-mounted Smart TV - buffer-free IPTV UK streaming on ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Smart EPG Built for the British Sports Calendar',
-    description: 'The ORCA 4K TV smart EPG guide knows your week — UK football weekends, top European football midweek, Northern hemisphere international rugby Saturdays, motorsport Sunday races, summer Grand Slam tennis late evenings, county cricket weekdays. Live scores, channel-jump shortcuts, 7-day catch up TV across catch-up streaming-equivalent content, premium on-demand, and AI-powered "what is on right now" search across every UK broadcaster.',
+    description: 'The ORCA 4K TV smart EPG guide knows your week - UK football weekends, top European football midweek, Northern hemisphere international rugby Saturdays, motorsport Sunday races, summer Grand Slam tennis late evenings, county cricket weekdays. Live scores, channel-jump shortcuts, 7-day catch up TV across catch-up streaming-equivalent content, premium on-demand, and AI-powered "what is on right now" search across every UK broadcaster.',
     imageUrl: '/images/uk-epg.jpg',
-    altText: 'Adult holding a TV remote browsing the Smart EPG channel guide on a 4K Smart TV — ORCA 4K TV UK IPTV subscription with electronic program guide and 7-day catch up TV.',
+    altText: 'Adult holding a TV remote browsing the Smart EPG channel guide on a 4K Smart TV - ORCA 4K TV UK IPTV subscription with electronic program guide and 7-day catch up TV.',
     reverse: true
   },
   {
     title: 'Every British Streaming Device, One Subscription',
-    description: 'Multi-device IPTV compatibility on every plan: Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Chromecast with Google TV, Samsung Tizen, LG webOS, MAG box, iOS, Android, Windows, macOS, and any modern web browser. Up to four simultaneous streams. Identical UK channel library and EPG on every screen — TiviMate, IPTV Smarters Pro and OTT Navigator all supported out of the box.',
+    description: 'Multi-device IPTV compatibility on every plan: Firestick 4K Max, Apple TV 4K (3rd gen), Android TV 14, Chromecast with Google TV, Samsung Tizen, LG webOS, MAG box, iOS, Android, Windows, macOS, and any modern web browser. Up to four simultaneous streams. Identical UK channel library and EPG on every screen - TiviMate, IPTV Smarters Pro and OTT Navigator all supported out of the box.',
     imageUrl: '/images/uk-multi-device.jpg',
-    altText: 'Coffee table with Firestick 4K Max remote, Apple TV 4K box, Roku player, smartphone and tablet — multi-device IPTV compatibility on ORCA 4K TV UK subscription.',
+    altText: 'Coffee table with Firestick 4K Max remote, Apple TV 4K box, Roku player, smartphone and tablet - multi-device IPTV compatibility on ORCA 4K TV UK subscription.',
     reverse: false
   }
 ];
@@ -38,7 +38,7 @@ const UKFeatures: React.FC = () => {
             Why ORCA 4K TV Is the Best IPTV UK 2026
           </h2>
           <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
-            Buffer-free 4K HDR streaming, every UK broadcaster, every league — Anti Freeze CDN with a London edge server, AES-256 encrypted, multi-device IPTV ready.
+            Buffer-free 4K HDR streaming, every UK broadcaster, every league - Anti Freeze CDN with a London edge server, AES-256 encrypted, multi-device IPTV ready.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-blue-500 mx-auto mt-6"></div>
         </div>

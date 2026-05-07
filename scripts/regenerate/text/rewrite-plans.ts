@@ -51,7 +51,7 @@ async function rewritePlan(plan: ShopPlan): Promise<ShopPlan> {
   const metaTitle = await rewrite(plan.metaTitle, { keywords: kw, extraContext: `${ctx} Field: SEO meta title. Under 60 chars.`, temperature: 0.85 });
   const metaDescription = await rewrite(plan.metaDescription, { keywords: kw, extraContext: `${ctx} Field: SEO meta description. ~150 chars.`, temperature: 0.85 });
 
-  // Each feature line — keep individually short
+  // Each feature line - keep individually short
   const features = await Promise.all(
     plan.features.map((f) =>
       limit(() =>
@@ -68,7 +68,7 @@ async function rewritePlan(plan: ShopPlan): Promise<ShopPlan> {
     )
   );
 
-  // FAQ — each Q + A
+  // FAQ - each Q + A
   const faq = await Promise.all(
     plan.faq.map(async (qa) => ({
       q: await limit(() => rewrite(qa.q, { keywords: kw, extraContext: `${ctx} Field: FAQ question.`, temperature: 0.8 })),
@@ -76,7 +76,7 @@ async function rewritePlan(plan: ShopPlan): Promise<ShopPlan> {
     }))
   );
 
-  // Reviews — each user testimonial
+  // Reviews - each user testimonial
   const reviews = await Promise.all(
     plan.reviews.map(async (r) => ({
       ...r,

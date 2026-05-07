@@ -126,7 +126,7 @@ function CredsToUrls() {
           <UrlBlock label="EPG (XMLTV) URL" url={urls.epg} />
           <UrlBlock label="Player API URL" url={urls.playerApi} />
           <p className="text-xs text-gray-500 leading-relaxed">
-            Everything happens in your browser — these URLs are generated locally and never sent to our servers.
+            Everything happens in your browser - these URLs are generated locally and never sent to our servers.
           </p>
         </div>
       )}

@@ -42,7 +42,7 @@ const GermanyVideoSection: React.FC<GermanyVideoSectionProps> = ({ onScrollToPri
           </div>
 
           <div className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight uppercase">
-            JETZT STREAMEN — AB NUR 15 €/MONAT.
+            JETZT STREAMEN - AB NUR 15 €/MONAT.
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

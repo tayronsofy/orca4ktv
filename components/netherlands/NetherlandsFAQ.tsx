@@ -8,11 +8,11 @@ const NetherlandsFAQ: React.FC = () => {
   const netherlandsFaqData = [
     {
       question: "Kan ik elke topvoetbal-wedstrijd inclusief de zaterdagavondtopper in 4K HDR kijken?",
-      answer: "Ja. Elke Nederlandse topvoetbal-wedstrijd van het seizoen 2025–26 en 2026–27 (vrijdagavond, zaterdag, zondag-topper, maandagavond), de complete tweede divisie, het gehele nationale bekertoernooi tot aan de finale eind april 2026 in De Kuip, alle top Europese clubvoetbal-knockouts en aanvullende Europese clubcompetities zijn live in 4K HDR inbegrepen — geen apart sportpakket, geen toeslag."
+      answer: "Ja. Elke Nederlandse topvoetbal-wedstrijd van het seizoen 2025-26 en 2026-27 (vrijdagavond, zaterdag, zondag-topper, maandagavond), de complete tweede divisie, het gehele nationale bekertoernooi tot aan de finale eind april 2026 in De Kuip, alle top Europese clubvoetbal-knockouts en aanvullende Europese clubcompetities zijn live in 4K HDR inbegrepen - geen apart sportpakket, geen toeslag."
     },
     {
       question: "Zijn het zomerse internationale voetbaltoernooi 2026, de Olympische Winterspelen 2026 en de open-wheel motorsport met de Nederlandse topcoureur erbij?",
-      answer: "Ja. Het zomerse internationale voetbaltoernooi 2026 in de VS, Canada en Mexico met het Nederlands elftal wordt live in 4K HDR uitgezonden. De Olympische Winterspelen 2026 (6–22 februari 2026) — schaatsen, snowboard, ijshockey, curling, alle medaillebeslissingen met TeamNL — zijn ook volledig opgenomen. Het open-wheel motorsport-seizoen 2026 met geheel nieuwe reglementen waarin de Nederlandse topcoureur zijn vijfde wereldtitel najaagt, zenden wij elke race live uit."
+      answer: "Ja. Het zomerse internationale voetbaltoernooi 2026 in de VS, Canada en Mexico met het Nederlands elftal wordt live in 4K HDR uitgezonden. De Olympische Winterspelen 2026 (6-22 februari 2026) - schaatsen, snowboard, ijshockey, curling, alle medaillebeslissingen met TeamNL - zijn ook volledig opgenomen. Het open-wheel motorsport-seizoen 2026 met geheel nieuwe reglementen waarin de Nederlandse topcoureur zijn vijfde wereldtitel najaagt, zenden wij elke race live uit."
     },
     {
       question: "Zijn alle belangrijke Nederlandse free-to-air zenders inbegrepen?",
@@ -20,23 +20,23 @@ const NetherlandsFAQ: React.FC = () => {
     },
     {
       question: "Beperken Ziggo, KPN, T-Mobile of Odido mijn IPTV-streams?",
-      answer: "Onze streams gebruiken TLS 1.3 met AES-256-versleuteling (NIST FIPS 197), waardoor traffic-shaping voor ISP's onbetrouwbaar wordt. Mocht je toch beperking ervaren — vooral in de spits op zwaarbelaste Nederlandse aansluitingen — dan is IPTV met VPN in elk abonnement volledig ondersteund, zonder snelheidslimiet. De meeste Nederlandse huishoudens ervaren helemaal geen beperking."
+      answer: "Onze streams gebruiken TLS 1.3 met AES-256-versleuteling (NIST FIPS 197), waardoor traffic-shaping voor ISP's onbetrouwbaar wordt. Mocht je toch beperking ervaren - vooral in de spits op zwaarbelaste Nederlandse aansluitingen - dan is IPTV met VPN in elk abonnement volledig ondersteund, zonder snelheidslimiet. De meeste Nederlandse huishoudens ervaren helemaal geen beperking."
     },
     {
-      question: "Welke streaming-apparaten werken — Firestick 4K Max, Apple TV 4K, Smart TV?",
+      question: "Welke streaming-apparaten werken - Firestick 4K Max, Apple TV 4K, Smart TV?",
       answer: "Alle. Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3e generatie), Android TV 14-boxen (Nvidia Shield, Onn 4K Pro, Chromecast met Google TV), Samsung Tizen, LG webOS, MAG-box, plus iOS / iPadOS / Android-smartphones en -tablets, Windows / macOS / Linux pc's en elke HTML5-browser. Dezelfde Nederlandse zenderbibliotheek en EPG op elk scherm via TiviMate, IPTV Smarters Pro of OTT Navigator."
     },
     {
       question: "Hoeveel gelijktijdige streams kan mijn huishouden gebruiken?",
-      answer: "Abonnementen bieden tot 4 gelijktijdige verbindingen — daarmee kunnen de huiskamer-tv, de tablet in de kinderkamer en een smartphone in de keuken tegelijkertijd verschillende zenders tonen. Perfect voor een topvoetbal-weekend met de topper in de huiskamer en het sportoverzicht op de tablet. Het 1-maand-abonnement start met 1 verbinding; het 12-maanden-abonnement bevat standaard tot 4 verbindingen zonder meerprijs."
+      answer: "Abonnementen bieden tot 4 gelijktijdige verbindingen - daarmee kunnen de huiskamer-tv, de tablet in de kinderkamer en een smartphone in de keuken tegelijkertijd verschillende zenders tonen. Perfect voor een topvoetbal-weekend met de topper in de huiskamer en het sportoverzicht op de tablet. Het 1-maand-abonnement start met 1 verbinding; het 12-maanden-abonnement bevat standaard tot 4 verbindingen zonder meerprijs."
     },
     {
-      question: "Is er een gratis proefperiode — en een contract of opzegkosten?",
+      question: "Is er een gratis proefperiode - en een contract of opzegkosten?",
       answer: "Gratis IPTV-proefperiode zonder creditcard, directe activering, volledige toegang tot de bibliotheek van 22.000 zenders, volledige 4K HDR. Test voordat je betaalt. Abonnementen zijn maandelijks of als voordelige kwartaal-, half-jaar- of 12-maanden-pakketten. Geen automatische verlenging, geen verborgen kosten, geen opzegboete. Altijd opzegbaar."
     },
     {
       question: "Hoe snel ontvang ik mijn inloggegevens na bestelling?",
-      answer: "IPTV directe start: van afrekenen tot de eerste live zender duurt doorgaans minder dan 5 minuten. Inloggegevens (M3U-URL + Xtream-codes) worden automatisch per e-mail verzonden zodra de betaling binnenkomt. De installatie met elke compatibele speler duurt nog eens 60 seconden — bekijk de stap-voor-stap installatiegids voor jouw apparaat."
+      answer: "IPTV directe start: van afrekenen tot de eerste live zender duurt doorgaans minder dan 5 minuten. Inloggegevens (M3U-URL + Xtream-codes) worden automatisch per e-mail verzonden zodra de betaling binnenkomt. De installatie met elke compatibele speler duurt nog eens 60 seconden - bekijk de stap-voor-stap installatiegids voor jouw apparaat."
     }
   ];
 

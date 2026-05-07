@@ -15,7 +15,7 @@ const NetherlandsPricing = () => {
     "22.000+ internationale live-kanalen wereldwijd",
     "100.000+ films & series on-demand",
     "Echte 4K HDR met HDR10+ en Dolby Vision",
-    "Anti Freeze CDN — Bufferloos streamen",
+    "Anti Freeze CDN - Bufferloos streamen",
     "24/7 Klantenservice · Directe activering"
   ];
 
@@ -64,7 +64,7 @@ const NetherlandsPricing = () => {
             IPTV Nederland Prijzen. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#AE1C28] to-[#21468B]">Altijd opzegbaar.</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-8">
-            Eén wereldwijd IPTV-abonnement — alle Nederlandse zenders plus 22.000+ internationale livekanalen in 4K HDR. Betaling in EUR, altijd opzegbaar.
+            Eén wereldwijd IPTV-abonnement - alle Nederlandse zenders plus 22.000+ internationale livekanalen in 4K HDR. Betaling in EUR, altijd opzegbaar.
           </p>
 
           <div className="inline-flex flex-wrap items-center justify-center bg-[#001530] p-2 rounded-full border border-[#AE1C28]/30 shadow-xl shadow-[#AE1C28]/10">

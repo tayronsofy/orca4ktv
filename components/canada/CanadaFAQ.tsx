@@ -7,36 +7,36 @@ const CanadaFAQ: React.FC = () => {
 
   const canadaFaqData = [
     {
-      question: "Can I watch every North American pro hockey game — including the late-season playoffs in 4K HDR?",
-      answer: "Yes. Every regular-season North American pro hockey game (Saturday-night hockey broadcasts, midweek matchups, all 32 teams), the entire late-season playoffs, the spring international hockey championship, and the World Junior Championship are all included live in 4K HDR where the upstream feed supplies it. The premium Canadian sports tier and its regional feeds are all on board — no separate sports add-on, no out-of-market subscription required."
+      question: "Can I watch every North American pro hockey game - including the late-season playoffs in 4K HDR?",
+      answer: "Yes. Every regular-season North American pro hockey game (Saturday-night hockey broadcasts, midweek matchups, all 32 teams), the entire late-season playoffs, the spring international hockey championship, and the World Junior Championship are all included live in 4K HDR where the upstream feed supplies it. The premium Canadian sports tier and its regional feeds are all on board - no separate sports add-on, no out-of-market subscription required."
     },
     {
       question: "Is the 2026 Winter Games and summer international football coverage included?",
-      answer: "Yes. The 2026 Winter Games (February 6–22) — every event, every medal final, every Team Canada moment — is live in 4K HDR. The summer 2026 international football tournament in June and July is also fully included, including the matches Toronto and Vancouver host as part of the tri-nation event. Both English and French Canadian broadcasts available."
+      answer: "Yes. The 2026 Winter Games (February 6-22) - every event, every medal final, every Team Canada moment - is live in 4K HDR. The summer 2026 international football tournament in June and July is also fully included, including the matches Toronto and Vancouver host as part of the tri-nation event. Both English and French Canadian broadcasts available."
     },
     {
       question: "Are all the Canadian English and French free-to-air networks included?",
-      answer: "Yes, by postcode. All major Canadian English-language free-to-air networks plus all major French-language Canadian free-to-air networks and 24-hour news channels are included. Saturday-night hockey broadcasts in both English and French are available — perfect for bilingual Quebec households."
+      answer: "Yes, by postcode. All major Canadian English-language free-to-air networks plus all major French-language Canadian free-to-air networks and 24-hour news channels are included. Saturday-night hockey broadcasts in both English and French are available - perfect for bilingual Quebec households."
     },
     {
       question: "Will Rogers Ignite, Bell Fibe, Shaw Direct or Telus throttle my IPTV streams?",
-      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197), which makes traffic shaping unreliable for ISPs to apply. If you do see throttling — common during playoff evenings on heavily-oversubscribed Canadian lines — IPTV with VPN is fully supported on every plan with no speed cap from our side. Most Canadian households see no throttling at all."
+      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197), which makes traffic shaping unreliable for ISPs to apply. If you do see throttling - common during playoff evenings on heavily-oversubscribed Canadian lines - IPTV with VPN is fully supported on every plan with no speed cap from our side. Most Canadian households see no throttling at all."
     },
     {
-      question: "Which streaming devices work — Firestick 4K Max, Apple TV 4K, Smart TV?",
+      question: "Which streaming devices work - Firestick 4K Max, Apple TV 4K, Smart TV?",
       answer: "All of them. Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3rd generation), Android TV 14 boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, Hisense, MAG box, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux PCs, and any HTML5 browser. Same channel library and bilingual EPG on every screen via TiviMate, IPTV Smarters Pro or OTT Navigator."
     },
     {
       question: "How many simultaneous streams can my household run?",
-      answer: "Plans ship with up to 4 simultaneous connections so the living room TV, the kid's tablet, and a phone in the garage can all run different channels at the same time — perfect for a hockey playoff night with one game in the basement and Saturday-night hockey in the lounge. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
+      answer: "Plans ship with up to 4 simultaneous connections so the living room TV, the kid's tablet, and a phone in the garage can all run different channels at the same time - perfect for a hockey playoff night with one game in the basement and Saturday-night hockey in the lounge. The 1-month plan starts at 1 connection; the 12-month plan ships with up to 4 by default, no extra fee."
     },
     {
-      question: "Is there a free trial — and is the support bilingual?",
-      answer: "Free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before paying a cent. 24/7 customer support in both English and French — service à la clientèle bilingue. Plans run month-to-month or as discounted prepaid bundles. No automatic recurring charges, no hidden fees, no early-termination penalty. Cancel any time."
+      question: "Is there a free trial - and is the support bilingual?",
+      answer: "Free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before paying a cent. 24/7 customer support in both English and French - service à la clientèle bilingue. Plans run month-to-month or as discounted prepaid bundles. No automatic recurring charges, no hidden fees, no early-termination penalty. Cancel any time."
     },
     {
       question: "How fast do I get my login after signup?",
-      answer: "IPTV instant start: from checkout to first live channel typically takes under 5 minutes. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with any compatible player takes another 60 seconds — see the step-by-step setup guide for your device."
+      answer: "IPTV instant start: from checkout to first live channel typically takes under 5 minutes. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with any compatible player takes another 60 seconds - see the step-by-step setup guide for your device."
     }
   ];
 

@@ -50,8 +50,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  // Top 50 most relevant match pages — favor upcoming/live, exclude finished matches
-  // (FT = full time, AET = after extra time, PEN = penalties — already over)
+  // Top 50 most relevant match pages - favor upcoming/live, exclude finished matches
+  // (FT = full time, AET = after extra time, PEN = penalties - already over)
   const FINISHED_STATUSES = new Set(['FT', 'AET', 'PEN', 'ABD', 'AWD', 'WO', 'CANC'])
   const matchRoutes: MetadataRoute.Sitemap = (matchesData.matches as MatchEntry[])
     .filter(m => m.slug && m.kickoff && !FINISHED_STATUSES.has(m.status ?? ''))

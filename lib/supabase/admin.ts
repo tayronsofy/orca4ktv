@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Service-role client — bypasses RLS. NEVER expose to browser.
+// Service-role client - bypasses RLS. NEVER expose to browser.
 // Use only in API routes and server actions.
 export function createAdminClient() {
   return createClient(

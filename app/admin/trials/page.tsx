@@ -180,7 +180,7 @@ export default function AdminTrialsPage() {
     const body: Record<string, string | number> = { duration_hours: duration, mode: sendMode }
 
     if (sendMode === 'panel') {
-      // Panel auto-creates the account — no package selection needed
+      // Panel auto-creates the account - no package selection needed
     } else if (sendMode === 'pool') {
       const acc = accounts.find(a => a.id === selectedAccountId)
       if (!acc) { setModalError('Please select a trial account.'); setSending(false); return }
@@ -584,7 +584,7 @@ export default function AdminTrialsPage() {
                 </div>
               )}
 
-              {/* Duration — hidden for panel mode (fixed at 12h by panel) */}
+              {/* Duration - hidden for panel mode (fixed at 12h by panel) */}
               {sendMode !== 'panel' && (
                 <div>
                   <label className="block text-gray-300 text-xs font-semibold mb-2 uppercase tracking-wide">Trial Duration</label>

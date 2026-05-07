@@ -4,16 +4,16 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every home hockey playoff game in 4K HDR on my Apple TV 4K — zero buffering during overtime, even during the championship final. Dropped my cable plan and saved over $90 a month.",
-        device: "Apple TV 4K — Toronto, ON",
+        text: "Watched every home hockey playoff game in 4K HDR on my Apple TV 4K - zero buffering during overtime, even during the championship final. Dropped my cable plan and saved over $90 a month.",
+        device: "Apple TV 4K - Toronto, ON",
     },
     {
-        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Local hockey games on the premium sports tier, Canadian football Fridays, even the 2026 Winter Games curling final — all crystal clear. Bilingual EPG is a killer feature.",
-        device: "Firestick 4K Max — Vancouver, BC",
+        text: "Set up in under 5 minutes with TiviMate on my Firestick 4K Max. Local hockey games on the premium sports tier, Canadian football Fridays, even the 2026 Winter Games curling final - all crystal clear. Bilingual EPG is a killer feature.",
+        device: "Firestick 4K Max - Vancouver, BC",
     },
     {
-        text: "Switched after the umpteenth price hike. Same French-language sports and free-to-air coverage I had before, plus 100+ extra international channels. Service à la clientèle en français — nickel.",
-        device: "LG webOS + iPhone — Montréal, QC",
+        text: "Switched after the umpteenth price hike. Same French-language sports and free-to-air coverage I had before, plus 100+ extra international channels. Service à la clientèle en français - nickel.",
+        device: "LG webOS + iPhone - Montréal, QC",
     },
 ];
 
@@ -27,11 +27,11 @@ const CanadaReviews: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                        CANADA IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">User Reviews</span>
+                        CANADA IPTV - <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">User Reviews</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Verified Canadian cord-cutters from Toronto to Vancouver to Montréal — buffer-free 4K HDR, every North American pro hockey game, every Winter Games final, every Canadian English and French free-to-air feed, one bilingual IPTV subscription.
+                        Verified Canadian cord-cutters from Toronto to Vancouver to Montréal - buffer-free 4K HDR, every North American pro hockey game, every Winter Games final, every Canadian English and French free-to-air feed, one bilingual IPTV subscription.
                     </p>
                 </div>
 

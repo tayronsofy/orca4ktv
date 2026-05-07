@@ -27,7 +27,7 @@ const GermanyHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Unser Deutschland-Concierge ist gerade offline – aber ja, ORCA 4K TV liefert alle wichtigen deutschen Free-TV-Sender plus die Premium-Sportstufe mit deutschem Spitzenfußball, top europäischem Klubfußball, nationalem Pokal, Open-Wheel-Motorsport und mehr.");
+      setAiResponse("Unser Deutschland-Concierge ist gerade offline - aber ja, ORCA 4K TV liefert alle wichtigen deutschen Free-TV-Sender plus die Premium-Sportstufe mit deutschem Spitzenfußball, top europäischem Klubfußball, nationalem Pokal, Open-Wheel-Motorsport und mehr.");
     } finally {
       setIsSearching(false);
     }
@@ -68,11 +68,11 @@ const GermanyHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Jeder deutsche Spitzenfußball-Anstoß. Jedes europäische Klubfußball-Finale. Jede Motorsport-Runde – in 4K HDR, ohne Kabelvertrag
+          Jeder deutsche Spitzenfußball-Anstoß. Jedes europäische Klubfußball-Finale. Jede Motorsport-Runde - in 4K HDR, ohne Kabelvertrag
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Vom Topspiel am Samstagabend über das nationale Pokalfinale und die europäischen Klubwettbewerbe bis zum deutschen Werkseinstieg in der Open-Wheel-Saison 2026, dem Sommer-Internationalturnier 2026 mit der DFB-Elf und den Winterspielen 2026 – 22.000+ Live-Sender und 100.000+ Filme on-demand in nativem 4K HDR mit HDR10+ und Dolby Vision. Anti Freeze CDN mit Frankfurt-Edge-Server, AES-256-verschlüsselt, auf Firestick 4K Max, Apple TV 4K und jedem Smart TV. Frag den AI-Concierge einfach, was heute Abend läuft.
+          Vom Topspiel am Samstagabend über das nationale Pokalfinale und die europäischen Klubwettbewerbe bis zum deutschen Werkseinstieg in der Open-Wheel-Saison 2026, dem Sommer-Internationalturnier 2026 mit der DFB-Elf und den Winterspielen 2026 - 22.000+ Live-Sender und 100.000+ Filme on-demand in nativem 4K HDR mit HDR10+ und Dolby Vision. Anti Freeze CDN mit Frankfurt-Edge-Server, AES-256-verschlüsselt, auf Firestick 4K Max, Apple TV 4K und jedem Smart TV. Frag den AI-Concierge einfach, was heute Abend läuft.
         </p>
 
         {/* AI Search Bar Area */}

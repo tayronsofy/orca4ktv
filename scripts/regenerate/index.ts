@@ -13,7 +13,7 @@
 //   --dry-run        Log proposed changes, write nothing
 //   --limit=N        Process at most N items
 //   --reset          Clear the manifest bucket for this command before running
-//   --max-cost=N     (Reserved — preflight cost gate; not yet enforced)
+//   --max-cost=N     (Reserved - preflight cost gate; not yet enforced)
 
 // Load env from .env.local first (Next.js convention), then .env as fallback
 import dotenv from 'dotenv';
@@ -120,13 +120,13 @@ async function main() {
   console.log(`Images (Imagen):  ${iu.imagesGenerated} generated, ${iu.imagesFailed} failed → ~$${iu.estimatedCostUSD.toFixed(2)}`);
   console.log(`Images (OpenAI):  ${ou.imagesGenerated} generated, ${ou.imagesFailed} failed → ~$${ou.estimatedCostUSD.toFixed(2)}`);
   console.log(`Total estimated cost: ~$${(tu.estimatedCostUSD + iu.estimatedCostUSD + ou.estimatedCostUSD).toFixed(2)}`);
-  if (flags.dryRun) console.log(`(DRY RUN — no files were written)`);
+  if (flags.dryRun) console.log(`(DRY RUN - no files were written)`);
   console.log(`══════════════════════════════════════════════\n`);
 }
 
 function printHelp() {
   console.log(`
-Orca 4K TV — Content & Image Regeneration
+Orca 4K TV - Content & Image Regeneration
 
 Commands:
   all        Run everything (text + images)

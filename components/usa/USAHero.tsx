@@ -29,7 +29,7 @@ const USAHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our USA concierge is offline right now — but yes, ORCA 4K TV ships all major US sports and free-to-air networks plus dedicated channels for American football, US pro basketball, US pro baseball and North American pro hockey, with your local affiliates picked up by ZIP code.");
+      setAiResponse("Our USA concierge is offline right now - but yes, ORCA 4K TV ships all major US sports and free-to-air networks plus dedicated channels for American football, US pro basketball, US pro baseball and North American pro hockey, with your local affiliates picked up by ZIP code.");
     } finally {
       setIsSearching(false);
     }
@@ -70,11 +70,11 @@ const USAHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Every Sunday. Every Walk-Off. Every Buzzer-Beater — In 4K HDR, Without the Cable Bill
+          Every Sunday. Every Walk-Off. Every Buzzer-Beater - In 4K HDR, Without the Cable Bill
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          From the championship game in February to the spring college basketball tournament, the basketball championship finals, the baseball championship series, and every American football Sunday in between — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with five US edge servers (NYC, LA, Chicago, Dallas, Atlanta) keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Roku Ultra, Apple TV 4K, and every Smart TV — just ask the AI concierge what&apos;s on.
+          From the championship game in February to the spring college basketball tournament, the basketball championship finals, the baseball championship series, and every American football Sunday in between - 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with five US edge servers (NYC, LA, Chicago, Dallas, Atlanta) keeps every stream buffer-free. AES-256 encrypted. Live on Firestick 4K Max, Roku Ultra, Apple TV 4K, and every Smart TV - just ask the AI concierge what&apos;s on.
         </p>
 
         {/* AI Search Bar Area */}

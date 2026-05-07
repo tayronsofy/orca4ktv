@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
   }
 
   if (search) {
-    // Filter by email via profiles join — Supabase RPC or ilike on related column
+    // Filter by email via profiles join - Supabase RPC or ilike on related column
     query = query.ilike('profiles.email', `%${search}%`)
   }
 

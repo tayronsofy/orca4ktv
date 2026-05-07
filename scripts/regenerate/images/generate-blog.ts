@@ -27,7 +27,7 @@ function deriveSubject(post: BlogPost): string {
     .replace(/^How to /i, '')
     .replace(/\bBest\b/gi, '')
     .replace(/\b20\d\d\b/g, '')
-    .replace(/–|—/g, '')
+    .replace(/-|-/g, '')
     .replace(/\s+/g, ' ')
     .trim();
   return `Abstract editorial illustration evoking "${cleaned}". Show streaming-related visual metaphors (TV / channel / sports / cinema / device silhouette) without showing any text or readable letters. Stylized, conceptual, never literal screenshots.`;

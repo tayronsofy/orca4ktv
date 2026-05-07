@@ -75,7 +75,7 @@ export async function validateCoupon(opts: {
     }
   }
 
-  // Per-user eligibility checks — only when a user is logged in
+  // Per-user eligibility checks - only when a user is logged in
   if (opts.userId) {
     // Already redeemed this exact code?
     const { count: redemptionCount } = await admin

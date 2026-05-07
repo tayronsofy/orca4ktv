@@ -30,7 +30,7 @@ function recommendFor(mbps: number): Recommendation {
   if (mbps >= 15) {
     return {
       label: 'Ready for Full-HD (1080p)',
-      detail: 'Solid for a single 1080p IPTV stream (≈ 8–10 Mbps). 4K may work but expect occasional buffering during peak hours.',
+      detail: 'Solid for a single 1080p IPTV stream (≈ 8-10 Mbps). 4K may work but expect occasional buffering during peak hours.',
       tone: 'good',
     }
   }

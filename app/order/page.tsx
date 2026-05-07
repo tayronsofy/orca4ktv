@@ -99,7 +99,7 @@ function OrderForm() {
     })
 
     if (!signUpError && data.user && data.session) {
-      // New user — registered and logged in with their chosen password
+      // New user - registered and logged in with their chosen password
       if (fullName.trim()) {
         await supabase.from('profiles').update({ full_name: fullName.trim() }).eq('id', data.user.id)
       }
@@ -115,7 +115,7 @@ function OrderForm() {
       return
     }
 
-    // Email already registered — try signing in with the password they entered
+    // Email already registered - try signing in with the password they entered
     const isAlreadyRegistered =
       signUpError?.message?.toLowerCase().includes('already registered') ||
       signUpError?.message?.toLowerCase().includes('already been registered') ||
@@ -132,7 +132,7 @@ function OrderForm() {
         setAuthLoading(false)
         return
       }
-      // Wrong password — show the dedicated password step
+      // Wrong password - show the dedicated password step
       setAuthStep('password')
       setPasswordInput('')
       setAuthError('This email already has an account. Please enter your password below.')
@@ -348,7 +348,7 @@ function OrderForm() {
                     <i className="fas fa-check-circle text-[#00E5FF]"></i>
                     <div>
                       <p className="text-white font-bold text-sm">{appliedCoupon.code}</p>
-                      <p className="text-[#00E5FF] text-xs">{appliedCoupon.discountPercent}% off — saved ${appliedCoupon.discountAmount.toFixed(2)}</p>
+                      <p className="text-[#00E5FF] text-xs">{appliedCoupon.discountPercent}% off - saved ${appliedCoupon.discountAmount.toFixed(2)}</p>
                     </div>
                   </div>
                   <button
@@ -553,7 +553,7 @@ function OrderForm() {
                 </div>
               ) : null}
 
-              {/* Order form — only shown when logged in */}
+              {/* Order form - only shown when logged in */}
               {authStep === 'done' && (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
@@ -591,7 +591,7 @@ function OrderForm() {
                     disabled={loading}
                     className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-black py-4 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 text-lg mt-2"
                   >
-                    {loading ? 'Placing order…' : `Place Order — $${amount.toFixed(2)}`}
+                    {loading ? 'Placing order…' : `Place Order - $${amount.toFixed(2)}`}
                   </button>
 
                   <p className="text-xs text-gray-600 text-center">

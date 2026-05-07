@@ -119,7 +119,7 @@ export default function M3UCheckerClient() {
                       <td className="px-4 py-3 text-white max-w-xs truncate" title={r.name}>
                         {r.name}
                       </td>
-                      <td className="px-4 py-3 text-gray-400 max-w-xs truncate">{r.group ?? '—'}</td>
+                      <td className="px-4 py-3 text-gray-400 max-w-xs truncate">{r.group ?? '-'}</td>
                       <td className="px-4 py-3">
                         <StatusPill status={r.status} />
                         {r.errorReason && (
@@ -127,7 +127,7 @@ export default function M3UCheckerClient() {
                         )}
                       </td>
                       <td className="px-4 py-3 text-right text-gray-300">
-                        {r.responseMs != null ? `${r.responseMs} ms` : '—'}
+                        {r.responseMs != null ? `${r.responseMs} ms` : '-'}
                       </td>
                     </tr>
                   ))
@@ -138,7 +138,7 @@ export default function M3UCheckerClient() {
 
           <p className="text-xs text-gray-500 mt-4 leading-relaxed">
             We probe up to 50 random streams from your playlist with short HEAD/GET requests.
-            A “working” result confirms reachability — actual playback quality also depends on
+            A “working” result confirms reachability - actual playback quality also depends on
             your player and your internet connection.
           </p>
         </div>

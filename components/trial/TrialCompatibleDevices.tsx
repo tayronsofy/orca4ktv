@@ -29,7 +29,7 @@ const TrialCompatibleDevices: React.FC = () => {
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5 mb-16 max-w-4xl mx-auto">
           <img
             src="/images/trial-devices.jpg"
-            alt="IPTV compatible devices – Firestick, Android TV, Apple TV, Smart TV, Roku, PC"
+            alt="IPTV compatible devices - Firestick, Android TV, Apple TV, Smart TV, Roku, PC"
             loading="lazy"
             className="w-full h-auto object-cover"
           />

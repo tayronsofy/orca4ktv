@@ -54,7 +54,7 @@ async function rewritePost(post: BlogPost): Promise<BlogPost> {
     temperature: 0.85,
   });
 
-  // Rewrite content (the long HTML body — the most duplicate-content-sensitive piece)
+  // Rewrite content (the long HTML body - the most duplicate-content-sensitive piece)
   const newContent = await rewrite(post.content, {
     keywords,
     extraContext: `This is the full HTML body of a blog post titled "${newTitle}". The output MUST remain valid HTML with the exact same tag structure (paragraphs, tables, headings, links, inline styles). Only rewrite the human-readable text inside tags. Preserve all <table>, <thead>, <tbody>, <tr>, <td>, <a href="...">, style="...", etc. exactly.`,

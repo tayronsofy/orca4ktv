@@ -47,8 +47,8 @@ export const SHOP_PLANS: ShopPlan[] = [
     "slug": "1-month",
     "name": "1-Month IPTV Plan",
     "shortName": "1 Month",
-    "tagline": "Our commitment-free monthly IPTV plan — cancel anytime.",
-    "description": "Unlock premium IPTV for one month. Get instant access to 22,000+ channels, live sports, and 4K movies—all with no contract required.",
+    "tagline": "Our commitment-free monthly IPTV plan - cancel anytime.",
+    "description": "Unlock premium IPTV for one month. Get instant access to 22,000+ channels, live sports, and 4K movies-all with no contract required.",
     "badge": null,
     "months": 1,
     "basePrice": 21,
@@ -91,29 +91,29 @@ export const SHOP_PLANS: ShopPlan[] = [
     "features": [
       "22,000+ live streaming channels",
       "Streams in 4K Ultra-HD & HD",
-      "On-Demand Entertainment — Films & TV Shows",
+      "On-Demand Entertainment - Films & TV Shows",
       "Our Zero-Buffer Streaming Engine",
       "Comprehensive EPG TV Guide",
-      "TV Rewind — Look back up to 7 days",
+      "TV Rewind - Look back up to 7 days",
       "99.9% Reliable Server Uptime",
       "Stream on Firestick, Android, Smart TV, iOS",
       "Support available 24/7",
       "Service Activates Immediately",
-      "Complete Control — Stop at Will",
+      "Complete Control - Stop at Will",
       "Global Coverage: USA, UK, Canada, and Beyond"
     ],
     "highlights": [
-      "Immediate activation — start streaming now",
+      "Immediate activation - start streaming now",
       "Experience the complete package with no commitment",
       "Cancel on your terms, without penalty"
     ],
-    "metaTitle": "Monthly IPTV Plan – Orca 4K TV Subscription",
-    "metaDescription": "Best IPTV 1 month plan 2026 — only $21. Flexible monthly IPTV with 4K HDR movies & sports on Smart TV, Firestick, Apple TV, mobile. No contract.",
+    "metaTitle": "Monthly IPTV Plan - Orca 4K TV Subscription",
+    "metaDescription": "Best IPTV 1 month plan 2026 - only $21. Flexible monthly IPTV with 4K HDR movies & sports on Smart TV, Firestick, Apple TV, mobile. No contract.",
     "keywords": "iptv 1 month subscription, monthly iptv plan, iptv subscription monthly, best iptv monthly plan 2026, iptv monthly",
     "faq": [
       {
         "q": "What are the contents of the iptv 1 month subscription?",
-        "a": "Your **iptv 1 month subscription** delivers complete access to our service, often called the **best iptv monthly plan 2026**. This **monthly iptv plan** includes 22,000+ live channels, a full VOD library, EPG, catch-up, and 4K sports. With this **iptv subscription monthly**, all features are unlocked—no extra fees for your **iptv monthly** service."
+        "a": "Your **iptv 1 month subscription** delivers complete access to our service, often called the **best iptv monthly plan 2026**. This **monthly iptv plan** includes 22,000+ live channels, a full VOD library, EPG, catch-up, and 4K sports. With this **iptv subscription monthly**, all features are unlocked-no extra fees for your **iptv monthly** service."
       },
       {
         "q": "Am I committed beyond a single month?",
@@ -207,16 +207,16 @@ export const SHOP_PLANS: ShopPlan[] = [
     "features": [
       "22,000+ channels streaming live",
       "Ultra-HD 4K & HD Video Quality",
-      "Vast On-Demand Selection — Films & TV Shows",
+      "Vast On-Demand Selection - Films & TV Shows",
       "Engineered for Seamless Streaming",
       "Comprehensive TV Guide (EPG)",
       "Rewind Up to 7 Days with TV Catch-Up",
       "Assured 99.9% Availability",
       "Supports Firestick, Android, Smart TV, iOS",
       "24/7 dedicated assistance",
-      "Immediate Access — Zero Wait Time",
+      "Immediate Access - Zero Wait Time",
       "Freedom From Contracts",
-      "Worldwide Programming — USA, UK, Canada & More"
+      "Worldwide Programming - USA, UK, Canada & More"
     ],
     "highlights": [
       "Save 30% over the monthly rate, just $15/mo",
@@ -224,7 +224,7 @@ export const SHOP_PLANS: ShopPlan[] = [
       "Ideal for seasonal commitments or quarterly payments"
     ],
     "metaTitle": "IPTV Quarterly Plan - 30% Off | Orca 4K TV",
-    "metaDescription": "Best IPTV 3 months plan 2026 — $45 ($15/mo, save 30%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
+    "metaDescription": "Best IPTV 3 months plan 2026 - $45 ($15/mo, save 30%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
     "keywords": "3 month iptv subscription, iptv quarterly plan, iptv 3 months, best iptv quarterly 2026, iptv subscription deal",
     "faq": [
       {
@@ -275,7 +275,7 @@ export const SHOP_PLANS: ShopPlan[] = [
     "slug": "6-months",
     "name": "6-Month IPTV Plan",
     "shortName": "6 Months",
-    "tagline": "45% Off — Six Months of Uninterrupted Entertainment",
+    "tagline": "45% Off - Six Months of Uninterrupted Entertainment",
     "description": "Get 4K streaming for an effective $11.50/month with this **iptv half year plan**. This **6 month iptv subscription** is a leading **iptv subscription deal** and a contender for the **best iptv plan 2026**, offering the perfect balance to cover two full sports seasons.",
     "badge": "SAVE 45%",
     "months": 6,
@@ -319,29 +319,29 @@ export const SHOP_PLANS: ShopPlan[] = [
     "features": [
       "22,000+ channels streaming live",
       "Native 4K Ultra-HD & HD Streams",
-      "Vast On-Demand Selection — Films & TV Series",
+      "Vast On-Demand Selection - Films & TV Series",
       "Zero-Lag Streaming Architecture",
       "Comprehensive Electronic Programme Guide",
-      "TV Catch-Up — Access the Last 7 Days",
+      "TV Catch-Up - Access the Last 7 Days",
       "Assured 99.9% Uptime",
       "Compatible with Firestick, Android, Smart TV, iOS",
       "Always-on expert assistance",
       "Immediate Service Activation",
       "Service without long-term obligation",
-      "Worldwide Programming — USA, UK, Canada & Beyond"
+      "Worldwide Programming - USA, UK, Canada & Beyond"
     ],
     "highlights": [
-      "$11.50/month — a 45% reduction from the monthly cost",
+      "$11.50/month - a 45% reduction from the monthly cost",
       "From football season straight into basketball",
       "The perfect mix of affordability and freedom"
     ],
-    "metaTitle": "IPTV Half Year Plan – 45% Off Subscription | ORCA 4K TV",
-    "metaDescription": "Best IPTV 6 months plan 2026 — $69 ($11.50/mo, save 45%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
+    "metaTitle": "IPTV Half Year Plan - 45% Off Subscription | ORCA 4K TV",
+    "metaDescription": "Best IPTV 6 months plan 2026 - $69 ($11.50/mo, save 45%). 22,000+ channels in 4K HDR, sports, movies. Smart TV, Firestick, Apple TV.",
     "keywords": "6 month iptv subscription, iptv half year plan, iptv 6 months, best iptv plan 2026, iptv subscription deal",
     "faq": [
       {
         "q": "What's the monthly cost for iptv 6 months?",
-        "a": "Our iptv half year plan is available for a single payment of $69. This premier iptv subscription deal averages out to $11.50 per month for a full iptv 6 months—a 45% discount from the month-to-month price. This 6 month iptv subscription is considered the best iptv plan 2026 for overall value."
+        "a": "Our iptv half year plan is available for a single payment of $69. This premier iptv subscription deal averages out to $11.50 per month for a full iptv 6 months-a 45% discount from the month-to-month price. This 6 month iptv subscription is considered the best iptv plan 2026 for overall value."
       },
       {
         "q": "Does the **6 month iptv subscription** cover an entire sports season? Considering this **iptv subscription deal**, is the **iptv half year plan** of **iptv 6 months** the **best iptv plan 2026** for comprehensive sports coverage?",
@@ -365,7 +365,7 @@ export const SHOP_PLANS: ShopPlan[] = [
         "name": "David K.",
         "location": "Los Angeles, USA",
         "rating": 5,
-        "text": "I'm 4 months into using my **iptv half year plan**. The 4K quality for the US pro basketball season was incredible—so much better than my old cable service. This is the best viewing experience I've had."
+        "text": "I'm 4 months into using my **iptv half year plan**. The 4K quality for the US pro basketball season was incredible-so much better than my old cable service. This is the best viewing experience I've had."
       },
       {
         "name": "Elena P.",
@@ -431,10 +431,10 @@ export const SHOP_PLANS: ShopPlan[] = [
     "features": [
       "Stream 22,000+ live channels",
       "Native 4K Ultra-HD & HD Support",
-      "Expansive VOD Catalog — Films & Television",
+      "Expansive VOD Catalog - Films & Television",
       "Zero-Buffering Playback Engine",
       "Integrated Electronic Program Guide",
-      "Catch-Up Feature — Rewind the Past 7 Days",
+      "Catch-Up Feature - Rewind the Past 7 Days",
       "Exceptional 99.9% service reliability",
       "Compatible with Firestick, Android, Smart TV, iOS",
       "Dedicated 24/7 expert assistance",
@@ -443,12 +443,12 @@ export const SHOP_PLANS: ShopPlan[] = [
       "Access USA, UK, Canada & Global Channels"
     ],
     "highlights": [
-      "$7.92/month — 2026's most affordable rate for IPTV",
+      "$7.92/month - 2026's most affordable rate for IPTV",
       "Your annual commitment unlocks $157 in savings",
       "12 months of total access: all sports, all seasons"
     ],
     "metaTitle": "Best IPTV Value 2026: IPTV Annual Plan | ORCA 4K TV",
-    "metaDescription": "Best IPTV 12 months plan 2026 — $95 ($7.92/mo, save 62%). 22,000+ channels in 4K HDR, 100,000+ movies. The best IPTV value of 2026.",
+    "metaDescription": "Best IPTV 12 months plan 2026 - $95 ($7.92/mo, save 62%). 22,000+ channels in 4K HDR, 100,000+ movies. The best IPTV value of 2026.",
     "keywords": "best iptv annual plan 2026, iptv 12 months, iptv yearly subscription, iptv annual plan, best iptv value 2026",
     "faq": [
       {

@@ -58,7 +58,7 @@ const MovieShowcase: React.FC = () => {
                 <div className="w-[160px] sm:w-[200px] md:w-[240px] lg:w-[280px] aspect-[2/3] relative group/item cursor-pointer rounded-lg overflow-hidden shadow-2xl transition-all duration-700 hover:z-30 hover:scale-105 border border-white/5 hover:border-[#00E5FF]/50 bg-gray-900">
                   <img
                     src={movie.src}
-                    alt={`Featured on-demand movie #${movie.id} — 4K HDR streaming on ORCA 4K TV IPTV subscription`}
+                    alt={`Featured on-demand movie #${movie.id} - 4K HDR streaming on ORCA 4K TV IPTV subscription`}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover/item:scale-110"
                     loading="lazy"      // Only load when near viewport
                     decoding="async"    // Decode off main thread to prevent UI freeze

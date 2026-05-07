@@ -48,7 +48,7 @@ export default async function InvoicesPage() {
             return (
               <div key={inv.id} className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-4 px-6 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
                 <span className="text-gray-300 font-mono text-sm">{inv.invoice_number}</span>
-                <span className="text-gray-400 text-sm">{(inv as any).orders?.plan_name || '—'}</span>
+                <span className="text-gray-400 text-sm">{(inv as any).orders?.plan_name || '-'}</span>
                 <span className="text-gray-500 text-sm">
                   {new Date(inv.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </span>

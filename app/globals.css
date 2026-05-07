@@ -50,14 +50,14 @@ body {
     background-position: 0 0 !important;
   }
 
-  /* Make fade-in elements instantly visible — opacity:0 start delays FCP */
+  /* Make fade-in elements instantly visible - opacity:0 start delays FCP */
   .animate-fade-in {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 
-  /* LCP fix: replace gradient text with solid color — avoids bg-clip-text composite paint */
+  /* LCP fix: replace gradient text with solid color - avoids bg-clip-text composite paint */
   .hero-gradient-text {
     color: #00E5FF !important;
     background-image: none !important;

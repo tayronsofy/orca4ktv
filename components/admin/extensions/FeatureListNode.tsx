@@ -28,7 +28,7 @@ function FeatureListView({ node, updateAttributes, selected }: NodeViewProps) {
           rows={4}
           style={{ display: 'block', width: '100%', background: 'transparent', border: 'none', outline: 'none', color: '#6b7280', fontSize: '.8rem', lineHeight: 1.7, resize: 'vertical', boxSizing: 'border-box' }}
         />
-        <div style={{ color: '#4b5563', fontSize: '.65rem', marginTop: '.25rem' }}>One feature per line — preview updates above</div>
+        <div style={{ color: '#4b5563', fontSize: '.65rem', marginTop: '.25rem' }}>One feature per line - preview updates above</div>
       </div>
     </NodeViewWrapper>
   )

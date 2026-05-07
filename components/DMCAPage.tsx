@@ -41,7 +41,7 @@ const DMCAPage: React.FC<DMCAPageProps> = ({ onBackToHome }) => {
 
       <div className="relative z-10 w-full max-w-5xl mx-auto mt-16 space-y-12 px-4 md:px-0 text-gray-300 text-lg">
         <p>
-          At <strong>ORCA 4K TV (<a href="https://orca4ktv.com" className="text-[#00E5FF] hover:underline">https://orca4ktv.com</a>)</strong>, we are fully committed to respecting and upholding the rights of copyright holders and to complying with applicable intellectual property laws — including the United States Digital Millennium Copyright Act (DMCA) and equivalent regulations in other jurisdictions.
+          At <strong>ORCA 4K TV (<a href="https://orca4ktv.com" className="text-[#00E5FF] hover:underline">https://orca4ktv.com</a>)</strong>, we are fully committed to respecting and upholding the rights of copyright holders and to complying with applicable intellectual property laws - including the United States Digital Millennium Copyright Act (DMCA) and equivalent regulations in other jurisdictions.
         </p>
         <p>
           We recognize the serious implications of copyright infringement within the IPTV and streaming industry and take all related reports and allegations very seriously.
@@ -128,7 +128,7 @@ const DMCAPage: React.FC<DMCAPageProps> = ({ onBackToHome }) => {
           <h2 className="text-3xl font-black text-white mb-6">5. Counter-Notification Rights</h2>
           <p>
             If you believe that your content was removed or disabled in error, you may submit a counter-notification under the DMCA.
-            Once a valid counter-notice is received, ORCA 4K TV may restore the content after 10–14 business days, unless the original complainant initiates legal action within that period.
+            Once a valid counter-notice is received, ORCA 4K TV may restore the content after 10-14 business days, unless the original complainant initiates legal action within that period.
           </p>
         </div>
 

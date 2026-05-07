@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="flex flex-col gap-4 text-center md:text-left">
             <Link href="/" className="hover:opacity-80 transition-opacity inline-block" aria-label="Orca 4K TV Home">
-              <img src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-16 w-auto" width={1432} height={704} loading="lazy" />
+              <img src="/logo.png?v=6" alt="Orca 4K TV - best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-16 w-auto" width={1432} height={704} loading="lazy" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               Premium IPTV service with 22,000+ channels in HD &amp; 4K. Trusted by cord-cutters worldwide.

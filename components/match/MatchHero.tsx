@@ -123,7 +123,7 @@ export default function MatchHero({ match, state }: Props) {
               <div className="text-center">
                 <p className="text-gray-400 text-lg mb-2">Full time</p>
                 <div className="text-5xl font-black text-white tabular-nums">
-                  {match.homeScore ?? '?'} – {match.awayScore ?? '?'}
+                  {match.homeScore ?? '?'} - {match.awayScore ?? '?'}
                 </div>
                 <p className="text-gray-500 text-sm mt-2">
                   {match.homeTeam} vs {match.awayTeam}

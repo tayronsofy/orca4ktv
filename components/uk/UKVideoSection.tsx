@@ -42,7 +42,7 @@ const UKVideoSection: React.FC<UKVideoSectionProps> = ({ onScrollToPricing }) =>
           </div>
 
           <div className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight uppercase">
-            START STREAMING TODAY — FROM JUST £15/MO.
+            START STREAMING TODAY - FROM JUST £15/MO.
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

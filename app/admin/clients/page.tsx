@@ -101,11 +101,11 @@ export default function AdminClientsPage() {
                 className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-4 px-6 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors cursor-pointer"
               >
                 <div className="md:col-span-2">
-                  <p className="text-white text-sm font-medium">{client.full_name || '—'}</p>
+                  <p className="text-white text-sm font-medium">{client.full_name || '-'}</p>
                   <p className="text-gray-500 text-xs">{client.email}</p>
                   {client.phone && <p className="text-gray-600 text-xs">{client.phone}</p>}
                 </div>
-                <span className="text-gray-400 text-sm">{client.country || '—'}</span>
+                <span className="text-gray-400 text-sm">{client.country || '-'}</span>
                 <div>
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${sub.color}`}>
                     {sub.label}

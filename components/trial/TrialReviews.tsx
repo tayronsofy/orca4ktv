@@ -5,15 +5,15 @@ import React from 'react'
 const reviewsRaw = [
   {
     text: "Got my trial credentials within 2 minutes of submitting the form. 4K streams work perfectly on my Firestick. Signed up for a full year straight away.",
-    device: "Firestick 4K Max – United States",
+    device: "Firestick 4K Max - United States",
   },
   {
     text: "No credit card needed, no spam emails, just instant access. Top European club football in 4K was flawless. Best free IPTV trial I've ever tested.",
-    device: "Samsung Smart TV – United Kingdom",
+    device: "Samsung Smart TV - United Kingdom",
   },
   {
-    text: "Setup took 5 minutes on TiviMate. 22,000 channels is not an exaggeration — I found every local and international channel I watch daily.",
-    device: "Android TV Box – Canada",
+    text: "Setup took 5 minutes on TiviMate. 22,000 channels is not an exaggeration - I found every local and international channel I watch daily.",
+    device: "Android TV Box - Canada",
   },
 ]
 
@@ -26,7 +26,7 @@ const TrialReviews: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-            IPTV Trial – <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#003580] to-[#00E5FF]">What Users Say</span>
+            IPTV Trial - <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#003580] to-[#00E5FF]">What Users Say</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">

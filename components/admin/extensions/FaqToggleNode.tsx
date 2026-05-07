@@ -58,7 +58,7 @@ function FaqToggleView({ node, updateAttributes, selected }: NodeViewProps) {
             boxSizing: 'border-box',
           }}
         />
-        <div style={{ padding: '.25rem 1rem .5rem', color: '#4b5563', fontSize: '.7rem' }}>FAQ Toggle — collapses on the live site</div>
+        <div style={{ padding: '.25rem 1rem .5rem', color: '#4b5563', fontSize: '.7rem' }}>FAQ Toggle - collapses on the live site</div>
       </div>
     </NodeViewWrapper>
   )

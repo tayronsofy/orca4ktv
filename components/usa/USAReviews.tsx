@@ -4,16 +4,16 @@ import React from 'react';
 
 const reviewsRaw = [
     {
-        text: "Watched every home American football Sunday game in 4K HDR on my Firestick 4K Max — zero buffering during the playoffs, even on the Sunday evening showpieces. Cancelled my satellite plan and saved $130/month.",
-        device: "Firestick 4K Max — Buffalo, NY",
+        text: "Watched every home American football Sunday game in 4K HDR on my Firestick 4K Max - zero buffering during the playoffs, even on the Sunday evening showpieces. Cancelled my satellite plan and saved $130/month.",
+        device: "Firestick 4K Max - Buffalo, NY",
     },
     {
-        text: "Set up in under 5 minutes with IPTV Smarters Pro on my Apple TV 4K. The whip-around football channel, basketball cable broadcasters, baseball network — all crystal clear. The smart EPG guide is sharper than the streaming-bundle alternatives.",
-        device: "Apple TV 4K — Dallas, TX",
+        text: "Set up in under 5 minutes with IPTV Smarters Pro on my Apple TV 4K. The whip-around football channel, basketball cable broadcasters, baseball network - all crystal clear. The smart EPG guide is sharper than the streaming-bundle alternatives.",
+        device: "Apple TV 4K - Dallas, TX",
     },
     {
         text: "Switched from cable after their 7th rate hike. Same LA local channels by ZIP, every home basketball game, plus 100+ extra international channels. Streams beautifully in 4K HDR on my LG OLED.",
-        device: "LG webOS + iPhone — Los Angeles, CA",
+        device: "LG webOS + iPhone - Los Angeles, CA",
     },
 ];
 
@@ -27,11 +27,11 @@ const USAReviews: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                        USA IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">User Reviews</span>
+                        USA IPTV - <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">User Reviews</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-blue-600 mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                        Verified American cord-cutters who replaced DirecTV, Spectrum, and YouTube TV with ORCA 4K TV — buffer-free 4K HDR, every league, every local channel, one IPTV subscription.
+                        Verified American cord-cutters who replaced DirecTV, Spectrum, and YouTube TV with ORCA 4K TV - buffer-free 4K HDR, every league, every local channel, one IPTV subscription.
                     </p>
                 </div>
 

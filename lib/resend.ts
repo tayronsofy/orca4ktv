@@ -4,7 +4,7 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY || 'placeholder')
 }
 
-// "Orca 4K TV" — no "IPTV" in sender name (spam trigger)
+// "Orca 4K TV" - no "IPTV" in sender name (spam trigger)
 const FROM = process.env.RESEND_FROM_EMAIL || 'Orca 4K TV <hello@orca4ktv.com>'
 const REPLY_TO = process.env.RESEND_REPLY_TO || 'support@orca4ktv.com'
 
@@ -109,11 +109,11 @@ export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
     from: FROM,
     to,
     replyTo: REPLY_TO,
-    // Clean subject — no "IPTV", no exclamation spam
-    subject: `We received your order — ${orderNumber}`,
+    // Clean subject - no "IPTV", no exclamation spam
+    subject: `We received your order - ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
     // Plain text version (critical for inbox delivery)
-    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://orca4ktv.com/dashboard\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://orca4ktv.com/dashboard\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -150,10 +150,10 @@ export async function sendPaymentLink(props: SendPaymentLinkProps) {
     from: FROM,
     to,
     replyTo: REPLY_TO,
-    // No "Pay Now" in subject — reads like a scam email
-    subject: `Next step for your order — ${orderNumber}`,
+    // No "Pay Now" in subject - reads like a scam email
+    subject: `Next step for your order - ${orderNumber}`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -232,8 +232,8 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     .join('')
 
   const introLine = showSlotLabel
-    ? `Your subscription is now active. You have ${total} independent connections — each with its own login. Use a different one on each device or share with family.`
-    : `Your subscription is now active. Below are your setup details — keep them somewhere safe.`
+    ? `Your subscription is now active. You have ${total} independent connections - each with its own login. Use a different one on each device or share with family.`
+    : `Your subscription is now active. Below are your setup details - keep them somewhere safe.`
 
   return getResend().emails.send({
     from: FROM,
@@ -241,12 +241,12 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     replyTo: REPLY_TO,
     subject: `Your Orca 4K TV subscription is now active`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\n${textBlocks}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email — we are happy to help.\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\n${textBlocks}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email - we are happy to help.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
           <h1 style="margin:0;font-size:24px;font-weight:900;">Your Subscription is Active</h1>
-          <p style="margin:8px 0 0;opacity:.85;">${planName} — Active until ${endDate}</p>
+          <p style="margin:8px 0 0;opacity:.85;">${planName} - Active until ${endDate}</p>
         </div>
         <div style="padding:32px;">
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
@@ -290,7 +290,7 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
     replyTo: REPLY_TO,
     subject: `Your Orca 4K TV access details`,
     headers: CUSTOMER_HEADERS,
-    text: `Hi ${name},\n\nYour Orca 4K TV access is ready.\n\nThis is a ${duration_hours}-hour trial — expires ${expiryFormatted}.\n\nActivate your access here:\n${activation_url}\n\nAfter activation, your login details will be available on your dashboard at https://orca4ktv.com/dashboard/trial\n\nNeed help getting set up?\nhttps://orca4ktv.com/setup-guide\n\n— The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    text: `Hi ${name},\n\nYour Orca 4K TV access is ready.\n\nThis is a ${duration_hours}-hour trial - expires ${expiryFormatted}.\n\nActivate your access here:\n${activation_url}\n\nAfter activation, your login details will be available on your dashboard at https://orca4ktv.com/dashboard/trial\n\nNeed help getting set up?\nhttps://orca4ktv.com/setup-guide\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
@@ -339,7 +339,7 @@ export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
     from: FROM,
     to: adminEmail,
     replyTo: REPLY_TO,
-    subject: `New Trial Request — ${name}`,
+    subject: `New Trial Request - ${name}`,
     text: `New trial request received\n\nName: ${name}\nEmail: ${email}\nDevice: ${device}\nCountry: ${country}\n\nReview: https://orca4ktv.com/admin/trials`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">

@@ -27,7 +27,7 @@ const Reviews: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-4 uppercase tracking-tight">
-                        ORCA 4K TV IPTV – <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">User Reviews</span>
+                        ORCA 4K TV IPTV - <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">User Reviews</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-[#003580] to-[#00E5FF] mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">

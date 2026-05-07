@@ -1,4 +1,4 @@
-// Reusable trust / authority block. Uses only real, defensible signals — no fake certs.
+// Reusable trust / authority block. Uses only real, defensible signals - no fake certs.
 // Reused on home, /about, and /iptv-shop to reinforce E-E-A-T across the site.
 
 import Link from 'next/link'
@@ -13,7 +13,7 @@ const FACTS: Fact[] = [
   { value: '22,000+', label: 'Live channels', caption: 'Premium IPTV channels in HD and 4K' },
   { value: '4,774+', label: 'Verified reviews', caption: 'Aggregate rating 4.9 / 5 across regions' },
   { value: '99.9%', label: 'Uptime', caption: 'Anti Freeze CDN with buffer-free streaming' },
-  { value: 'AES-256', label: 'Encryption', caption: 'NIST FIPS 197 — secure IPTV access' },
+  { value: 'AES-256', label: 'Encryption', caption: 'NIST FIPS 197 - secure IPTV access' },
   { value: '24/7', label: 'Customer support', caption: 'IPTV customer support, < 5 min response' },
   { value: '< 5 min', label: 'Setup time', caption: 'Rapid setup with instant activation' },
 ]

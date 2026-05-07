@@ -101,12 +101,12 @@ export async function generateImage(opts: GenerateImageOpts): Promise<void> {
         lastErr = e;
         if (e.status === 429 && attempt < maxAttempts) {
           const wait = parseRetryAfter(e.body || '');
-          console.log(`    ⟳ 429 — backing off ${(wait / 1000).toFixed(1)}s (attempt ${attempt}/${maxAttempts})`);
+          console.log(`    ⟳ 429 - backing off ${(wait / 1000).toFixed(1)}s (attempt ${attempt}/${maxAttempts})`);
           await sleep(wait);
           continue;
         }
         if (e.status >= 500 && e.status < 600 && attempt < maxAttempts) {
-          // transient server error — backoff and retry
+          // transient server error - backoff and retry
           await sleep(2000 * attempt);
           continue;
         }

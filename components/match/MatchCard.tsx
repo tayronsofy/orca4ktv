@@ -62,7 +62,7 @@ export default function MatchCard({ match, state }: Props) {
           {state === 'live' && (
             <>
               <span className="text-2xl font-black text-white tabular-nums">
-                {match.homeScore ?? 0} – {match.awayScore ?? 0}
+                {match.homeScore ?? 0} - {match.awayScore ?? 0}
               </span>
               <span className="text-[10px] text-red-400 font-bold">{match.elapsed}&apos;</span>
             </>
@@ -70,7 +70,7 @@ export default function MatchCard({ match, state }: Props) {
           {state === 'post' && (
             <>
               <span className="text-2xl font-black text-white tabular-nums">
-                {match.homeScore ?? '?'} – {match.awayScore ?? '?'}
+                {match.homeScore ?? '?'} - {match.awayScore ?? '?'}
               </span>
               <span className="text-[10px] text-gray-500 font-bold uppercase">FT</span>
             </>

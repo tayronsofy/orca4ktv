@@ -3,7 +3,7 @@ import ToolLayout from '@/components/tools/ToolLayout'
 import XtreamConverterClient from '@/components/tools/XtreamConverterClient'
 
 export const metadata: Metadata = {
-  title: 'M3U ↔ Xtream Codes Converter — Generate M3U & EPG URLs | ORCA 4K TV',
+  title: 'M3U ↔ Xtream Codes Converter - Generate M3U & EPG URLs | ORCA 4K TV',
   description:
     'Convert Xtream Codes credentials to M3U and EPG (XMLTV) URLs, or extract host, username and password from an existing get.php URL. Free, runs in your browser.',
   keywords:
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'M3U ↔ Xtream Codes Converter (free) | ORCA 4K TV',
     description:
-      'Switch between Xtream Codes credentials and M3U / EPG URLs in one click. Pure browser-based — your credentials never leave your device.',
+      'Switch between Xtream Codes credentials and M3U / EPG URLs in one click. Pure browser-based - your credentials never leave your device.',
     url: 'https://orca4ktv.com/iptv-tools/xtream-converter',
     siteName: 'ORCA 4K TV',
     type: 'website',
@@ -31,7 +31,7 @@ const HOW_TO = [
   },
   {
     name: 'Fill in the details',
-    text: 'Enter your host (with port), username and password — or paste the M3U URL. Everything stays in your browser; the conversion runs locally with no network call.',
+    text: 'Enter your host (with port), username and password - or paste the M3U URL. Everything stays in your browser; the conversion runs locally with no network call.',
   },
   {
     name: 'Copy the result into your IPTV player',
@@ -43,7 +43,7 @@ const FAQ = [
   {
     question: 'What is Xtream Codes?',
     answer:
-      'Xtream Codes is a structured API protocol that exposes IPTV channels, EPG data and on-demand content as separate endpoints. Most IPTV players support it because it allows richer features — categories, search, last-watched, full EPG — than a flat M3U playlist.',
+      'Xtream Codes is a structured API protocol that exposes IPTV channels, EPG data and on-demand content as separate endpoints. Most IPTV players support it because it allows richer features - categories, search, last-watched, full EPG - than a flat M3U playlist.',
   },
   {
     question: 'Is my password safe in this tool?',
@@ -56,12 +56,12 @@ const FAQ = [
       'M3U Plus (type=m3u_plus) is the modern variant that includes channel logos, group titles and EPG IDs. Plain M3U is a stripped-down version some legacy players still need. Use M3U Plus unless your player has issues with it.',
   },
   {
-    question: 'My host has https — does this still work?',
+    question: 'My host has https - does this still work?',
     answer:
       'Yes. Switch the protocol selector to HTTPS. Many IPTV providers run unencrypted HTTP, but a growing number now offer HTTPS endpoints for the player API and M3U download.',
   },
   {
-    question: 'I pasted a URL but the converter says it is not Xtream — why?',
+    question: 'I pasted a URL but the converter says it is not Xtream - why?',
     answer:
       'The tool expects an Xtream Codes URL ending in get.php, player_api.php or xmltv.php with username and password query parameters. Bare playlist URLs without those parameters cannot be reversed because the credentials are not embedded.',
   },
@@ -79,7 +79,7 @@ export default function XtreamConverterPage() {
       category="Free IPTV tool"
       description={
         <>
-          Convert Xtream Codes credentials into the M3U and EPG (XMLTV) URLs every IPTV player understands — or do the reverse and pull the host, username and password out of an existing M3U URL. Runs entirely in your browser.
+          Convert Xtream Codes credentials into the M3U and EPG (XMLTV) URLs every IPTV player understands - or do the reverse and pull the host, username and password out of an existing M3U URL. Runs entirely in your browser.
         </>
       }
       howToSteps={HOW_TO}

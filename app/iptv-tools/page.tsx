@@ -4,16 +4,16 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 import { TOOL_CATALOG } from '@/components/tools/tool-catalog'
 
 export const metadata: Metadata = {
-  title: 'Free IPTV Tools — M3U Checker, Xtream Converter & Speed Test | ORCA 4K TV',
+  title: 'Free IPTV Tools - M3U Checker, Xtream Converter & Speed Test | ORCA 4K TV',
   description:
     'Free utilities for any IPTV subscription: M3U playlist checker, M3U ↔ Xtream Codes converter, IPTV speed test, EPG / XMLTV validator. No signup, no playlist storage.',
   keywords:
     'free iptv tools, m3u checker, m3u tester, xtream codes generator, m3u to xtream, xtream to m3u, iptv speed test, internet speed for iptv 4k, xmltv validator, epg checker, m3u editor online, sort m3u playlist, iptv playlist checker',
   alternates: { canonical: 'https://orca4ktv.com/iptv-tools' },
   openGraph: {
-    title: 'Free IPTV Tools — M3U, Xtream & Speed Test | ORCA 4K TV',
+    title: 'Free IPTV Tools - M3U, Xtream & Speed Test | ORCA 4K TV',
     description:
-      'A growing kit of free IPTV utilities — check your M3U playlist, convert between M3U and Xtream Codes, run a speed test tuned for 4K streaming.',
+      'A growing kit of free IPTV utilities - check your M3U playlist, convert between M3U and Xtream Codes, run a speed test tuned for 4K streaming.',
     url: 'https://orca4ktv.com/iptv-tools',
     siteName: 'ORCA 4K TV',
     type: 'website',
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Free IPTV Tools by ORCA 4K TV',
-    description: 'M3U Checker, Xtream Codes converter, IPTV speed test and more — free and no signup.',
+    description: 'M3U Checker, Xtream Codes converter, IPTV speed test and more - free and no signup.',
   },
 }
 
 const HUB_FAQ = [
   {
     q: 'Are these IPTV tools really free?',
-    a: 'Yes. All tools listed here are free, browser-based utilities — no account, no signup, no email required to use them.',
+    a: 'Yes. All tools listed here are free, browser-based utilities - no account, no signup, no email required to use them.',
   },
   {
     q: 'Do you store the M3U playlists I check?',
@@ -36,11 +36,11 @@ const HUB_FAQ = [
   },
   {
     q: 'Can I use these tools with any IPTV provider?',
-    a: 'Yes. The tools work with any standards-compliant M3U or Xtream Codes IPTV subscription. They are not locked to ORCA 4K TV — we built them as a public service for the IPTV community.',
+    a: 'Yes. The tools work with any standards-compliant M3U or Xtream Codes IPTV subscription. They are not locked to ORCA 4K TV - we built them as a public service for the IPTV community.',
   },
   {
     q: 'Will running the M3U Checker get me banned by my provider?',
-    a: 'It is unlikely. The checker probes a small random sample (up to 50 streams) with short HEAD/GET requests, similar to opening the channels in a player. Heavy abuse could trigger rate limits on your provider — but our tool itself rate-limits each visitor to keep usage reasonable.',
+    a: 'It is unlikely. The checker probes a small random sample (up to 50 streams) with short HEAD/GET requests, similar to opening the channels in a player. Heavy abuse could trigger rate limits on your provider - but our tool itself rate-limits each visitor to keep usage reasonable.',
   },
   {
     q: 'Do you offer a 4K IPTV subscription on ORCA 4K TV?',
@@ -48,7 +48,7 @@ const HUB_FAQ = [
   },
   {
     q: 'How do I report a bug or request a new tool?',
-    a: 'Email us — every tool page links to the contact form. We add new tools based on what IPTV users actually need.',
+    a: 'Email us - every tool page links to the contact form. We add new tools based on what IPTV users actually need.',
   },
 ]
 
@@ -115,7 +115,7 @@ export default function IptvToolsHubPage() {
               Free IPTV Tools
             </h1>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              A growing kit of utilities for anyone running an IPTV subscription. Check whether your M3U playlist is alive, convert between M3U and Xtream Codes, measure if your line is fast enough for 4K streaming — all without an account, all in your browser where it makes sense.
+              A growing kit of utilities for anyone running an IPTV subscription. Check whether your M3U playlist is alive, convert between M3U and Xtream Codes, measure if your line is fast enough for 4K streaming - all without an account, all in your browser where it makes sense.
             </p>
           </header>
 
@@ -171,10 +171,10 @@ export default function IptvToolsHubPage() {
           <section className="rounded-2xl bg-[#0a2547] border border-white/10 p-8 md:p-10 mb-16">
             <h2 className="text-2xl md:text-3xl font-black mb-4">Why we built these</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
-              Every IPTV user eventually deals with a dead playlist, a wrong EPG URL, or wonders whether their connection can handle a 4K stream. We kept fielding the same questions from customers, so we packaged the answers as free tools that work for any IPTV service — not just ours.
+              Every IPTV user eventually deals with a dead playlist, a wrong EPG URL, or wonders whether their connection can handle a 4K stream. We kept fielding the same questions from customers, so we packaged the answers as free tools that work for any IPTV service - not just ours.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              These tools are deliberately scoped: the M3U Checker probes a small sample (no DDoS-as-a-service here), files uploaded to the editor never leave your browser, and we never store your credentials. If you want a playlist that just works without any of this troubleshooting, we also sell one — but the tools above are free regardless.
+              These tools are deliberately scoped: the M3U Checker probes a small sample (no DDoS-as-a-service here), files uploaded to the editor never leave your browser, and we never store your credentials. If you want a playlist that just works without any of this troubleshooting, we also sell one - but the tools above are free regardless.
             </p>
           </section>
 

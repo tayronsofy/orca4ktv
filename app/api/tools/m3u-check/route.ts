@@ -68,7 +68,7 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
 }
 
 async function probeStream(url: string): Promise<{ status: 'working' | 'slow' | 'dead'; responseMs?: number; errorReason?: string }> {
-  // SSRF guard each stream URL too — they come from user-supplied content.
+  // SSRF guard each stream URL too - they come from user-supplied content.
   const safety = await assertSafeUrl(url)
   if (!safety.ok) {
     return { status: 'dead', errorReason: safety.reason ?? 'Blocked URL.' }
@@ -87,7 +87,7 @@ async function probeStream(url: string): Promise<{ status: 'working' | 'slow' | 
         redirect: 'follow',
       })
     } catch {
-      // Some IPTV servers don't support HEAD — fall back to GET with byte range
+      // Some IPTV servers don't support HEAD - fall back to GET with byte range
       res = await fetch(safety.url!.toString(), {
         method: 'GET',
         signal: ac.signal,

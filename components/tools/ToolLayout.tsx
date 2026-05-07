@@ -109,7 +109,7 @@ export default function ToolLayout({ slug, category, description, children, howT
           <section className="mt-12 rounded-2xl bg-gradient-to-r from-[#003580] to-[#00457e] border border-[#00E5FF]/20 p-8 md:p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-black mb-3">Want a playlist that just works?</h2>
             <p className="text-gray-200 mb-6 max-w-2xl mx-auto">
-              ORCA 4K TV ships a single authenticated M3U URL with a smart EPG, anti-freeze CDN, and 22,000+ channels in HD and 4K — no broken streams to check.
+              ORCA 4K TV ships a single authenticated M3U URL with a smart EPG, anti-freeze CDN, and 22,000+ channels in HD and 4K - no broken streams to check.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/trial" className="bg-[#00E5FF] text-[#001f3f] px-7 py-3 rounded-full font-black uppercase tracking-widest text-sm hover:bg-white transition-all">

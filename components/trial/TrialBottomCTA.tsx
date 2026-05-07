@@ -16,7 +16,7 @@ const TrialBottomCTA: React.FC<TrialBottomCTAProps> = ({ onScrollToForm }) => {
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em]">
           <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
-          Free — No Credit Card Required
+          Free - No Credit Card Required
         </div>
 
         <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">

@@ -15,7 +15,7 @@ export default function FloatingCTA({ matchSlug, state }: Props) {
   const primaryLabel = state === 'post'
     ? 'Watch Full Replay'
     : state === 'live'
-    ? 'Watch Live Now — 4K'
+    ? 'Watch Live Now - 4K'
     : 'Get Instant Match Pass'
 
   return (
@@ -37,7 +37,7 @@ export default function FloatingCTA({ matchSlug, state }: Props) {
             {primaryLabel}
           </Link>
 
-          {/* Secondary CTA — Telegram free trial */}
+          {/* Secondary CTA - Telegram free trial */}
           <a
             href={tgLink}
             target="_blank"

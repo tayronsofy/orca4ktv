@@ -20,7 +20,7 @@ export const TOOL_CATALOG: ToolCatalogEntry[] = [
     shortTitle: 'M3U Checker',
     tagline: 'Test which channels in your playlist are alive.',
     description:
-      'Paste any M3U URL or upload a playlist file. We probe a sample of streams and report which are working, dead, or slow — without storing your playlist.',
+      'Paste any M3U URL or upload a playlist file. We probe a sample of streams and report which are working, dead, or slow - without storing your playlist.',
     icon: 'fa-circle-check',
     status: 'live',
   },

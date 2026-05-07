@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
 
     const admin = createAdminClient()
 
-    // Duplicate check disabled for testing — re-enable when DNS issue is resolved
+    // Duplicate check disabled for testing - re-enable when DNS issue is resolved
     // const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
     // const { data: existing } = await admin
     //   .from('trials')

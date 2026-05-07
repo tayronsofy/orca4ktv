@@ -3,23 +3,23 @@ import Link from 'next/link'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
+  title: 'IPTV Glossary 2026 - EPG, M3U, Xtream Codes | ORCA 4K TV',
   description:
     'IPTV terms explained: EPG, M3U, Xtream Codes, AES-256, catch-up TV, multi-device, buffer-free streaming. Definitions for the ORCA 4K TV subscription.',
   keywords:
     'IPTV glossary, electronic program guide, smart EPG guide, M3U playlist, Xtream Codes, catch up feature, IPTV catch up TV, AES-256 encryption, multi-device compatibility, IPTV multi-device, IPTV device compatibility, buffer-free streaming, zero buffering, Anti Freeze technology, secure IPTV access, encrypted IPTV streaming, instant activation, IPTV instant start, premium IPTV channels, on-demand movies, 4K streaming, HDR streaming, VPN allowed, IPTV with VPN',
   alternates: { canonical: 'https://orca4ktv.com/glossary' },
   openGraph: {
-    title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
+    title: 'IPTV Glossary 2026 - EPG, M3U, Xtream Codes | ORCA 4K TV',
     description:
-      'Authoritative definitions of the IPTV terms our customers ask about — EPG, M3U, Xtream, AES-256, catch up TV, anti-freeze CDN and more.',
+      'Authoritative definitions of the IPTV terms our customers ask about - EPG, M3U, Xtream, AES-256, catch up TV, anti-freeze CDN and more.',
     url: 'https://orca4ktv.com/glossary',
     siteName: 'ORCA 4K TV',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Glossary 2026 — EPG, M3U, Xtream Codes | ORCA 4K TV',
+    title: 'IPTV Glossary 2026 - EPG, M3U, Xtream Codes | ORCA 4K TV',
     description: 'Authoritative IPTV definitions referenced for the ORCA 4K TV subscription.',
   },
 }
@@ -36,7 +36,7 @@ const GLOSSARY: GlossaryEntry[] = [
     term: 'IPTV (Internet Protocol Television)',
     short: 'IPTV',
     definition:
-      'IPTV delivers television over standard internet (IP) networks instead of satellite dish or coaxial cable. Channels and on-demand titles arrive as encrypted media streams that any compatible device can decode. Compared with cable, an IPTV subscription has no installer visit, no fixed regional package, and supports true multi-device viewing — a single account can run on a Smart TV, Firestick, smartphone, and tablet at the same time. ORCA 4K TV is an IPTV streaming service offering 22,000+ premium IPTV channels in HD and 4K.',
+      'IPTV delivers television over standard internet (IP) networks instead of satellite dish or coaxial cable. Channels and on-demand titles arrive as encrypted media streams that any compatible device can decode. Compared with cable, an IPTV subscription has no installer visit, no fixed regional package, and supports true multi-device viewing - a single account can run on a Smart TV, Firestick, smartphone, and tablet at the same time. ORCA 4K TV is an IPTV streaming service offering 22,000+ premium IPTV channels in HD and 4K.',
     also: ['IPTV streaming service', 'IPTV service provider', 'IPTV subscription'],
   },
   {
@@ -47,28 +47,28 @@ const GLOSSARY: GlossaryEntry[] = [
   {
     term: 'Xtream Codes API',
     definition:
-      'Xtream Codes is a structured API protocol that exposes channels, EPG data, and VOD as separate endpoints rather than a flat playlist. It powers richer player UIs — categories, search, live previews, last-watched. ORCA 4K TV exposes both M3U and Xtream Codes credentials; players that support Xtream (TiviMate, OTT Navigator, IPTV Smarters Pro) get the smart EPG guide and catch up feature out of the box.',
+      'Xtream Codes is a structured API protocol that exposes channels, EPG data, and VOD as separate endpoints rather than a flat playlist. It powers richer player UIs - categories, search, live previews, last-watched. ORCA 4K TV exposes both M3U and Xtream Codes credentials; players that support Xtream (TiviMate, OTT Navigator, IPTV Smarters Pro) get the smart EPG guide and catch up feature out of the box.',
   },
   {
     term: 'EPG / Smart EPG Guide / Electronic Program Guide',
     definition:
-      'The electronic program guide (EPG) is the live schedule grid showing what is on every channel now and over the next 7 days. ORCA 4K TV ships a smart EPG guide with accurate now-playing data, episode synopses, and instant filtering by genre, language, or country — usable across Smart TV, Firestick, Android, iOS, and Apple TV.',
+      'The electronic program guide (EPG) is the live schedule grid showing what is on every channel now and over the next 7 days. ORCA 4K TV ships a smart EPG guide with accurate now-playing data, episode synopses, and instant filtering by genre, language, or country - usable across Smart TV, Firestick, Android, iOS, and Apple TV.',
     also: ['EPG URL'],
   },
   {
     term: 'Catch Up Feature / IPTV Catch Up TV',
     definition:
-      'IPTV catch up TV lets you replay any program that already aired, up to 7 days back, on supported channels. Useful for anyone in a different timezone or who missed a live event. ORCA 4K TV enables the catch up feature on every plan tier — open the smart EPG guide, scroll left, and play.',
+      'IPTV catch up TV lets you replay any program that already aired, up to 7 days back, on supported channels. Useful for anyone in a different timezone or who missed a live event. ORCA 4K TV enables the catch up feature on every plan tier - open the smart EPG guide, scroll left, and play.',
   },
   {
     term: 'VOD (Video On Demand)',
     definition:
-      "VOD is the on-demand library — movies and series you start whenever you want, similar to a streaming-platform catalogue. ORCA 4K TV's VOD library exceeds 100,000 titles in HD and 4K, refreshed continuously, available across multi-device compatibility. On-demand movies stream alongside live channels under the same IPTV subscription.",
+      "VOD is the on-demand library - movies and series you start whenever you want, similar to a streaming-platform catalogue. ORCA 4K TV's VOD library exceeds 100,000 titles in HD and 4K, refreshed continuously, available across multi-device compatibility. On-demand movies stream alongside live channels under the same IPTV subscription.",
   },
   {
     term: '4K Ultra-HD Streaming',
     definition:
-      '4K streaming delivers 3840×2160 resolution — roughly four times the pixel count of Full-HD. A 4K IPTV subscription needs ~25 Mbps of stable bandwidth per stream. ORCA 4K TV serves true native 4K (not upscaled) on supported channels and major sporting events, with HDR streaming enabled where the source provides it.',
+      '4K streaming delivers 3840×2160 resolution - roughly four times the pixel count of Full-HD. A 4K IPTV subscription needs ~25 Mbps of stable bandwidth per stream. ORCA 4K TV serves true native 4K (not upscaled) on supported channels and major sporting events, with HDR streaming enabled where the source provides it.',
   },
   {
     term: 'HDR Streaming',
@@ -88,7 +88,7 @@ const GLOSSARY: GlossaryEntry[] = [
   {
     term: 'AES-256 Encryption',
     definition:
-      'AES-256 (Advanced Encryption Standard, 256-bit key) is the symmetric cipher defined in NIST FIPS 197 and used in TLS 1.3 — the same standard banks and government systems rely on. ORCA 4K TV applies AES-256 encryption end-to-end, which is what enables encrypted IPTV streaming and secure IPTV access. Read the full security policy at /security.',
+      'AES-256 (Advanced Encryption Standard, 256-bit key) is the symmetric cipher defined in NIST FIPS 197 and used in TLS 1.3 - the same standard banks and government systems rely on. ORCA 4K TV applies AES-256 encryption end-to-end, which is what enables encrypted IPTV streaming and secure IPTV access. Read the full security policy at /security.',
   },
   {
     term: 'Secure IPTV Access / Encrypted IPTV Streaming',
@@ -108,12 +108,12 @@ const GLOSSARY: GlossaryEntry[] = [
   {
     term: 'IPTV with VPN / VPN Allowed',
     definition:
-      'A VPN encrypts the connection between your device and the internet. ORCA 4K TV explicitly allows IPTV with VPN — connection speed is not throttled, geo-routing keeps working, and customer support handles VPN-related setup the same as any other connection. Many users prefer VPN for ISP-throttling avoidance; the service is fully VPN allowed.',
+      'A VPN encrypts the connection between your device and the internet. ORCA 4K TV explicitly allows IPTV with VPN - connection speed is not throttled, geo-routing keeps working, and customer support handles VPN-related setup the same as any other connection. Many users prefer VPN for ISP-throttling avoidance; the service is fully VPN allowed.',
   },
   {
     term: 'IPTV Reseller',
     definition:
-      'A reseller program lets a third party purchase credit packs and resell ORCA 4K TV subscriptions to their own customers under their own brand. ORCA 4K TV provides a white-label panel, training, and 24/7 dealer support across packs of 120, 240, and 500 credits — a full IPTV service provider stack for partners.',
+      'A reseller program lets a third party purchase credit packs and resell ORCA 4K TV subscriptions to their own customers under their own brand. ORCA 4K TV provides a white-label panel, training, and 24/7 dealer support across packs of 120, 240, and 500 credits - a full IPTV service provider stack for partners.',
   },
 ]
 
@@ -129,7 +129,7 @@ export default function GlossaryPage() {
         ]}
       />
 
-      {/* DefinedTermSet schema — strong AEO signal: each entry is a citable definition */}
+      {/* DefinedTermSet schema - strong AEO signal: each entry is a citable definition */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -39,7 +39,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
         <link rel="dns-prefetch" href="https://flagcdn.com" />
 
-        {/* FontAwesome — non-blocking preload, promoted to stylesheet via inline script */}
+        {/* FontAwesome - non-blocking preload, promoted to stylesheet via inline script */}
         <link
           rel="preload"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -59,7 +59,7 @@ export default function RootLayout({
           />
         </noscript>
 
-        {/* Organization Schema — entity foundation for AI engines + Google Knowledge Graph */}
+        {/* Organization Schema - entity foundation for AI engines + Google Knowledge Graph */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -124,7 +124,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* WebSite Schema — controls Google site name + enables sitelinks search box */}
+        {/* WebSite Schema - controls Google site name + enables sitelinks search box */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -135,7 +135,7 @@ export default function RootLayout({
               "name": "ORCA 4K TV IPTV",
               "alternateName": "Orca 4K TV",
               "url": "https://orca4ktv.com/",
-              "description": "Premium IPTV streaming service — 22,000+ live channels, 4K HDR streaming, secure AES-256 access, multi-device compatibility, 24/7 customer support.",
+              "description": "Premium IPTV streaming service - 22,000+ live channels, 4K HDR streaming, secure AES-256 access, multi-device compatibility, 24/7 customer support.",
               "publisher": { "@id": "https://orca4ktv.com/#organization" },
               "inLanguage": ["en", "de", "nl"],
               "potentialAction": {

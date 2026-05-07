@@ -35,7 +35,7 @@ const Header: React.FC = () => {
     setMobileOpen(false)
   }, [pathname])
 
-  // inert on drawer when closed — removes focusable children from tab order + a11y tree
+  // inert on drawer when closed - removes focusable children from tab order + a11y tree
   useEffect(() => {
     const el = drawerRef.current
     if (!el) return
@@ -69,7 +69,7 @@ const Header: React.FC = () => {
           className="hover:opacity-80 transition-opacity flex items-center shrink-0"
           aria-label="Orca 4K TV Home"
         >
-          <Image src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-16 md:h-20 w-auto" priority />
+          <Image src="/logo.png?v=6" alt="Orca 4K TV - best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-16 md:h-20 w-auto" priority />
         </Link>
 
         {/* Desktop Nav */}
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
 
         {/* Right Side */}
         <div className="flex items-center gap-3 md:gap-6 shrink-0">
-          {/* Region Flags — hidden on mobile, visible on desktop */}
+          {/* Region Flags - hidden on mobile, visible on desktop */}
           <div className="hidden md:flex items-center gap-2 border-r border-gray-700 pr-3 md:pr-6">
             <Link href="/iptv-usa" title="USA IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-usa' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
               <img src="https://flagcdn.com/w40/us.png" alt="USA" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
             Free Trial
           </Link>
 
-          {/* Free Trial — mobile only, visible in top bar */}
+          {/* Free Trial - mobile only, visible in top bar */}
           <Link
             href="/trial"
             className="md:hidden bg-[#003580] text-white px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-tight hover:bg-[#003566] transition-all whitespace-nowrap"
@@ -165,7 +165,7 @@ const Header: React.FC = () => {
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <Image src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-12 w-auto" />
+            <Image src="/logo.png?v=6" alt="Orca 4K TV - best IPTV subscription with 22,000+ live channels in 4K HDR" width={1432} height={704} className="h-12 w-auto" />
             <button
               onClick={() => setMobileOpen(false)}
               className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-all"

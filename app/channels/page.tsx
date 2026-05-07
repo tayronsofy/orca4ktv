@@ -4,7 +4,7 @@ import ChannelsPage from '@/page-components/ChannelsPage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
+  title: 'IPTV Channel List 2026 - 22,000+ Channels | ORCA 4K TV',
   description: 'Browse 22,000+ live IPTV channels across 150+ countries. Live sports, news, movies, kids and international programming in 4K HDR. Smart EPG, multi-device.',
   keywords: 'iptv channel list 2026, premium iptv channels, live tv channels, iptv 22000 channels, iptv channels usa, iptv channels uk, iptv channels canada, iptv channels germany, iptv channels netherlands, iptv channels france, iptv sports channels, iptv news channels, iptv kids channels, iptv movie channels, iptv music channels, iptv international channels, 4k iptv channels, hdr iptv, hdr10+, dolby vision, smart epg, 7-day catch-up, electronic program guide, multi-device iptv, AES-256 encryption, anti freeze cdn, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg',
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
+    title: 'IPTV Channel List 2026 - 22,000+ Channels | ORCA 4K TV',
     description: '22,000+ IPTV channels across 150+ countries. Live sports, news, movies, kids and international programming in 4K HDR. Smart EPG.',
     url: 'https://orca4ktv.com/channels',
     type: 'website',
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Channel List 2026 — 22,000+ Channels | ORCA 4K TV',
-    description: '22,000+ IPTV channels — sports, news, movies, kids — across 150+ countries in 4K HDR.',
+    title: 'IPTV Channel List 2026 - 22,000+ Channels | ORCA 4K TV',
+    description: '22,000+ IPTV channels - sports, news, movies, kids - across 150+ countries in 4K HDR.',
   },
 }
 
 const channelFaqs = [
   {
     q: 'How many IPTV channels does ORCA 4K TV offer in 2026?',
-    a: 'ORCA 4K TV ships 22,000+ live TV channels across 150+ countries, plus 100,000+ on-demand movies and series. Every plan — 1 month, 3 months, 6 months, or 12 months — unlocks the entire channel library, no feature tiers.',
+    a: 'ORCA 4K TV ships 22,000+ live TV channels across 150+ countries, plus 100,000+ on-demand movies and series. Every plan - 1 month, 3 months, 6 months, or 12 months - unlocks the entire channel library, no feature tiers.',
   },
   {
     q: 'Which sports channels are included in the IPTV channel list?',
@@ -44,15 +44,15 @@ const channelFaqs = [
   },
   {
     q: 'Are the IPTV channels in 4K HDR with HDR10+ and Dolby Vision?',
-    a: 'Yes. Every channel that broadcasts in 4K is delivered in 4K Ultra-HD with HDR10+ and Dolby Vision support — provided your TV and player can decode them. Channels broadcasting in HD or SD stream at native source quality.',
+    a: 'Yes. Every channel that broadcasts in 4K is delivered in 4K Ultra-HD with HDR10+ and Dolby Vision support - provided your TV and player can decode them. Channels broadcasting in HD or SD stream at native source quality.',
   },
   {
-    q: 'How do I access the channels — what IPTV apps work?',
+    q: 'How do I access the channels - what IPTV apps work?',
     a: 'M3U URLs and Xtream codes (issued at checkout) work with TiviMate, IPTV Smarters Pro, OTT Navigator, GSE Smart IPTV, Smart IPTV, and Perfect Player on Firestick 4K Max, Apple TV 4K, Android TV 14, Samsung Tizen, LG webOS, MAG-box, Formuler, iOS, iPadOS, Android, Windows, macOS, Linux, and any modern HTML5 browser.',
   },
   {
     q: 'Is there an EPG (TV guide) for these IPTV channels?',
-    a: 'Yes — every channel ships with a smart Electronic Programme Guide (EPG) and 7-day catch-up TV. The EPG is auto-loaded by TiviMate, IPTV Smarters Pro, and OTT Navigator. You can search by channel, time slot, or program name.',
+    a: 'Yes - every channel ships with a smart Electronic Programme Guide (EPG) and 7-day catch-up TV. The EPG is auto-loaded by TiviMate, IPTV Smarters Pro, and OTT Navigator. You can search by channel, time slot, or program name.',
   },
   {
     q: 'Are the IPTV channels updated daily?',
@@ -83,15 +83,15 @@ export default function ChannelsListPage() {
                 '@type': 'CollectionPage',
                 '@id': 'https://orca4ktv.com/channels#collectionpage',
                 url: 'https://orca4ktv.com/channels',
-                name: 'IPTV Channel List 2026 — 22,000+ Premium IPTV Channels',
+                name: 'IPTV Channel List 2026 - 22,000+ Premium IPTV Channels',
                 description:
-                  'Complete IPTV channel list for 2026: 22,000+ live TV channels across 150+ countries — sports, news, movies, kids, music, and international programming. Coverage spans top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey; the 2026 international football tournament; the 2026 Winter Games. 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV.',
+                  'Complete IPTV channel list for 2026: 22,000+ live TV channels across 150+ countries - sports, news, movies, kids, music, and international programming. Coverage spans top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey; the 2026 international football tournament; the 2026 Winter Games. 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV.',
                 isPartOf: { '@id': 'https://orca4ktv.com/#website' },
               },
               {
                 '@type': 'Service',
                 '@id': 'https://orca4ktv.com/channels#service',
-                name: 'ORCA 4K TV — IPTV Channel Library',
+                name: 'ORCA 4K TV - IPTV Channel Library',
                 serviceType: 'Premium IPTV Streaming Subscription',
                 provider: { '@id': 'https://orca4ktv.com/#organization' },
                 areaServed: { '@type': 'Place', name: 'Worldwide (150+ countries)' },
@@ -107,7 +107,7 @@ export default function ChannelsListPage() {
                   closes: '23:59',
                 },
                 description:
-                  '22,000+ live TV channels and 100,000+ on-demand titles across 150+ countries — live sports across every major league and international event, news, movies and series, kids, music, international (30+ language groups). 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV, multi-device IPTV, AES-256 encryption, Anti Freeze CDN.',
+                  '22,000+ live TV channels and 100,000+ on-demand titles across 150+ countries - live sports across every major league and international event, news, movies and series, kids, music, international (30+ language groups). 4K HDR with HDR10+ and Dolby Vision, smart EPG with 7-day catch-up TV, multi-device IPTV, AES-256 encryption, Anti Freeze CDN.',
               },
               {
                 '@type': 'ItemList',
@@ -115,14 +115,14 @@ export default function ChannelsListPage() {
                 name: 'IPTV Channel Categories',
                 description: 'Top categories in the ORCA 4K TV IPTV channel library.',
                 itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Sports IPTV channels — top-tier football, American football, US pro basketball, North American pro hockey, motorsport' },
-                  { '@type': 'ListItem', position: 2, name: 'News IPTV channels — all major 24-hour news networks across the US, UK, Germany, Netherlands and Canada' },
-                  { '@type': 'ListItem', position: 3, name: 'Movie IPTV channels — Hollywood, premium cinema, premium streaming-platform-equivalent originals' },
-                  { '@type': 'ListItem', position: 4, name: 'Kids IPTV channels — premium kids and family channels and educational programming' },
-                  { '@type': 'ListItem', position: 5, name: 'Music IPTV channels — major music video networks and 24/7 music streams' },
-                  { '@type': 'ListItem', position: 6, name: 'Documentary IPTV channels — major documentary, history, science and nature networks' },
-                  { '@type': 'ListItem', position: 7, name: 'International IPTV channels — 30+ language groups across 150+ countries' },
-                  { '@type': 'ListItem', position: 8, name: 'Local IPTV channels — all major US, UK, Canadian, German and Dutch free-to-air networks' },
+                  { '@type': 'ListItem', position: 1, name: 'Sports IPTV channels - top-tier football, American football, US pro basketball, North American pro hockey, motorsport' },
+                  { '@type': 'ListItem', position: 2, name: 'News IPTV channels - all major 24-hour news networks across the US, UK, Germany, Netherlands and Canada' },
+                  { '@type': 'ListItem', position: 3, name: 'Movie IPTV channels - Hollywood, premium cinema, premium streaming-platform-equivalent originals' },
+                  { '@type': 'ListItem', position: 4, name: 'Kids IPTV channels - premium kids and family channels and educational programming' },
+                  { '@type': 'ListItem', position: 5, name: 'Music IPTV channels - major music video networks and 24/7 music streams' },
+                  { '@type': 'ListItem', position: 6, name: 'Documentary IPTV channels - major documentary, history, science and nature networks' },
+                  { '@type': 'ListItem', position: 7, name: 'International IPTV channels - 30+ language groups across 150+ countries' },
+                  { '@type': 'ListItem', position: 8, name: 'Local IPTV channels - all major US, UK, Canadian, German and Dutch free-to-air networks' },
                 ],
               },
               {
@@ -142,7 +142,7 @@ export default function ChannelsListPage() {
       <ChannelsPage
         seoContent={
           <>
-            {/* SEO content block — server-rendered after the country directory */}
+            {/* SEO content block - server-rendered after the country directory */}
             <section className="bg-[#001f3f] py-20 px-4 mt-12 border-t border-white/5">
               <div className="max-w-4xl mx-auto space-y-7">
                 <p className="text-center text-purple-400 text-xs font-black uppercase tracking-[0.3em]">
@@ -150,15 +150,15 @@ export default function ChannelsListPage() {
                 </p>
 
                 <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-                  IPTV Channel List 2026 — 22,000+ Live TV Channels in 4K HDR
+                  IPTV Channel List 2026 - 22,000+ Live TV Channels in 4K HDR
                 </h2>
 
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  <strong className="text-white">ORCA 4K TV</strong> ships the largest premium IPTV channel list in 2026 — over <strong className="text-white">22,000 live TV channels</strong> across <strong className="text-white">150+ countries</strong>, plus <strong className="text-white">100,000+ on-demand movies and series</strong> — all behind <strong className="text-white">AES-256 encryption</strong> on our proprietary <strong className="text-white">Anti Freeze CDN</strong>. Every channel that broadcasts in 4K is delivered in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Every plan unlocks the same complete channel library — there are no feature tiers locked behind higher prices.
+                  <strong className="text-white">ORCA 4K TV</strong> ships the largest premium IPTV channel list in 2026 - over <strong className="text-white">22,000 live TV channels</strong> across <strong className="text-white">150+ countries</strong>, plus <strong className="text-white">100,000+ on-demand movies and series</strong> - all behind <strong className="text-white">AES-256 encryption</strong> on our proprietary <strong className="text-white">Anti Freeze CDN</strong>. Every channel that broadcasts in 4K is delivered in <strong className="text-white">4K Ultra-HD with HDR10+ and Dolby Vision</strong>. Every plan unlocks the same complete channel library - there are no feature tiers locked behind higher prices.
                 </p>
 
                 <h3 className="text-2xl md:text-3xl font-black text-white pt-4 border-t border-purple-500/15">
-                  Sports IPTV channels — every league, every match
+                  Sports IPTV channels - every league, every match
                 </h3>
 
                 <p className="text-gray-300 text-lg leading-relaxed">
@@ -197,20 +197,20 @@ export default function ChannelsListPage() {
                 </h3>
 
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Every channel in the ORCA 4K TV IPTV channel list ships with a <strong className="text-white">smart Electronic Programme Guide (EPG)</strong> auto-loaded by TiviMate, IPTV Smarters Pro, and OTT Navigator — search by channel, time, or program name. <strong className="text-white">7-day catch-up TV</strong> means you never miss a match or episode again. The IPTV credentials (M3U URL + Xtream codes) work on <strong className="text-white">Firestick 4K Max</strong>, Apple TV 4K (3rd gen), <strong className="text-white">Android TV 14</strong> boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG-box, Formuler, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux computers, and any modern HTML5 browser. See the <Link href="/setup-guide" className="text-purple-400 hover:underline">step-by-step IPTV setup guide</Link> or the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> for term definitions.
+                  Every channel in the ORCA 4K TV IPTV channel list ships with a <strong className="text-white">smart Electronic Programme Guide (EPG)</strong> auto-loaded by TiviMate, IPTV Smarters Pro, and OTT Navigator - search by channel, time, or program name. <strong className="text-white">7-day catch-up TV</strong> means you never miss a match or episode again. The IPTV credentials (M3U URL + Xtream codes) work on <strong className="text-white">Firestick 4K Max</strong>, Apple TV 4K (3rd gen), <strong className="text-white">Android TV 14</strong> boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG-box, Formuler, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux computers, and any modern HTML5 browser. See the <Link href="/setup-guide" className="text-purple-400 hover:underline">step-by-step IPTV setup guide</Link> or the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> for term definitions.
                 </p>
 
                 <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">
-                  Want the full IPTV channel list active in under 5 minutes? <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start a free IPTV trial</Link>{' '}— no credit card required, instant activation, full 4K HDR. Or <Link href="/iptv-shop" className="text-purple-400 hover:underline font-bold">view IPTV plans</Link> from $7.92/month.
+                  Want the full IPTV channel list active in under 5 minutes? <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start a free IPTV trial</Link>{' '}- no credit card required, instant activation, full 4K HDR. Or <Link href="/iptv-shop" className="text-purple-400 hover:underline font-bold">view IPTV plans</Link> from $7.92/month.
                 </p>
               </div>
             </section>
 
-            {/* FAQ Section — server-rendered, paired with FAQPage JSON-LD */}
+            {/* FAQ Section - server-rendered, paired with FAQPage JSON-LD */}
             <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
               <div className="max-w-3xl mx-auto">
                 <h2 className="text-3xl font-black text-white text-center mb-10">
-                  IPTV Channel List FAQ — 2026
+                  IPTV Channel List FAQ - 2026
                 </h2>
                 <div className="space-y-4">
                   {channelFaqs.map((item) => (

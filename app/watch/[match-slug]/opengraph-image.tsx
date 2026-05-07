@@ -3,7 +3,7 @@ import matchesData from '@/data/matches.json'
 import type { Fixture } from '@/lib/sports-api'
 
 export const runtime = 'edge'
-export const alt = 'Orca 4K TV — Live Match Stream'
+export const alt = 'Orca 4K TV - Live Match Stream'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 

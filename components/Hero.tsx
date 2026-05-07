@@ -56,16 +56,16 @@ const Hero: React.FC = () => {
         {/* Deep navy base */}
         <div className="absolute inset-0 bg-[#001f3f]"></div>
 
-        {/* Aurora blobs — soft, slow-drifting cyan + blue lights */}
+        {/* Aurora blobs - soft, slow-drifting cyan + blue lights */}
         <div className="aurora aurora-cyan-1 will-change-transform"></div>
         <div className="aurora aurora-blue-1 will-change-transform"></div>
         <div className="aurora aurora-cyan-2 will-change-transform"></div>
         <div className="aurora aurora-blue-2 hidden md:block will-change-transform"></div>
 
-        {/* Soft horizontal shimmer band — adds movement across the middle */}
+        {/* Soft horizontal shimmer band - adds movement across the middle */}
         <div className="aurora-shimmer hidden md:block"></div>
 
-        {/* Vignette overlay — keeps the H1 + search bar legible */}
+        {/* Vignette overlay - keeps the H1 + search bar legible */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#001f3f]/95"></div>
       </div>
 
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
 
         {/* 🚀 SEO UPGRADE: Descriptive H2 Tag */}
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          22,000+ Live Channels, 4K HDR Sports & On-Demand Movies — Buffer-Free, Worldwide
+          22,000+ Live Channels, 4K HDR Sports & On-Demand Movies - Buffer-Free, Worldwide
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
       <style>{`
         .will-change-transform { will-change: transform; }
 
-        /* Aurora blobs — soft glowing color clouds */
+        /* Aurora blobs - soft glowing color clouds */
         .aurora {
           position: absolute;
           border-radius: 50%;
@@ -181,7 +181,7 @@ const Hero: React.FC = () => {
           animation: aurora-drift-4 36s ease-in-out infinite;
         }
 
-        /* Horizontal shimmer band — subtle highlight that drifts vertically */
+        /* Horizontal shimmer band - subtle highlight that drifts vertically */
         .aurora-shimmer {
           position: absolute;
           top: 30%;

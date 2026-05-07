@@ -38,11 +38,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'What is the best IPTV app for Android?',
-    a: 'TiviMate is widely considered the best IPTV app for Android and Firestick — it offers a polished TV-guide interface, multi-stream support, catch-up, and recording. IPTV Smarters Pro is another excellent choice, especially for beginners, as it supports both Xtream Codes and M3U playlists. GSE IPTV and XCIPTV are also popular options. All of these work perfectly with your Orca 4K TV subscription.',
+    a: 'TiviMate is widely considered the best IPTV app for Android and Firestick - it offers a polished TV-guide interface, multi-stream support, catch-up, and recording. IPTV Smarters Pro is another excellent choice, especially for beginners, as it supports both Xtream Codes and M3U playlists. GSE IPTV and XCIPTV are also popular options. All of these work perfectly with your Orca 4K TV subscription.',
   },
   {
     q: 'How do I add an M3U playlist to TiviMate?',
-    a: 'Open TiviMate and tap "Add Playlist". Select "M3U playlist" and paste your M3U URL from your Orca 4K TV dashboard. TiviMate will automatically import all channels. For the EPG (TV guide), go to Settings → EPG Sources and add your EPG URL — also available in your dashboard. Refresh the EPG to populate the programme guide. You can then organise channels into favourites and groups.',
+    a: 'Open TiviMate and tap "Add Playlist". Select "M3U playlist" and paste your M3U URL from your Orca 4K TV dashboard. TiviMate will automatically import all channels. For the EPG (TV guide), go to Settings → EPG Sources and add your EPG URL - also available in your dashboard. Refresh the EPG to populate the programme guide. You can then organise channels into favourites and groups.',
   },
   {
     q: 'What are Xtream Codes and how do I use them?',
@@ -58,7 +58,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Can I use my IPTV subscription on multiple devices at the same time?',
-    a: 'Yes — the number of simultaneous streams depends on the plan you chose. A 1-connection plan allows streaming on one device at a time. A 2-connection plan allows two devices simultaneously, and so on up to 4 connections. You can install the app on as many devices as you like and use them interchangeably, as long as the number of concurrent streams does not exceed your plan limit.',
+    a: 'Yes - the number of simultaneous streams depends on the plan you chose. A 1-connection plan allows streaming on one device at a time. A 2-connection plan allows two devices simultaneously, and so on up to 4 connections. You can install the app on as many devices as you like and use them interchangeably, as long as the number of concurrent streams does not exceed your plan limit.',
   },
   {
     q: 'How do I set up IPTV on a Samsung or LG Smart TV?',
@@ -70,7 +70,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How do I update or refresh my IPTV channel list?',
-    a: 'In TiviMate, go to Playlists → select your playlist → Update. In IPTV Smarters, pull down to refresh or go to Settings and re-sync. In Smart IPTV, re-upload your M3U URL at siptv.app. If you have recently renewed or upgraded your subscription, your credentials remain the same — simply refresh the playlist to get any newly added channels.',
+    a: 'In TiviMate, go to Playlists → select your playlist → Update. In IPTV Smarters, pull down to refresh or go to Settings and re-sync. In Smart IPTV, re-upload your M3U URL at siptv.app. If you have recently renewed or upgraded your subscription, your credentials remain the same - simply refresh the playlist to get any newly added channels.',
   },
 ]
 
@@ -85,7 +85,7 @@ const QUICK_FIXES = [
     title: 'Login Failed',
     icon: 'fas fa-lock',
     color: 'text-yellow-400',
-    body: 'Check your username and password from your dashboard — they are case-sensitive. Make sure there are no extra spaces. If copying, type them manually instead.',
+    body: 'Check your username and password from your dashboard - they are case-sensitive. Make sure there are no extra spaces. If copying, type them manually instead.',
   },
   {
     title: 'EPG (Guide) Not Loading',
@@ -158,10 +158,10 @@ export default function SetupGuideContent() {
             <i className="fas fa-robot"></i> AI-Powered Support
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-            IPTV Setup Guide 2026 — Stream in 5 Minutes on Any Device
+            IPTV Setup Guide 2026 - Stream in 5 Minutes on Any Device
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Step-by-step IPTV installation tutorials for Firestick 4K Max, Apple TV 4K, Android TV 14, Samsung Tizen, LG webOS, MAG-box, Formuler, iOS, and Android — plus an AI troubleshooter for buffering, login, EPG, and black-screen fixes. Get streaming in 5 minutes.
+            Step-by-step IPTV installation tutorials for Firestick 4K Max, Apple TV 4K, Android TV 14, Samsung Tizen, LG webOS, MAG-box, Formuler, iOS, and Android - plus an AI troubleshooter for buffering, login, EPG, and black-screen fixes. Get streaming in 5 minutes.
           </p>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function SetupGuideContent() {
         <section className="mb-20 pt-10">
           <div className="max-w-3xl mx-auto text-center mb-14">
             <p className="text-gray-400 leading-relaxed text-base">
-              Whether you&apos;re installing IPTV on a <strong className="text-white">Firestick 4K Max</strong>, <strong className="text-white">Apple TV 4K</strong>, <strong className="text-white">Android TV 14 box</strong> (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), <strong className="text-white">Samsung Tizen</strong> or <strong className="text-white">LG webOS</strong> Smart TV, <strong className="text-white">MAG-box</strong>, <strong className="text-white">Formuler</strong>, <strong className="text-white">iPhone / iPad</strong>, <strong className="text-white">Android phone or tablet</strong>, or <strong className="text-white">Windows / macOS / Linux PC</strong> — this guide ships everything you need to be streaming in 4K HDR in under 5 minutes. Our step-by-step video tutorials cover every major IPTV player: <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">OTT Navigator</strong>, <strong className="text-white">GSE Smart IPTV</strong>, <strong className="text-white">Smart IPTV</strong>, <strong className="text-white">Perfect Player</strong>, <strong className="text-white">Kodi</strong>, and more. Use the AI assistant below for a personalised IPTV setup guide or to instantly fix buffering, login, EPG, and black-screen issues.
+              Whether you&apos;re installing IPTV on a <strong className="text-white">Firestick 4K Max</strong>, <strong className="text-white">Apple TV 4K</strong>, <strong className="text-white">Android TV 14 box</strong> (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), <strong className="text-white">Samsung Tizen</strong> or <strong className="text-white">LG webOS</strong> Smart TV, <strong className="text-white">MAG-box</strong>, <strong className="text-white">Formuler</strong>, <strong className="text-white">iPhone / iPad</strong>, <strong className="text-white">Android phone or tablet</strong>, or <strong className="text-white">Windows / macOS / Linux PC</strong> - this guide ships everything you need to be streaming in 4K HDR in under 5 minutes. Our step-by-step video tutorials cover every major IPTV player: <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">OTT Navigator</strong>, <strong className="text-white">GSE Smart IPTV</strong>, <strong className="text-white">Smart IPTV</strong>, <strong className="text-white">Perfect Player</strong>, <strong className="text-white">Kodi</strong>, and more. Use the AI assistant below for a personalised IPTV setup guide or to instantly fix buffering, login, EPG, and black-screen issues.
             </p>
           </div>
 
@@ -203,7 +203,7 @@ export default function SetupGuideContent() {
                 step: '04',
                 icon: 'fas fa-check-circle',
                 title: 'Enter Details & Stream',
-                desc: 'Enter your Xtream Codes or M3U URL into the app. Add your EPG URL for a full TV guide. You\'re ready — enjoy 22,000+ channels in 4K.',
+                desc: 'Enter your Xtream Codes or M3U URL into the app. Add your EPG URL for a full TV guide. You\'re ready - enjoy 22,000+ channels in 4K.',
               },
             ].map(s => (
               <div key={s.step} className="bg-[#002952] rounded-2xl p-6 border border-white/5 relative">
@@ -414,7 +414,7 @@ export default function SetupGuideContent() {
                   <h3 className="text-white font-bold">Instant AI Help</h3>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Our AI assistant knows every app, every device, and every common issue. Select your device and get a personalized guide in seconds — no waiting, no support tickets.
+                  Our AI assistant knows every app, every device, and every common issue. Select your device and get a personalized guide in seconds - no waiting, no support tickets.
                 </p>
               </div>
               <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
@@ -534,36 +534,36 @@ export default function SetupGuideContent() {
             </p>
 
             <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-              How to Set Up IPTV in 2026 — Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
+              How to Set Up IPTV in 2026 - Firestick 4K Max, Apple TV 4K, Android TV 14, Smart TV
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              The <strong className="text-white">ORCA 4K TV IPTV setup guide</strong> walks you through installation in under 5 minutes on every major streaming device of 2026. After checkout, you receive your unique <strong className="text-white">M3U URL</strong>, <strong className="text-white">EPG URL</strong>, and <strong className="text-white">Xtream Codes</strong> (server URL, username, password) by email and inside your dashboard — instant activation, no waiting, AES-256 encrypted, VPN-friendly. Pick the right IPTV player for your hardware, paste in your credentials, and you&apos;re streaming 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision plus 100,000+ on-demand titles within minutes.
+              The <strong className="text-white">ORCA 4K TV IPTV setup guide</strong> walks you through installation in under 5 minutes on every major streaming device of 2026. After checkout, you receive your unique <strong className="text-white">M3U URL</strong>, <strong className="text-white">EPG URL</strong>, and <strong className="text-white">Xtream Codes</strong> (server URL, username, password) by email and inside your dashboard - instant activation, no waiting, AES-256 encrypted, VPN-friendly. Pick the right IPTV player for your hardware, paste in your credentials, and you&apos;re streaming 22,000+ live channels in 4K HDR with HDR10+ and Dolby Vision plus 100,000+ on-demand titles within minutes.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-black text-white pt-4 border-t border-purple-500/15">
-              IPTV setup by device — every major player covered
+              IPTV setup by device - every major player covered
             </h3>
 
             <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Firestick 4K Max / Fire TV Cube setup:</strong> install TiviMate or IPTV Smarters Pro via the Downloader app, paste your Xtream codes — Firestick is the most popular IPTV device in 2026.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Apple TV 4K (3rd gen) setup:</strong> install IPTV Smarters Pro or GSE Smart IPTV from the App Store, sign in with Xtream codes — true 4K HDR with Dolby Vision.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Android TV 14 setup:</strong> Nvidia Shield, Onn 4K Pro, Chromecast with Google TV — install TiviMate from the Google Play Store, the gold-standard IPTV player.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Samsung Tizen Smart TV setup:</strong> install Smart IPTV (siptv.app), register your TV&apos;s MAC address, upload your M3U URL — no external box needed.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">LG webOS Smart TV setup:</strong> install SmartIPTV from the LG Content Store, paste your M3U URL via the web portal — instant 4K HDR streaming.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">MAG-box / Formuler setup:</strong> enter the portal URL via the device&apos;s System Settings — works natively without any app install.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Firestick 4K Max / Fire TV Cube setup:</strong> install TiviMate or IPTV Smarters Pro via the Downloader app, paste your Xtream codes - Firestick is the most popular IPTV device in 2026.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Apple TV 4K (3rd gen) setup:</strong> install IPTV Smarters Pro or GSE Smart IPTV from the App Store, sign in with Xtream codes - true 4K HDR with Dolby Vision.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Android TV 14 setup:</strong> Nvidia Shield, Onn 4K Pro, Chromecast with Google TV - install TiviMate from the Google Play Store, the gold-standard IPTV player.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Samsung Tizen Smart TV setup:</strong> install Smart IPTV (siptv.app), register your TV&apos;s MAC address, upload your M3U URL - no external box needed.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">LG webOS Smart TV setup:</strong> install SmartIPTV from the LG Content Store, paste your M3U URL via the web portal - instant 4K HDR streaming.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">MAG-box / Formuler setup:</strong> enter the portal URL via the device&apos;s System Settings - works natively without any app install.</span></li>
               <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">iOS / iPadOS setup:</strong> GSE Smart IPTV or IPTV Smarters Pro from the App Store, paste M3U URL or Xtream codes.</span></li>
               <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Android phone / tablet setup:</strong> TiviMate, IPTV Smarters Pro, or OTT Navigator from Google Play.</span></li>
               <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Windows / macOS / Linux setup:</strong> Kodi with PVR IPTV Simple Client, or Perfect Player, or VLC for quick playback testing.</span></li>
-              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Web browser playback:</strong> any modern HTML5 browser works for the web player at the dashboard — no install needed for trials.</span></li>
+              <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Web browser playback:</strong> any modern HTML5 browser works for the web player at the dashboard - no install needed for trials.</span></li>
             </ul>
 
             <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
-              IPTV credentials — M3U URL, Xtream codes, EPG URL
+              IPTV credentials - M3U URL, Xtream codes, EPG URL
             </h3>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              ORCA 4K TV ships <strong className="text-white">three credential formats</strong> for maximum compatibility: an <strong className="text-white">M3U playlist URL</strong> (single link, one-paste setup — best for TiviMate, OTT Navigator, Smart IPTV, Perfect Player, Kodi), <strong className="text-white">Xtream Codes</strong> (server URL + username + password — best for IPTV Smarters Pro, GSE Smart IPTV, IBO Player, and any modern IPTV app), and a dedicated <strong className="text-white">EPG URL</strong> for the smart Electronic Programme Guide and 7-day catch-up TV. All three are visible in your dashboard at any time. Switch devices freely — your credentials stay the same.
+              ORCA 4K TV ships <strong className="text-white">three credential formats</strong> for maximum compatibility: an <strong className="text-white">M3U playlist URL</strong> (single link, one-paste setup - best for TiviMate, OTT Navigator, Smart IPTV, Perfect Player, Kodi), <strong className="text-white">Xtream Codes</strong> (server URL + username + password - best for IPTV Smarters Pro, GSE Smart IPTV, IBO Player, and any modern IPTV app), and a dedicated <strong className="text-white">EPG URL</strong> for the smart Electronic Programme Guide and 7-day catch-up TV. All three are visible in your dashboard at any time. Switch devices freely - your credentials stay the same.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -571,7 +571,7 @@ export default function SetupGuideContent() {
             </h3>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              The most common issues during IPTV setup are <strong className="text-white">buffering</strong> (lower the stream quality, switch to ethernet, or ensure your M3U URL ends with <code className="text-purple-300 bg-black/30 px-1 rounded">&output=ts</code>), <strong className="text-white">login failed</strong> (Xtream codes are case-sensitive — re-type instead of copy/paste), <strong className="text-white">black screen / no audio</strong> (delete and re-add your playlist, verify subscription is active in your dashboard), <strong className="text-white">EPG not loading</strong> (paste the EPG URL into Settings → EPG Sources and force-refresh), and <strong className="text-white">channels not loading</strong> (re-import the M3U URL, check Anti Freeze CDN status). Our AI assistant above generates personalised fixes for any combination of device, app, and symptom — usually solved in under 60 seconds.
+              The most common issues during IPTV setup are <strong className="text-white">buffering</strong> (lower the stream quality, switch to ethernet, or ensure your M3U URL ends with <code className="text-purple-300 bg-black/30 px-1 rounded">&output=ts</code>), <strong className="text-white">login failed</strong> (Xtream codes are case-sensitive - re-type instead of copy/paste), <strong className="text-white">black screen / no audio</strong> (delete and re-add your playlist, verify subscription is active in your dashboard), <strong className="text-white">EPG not loading</strong> (paste the EPG URL into Settings → EPG Sources and force-refresh), and <strong className="text-white">channels not loading</strong> (re-import the M3U URL, check Anti Freeze CDN status). Our AI assistant above generates personalised fixes for any combination of device, app, and symptom - usually solved in under 60 seconds.
             </p>
 
             <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -579,11 +579,11 @@ export default function SetupGuideContent() {
             </h3>
 
             <p className="text-gray-300 text-lg leading-relaxed">
-              Every IPTV stream uses <strong className="text-white">TLS 1.3 with AES-256 encryption</strong> (NIST FIPS 197), making ISP traffic-shaping unreliable against ORCA 4K TV. Our <Link href="/security" className="text-purple-400 hover:underline font-bold">Anti Freeze CDN</Link> with regional edge servers in the US, UK, Frankfurt, and Amsterdam keeps latency below 25 ms in most regions — buffer-free 4K HDR streaming even at peak hours. <strong className="text-white">VPN is fully allowed</strong> on every plan with no speed throttling — useful when traveling or on heavily congested connections. See the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> for definitions of M3U, Xtream Codes, EPG, catch-up TV, HDR10+, Dolby Vision, and other technical terms.
+              Every IPTV stream uses <strong className="text-white">TLS 1.3 with AES-256 encryption</strong> (NIST FIPS 197), making ISP traffic-shaping unreliable against ORCA 4K TV. Our <Link href="/security" className="text-purple-400 hover:underline font-bold">Anti Freeze CDN</Link> with regional edge servers in the US, UK, Frankfurt, and Amsterdam keeps latency below 25 ms in most regions - buffer-free 4K HDR streaming even at peak hours. <strong className="text-white">VPN is fully allowed</strong> on every plan with no speed throttling - useful when traveling or on heavily congested connections. See the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> for definitions of M3U, Xtream Codes, EPG, catch-up TV, HDR10+, Dolby Vision, and other technical terms.
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">
-              Need to test before you buy? <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start a free IPTV trial</Link> — no credit card required, full 4K HDR, all 22,000+ channels. Or browse the <Link href="/iptv-shop" className="text-purple-400 hover:underline font-bold">IPTV plans</Link> from $7.92/month. Already a subscriber? View your <Link href="/dashboard/subscription" className="text-purple-400 hover:underline font-bold">M3U URL, EPG URL &amp; Xtream codes</Link> in the dashboard.
+              Need to test before you buy? <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start a free IPTV trial</Link> - no credit card required, full 4K HDR, all 22,000+ channels. Or browse the <Link href="/iptv-shop" className="text-purple-400 hover:underline font-bold">IPTV plans</Link> from $7.92/month. Already a subscriber? View your <Link href="/dashboard/subscription" className="text-purple-400 hover:underline font-bold">M3U URL, EPG URL &amp; Xtream codes</Link> in the dashboard.
             </p>
           </div>
         </section>

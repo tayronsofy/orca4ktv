@@ -3,23 +3,23 @@ import Link from 'next/link'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
-  title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
+  title: 'IPTV Security 2026 - AES-256, TLS 1.3, VPN | ORCA 4K TV',
   description:
     'How ORCA 4K TV protects your IPTV subscription: AES-256 encryption (NIST FIPS 197), TLS 1.3, VPN allowed, Anti Freeze CDN, 24/7 customer support.',
   keywords:
     'secure IPTV access, AES-256 encryption, encrypted IPTV streaming, secure streaming, IPTV with VPN, VPN allowed, Anti Freeze technology, buffer-free streaming, zero buffering, TLS 1.3, FIPS 197, IPTV security, premium IPTV channels, multi-device compatibility, 24/7 customer support, IPTV customer support',
   alternates: { canonical: 'https://orca4ktv.com/security' },
   openGraph: {
-    title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
+    title: 'IPTV Security 2026 - AES-256, TLS 1.3, VPN | ORCA 4K TV',
     description:
-      'AES-256 encryption (FIPS-197), TLS 1.3, VPN allowed, Anti Freeze CDN — every ORCA 4K TV subscription.',
+      'AES-256 encryption (FIPS-197), TLS 1.3, VPN allowed, Anti Freeze CDN - every ORCA 4K TV subscription.',
     url: 'https://orca4ktv.com/security',
     siteName: 'ORCA 4K TV',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IPTV Security 2026 — AES-256, TLS 1.3, VPN | ORCA 4K TV',
+    title: 'IPTV Security 2026 - AES-256, TLS 1.3, VPN | ORCA 4K TV',
     description: 'How ORCA 4K TV secures every IPTV subscription with AES-256 and TLS 1.3.',
   },
 }
@@ -36,7 +36,7 @@ export default function SecurityPage() {
         ]}
       />
 
-      {/* Service schema — explicit signal that this page describes a security-bearing service */}
+      {/* Service schema - explicit signal that this page describes a security-bearing service */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,7 +44,7 @@ export default function SecurityPage() {
             '@context': 'https://schema.org',
             '@type': 'Service',
             '@id': 'https://orca4ktv.com/security#service',
-            name: 'ORCA 4K TV — Encrypted IPTV Streaming',
+            name: 'ORCA 4K TV - Encrypted IPTV Streaming',
             serviceType: 'Encrypted IPTV Streaming',
             provider: { '@id': 'https://orca4ktv.com/#organization' },
             areaServed: 'Worldwide',
@@ -98,7 +98,7 @@ export default function SecurityPage() {
           <section className="mb-12 border-l-2 border-[#00E5FF]/30 pl-6">
             <h2 className="text-2xl md:text-3xl font-black mb-4">AES-256 Encryption (NIST FIPS 197)</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
-              We apply <strong>AES-256 encryption</strong> across every connection — the same
+              We apply <strong>AES-256 encryption</strong> across every connection - the same
               symmetric cipher specified by{' '}
               <a
                 href="https://csrc.nist.gov/publications/detail/fips/197/final"
@@ -123,7 +123,7 @@ export default function SecurityPage() {
             <h2 className="text-2xl md:text-3xl font-black mb-4">Secure IPTV Access</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               Every customer receives a unique, signed M3U URL plus Xtream Codes credentials at
-              activation. URLs are tied to your account — if a credential leaks, regenerating it
+              activation. URLs are tied to your account - if a credential leaks, regenerating it
               from the dashboard immediately invalidates the previous one. This is what we mean
               by <strong>secure IPTV access</strong>: there is no shared, replayable link that
               third parties can use against your subscription.
@@ -140,7 +140,7 @@ export default function SecurityPage() {
 
           {/* VPN allowed */}
           <section className="mb-12 border-l-2 border-[#00E5FF]/30 pl-6">
-            <h2 className="text-2xl md:text-3xl font-black mb-4">IPTV with VPN — VPN Allowed</h2>
+            <h2 className="text-2xl md:text-3xl font-black mb-4">IPTV with VPN - VPN Allowed</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               ORCA 4K TV explicitly supports <strong>IPTV with VPN</strong>. Many customers use a
               VPN to avoid ISP-side throttling on streaming traffic, to protect their browsing on
@@ -151,7 +151,7 @@ export default function SecurityPage() {
             <p className="text-gray-300 leading-relaxed">
               Recommended providers (NordVPN, ProtonVPN, Surfshark, Mullvad) work cleanly with our
               CDN. If you see degraded performance through a specific VPN node, switch to a closer
-              region — that's almost always the fix.
+              region - that's almost always the fix.
             </p>
           </section>
 
@@ -161,12 +161,12 @@ export default function SecurityPage() {
             <p className="text-gray-300 leading-relaxed mb-3">
               Our proprietary <strong>Anti Freeze technology</strong> picks the lowest-latency CDN
               edge for each connection in real time and reroutes around regional congestion during
-              high-load events — major international football tournaments, top European club football finals, the championship game in February.
+              high-load events - major international football tournaments, top European club football finals, the championship game in February.
               This is the engine behind our <strong>buffer-free streaming</strong> and{' '}
               <strong>zero buffering</strong> claims for customers on a 25 Mbps+ connection.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              Anti Freeze runs continuously underneath every plan tier — there is no premium
+              Anti Freeze runs continuously underneath every plan tier - there is no premium
               upcharge. If you need higher bandwidth headroom, the <Link href="/iptv-shop" className="text-[#00E5FF] hover:underline">12-month plan</Link>{' '}
               ships with up to 4 simultaneous connections so each device gets dedicated capacity.
             </p>
@@ -177,7 +177,7 @@ export default function SecurityPage() {
             <h2 className="text-2xl md:text-3xl font-black mb-4">24/7 Customer Support</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               Security questions don't keep business hours. ORCA 4K TV ships{' '}
-              <strong>24/7 customer support</strong> via Telegram and email — average first
+              <strong>24/7 customer support</strong> via Telegram and email - average first
               response under five minutes. The same <strong>IPTV customer support</strong> team
               handles billing, technical, encryption, VPN, and setup queries.
             </p>
@@ -195,7 +195,7 @@ export default function SecurityPage() {
             <h2 className="text-2xl font-black mb-3">Try It With a Free Trial</h2>
             <p className="text-gray-300 mb-6 leading-relaxed">
               See AES-256 encryption, secure IPTV access, and Anti Freeze CDN in action without
-              committing — no credit card, instant activation, full IPTV subscription experience.
+              committing - no credit card, instant activation, full IPTV subscription experience.
             </p>
             <Link
               href="/trial"

@@ -6,7 +6,7 @@ const steps = [
   {
     number: '01',
     title: 'Submit Your Request',
-    description: 'Fill in your name, email, device type and country in the form above. Takes under 60 seconds — no credit card needed.',
+    description: 'Fill in your name, email, device type and country in the form above. Takes under 60 seconds - no credit card needed.',
     icon: 'fas fa-paper-plane',
   },
   {
@@ -18,7 +18,7 @@ const steps = [
   {
     number: '03',
     title: 'Start Watching in 4K',
-    description: 'Enter your credentials in any IPTV app — TiviMate, IPTV Smarters, or VLC — and start streaming 22,000+ channels in 4K instantly.',
+    description: 'Enter your credentials in any IPTV app - TiviMate, IPTV Smarters, or VLC - and start streaming 22,000+ channels in 4K instantly.',
     icon: 'fas fa-play-circle',
   },
 ]
@@ -38,7 +38,7 @@ const TrialHowItWorks: React.FC = () => {
         </div>
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Connector line — desktop only */}
+          {/* Connector line - desktop only */}
           <div className="hidden md:block absolute top-14 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px bg-gradient-to-r from-[#003580] to-[#00E5FF] opacity-30 pointer-events-none" />
 
           {steps.map((step, i) => (

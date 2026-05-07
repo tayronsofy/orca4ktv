@@ -70,7 +70,7 @@ export async function POST() {
   }
 }
 
-// GET — submit on demand from browser or cron
+// GET - submit on demand from browser or cron
 export async function GET() {
   return POST()
 }

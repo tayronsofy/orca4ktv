@@ -11,7 +11,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
 
   const encodedUrl = encodeURIComponent(url)
-  const encodedText = encodeURIComponent(`${title} — stream 22,000+ channels in 4K`)
+  const encodedText = encodeURIComponent(`${title} - stream 22,000+ channels in 4K`)
 
   const shareLinks = [
     {

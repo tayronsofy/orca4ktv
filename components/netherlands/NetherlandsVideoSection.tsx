@@ -42,7 +42,7 @@ const NetherlandsVideoSection: React.FC<NetherlandsVideoSectionProps> = ({ onScr
           </div>
 
           <div className="text-2xl md:text-3xl font-black text-white mb-10 tracking-tight uppercase">
-            START NU MET STREAMEN — VANAF SLECHTS €15/MAAND.
+            START NU MET STREAMEN - VANAF SLECHTS €15/MAAND.
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

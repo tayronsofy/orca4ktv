@@ -88,7 +88,7 @@ function RegisterForm() {
       }
     }
 
-    // Standard paid-shop signup flow — keep email confirmation as a baseline.
+    // Standard paid-shop signup flow - keep email confirmation as a baseline.
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -111,7 +111,7 @@ function RegisterForm() {
       router.push(next)
       router.refresh()
     } else {
-      // Email confirmation required — redirect to a waiting page
+      // Email confirmation required - redirect to a waiting page
       router.push('/auth/login?message=check-email')
     }
   }
@@ -121,7 +121,7 @@ function RegisterForm() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/">
-            <img src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-14 w-auto mx-auto mb-6" width={1432} height={704} loading="lazy" />
+            <img src="/logo.png?v=6" alt="Orca 4K TV - best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-14 w-auto mx-auto mb-6" width={1432} height={704} loading="lazy" />
           </Link>
           <h1 className="text-2xl font-black text-white">
             {trialContext.valid ? 'Activate your trial' : 'Create your account'}
@@ -135,7 +135,7 @@ function RegisterForm() {
           {trialContext.valid && (
             <div className="mb-6 bg-purple-500/10 border border-purple-500/30 rounded-xl px-4 py-3 text-purple-200 text-sm">
               <i className="fas fa-bolt mr-2"></i>
-              Activating your Orca 4K TV trial — your access details will appear on your dashboard right after sign-up.
+              Activating your Orca 4K TV trial - your access details will appear on your dashboard right after sign-up.
             </div>
           )}
           {trialToken && !trialContext.valid && !trialContext.loading && (

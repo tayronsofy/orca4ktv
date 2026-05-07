@@ -39,7 +39,7 @@ function LoginForm() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/">
-            <img src="/logo.png?v=6" alt="Orca 4K TV — best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-14 w-auto mx-auto mb-6" width={1432} height={704} loading="lazy" />
+            <img src="/logo.png?v=6" alt="Orca 4K TV - best IPTV subscription with 22,000+ live channels in 4K HDR" className="h-14 w-auto mx-auto mb-6" width={1432} height={704} loading="lazy" />
           </Link>
           <h1 className="text-2xl font-black text-white">Welcome back</h1>
           <p className="text-gray-400 mt-2 text-sm">Sign in to your ORCA 4K TV account</p>

@@ -25,7 +25,7 @@ const scrollToForm = () => {
 const TrialPageContent: React.FC = () => {
   return (
     <>
-      {/* Hero + Form — above the fold, NOT lazy loaded */}
+      {/* Hero + Form - above the fold, NOT lazy loaded */}
       <section
         id="trial-form"
         className="relative py-20 px-4 bg-gradient-to-br from-[#00050d] via-[#001a36] to-[#00050d] overflow-hidden"
@@ -49,7 +49,7 @@ const TrialPageContent: React.FC = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">
-            Test 22,000+ live channels, 4K sports &amp; VOD — completely free.
+            Test 22,000+ live channels, 4K sports &amp; VOD - completely free.
             No credit card. No commitment. Credentials delivered in minutes.
           </p>
 
@@ -71,7 +71,7 @@ const TrialPageContent: React.FC = () => {
           </div>
         </div>
 
-        {/* Form — rendered directly, no lazy wrapper */}
+        {/* Form - rendered directly, no lazy wrapper */}
         <FreeTrialForm />
 
         <style>{`
@@ -85,28 +85,28 @@ const TrialPageContent: React.FC = () => {
         `}</style>
       </section>
 
-      {/* SEO content block — appears after hero, crawlable via SSR pre-rendering */}
+      {/* SEO content block - appears after hero, crawlable via SSR pre-rendering */}
       <section className="bg-[#001f3f] py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-black text-white">
-            Free IPTV Trial 2026 — Test 22,000+ Live Channels With No Credit Card
+            Free IPTV Trial 2026 - Test 22,000+ Live Channels With No Credit Card
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
-            ORCA 4K TV offers the best free IPTV trial in 2026. Submit your request and receive full access to 22,000+ live channels —
-            including premium 4K sports, global news, movies, and an on-demand VOD library — within minutes. No credit card, no contract,
+            ORCA 4K TV offers the best free IPTV trial in 2026. Submit your request and receive full access to 22,000+ live channels -
+            including premium 4K sports, global news, movies, and an on-demand VOD library - within minutes. No credit card, no contract,
             no risk. The trial works on every major device: Amazon Firestick, Android TV, Samsung Smart TV, Apple TV, Roku, iPhone, iPad, and PC.
           </p>
           <p className="text-gray-400 text-lg leading-relaxed">
             Looking for a free IPTV test before you commit? ORCA 4K TV is rated the #1 IPTV service for reliability and 4K quality.
-            Our free trial gives you the same full-service experience as a paid subscription — buffer-free streaming, EPG guide,
+            Our free trial gives you the same full-service experience as a paid subscription - buffer-free streaming, EPG guide,
             VOD library, and 24/7 live support. Test channels from USA, UK, Canada, Netherlands, Germany, and 150+ countries.
           </p>
           <h3 className="text-2xl font-black text-white pt-4">
-            IPTV Free Trial — Instant Access, Zero Commitment
+            IPTV Free Trial - Instant Access, Zero Commitment
           </h3>
           <p className="text-gray-400 text-lg leading-relaxed">
             To start your IPTV free trial: fill in the form on this page with your name, email, and device type. Our team will send your
-            login credentials immediately. After the trial ends, there is no automatic billing — you choose whether to continue with
+            login credentials immediately. After the trial ends, there is no automatic billing - you choose whether to continue with
             plans starting from just $21/month. Join thousands of subscribers already streaming in 4K today.
           </p>
         </div>

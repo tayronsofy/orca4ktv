@@ -8,22 +8,22 @@ const USAFAQ: React.FC = () => {
   const usaFaqData = [
     {
       question: "Does ORCA 4K TV cover American football for 2026?",
-      answer: "Yes. Every American football regular-season game (early window, late window, Sunday and Monday evening showpieces, Thursday primetime), every playoff round, the all-star showcase, and the championship game in February 2026 are all covered. The dedicated American football network, the supplemental whip-around channel and the major US free-to-air broadcasters' Sunday slates all stream live in 4K HDR — no separate satellite subscription required."
+      answer: "Yes. Every American football regular-season game (early window, late window, Sunday and Monday evening showpieces, Thursday primetime), every playoff round, the all-star showcase, and the championship game in February 2026 are all covered. The dedicated American football network, the supplemental whip-around channel and the major US free-to-air broadcasters' Sunday slates all stream live in 4K HDR - no separate satellite subscription required."
     },
     {
       question: "Does the subscription include out-of-market basketball, baseball and hockey content?",
-      answer: "Yes. The dedicated basketball network, the basketball cable broadcasters, out-of-market basketball coverage, the dedicated baseball network with regional access, the dedicated hockey network and out-of-market hockey matchups across all 32 hockey teams. The hockey championship, baseball championship series, basketball championship finals, college basketball spring tournament — every major American sports event in 4K HDR with the smart EPG guide showing live scores."
+      answer: "Yes. The dedicated basketball network, the basketball cable broadcasters, out-of-market basketball coverage, the dedicated baseball network with regional access, the dedicated hockey network and out-of-market hockey matchups across all 32 hockey teams. The hockey championship, baseball championship series, basketball championship finals, college basketball spring tournament - every major American sports event in 4K HDR with the smart EPG guide showing live scores."
     },
     {
       question: "Are USA local channels included by ZIP code?",
-      answer: "Yes. All major US free-to-air networks plus PBS, The CW and local news affiliates are pulled by your ZIP code so you get the right regional broadcast — Bay Area, Dallas, NYC and every other metro pulls the correct local affiliates. Full HD on every local affiliate, 4K where the local station provides it."
+      answer: "Yes. All major US free-to-air networks plus PBS, The CW and local news affiliates are pulled by your ZIP code so you get the right regional broadcast - Bay Area, Dallas, NYC and every other metro pulls the correct local affiliates. Full HD on every local affiliate, 4K where the local station provides it."
     },
     {
       question: "Will Comcast Xfinity, Spectrum, Cox or AT&T Fiber throttle my IPTV streams?",
-      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197) which makes traffic shaping unreliable for ISPs to apply. If you do see throttling — common during peak hours on heavily-oversubscribed networks — IPTV with VPN is fully supported on every plan with no speed cap from our side. Most US households see no throttling at all."
+      answer: "Our streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197) which makes traffic shaping unreliable for ISPs to apply. If you do see throttling - common during peak hours on heavily-oversubscribed networks - IPTV with VPN is fully supported on every plan with no speed cap from our side. Most US households see no throttling at all."
     },
     {
-      question: "Which streaming devices work — Firestick 4K Max, Roku Ultra, Apple TV 4K?",
+      question: "Which streaming devices work - Firestick 4K Max, Roku Ultra, Apple TV 4K?",
       answer: "All of them. Firestick 4K Max, Roku Ultra, Roku Streaming Stick 4K+, Apple TV 4K (3rd generation), Android TV 14 boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG 524, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux PCs, and any HTML5 browser. Same channel library, same smart EPG on every screen."
     },
     {
@@ -32,11 +32,11 @@ const USAFAQ: React.FC = () => {
     },
     {
       question: "Is there a 30-day money-back guarantee?",
-      answer: "We offer something better — a free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before you pay a cent. If you've already subscribed and the service is not what we promised, contact 24/7 customer support and we will work it out — no contract, no auto-renewal, you're never locked in."
+      answer: "We offer something better - a free IPTV trial with no credit card required, instant activation, full 22,000-channel access, full 4K HDR. Try the service before you pay a cent. If you've already subscribed and the service is not what we promised, contact 24/7 customer support and we will work it out - no contract, no auto-renewal, you're never locked in."
     },
     {
       question: "How fast do I get my login credentials after I sign up?",
-      answer: "Average IPTV instant start time is under 5 minutes from checkout to first live channel. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with TiviMate, IPTV Smarters Pro, or any compatible player takes another 60 seconds — see the step-by-step setup guide for your device."
+      answer: "Average IPTV instant start time is under 5 minutes from checkout to first live channel. Credentials (M3U URL + Xtream Codes) are emailed automatically the moment payment clears. Setup with TiviMate, IPTV Smarters Pro, or any compatible player takes another 60 seconds - see the step-by-step setup guide for your device."
     }
   ];
 

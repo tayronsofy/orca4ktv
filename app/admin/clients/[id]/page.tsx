@@ -82,10 +82,10 @@ export default function ClientDetailPage() {
         <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
           <h2 className="text-white font-bold mb-4">Profile</h2>
           <dl className="space-y-2 text-sm">
-            <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{profile.full_name || '—'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{profile.full_name || '-'}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Email</dt><dd className="text-blue-400">{profile.email}</dd></div>
-            <div className="flex justify-between"><dt className="text-gray-500">Phone</dt><dd className="text-white">{profile.phone || '—'}</dd></div>
-            <div className="flex justify-between"><dt className="text-gray-500">Country</dt><dd className="text-white">{profile.country || '—'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Phone</dt><dd className="text-white">{profile.phone || '-'}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Country</dt><dd className="text-white">{profile.country || '-'}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Member since</dt><dd className="text-white">{new Date(profile.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</dd></div>
           </dl>
         </div>
@@ -95,8 +95,8 @@ export default function ClientDetailPage() {
           <h2 className="text-white font-bold mb-4">Active Subscription</h2>
           {activeSub ? (
             <dl className="space-y-2 text-sm">
-              <div className="flex justify-between"><dt className="text-gray-500">Username</dt><dd className="text-white font-mono">{activeSub.iptv_username || '—'}</dd></div>
-              <div className="flex justify-between"><dt className="text-gray-500">Expires</dt><dd className="text-white">{activeSub.end_date ? new Date(activeSub.end_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '—'}</dd></div>
+              <div className="flex justify-between"><dt className="text-gray-500">Username</dt><dd className="text-white font-mono">{activeSub.iptv_username || '-'}</dd></div>
+              <div className="flex justify-between"><dt className="text-gray-500">Expires</dt><dd className="text-white">{activeSub.end_date ? new Date(activeSub.end_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '-'}</dd></div>
             </dl>
           ) : (
             <p className="text-gray-500 text-sm">No active subscription.</p>

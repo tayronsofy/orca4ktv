@@ -1,4 +1,4 @@
-// Lightweight M3U/M3U8 parser — handles the IPTV variant of the format.
+// Lightweight M3U/M3U8 parser - handles the IPTV variant of the format.
 // Each entry has an #EXTINF line (with optional tvg-* attributes and a
 // display name after the comma) followed by a URL line. Lines that aren't
 // EXTINF / URL / known directives are ignored.
@@ -40,7 +40,7 @@ function inferCountry(entry: { tvgId?: string; group?: string }): string | undef
     }
   }
   if (entry.group) {
-    const head = entry.group.split(/[|:\-—]/)[0].trim()
+    const head = entry.group.split(/[|:\--]/)[0].trim()
     if (head.length >= 2 && head.length <= 30) return head
   }
   return undefined
@@ -76,7 +76,7 @@ export function parseM3U(content: string): M3UParseResult {
 
     if (line.startsWith('#')) continue // skip other directives
 
-    // URL line — must follow an EXTINF
+    // URL line - must follow an EXTINF
     if (!pending) {
       // tolerate URL-only playlists by emitting a minimal entry
       if (/^https?:\/\//i.test(line)) {
@@ -86,7 +86,7 @@ export function parseM3U(content: string): M3UParseResult {
     }
 
     if (!/^https?:\/\//i.test(line)) {
-      warnings.push(`Line ${i + 1}: stream URL is not http/https — skipped.`)
+      warnings.push(`Line ${i + 1}: stream URL is not http/https - skipped.`)
       pending = null
       continue
     }

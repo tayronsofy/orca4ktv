@@ -93,7 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
     isAccessibleForFree: true,
   }
 
-  // Speakable schema — tells AI/voice search which sections to read aloud
+  // Speakable schema - tells AI/voice search which sections to read aloud
   if (post.summary) {
     articleSchema.speakable = {
       '@type': 'SpeakableSpecification',
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
     }
   }
 
-  // FAQPage schema — eligible for Google's PAA carousel + FAQ rich result
+  // FAQPage schema - eligible for Google's PAA carousel + FAQ rich result
   const faqSchema = post.faqs && post.faqs.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

@@ -12,12 +12,12 @@ export async function backupFile(absoluteSourcePath: string): Promise<void> {
   }
   const dest = path.join(BACKUP_ROOT, rel);
 
-  // Skip if backup already exists (preserve original — never overwrite a backup)
+  // Skip if backup already exists (preserve original - never overwrite a backup)
   try {
     await fs.access(dest);
     return;
   } catch {
-    // doesn't exist — proceed
+    // doesn't exist - proceed
   }
 
   await fs.mkdir(path.dirname(dest), { recursive: true });
@@ -26,7 +26,7 @@ export async function backupFile(absoluteSourcePath: string): Promise<void> {
     await fs.copyFile(absoluteSourcePath, dest);
   } catch (e: any) {
     if (e.code === 'ENOENT') {
-      // source doesn't exist (e.g., blog images that haven't been generated yet) — nothing to back up
+      // source doesn't exist (e.g., blog images that haven't been generated yet) - nothing to back up
       return;
     }
     throw e;

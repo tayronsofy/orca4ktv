@@ -4,7 +4,7 @@ import { SHOP_PLANS } from '@/data/shopPlans'
 import ShareButtons from '@/components/ShareButtons'
 
 export const metadata: Metadata = {
-  title: 'IPTV Subscription Plans 2026 — From $7.92/mo | ORCA 4K TV',
+  title: 'IPTV Subscription Plans 2026 - From $7.92/mo | ORCA 4K TV',
   description: 'Premium IPTV plans from $7.92/month. 22,000+ channels in 4K HDR, 100,000+ on-demand, smart EPG, instant activation. No contract. Free trial included.',
   keywords: 'best iptv subscription 2026, iptv subscription plans, iptv plans 2026, buy iptv subscription, iptv shop, 4k iptv subscription, hd iptv service, premium iptv channels, premium iptv subscription, iptv streaming service, iptv service provider, smart EPG guide, electronic program guide, 7-day catch-up tv, iptv catch up, multi-device compatibility, multi-device iptv, iptv firestick 4k max, iptv apple tv 4k, iptv android tv 14, iptv smart tv samsung lg, instant activation, iptv instant start, rapid setup, fast iptv setup, buffer-free streaming, anti freeze cdn, secure streaming, AES-256 encryption, NIST FIPS 197, 24/7 customer support, iptv customer support, vpn allowed, iptv with vpn, no contract iptv, free iptv trial, iptv free trial, hdr10+, dolby vision, m3u url, xtream codes, tivimate compatible, iptv smarters pro, ott navigator, iptv subscription usa uk canada germany netherlands',
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'IPTV Subscription Plans 2026 — From $7.92/mo | ORCA 4K TV',
+    title: 'IPTV Subscription Plans 2026 - From $7.92/mo | ORCA 4K TV',
     description: 'IPTV plans from $7.92/mo. 22,000+ channels in 4K HDR, 100,000+ on-demand, smart EPG, multi-device, instant activation. No contract.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-shop',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Best IPTV Subscription Plans 2026 — From $7.92/mo',
+    title: 'Best IPTV Subscription Plans 2026 - From $7.92/mo',
     description: '22,000+ channels in 4K HDR, 100,000+ VOD, smart EPG, multi-device, instant activation. No contract. Free IPTV trial included.',
   },
 }
@@ -101,7 +101,7 @@ export default function IPTVShopPage() {
               {
                 '@type': 'ItemList',
                 name: 'ORCA 4K TV IPTV Subscription Plans',
-                description: 'Choose from 1, 3, 6 or 12-month premium IPTV subscriptions — every plan includes the same 22,000+ channels.',
+                description: 'Choose from 1, 3, 6 or 12-month premium IPTV subscriptions - every plan includes the same 22,000+ channels.',
                 numberOfItems: SHOP_PLANS.length,
                 itemListElement: SHOP_PLANS.map((plan, i) => ({
                   '@type': 'ListItem',
@@ -116,12 +116,12 @@ export default function IPTVShopPage() {
                   {
                     '@type': 'Question',
                     name: 'Which IPTV subscription plan should I choose in 2026?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'For first-time IPTV buyers, the 1-month plan ($21) is the lowest-risk way to test stream quality and channel coverage. For best value, the 12-month plan at $7.92/month saves 62% versus monthly billing. The 3-month plan saves 30% and the 6-month plan saves 45% — both great middle-ground choices with no long-term lock-in.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'For first-time IPTV buyers, the 1-month plan ($21) is the lowest-risk way to test stream quality and channel coverage. For best value, the 12-month plan at $7.92/month saves 62% versus monthly billing. The 3-month plan saves 30% and the 6-month plan saves 45% - both great middle-ground choices with no long-term lock-in.' },
                   },
                   {
                     '@type': 'Question',
                     name: 'Do all IPTV plans include the same 22,000+ channels and 4K HDR streaming?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every ORCA 4K TV plan — 1, 3, 6, or 12 months — includes the full library of 22,000+ live channels, 100,000+ on-demand titles, smart EPG, 7-day catch-up TV, and 4K HDR streaming with HDR10+ and Dolby Vision. There are no feature tiers locked behind higher prices.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'Yes. Every ORCA 4K TV plan - 1, 3, 6, or 12 months - includes the full library of 22,000+ live channels, 100,000+ on-demand titles, smart EPG, 7-day catch-up TV, and 4K HDR streaming with HDR10+ and Dolby Vision. There are no feature tiers locked behind higher prices.' },
                   },
                   {
                     '@type': 'Question',
@@ -131,7 +131,7 @@ export default function IPTVShopPage() {
                   {
                     '@type': 'Question',
                     name: 'How many devices can I stream on simultaneously?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'Every IPTV plan is available with 1, 2, 3, or 4 simultaneous connections. Choose the number you need at checkout — 1 connection for solo viewers, 2–4 for couples and families running multiple TVs, tablets, and phones at the same time.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'Every IPTV plan is available with 1, 2, 3, or 4 simultaneous connections. Choose the number you need at checkout - 1 connection for solo viewers, 2-4 for couples and families running multiple TVs, tablets, and phones at the same time.' },
                   },
                   {
                     '@type': 'Question',
@@ -146,12 +146,12 @@ export default function IPTVShopPage() {
                   {
                     '@type': 'Question',
                     name: 'Do IPTV subscription plans auto-renew?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'No. ORCA 4K TV subscriptions never auto-renew without your explicit permission. When your subscription period ends, you choose whether to renew — there are no surprise charges, no recurring billing, no cancellation fees.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'No. ORCA 4K TV subscriptions never auto-renew without your explicit permission. When your subscription period ends, you choose whether to renew - there are no surprise charges, no recurring billing, no cancellation fees.' },
                   },
                   {
                     '@type': 'Question',
                     name: 'Is the IPTV stream encrypted? Does it work with a VPN?',
-                    acceptedAnswer: { '@type': 'Answer', text: 'Yes to both. All streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197 certified), so traffic shaping by ISPs is unreliable against ORCA 4K TV. VPNs are fully supported across every plan with no speed throttling — useful when traveling or on heavily congested networks.' },
+                    acceptedAnswer: { '@type': 'Answer', text: 'Yes to both. All streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197 certified), so traffic shaping by ISPs is unreliable against ORCA 4K TV. VPNs are fully supported across every plan with no speed throttling - useful when traveling or on heavily congested networks.' },
                   },
                 ],
               },
@@ -177,13 +177,13 @@ export default function IPTVShopPage() {
               Official IPTV Store · 2026
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-              Best IPTV Subscription 2026 —{' '}
+              Best IPTV Subscription 2026 -{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
                 4K HDR · 22,000+ Channels
               </span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-              Premium IPTV subscription plans from <strong className="text-white">$7.92/month</strong>. 22,000+ live channels in 4K Ultra-HD with HDR10+ &amp; Dolby Vision, 100,000+ on-demand movies &amp; series, smart EPG with 7-day catch-up TV, every UK top-flight football match, every American football Sunday, every German top-tier football matchday, every 2026 open-wheel motorsport Grand Prix — buffer-free on Anti Freeze CDN.
+              Premium IPTV subscription plans from <strong className="text-white">$7.92/month</strong>. 22,000+ live channels in 4K Ultra-HD with HDR10+ &amp; Dolby Vision, 100,000+ on-demand movies &amp; series, smart EPG with 7-day catch-up TV, every UK top-flight football match, every American football Sunday, every German top-tier football matchday, every 2026 open-wheel motorsport Grand Prix - buffer-free on Anti Freeze CDN.
             </p>
 
             {/* Trust Badges */}
@@ -200,7 +200,7 @@ export default function IPTVShopPage() {
             <div className="flex justify-center">
               <ShareButtons
                 url="https://orca4ktv.com/iptv-shop"
-                title="ORCA 4K TV — Best IPTV Subscription Plans 2026"
+                title="ORCA 4K TV - Best IPTV Subscription Plans 2026"
               />
             </div>
           </div>
@@ -302,7 +302,7 @@ export default function IPTVShopPage() {
               <Link href="/trial" className="text-purple-400 font-bold hover:text-purple-300 underline underline-offset-2">
                 Start a free IPTV trial
               </Link>{' '}
-              and test the full 22,000-channel library in 4K HDR before buying — no credit card required.
+              and test the full 22,000-channel library in 4K HDR before buying - no credit card required.
             </p>
           </div>
         </div>
@@ -338,11 +338,11 @@ export default function IPTVShopPage() {
           </p>
 
           <h2 className="text-3xl md:text-5xl font-black text-white text-center leading-tight">
-            Buy the Best IPTV Subscription in 2026 — 4K HDR, 22,000+ Channels, From $7.92/month
+            Buy the Best IPTV Subscription in 2026 - 4K HDR, 22,000+ Channels, From $7.92/month
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            <strong className="text-white">ORCA 4K TV</strong> is the leading premium IPTV subscription service for 2026, delivering buffer-free 4K Ultra-HD streaming on every device for less than the cost of a single cable channel package. Replace Comcast, Spectrum, Verizon Fios, Xfinity, Sky, Virgin Media, BT, Vodafone, Telekom, Ziggo, KPN, Bell, and Rogers in one global IPTV subscription that ships <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies and series</strong>, and a smart Electronic Programme Guide with 7-day catch-up TV — all behind <strong className="text-white">AES-256 encryption</strong> on our proprietary <strong className="text-white">Anti Freeze CDN</strong>. Plans start at $7.92/month on the 12-month tier.
+            <strong className="text-white">ORCA 4K TV</strong> is the leading premium IPTV subscription service for 2026, delivering buffer-free 4K Ultra-HD streaming on every device for less than the cost of a single cable channel package. Replace Comcast, Spectrum, Verizon Fios, Xfinity, Sky, Virgin Media, BT, Vodafone, Telekom, Ziggo, KPN, Bell, and Rogers in one global IPTV subscription that ships <strong className="text-white">22,000+ live channels</strong>, <strong className="text-white">100,000+ on-demand movies and series</strong>, and a smart Electronic Programme Guide with 7-day catch-up TV - all behind <strong className="text-white">AES-256 encryption</strong> on our proprietary <strong className="text-white">Anti Freeze CDN</strong>. Plans start at $7.92/month on the 12-month tier.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-4 border-t border-purple-500/15">
@@ -350,18 +350,18 @@ export default function IPTVShopPage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Every ORCA 4K TV IPTV subscription — 1 month, 3 months, 6 months, or 12 months — includes the same world-class content library and the same premium features. There are <strong className="text-white">no hidden tiers</strong> and no upsells. Every customer gets:
+            Every ORCA 4K TV IPTV subscription - 1 month, 3 months, 6 months, or 12 months - includes the same world-class content library and the same premium features. There are <strong className="text-white">no hidden tiers</strong> and no upsells. Every customer gets:
           </p>
 
           <ul className="grid md:grid-cols-2 gap-4 text-gray-300 text-base leading-relaxed">
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">22,000+ live channels</strong> across entertainment, news, sports, kids, and 30+ international languages</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand titles</strong> — major studio Hollywood blockbusters and premium streaming-platform-equivalent originals</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">100,000+ on-demand titles</strong> - major studio Hollywood blockbusters and premium streaming-platform-equivalent originals</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Live sports:</strong> top-tier football across the UK, Spain, Italy, Germany and the Netherlands; American football, US pro basketball, US pro baseball, North American pro hockey, US top-flight football, college sports; top European club football midweek; the 2026 international football tournament; the 2026 Winter Games; top-tier open-wheel motorsport</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">4K HDR streaming</strong> with HDR10+ and Dolby Vision on every channel that broadcasts in 4K</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Smart EPG</strong> with 7-day catch-up TV — never miss a match or episode again</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Multi-device IPTV:</strong> 1–4 simultaneous connections per plan — pick at checkout</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Smart EPG</strong> with 7-day catch-up TV - never miss a match or episode again</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Multi-device IPTV:</strong> 1-4 simultaneous connections per plan - pick at checkout</span></li>
             <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">Anti Freeze CDN:</strong> regional edge servers in the US, UK, Canada, Frankfurt, and Amsterdam keep latency below 25 ms</span></li>
-            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">AES-256 encryption</strong> (NIST FIPS 197) on every stream — VPN-friendly, ISP-throttle resistant</span></li>
+            <li className="flex gap-3"><span className="text-purple-400 font-black mt-0.5">▸</span><span><strong className="text-white">AES-256 encryption</strong> (NIST FIPS 197) on every stream - VPN-friendly, ISP-throttle resistant</span></li>
           </ul>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -369,7 +369,7 @@ export default function IPTVShopPage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            ORCA 4K TV ships M3U URLs and Xtream codes that work on every major streaming hardware and IPTV player: <strong className="text-white">Firestick 4K Max</strong>, Amazon Fire TV Cube, <strong className="text-white">Apple TV 4K (3rd gen)</strong>, <strong className="text-white">Android TV 14</strong> boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG-box, Formuler, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux computers, and any modern HTML5 browser. The IPTV credentials are auto-compatible with <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">OTT Navigator</strong>, GSE Smart IPTV, Smart IPTV, and Perfect Player. Setup takes under 5 minutes — see the <Link href="/setup-guide" className="text-purple-400 hover:underline">step-by-step IPTV setup guide</Link> or the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> if any term is unfamiliar.
+            ORCA 4K TV ships M3U URLs and Xtream codes that work on every major streaming hardware and IPTV player: <strong className="text-white">Firestick 4K Max</strong>, Amazon Fire TV Cube, <strong className="text-white">Apple TV 4K (3rd gen)</strong>, <strong className="text-white">Android TV 14</strong> boxes (Nvidia Shield, Onn 4K Pro, Chromecast with Google TV), Samsung Tizen, LG webOS, MAG-box, Formuler, plus iOS / iPadOS / Android phones and tablets, Windows / macOS / Linux computers, and any modern HTML5 browser. The IPTV credentials are auto-compatible with <strong className="text-white">TiviMate</strong>, <strong className="text-white">IPTV Smarters Pro</strong>, <strong className="text-white">OTT Navigator</strong>, GSE Smart IPTV, Smart IPTV, and Perfect Player. Setup takes under 5 minutes - see the <Link href="/setup-guide" className="text-purple-400 hover:underline">step-by-step IPTV setup guide</Link> or the <Link href="/glossary" className="text-purple-400 hover:underline">IPTV glossary</Link> if any term is unfamiliar.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -377,7 +377,7 @@ export default function IPTVShopPage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            New to IPTV? Start with the <strong className="text-white">1-month plan</strong> at $21 — no risk, cancel anytime, full library access. Want to save without a long lock-in? The <strong className="text-white">3-month plan</strong> cuts your monthly cost by 30%. For the best balance of price and flexibility, the <strong className="text-white">6-month plan</strong> saves 45%. And for maximum value, the <strong className="text-white">12-month IPTV plan</strong> at just <strong className="text-white">$7.92/month</strong> is the best IPTV deal in 2026 — saving you over $150 per year compared to monthly billing. Every plan is available in 1, 2, 3, or 4 simultaneous-connection tiers — pick the right number for your household at checkout.
+            New to IPTV? Start with the <strong className="text-white">1-month plan</strong> at $21 - no risk, cancel anytime, full library access. Want to save without a long lock-in? The <strong className="text-white">3-month plan</strong> cuts your monthly cost by 30%. For the best balance of price and flexibility, the <strong className="text-white">6-month plan</strong> saves 45%. And for maximum value, the <strong className="text-white">12-month IPTV plan</strong> at just <strong className="text-white">$7.92/month</strong> is the best IPTV deal in 2026 - saving you over $150 per year compared to monthly billing. Every plan is available in 1, 2, 3, or 4 simultaneous-connection tiers - pick the right number for your household at checkout.
           </p>
 
           <h3 className="text-2xl md:text-3xl font-black text-white pt-6 border-t border-purple-500/15">
@@ -385,11 +385,11 @@ export default function IPTVShopPage() {
           </h3>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            Test before you buy. Our <Link href="/trial" className="text-purple-400 hover:underline font-bold">free IPTV trial</Link> unlocks the entire 22,000-channel library at full 4K HDR quality — no credit card required, instant activation, full multi-device support. After checkout, M3U URL and Xtream codes (username, password, host) are emailed within minutes. Most customers are streaming live in 4K HDR within 5 minutes of payment. No contracts, no auto-renewal surprises, no cancellation fees, no hidden costs. <Link href="/security" className="text-purple-400 hover:underline">AES-256 encrypted</Link>, VPN-friendly, ISP-throttle resistant, and protected by 24/7 customer support across English, Spanish, French, German, Italian, Portuguese, Dutch, and Arabic.
+            Test before you buy. Our <Link href="/trial" className="text-purple-400 hover:underline font-bold">free IPTV trial</Link> unlocks the entire 22,000-channel library at full 4K HDR quality - no credit card required, instant activation, full multi-device support. After checkout, M3U URL and Xtream codes (username, password, host) are emailed within minutes. Most customers are streaming live in 4K HDR within 5 minutes of payment. No contracts, no auto-renewal surprises, no cancellation fees, no hidden costs. <Link href="/security" className="text-purple-400 hover:underline">AES-256 encrypted</Link>, VPN-friendly, ISP-throttle resistant, and protected by 24/7 customer support across English, Spanish, French, German, Italian, Portuguese, Dutch, and Arabic.
           </p>
 
           <p className="text-gray-300 text-lg leading-relaxed text-center pt-6">
-            Join 1,200+ verified subscribers worldwide — from <Link href="/iptv-usa" className="text-purple-400 hover:underline">USA</Link>, <Link href="/iptv-uk" className="text-purple-400 hover:underline">UK</Link>, <Link href="/iptv-canada" className="text-purple-400 hover:underline">Canada</Link>, <Link href="/iptv-germany" className="text-purple-400 hover:underline">Germany</Link>, and <Link href="/iptv-netherlands" className="text-purple-400 hover:underline">Netherlands</Link> — who already switched to the best IPTV subscription in 2026.{' '}
+            Join 1,200+ verified subscribers worldwide - from <Link href="/iptv-usa" className="text-purple-400 hover:underline">USA</Link>, <Link href="/iptv-uk" className="text-purple-400 hover:underline">UK</Link>, <Link href="/iptv-canada" className="text-purple-400 hover:underline">Canada</Link>, <Link href="/iptv-germany" className="text-purple-400 hover:underline">Germany</Link>, and <Link href="/iptv-netherlands" className="text-purple-400 hover:underline">Netherlands</Link> - who already switched to the best IPTV subscription in 2026.{' '}
             <Link href="/trial" className="text-purple-400 hover:underline font-bold">Start free trial</Link>
             {' · '}
             <a href="#top" className="text-purple-400 hover:underline font-bold">View IPTV plans</a>
@@ -401,17 +401,17 @@ export default function IPTVShopPage() {
       <section className="bg-[#001a36] py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-black text-white text-center mb-10">
-            IPTV Subscription FAQ — 2026
+            IPTV Subscription FAQ - 2026
           </h2>
           <div className="space-y-4">
             {[
               {
                 q: 'Which IPTV subscription plan should I choose in 2026?',
-                a: 'For first-time IPTV buyers, the 1-month plan at $21 is the lowest-risk way to test stream quality and channel coverage. For best value, the 12-month plan at $7.92/month saves 62% versus monthly billing. The 3-month plan saves 30% and the 6-month plan saves 45% — both great middle-ground choices with no long-term lock-in.',
+                a: 'For first-time IPTV buyers, the 1-month plan at $21 is the lowest-risk way to test stream quality and channel coverage. For best value, the 12-month plan at $7.92/month saves 62% versus monthly billing. The 3-month plan saves 30% and the 6-month plan saves 45% - both great middle-ground choices with no long-term lock-in.',
               },
               {
                 q: 'Do all IPTV plans include the same 22,000+ channels and 4K HDR streaming?',
-                a: 'Yes. Every ORCA 4K TV plan — 1, 3, 6, or 12 months — includes the full library of 22,000+ live channels, 100,000+ on-demand titles, smart EPG, 7-day catch-up TV, and 4K HDR streaming with HDR10+ and Dolby Vision. There are no feature tiers locked behind higher prices.',
+                a: 'Yes. Every ORCA 4K TV plan - 1, 3, 6, or 12 months - includes the full library of 22,000+ live channels, 100,000+ on-demand titles, smart EPG, 7-day catch-up TV, and 4K HDR streaming with HDR10+ and Dolby Vision. There are no feature tiers locked behind higher prices.',
               },
               {
                 q: 'Is there a free IPTV trial before I purchase a subscription?',
@@ -419,7 +419,7 @@ export default function IPTVShopPage() {
               },
               {
                 q: 'How many devices can I stream on simultaneously?',
-                a: 'Every IPTV plan is available with 1, 2, 3, or 4 simultaneous connections. Choose the number you need at checkout — 1 connection for solo viewers, 2–4 for couples and families running multiple TVs, tablets, and phones at the same time.',
+                a: 'Every IPTV plan is available with 1, 2, 3, or 4 simultaneous connections. Choose the number you need at checkout - 1 connection for solo viewers, 2-4 for couples and families running multiple TVs, tablets, and phones at the same time.',
               },
               {
                 q: 'Which IPTV devices and apps are supported?',
@@ -431,11 +431,11 @@ export default function IPTVShopPage() {
               },
               {
                 q: 'Do IPTV subscription plans auto-renew?',
-                a: 'No. ORCA 4K TV subscriptions never auto-renew without your explicit permission. When your subscription period ends, you choose whether to renew — there are no surprise charges, no recurring billing, no cancellation fees.',
+                a: 'No. ORCA 4K TV subscriptions never auto-renew without your explicit permission. When your subscription period ends, you choose whether to renew - there are no surprise charges, no recurring billing, no cancellation fees.',
               },
               {
                 q: 'Is the IPTV stream encrypted? Does it work with a VPN?',
-                a: 'Yes to both. All streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197 certified), so traffic shaping by ISPs is unreliable against ORCA 4K TV. VPNs are fully supported across every plan with no speed throttling — useful when traveling or on heavily congested networks.',
+                a: 'Yes to both. All streams use TLS 1.3 with AES-256 encryption (NIST FIPS 197 certified), so traffic shaping by ISPs is unreliable against ORCA 4K TV. VPNs are fully supported across every plan with no speed throttling - useful when traveling or on heavily congested networks.',
               },
             ].map((item) => (
               <div key={item.q} className="border border-white/10 rounded-xl bg-[#002952] overflow-hidden">

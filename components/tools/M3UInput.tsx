@@ -131,7 +131,7 @@ export default function M3UInput({ onSubmit, busy = false, submitLabel = 'Run ch
             className="w-full bg-[#001a36] border border-white/15 rounded-lg px-4 py-3 font-mono text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#00E5FF]/60"
             spellCheck={false}
           />
-          <p className="text-xs text-gray-500">Files are read in your browser — never uploaded to our servers.</p>
+          <p className="text-xs text-gray-500">Files are read in your browser - never uploaded to our servers.</p>
         </div>
       )}
 

@@ -59,7 +59,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBackToHome }) => {
           <div className="md:w-1/2 flex justify-center">
             <img
               src={missionImageUrl}
-              alt="ORCA 4K TV mission — premium IPTV streaming service with secure streaming, AES-256 encryption and multi-device compatibility"
+              alt="ORCA 4K TV mission - premium IPTV streaming service with secure streaming, AES-256 encryption and multi-device compatibility"
               className="w-full max-w-md rounded-2xl shadow-lg border border-white/10"
             />
           </div>
@@ -76,7 +76,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBackToHome }) => {
           <div className="md:w-1/2 flex justify-center">
             <img
               src={contentQualityImageUrl}
-              alt="ORCA 4K TV content & quality — 22,000+ premium IPTV channels with 4K HDR streaming and Anti Freeze technology"
+              alt="ORCA 4K TV content & quality - 22,000+ premium IPTV channels with 4K HDR streaming and Anti Freeze technology"
               className="w-full max-w-md rounded-2xl shadow-lg border border-white/10"
             />
           </div>

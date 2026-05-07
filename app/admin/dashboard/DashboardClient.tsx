@@ -128,7 +128,7 @@ export default function AdminDashboardClient({ posts: initialPosts }: { posts: B
                       </div>
                     </td>
                     <td className="px-6 py-4 hidden md:table-cell">
-                      <span className="text-gray-400 text-sm">{post.category || '—'}</span>
+                      <span className="text-gray-400 text-sm">{post.category || '-'}</span>
                     </td>
                     <td className="px-6 py-4 hidden md:table-cell">
                       <span className="text-gray-500 text-sm">{post.date}</span>

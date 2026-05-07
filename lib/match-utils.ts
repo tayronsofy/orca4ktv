@@ -25,14 +25,14 @@ export function formatKickoff(kickoff: string, opts?: Intl.DateTimeFormatOptions
 }
 
 export function generateMetaTitle(match: Fixture): string {
-  return `Watch ${match.homeTeam} vs ${match.awayTeam} Live in 4K — ${match.league}`
+  return `Watch ${match.homeTeam} vs ${match.awayTeam} Live in 4K - ${match.league}`
 }
 
 export function generateMetaDescription(match: Fixture): string {
   const date = new Intl.DateTimeFormat('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
   }).format(new Date(match.kickoff))
-  return `Stream ${match.homeTeam} vs ${match.awayTeam} live on ${date}. ${match.league} — ${match.round}. Watch in 4K Ultra-HD with zero buffering. Instant access on Smart TV, Firestick, iPhone, PC. Orca 4K TV IPTV.`
+  return `Stream ${match.homeTeam} vs ${match.awayTeam} live on ${date}. ${match.league} - ${match.round}. Watch in 4K Ultra-HD with zero buffering. Instant access on Smart TV, Firestick, iPhone, PC. Orca 4K TV IPTV.`
 }
 
 export function generateMatchDescription(match: Fixture): string {
@@ -41,7 +41,7 @@ export function generateMatchDescription(match: Fixture): string {
   return [
     `${match.homeTeam} take on ${match.awayTeam} in what promises to be a thrilling ${match.league} ${match.round} clash.`,
     `The match kicks off on ${date}${venue}.`,
-    `Stream every moment live in crystal-clear 4K Ultra-HD — from the opening whistle to the final goal — without a single buffer.`,
+    `Stream every moment live in crystal-clear 4K Ultra-HD - from the opening whistle to the final goal - without a single buffer.`,
     `Orca 4K TV delivers premium IPTV with 22,000+ live channels, optimized servers for peak match-day traffic, and instant activation on any device.`,
   ].join(' ')
 }
@@ -69,7 +69,7 @@ export function buildEventSchema(match: Fixture) {
     }),
     offers: {
       '@type': 'Offer',
-      name: 'Live Stream — Match Pass',
+      name: 'Live Stream - Match Pass',
       price: '2.00',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
@@ -82,7 +82,7 @@ export function buildVideoObjectSchema(match: Fixture) {
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
-    name: `${match.homeTeam} vs ${match.awayTeam} — Live 4K Stream`,
+    name: `${match.homeTeam} vs ${match.awayTeam} - Live 4K Stream`,
     description: generateMetaDescription(match),
     thumbnailUrl: `https://orca4ktv.com/watch/${match.slug}/opengraph-image`,
     uploadDate: match.kickoff,

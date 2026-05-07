@@ -68,11 +68,11 @@ const NetherlandsHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Elke topvoetbal-aftrap. Elke top-Europese clubvoetbal-avond. Elke open-wheel motorsport-ronde — in 4K HDR, zonder kabelvertrag.
+          Elke topvoetbal-aftrap. Elke top-Europese clubvoetbal-avond. Elke open-wheel motorsport-ronde - in 4K HDR, zonder kabelvertrag.
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Het echte kabel- en IPTV-alternatief voor 2026: Nederlands topvoetbal, de nationale beker tot de finale in De Kuip, top Europees clubvoetbal, open-wheel motorsport met de Nederlandse topcoureur, het zomerse internationale voetbaltoernooi 2026 met het Nederlands elftal en de Olympische Winterspelen 2026 — live op een Amsterdam-edge server, AES-256 versleuteld, met onze AI-concierge die elke kanaalvraag direct beantwoordt.
+          Het echte kabel- en IPTV-alternatief voor 2026: Nederlands topvoetbal, de nationale beker tot de finale in De Kuip, top Europees clubvoetbal, open-wheel motorsport met de Nederlandse topcoureur, het zomerse internationale voetbaltoernooi 2026 met het Nederlands elftal en de Olympische Winterspelen 2026 - live op een Amsterdam-edge server, AES-256 versleuteld, met onze AI-concierge die elke kanaalvraag direct beantwoordt.
         </p>
 
         {/* AI Search Bar Area */}

@@ -5,23 +5,23 @@ import React from 'react';
 const NETHERLANDS_FEATURES = [
   {
     title: 'Landelijke dekking met Amsterdam-edge server',
-    description: 'Een dedicated Amsterdam-edge server houdt de latentie onder 25 ms — of je nu de topvoetbal-topper kijkt in Amsterdam, een top Europese clubvoetbal-avond in Rotterdam of de Olympische Winterspelen-hoogtepunten in Eindhoven. Anti Freeze CDN herleidt piekverkeer in real-time, zodat elke aftrap, elke pitstop en elke gouden medaille buffervrij in 4K HDR aankomt.',
+    description: 'Een dedicated Amsterdam-edge server houdt de latentie onder 25 ms - of je nu de topvoetbal-topper kijkt in Amsterdam, een top Europese clubvoetbal-avond in Rotterdam of de Olympische Winterspelen-hoogtepunten in Eindhoven. Anti Freeze CDN herleidt piekverkeer in real-time, zodat elke aftrap, elke pitstop en elke gouden medaille buffervrij in 4K HDR aankomt.',
     imageUrl: '/images/netherlands-coverage.jpg',
-    altText: 'Twee Nederlandse voetbalfans op de bank kijken een topvoetbal-wedstrijd in 4K HDR live op een Smart TV — buffervrij IPTV Nederland streamen via ORCA 4K TV.',
+    altText: 'Twee Nederlandse voetbalfans op de bank kijken een topvoetbal-wedstrijd in 4K HDR live op een Smart TV - buffervrij IPTV Nederland streamen via ORCA 4K TV.',
     reverse: false
   },
   {
     title: 'Slimme programmagids voor de Nederlandse sportkalender',
-    description: 'De ORCA 4K TV-programmagids kent jouw week — topvoetbal-weekend, top Europees clubvoetbal op dinsdag en woensdag, motorsport-zondagen, nationale beker-avonden en Olympische hoogtepunten. Live ticker, snelle zenderwissels, 7-dagen catch-up tv en AI-gestuurd zoeken ("Wat is er nu te zien?") voor alle belangrijke Nederlandse free-to-air en sportzenders.',
+    description: 'De ORCA 4K TV-programmagids kent jouw week - topvoetbal-weekend, top Europees clubvoetbal op dinsdag en woensdag, motorsport-zondagen, nationale beker-avonden en Olympische hoogtepunten. Live ticker, snelle zenderwissels, 7-dagen catch-up tv en AI-gestuurd zoeken ("Wat is er nu te zien?") voor alle belangrijke Nederlandse free-to-air en sportzenders.',
     imageUrl: '/images/netherlands-epg.jpg',
-    altText: 'Volwassene met afstandsbediening kijkt naar de Smart TV-programmagids op een 4K Smart TV — ORCA 4K TV Nederland IPTV-abonnement met elektronische programmagids en 7-dagen catch-up tv.',
+    altText: 'Volwassene met afstandsbediening kijkt naar de Smart TV-programmagids op een 4K Smart TV - ORCA 4K TV Nederland IPTV-abonnement met elektronische programmagids en 7-dagen catch-up tv.',
     reverse: true
   },
   {
-    title: 'Op elk Nederlands streaming-apparaat — één abonnement',
-    description: 'Multi-device-compatibiliteit in elk abonnement: Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3e generatie), Android TV 14-boxen (Nvidia Shield, Onn 4K Pro, Chromecast met Google TV), Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS en elke webbrowser. Tot vier gelijktijdige streams. Identieke Nederlandse zenderbibliotheek en EPG op elk scherm — TiviMate, IPTV Smarters Pro en OTT Navigator worden ondersteund.',
+    title: 'Op elk Nederlands streaming-apparaat - één abonnement',
+    description: 'Multi-device-compatibiliteit in elk abonnement: Firestick 4K Max, Amazon Fire TV Cube, Apple TV 4K (3e generatie), Android TV 14-boxen (Nvidia Shield, Onn 4K Pro, Chromecast met Google TV), Samsung Tizen, LG webOS, MAG-box, iOS, iPadOS, Android, Windows, macOS en elke webbrowser. Tot vier gelijktijdige streams. Identieke Nederlandse zenderbibliotheek en EPG op elk scherm - TiviMate, IPTV Smarters Pro en OTT Navigator worden ondersteund.',
     imageUrl: '/images/netherlands-multi-device.jpg',
-    altText: 'Salontafel met Firestick 4K Max afstandsbediening, Apple TV 4K-box, Roku-speler, smartphone en tablet in een Nederlandse woonkamer — multi-device IPTV-compatibiliteit op ORCA 4K TV Nederland.',
+    altText: 'Salontafel met Firestick 4K Max afstandsbediening, Apple TV 4K-box, Roku-speler, smartphone en tablet in een Nederlandse woonkamer - multi-device IPTV-compatibiliteit op ORCA 4K TV Nederland.',
     reverse: false
   }
 ];
@@ -38,7 +38,7 @@ const NetherlandsFeatures: React.FC = () => {
             Waarom ORCA 4K TV het beste IPTV Nederland 2026 is
           </h2>
           <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
-            Buffervrij 4K HDR-streamen, elke Nederlandse zender, elke competitie — Anti Freeze CDN met Amsterdam-edge server, AES-256 versleuteld, multi-device IPTV ready.
+            Buffervrij 4K HDR-streamen, elke Nederlandse zender, elke competitie - Anti Freeze CDN met Amsterdam-edge server, AES-256 versleuteld, multi-device IPTV ready.
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-[#AE1C28] to-[#21468B] mx-auto mt-6"></div>
         </div>

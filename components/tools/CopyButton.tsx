@@ -17,7 +17,7 @@ export default function CopyButton({ value, label = 'Copy', className = '' }: Pr
       setCopied(true)
       setTimeout(() => setCopied(false), 1800)
     } catch {
-      // clipboard blocked — silently fail; user can select the text
+      // clipboard blocked - silently fail; user can select the text
     }
   }
 

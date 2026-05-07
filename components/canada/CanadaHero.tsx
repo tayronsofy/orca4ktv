@@ -27,7 +27,7 @@ const CanadaHero: React.FC = () => {
       const result = await searchAI(query);
       setAiResponse(result);
     } catch (error) {
-      setAiResponse("Our Canada concierge is offline right now — but yes, ORCA 4K TV ships all major Canadian English and French free-to-air networks plus the premium sports tier and dedicated channels for North American pro hockey, Canadian football and home US pro baseball.");
+      setAiResponse("Our Canada concierge is offline right now - but yes, ORCA 4K TV ships all major Canadian English and French free-to-air networks plus the premium sports tier and dedicated channels for North American pro hockey, Canadian football and home US pro baseball.");
     } finally {
       setIsSearching(false);
     }
@@ -68,11 +68,11 @@ const CanadaHero: React.FC = () => {
         </h1>
 
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          Every Hockey Playoff Shift. Every Winter Games Final. Every Toronto Football Match — In 4K HDR
+          Every Hockey Playoff Shift. Every Winter Games Final. Every Toronto Football Match - In 4K HDR
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          From the late-season hockey playoffs to the 2026 Winter Games in February, the summer international football tournament matches Toronto and Vancouver host in June, the Canadian football season, and home US pro baseball and basketball games from Toronto — 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with edge servers in Toronto and Vancouver. Bilingual EN/FR support. Live on Firestick 4K Max, Apple TV 4K, Smart TV — just ask the AI concierge what&apos;s on tonight.
+          From the late-season hockey playoffs to the 2026 Winter Games in February, the summer international football tournament matches Toronto and Vancouver host in June, the Canadian football season, and home US pro baseball and basketball games from Toronto - 22,000+ live channels and 100,000+ on-demand titles in native 4K HDR with HDR10+ and Dolby Vision. Anti Freeze CDN with edge servers in Toronto and Vancouver. Bilingual EN/FR support. Live on Firestick 4K Max, Apple TV 4K, Smart TV - just ask the AI concierge what&apos;s on tonight.
         </p>
 
         {/* AI Search Bar Area */}

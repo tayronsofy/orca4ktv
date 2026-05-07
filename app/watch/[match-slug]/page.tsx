@@ -105,7 +105,7 @@ export default async function MatchPage({
             )}
             <div className="flex items-center gap-2">
               <Trophy className="w-4 h-4 text-gray-600" />
-              <span>{match.league} — {match.round}</span>
+              <span>{match.league} - {match.round}</span>
             </div>
           </div>
         </section>

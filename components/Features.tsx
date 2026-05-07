@@ -16,7 +16,7 @@ const Features: React.FC = () => {
             Powerful Features That Make ORCA 4K TV the Best IPTV of 2026
           </h2>
           <p className="text-gray-400 text-base md:text-lg leading-relaxed mt-4">
-            Multi-device compatibility, AI-powered content discovery, and 4K HDR streaming with HDR10+ &amp; Dolby Vision — engineered around the Anti Freeze CDN so every match, movie, and live event lands buffer-free.
+            Multi-device compatibility, AI-powered content discovery, and 4K HDR streaming with HDR10+ &amp; Dolby Vision - engineered around the Anti Freeze CDN so every match, movie, and live event lands buffer-free.
           </p>
           <div className="w-20 h-1 bg-[#00E5FF] mx-auto mt-6"></div>
         </div>
