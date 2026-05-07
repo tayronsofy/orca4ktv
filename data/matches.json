@@ -1,15 +1,15 @@
 {
   "matches": [
     {
-      "fixtureId": 15632635,
-      "slug": "arsenal-vs-atletico-madrid-live-4k-stream-2026-05-05",
-      "homeTeam": "Arsenal",
-      "awayTeam": "Atlético Madrid",
-      "homeLogo": "https://img.sofascore.com/api/v1/team/42/image",
-      "awayLogo": "https://img.sofascore.com/api/v1/team/2836/image",
+      "fixtureId": 15632634,
+      "slug": "fc-bayern-munchen-vs-paris-saint-germain-live-4k-stream-2026-05-06",
+      "homeTeam": "FC Bayern München",
+      "awayTeam": "Paris Saint-Germain",
+      "homeLogo": "https://img.sofascore.com/api/v1/team/2672/image",
+      "awayLogo": "https://img.sofascore.com/api/v1/team/1644/image",
       "homeScore": 1,
-      "awayScore": 0,
-      "kickoff": "2026-05-05T19:00:00.000Z",
+      "awayScore": 1,
+      "kickoff": "2026-05-06T19:00:00.000Z",
       "league": "Top European club football, Knockout stage",
       "leagueId": 23,
       "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/23/image",
@@ -18,37 +18,6 @@
       "round": "Semifinals",
       "status": "FT",
       "elapsed": 90,
-      "description": "A top-tier Top European club football, Knockout stage encounter — Arsenal vs Atlético Madrid is live this week. The match is scheduled for Tuesday, May 5, 2026 at 07:00 PM UTC. Watch Arsenal vs Atlético Madrid live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
-      "tags": [
-        "Top European club football, Knockout stage",
-        "Semifinals",
-        "Arsenal",
-        "Atlético Madrid",
-        "live stream",
-        "4K IPTV",
-        "watch online",
-        "European club football midweek",
-        "European club football live"
-      ]
-    },
-    {
-      "fixtureId": 15632634,
-      "slug": "fc-bayern-munchen-vs-paris-saint-germain-live-4k-stream-2026-05-06",
-      "homeTeam": "FC Bayern München",
-      "awayTeam": "Paris Saint-Germain",
-      "homeLogo": "https://img.sofascore.com/api/v1/team/2672/image",
-      "awayLogo": "https://img.sofascore.com/api/v1/team/1644/image",
-      "homeScore": null,
-      "awayScore": null,
-      "kickoff": "2026-05-06T19:00:00.000Z",
-      "league": "Top European club football, Knockout stage",
-      "leagueId": 23,
-      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/23/image",
-      "venue": "",
-      "city": "",
-      "round": "Semifinals",
-      "status": "NS",
-      "elapsed": null,
       "description": "All eyes are on this Top European club football, Knockout stage fixture as FC Bayern München meet Paris Saint-Germain. The match is scheduled for Wednesday, May 6, 2026 at 07:00 PM UTC. Watch FC Bayern München vs Paris Saint-Germain live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
       "tags": [
         "Top European club football, Knockout stage",
@@ -4266,8 +4235,39 @@
         "4K IPTV",
         "watch online"
       ]
+    },
+    {
+      "fixtureId": 15632636,
+      "slug": "paris-saint-germain-vs-arsenal-live-4k-stream-2026-05-30",
+      "homeTeam": "Paris Saint-Germain",
+      "awayTeam": "Arsenal",
+      "homeLogo": "https://img.sofascore.com/api/v1/team/1644/image",
+      "awayLogo": "https://img.sofascore.com/api/v1/team/42/image",
+      "homeScore": null,
+      "awayScore": null,
+      "kickoff": "2026-05-30T16:00:00.000Z",
+      "league": "Top European club football, Knockout stage",
+      "leagueId": 23,
+      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/23/image",
+      "venue": "",
+      "city": "",
+      "round": "Final",
+      "status": "NS",
+      "elapsed": null,
+      "description": "Paris Saint-Germain host Arsenal in a must-watch Top European club football, Knockout stage Final clash. The match is scheduled for Saturday, May 30, 2026 at 04:00 PM UTC. Watch Paris Saint-Germain vs Arsenal live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
+      "tags": [
+        "Top European club football, Knockout stage",
+        "Final",
+        "Paris Saint-Germain",
+        "Arsenal",
+        "live stream",
+        "4K IPTV",
+        "watch online",
+        "European club football midweek",
+        "European club football live"
+      ]
     }
   ],
-  "generatedAt": "2026-05-06T05:56:36.018Z",
+  "generatedAt": "2026-05-07T06:08:50.960Z",
   "count": 147
 }
