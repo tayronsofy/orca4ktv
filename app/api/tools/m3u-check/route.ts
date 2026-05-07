@@ -6,8 +6,9 @@ import { checkAndRecord } from '@/lib/tools/rate-limit'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+export const maxDuration = 60
 
-const PLAYLIST_FETCH_TIMEOUT_MS = 12_000
+const PLAYLIST_FETCH_TIMEOUT_MS = 30_000
 const PLAYLIST_SIZE_CAP = 10 * 1024 * 1024 // 10 MB
 const STREAM_PROBE_TIMEOUT_MS = 4_000
 const STREAM_PROBE_BYTES = 64 * 1024
@@ -15,6 +16,12 @@ const SLOW_THRESHOLD_MS = 2_500
 const MAX_STREAMS_TO_CHECK = 50
 const PARALLELISM = 10
 const RATE_LIMIT = { max: 5, windowMs: 60 * 60 * 1000 } // 5 / hour
+
+class FriendlyError extends Error {
+  constructor(message: string, public httpStatus = 400) {
+    super(message)
+  }
+}
 
 interface CheckRequestBody {
   mode: 'url' | 'paste'
@@ -33,30 +40,76 @@ interface StreamResult {
 
 async function fetchPlaylistFromUrl(url: string): Promise<string> {
   const safety = await assertSafeUrl(url)
-  if (!safety.ok) throw new Error(safety.reason ?? 'URL not allowed.')
+  if (!safety.ok) throw new FriendlyError(safety.reason ?? 'URL not allowed.')
   const ac = new AbortController()
   const timer = setTimeout(() => ac.abort(), PLAYLIST_FETCH_TIMEOUT_MS)
   try {
-    const res = await fetch(safety.url!.toString(), {
-      method: 'GET',
-      signal: ac.signal,
-      headers: { 'User-Agent': 'orca4ktv-m3u-checker/1.0', Accept: '*/*' },
-      redirect: 'follow',
-    })
-    if (!res.ok) throw new Error(`Playlist server returned HTTP ${res.status}.`)
+    let res: Response
+    try {
+      res = await fetch(safety.url!.toString(), {
+        method: 'GET',
+        signal: ac.signal,
+        headers: {
+          // Some IPTV servers block non-browser UAs. Mimic VLC, the most common IPTV client.
+          'User-Agent': 'VLC/3.0.20 LibVLC/3.0.20',
+          Accept: '*/*',
+        },
+        redirect: 'follow',
+      })
+    } catch (err) {
+      const e = err as Error
+      if (e.name === 'AbortError') {
+        throw new FriendlyError(
+          `The playlist server did not respond within ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds. The server may be overloaded or your subscription URL has expired.`,
+        )
+      }
+      // DNS failures, connection refused, TLS errors, etc.
+      throw new FriendlyError(`Could not connect to the playlist host: ${e.message || 'unknown network error'}.`)
+    }
+
+    if (!res.ok) {
+      throw new FriendlyError(
+        res.status === 401 || res.status === 403
+          ? 'The playlist host returned an authentication error. Check that your username and password are correct and your subscription is active.'
+          : `The playlist host returned HTTP ${res.status}. Your subscription may have expired or the server is having issues.`,
+      )
+    }
+
+    // Detect HTML responses (login pages, error pages) before trying to parse as M3U.
+    const ct = res.headers.get('content-type') ?? ''
+    if (ct.includes('text/html')) {
+      throw new FriendlyError(
+        'The playlist host returned an HTML page, not a playlist. Your subscription URL may have expired or be incorrect.',
+      )
+    }
+
     const reader = res.body?.getReader()
-    if (!reader) throw new Error('Empty playlist response.')
+    if (!reader) throw new FriendlyError('The playlist host returned an empty response.')
 
     const decoder = new TextDecoder('utf-8')
     let received = 0
     let text = ''
     while (true) {
-      const { value, done } = await reader.read()
+      let chunk: ReadableStreamReadResult<Uint8Array>
+      try {
+        chunk = await reader.read()
+      } catch (err) {
+        const e = err as Error
+        if (e.name === 'AbortError') {
+          throw new FriendlyError(
+            `The playlist download stalled after ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds. Try a smaller M3U or use the Paste tab to upload the file directly.`,
+          )
+        }
+        throw new FriendlyError(`Lost connection while downloading the playlist: ${e.message || 'unknown error'}.`)
+      }
+      const { value, done } = chunk
       if (done) break
       received += value.byteLength
       if (received > PLAYLIST_SIZE_CAP) {
         await reader.cancel()
-        throw new Error('Playlist too large (limit 10 MB).')
+        throw new FriendlyError(
+          `Playlist too large (over ${PLAYLIST_SIZE_CAP / 1024 / 1024} MB). Use the Paste tab to upload a trimmed file.`,
+        )
       }
       text += decoder.decode(value, { stream: true })
     }
@@ -165,8 +218,14 @@ export async function POST(request: NextRequest) {
       playlistText = body.content
     }
   } catch (err) {
-    const msg = (err as Error).message || 'Could not load playlist.'
-    return NextResponse.json({ error: 'fetch_failed', message: msg }, { status: 400 })
+    const e = err as Error
+    const status = err instanceof FriendlyError ? err.httpStatus : 400
+    const msg = err instanceof FriendlyError
+      ? e.message
+      : e.name === 'AbortError'
+      ? 'The playlist server did not respond in time.'
+      : e.message || 'Could not load playlist.'
+    return NextResponse.json({ error: 'fetch_failed', message: msg }, { status })
   }
 
   const parsed = parseM3U(playlistText)
