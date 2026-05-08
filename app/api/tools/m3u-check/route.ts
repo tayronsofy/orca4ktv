@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import pLimit from 'p-limit'
 import { parseM3U } from '@/lib/tools/m3u-parser'
+import { analyze, type PlaylistAnalysis } from '@/lib/tools/m3u-classify'
 import { assertSafeUrl } from '@/lib/tools/ssrf-guard'
 import { checkAndRecord } from '@/lib/tools/rate-limit'
 
@@ -9,13 +9,8 @@ export const dynamic = 'force-dynamic'
 export const maxDuration = 90
 
 const PLAYLIST_FETCH_TIMEOUT_MS = 60_000
-const PLAYLIST_SIZE_CAP = 10 * 1024 * 1024 // 10 MB hard ceiling
-const PLAYLIST_EARLY_EXIT_ENTRIES = 500 // enough to randomly sample 50 from
-const STREAM_PROBE_TIMEOUT_MS = 4_000
-const STREAM_PROBE_BYTES = 64 * 1024
-const SLOW_THRESHOLD_MS = 2_500
-const MAX_STREAMS_TO_CHECK = 50
-const PARALLELISM = 10
+const PLAYLIST_SIZE_CAP = 30 * 1024 * 1024 // 30 MB
+const PLAYLIST_EARLY_EXIT_ENTRIES = 100_000 // big enough for accurate breakdown
 const RATE_LIMIT = { max: 5, windowMs: 60 * 60 * 1000 } // 5 / hour
 
 class FriendlyError extends Error {
@@ -30,16 +25,14 @@ interface CheckRequestBody {
   content?: string
 }
 
-interface StreamResult {
-  name: string
-  url: string
-  group?: string
-  status: 'working' | 'slow' | 'dead'
-  responseMs?: number
-  errorReason?: string
+interface FetchResult {
+  text: string
+  bytesRead: number
+  truncated: boolean
+  truncatedReason?: 'entry-cap' | 'size-cap'
 }
 
-async function fetchPlaylistFromUrl(url: string): Promise<string> {
+async function fetchPlaylistFromUrl(url: string): Promise<FetchResult> {
   const safety = await assertSafeUrl(url)
   if (!safety.ok) throw new FriendlyError(safety.reason ?? 'URL not allowed.')
   const ac = new AbortController()
@@ -51,7 +44,6 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
         method: 'GET',
         signal: ac.signal,
         headers: {
-          // Some IPTV servers block non-browser UAs. Mimic VLC, the most common IPTV client.
           'User-Agent': 'VLC/3.0.20 LibVLC/3.0.20',
           Accept: '*/*',
         },
@@ -64,7 +56,6 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
           `The playlist server did not respond within ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds. The server may be overloaded or your subscription URL has expired.`,
         )
       }
-      // DNS failures, connection refused, TLS errors, etc.
       throw new FriendlyError(`Could not connect to the playlist host: ${e.message || 'unknown network error'}.`)
     }
 
@@ -76,7 +67,6 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
       )
     }
 
-    // Detect HTML responses (login pages, error pages) before trying to parse as M3U.
     const ct = res.headers.get('content-type') ?? ''
     if (ct.includes('text/html')) {
       throw new FriendlyError(
@@ -88,9 +78,11 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
     if (!reader) throw new FriendlyError('The playlist host returned an empty response.')
 
     const decoder = new TextDecoder('utf-8')
-    let received = 0
+    let bytesRead = 0
     let text = ''
     let entryCount = 0
+    let truncated = false
+    let truncatedReason: 'entry-cap' | 'size-cap' | undefined
 
     while (true) {
       let chunk: ReadableStreamReadResult<Uint8Array>
@@ -98,8 +90,7 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
         chunk = await reader.read()
       } catch (err) {
         const e = err as Error
-        // If we collected anything before the connection died, salvage it instead of erroring.
-        if (text.length > 256 && entryCount > 0) break
+        if (text.length > 256 && entryCount > 0) break // salvage partial data
         if (e.name === 'AbortError') {
           throw new FriendlyError(
             `Your playlist host is too slow (no response in ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds). For huge playlists with hundreds of thousands of channels, use the Paste tab and upload a smaller .m3u file.`,
@@ -110,105 +101,46 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
       const { value, done } = chunk
       if (done) break
 
-      received += value.byteLength
+      bytesRead += value.byteLength
       text += decoder.decode(value, { stream: true })
 
-      // Track #EXTINF directives we have so far. Once we have enough entries
-      // for a comfortable random sample, stop reading even if the server has
-      // millions more lines to send. Saves us from 363 MB VOD-laden playlists.
       const newEntries = (text.match(/#EXTINF/g) ?? []).length
       if (newEntries > entryCount) entryCount = newEntries
 
       if (entryCount >= PLAYLIST_EARLY_EXIT_ENTRIES) {
         await reader.cancel().catch(() => {})
+        truncated = true
+        truncatedReason = 'entry-cap'
         break
       }
-
-      if (received > PLAYLIST_SIZE_CAP) {
+      if (bytesRead > PLAYLIST_SIZE_CAP) {
         await reader.cancel().catch(() => {})
-        // If we still got nothing parseable, that's an error. Otherwise let it through.
         if (entryCount === 0) {
           throw new FriendlyError(
             `Playlist too large (over ${PLAYLIST_SIZE_CAP / 1024 / 1024} MB) and no channels parsed. Use the Paste tab to upload a trimmed file.`,
           )
         }
+        truncated = true
+        truncatedReason = 'size-cap'
         break
       }
     }
     text += decoder.decode()
-    return text
+    return { text, bytesRead, truncated, truncatedReason }
   } finally {
     clearTimeout(timer)
   }
 }
 
-async function probeStream(url: string): Promise<{ status: 'working' | 'slow' | 'dead'; responseMs?: number; errorReason?: string }> {
-  // SSRF guard each stream URL too - they come from user-supplied content.
-  const safety = await assertSafeUrl(url)
-  if (!safety.ok) {
-    return { status: 'dead', errorReason: safety.reason ?? 'Blocked URL.' }
-  }
-
-  const ac = new AbortController()
-  const timer = setTimeout(() => ac.abort(), STREAM_PROBE_TIMEOUT_MS)
-  const start = Date.now()
-  try {
-    let res: Response
-    try {
-      res = await fetch(safety.url!.toString(), {
-        method: 'HEAD',
-        signal: ac.signal,
-        headers: { 'User-Agent': 'orca4ktv-m3u-checker/1.0', Accept: '*/*' },
-        redirect: 'follow',
-      })
-    } catch {
-      // Some IPTV servers don't support HEAD - fall back to GET with byte range
-      res = await fetch(safety.url!.toString(), {
-        method: 'GET',
-        signal: ac.signal,
-        headers: {
-          'User-Agent': 'orca4ktv-m3u-checker/1.0',
-          Accept: '*/*',
-          Range: `bytes=0-${STREAM_PROBE_BYTES - 1}`,
-        },
-        redirect: 'follow',
-      })
-    }
-    const ms = Date.now() - start
-    if (!res.ok && res.status !== 206) {
-      return { status: 'dead', responseMs: ms, errorReason: `HTTP ${res.status}` }
-    }
-    // Try to read up to STREAM_PROBE_BYTES bytes from a GET to confirm a real stream
-    if (res.body && res.status !== 206) {
-      const reader = res.body.getReader()
-      let total = 0
-      while (total < STREAM_PROBE_BYTES) {
-        const { value, done } = await reader.read()
-        if (done) break
-        total += value.byteLength
-      }
-      await reader.cancel().catch(() => {})
-    }
-    if (ms > SLOW_THRESHOLD_MS) return { status: 'slow', responseMs: ms }
-    return { status: 'working', responseMs: ms }
-  } catch (err) {
-    const e = err as Error
-    const reason = e.name === 'AbortError' ? 'Timed out' : e.message || 'Connection failed'
-    return { status: 'dead', errorReason: reason }
-  } finally {
-    clearTimeout(timer)
-  }
-}
-
-function pickRandomSubset<T>(items: T[], n: number): T[] {
-  if (items.length <= n) return [...items]
-  const arr = [...items]
-  // Fisher-Yates partial shuffle
-  for (let i = 0; i < n; i++) {
-    const j = i + Math.floor(Math.random() * (arr.length - i))
-    ;[arr[i], arr[j]] = [arr[j], arr[i]]
-  }
-  return arr.slice(0, n)
+export interface CheckResponse {
+  ok: true
+  analysis: PlaylistAnalysis
+  // True when we stopped reading early. The analysis is then a sample of the
+  // start of the playlist and may not represent the full distribution.
+  partial: boolean
+  partialReason?: 'entry-cap' | 'size-cap'
+  bytesRead: number
+  rateLimit: { remaining: number }
 }
 
 export async function POST(request: NextRequest) {
@@ -227,17 +159,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'bad_request', message: 'Invalid JSON body.' }, { status: 400 })
   }
 
-  let playlistText: string
+  let fetched: FetchResult
   try {
     if (body.mode === 'url') {
       if (!body.url) return NextResponse.json({ error: 'bad_request', message: 'URL is required.' }, { status: 400 })
-      playlistText = await fetchPlaylistFromUrl(body.url)
+      fetched = await fetchPlaylistFromUrl(body.url)
     } else {
       if (!body.content) return NextResponse.json({ error: 'bad_request', message: 'Playlist content is required.' }, { status: 400 })
       if (body.content.length > PLAYLIST_SIZE_CAP) {
-        return NextResponse.json({ error: 'bad_request', message: 'Playlist too large (limit 10 MB).' }, { status: 413 })
+        return NextResponse.json(
+          { error: 'bad_request', message: `Playlist too large (limit ${PLAYLIST_SIZE_CAP / 1024 / 1024} MB).` },
+          { status: 413 },
+        )
       }
-      playlistText = body.content
+      fetched = { text: body.content, bytesRead: body.content.length, truncated: false }
     }
   } catch (err) {
     const e = err as Error
@@ -250,7 +185,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'fetch_failed', message: msg }, { status })
   }
 
-  const parsed = parseM3U(playlistText)
+  const parsed = parseM3U(fetched.text)
   if (parsed.entries.length === 0) {
     return NextResponse.json(
       { error: 'parse_failed', message: 'No streams found in this playlist.', warnings: parsed.warnings },
@@ -258,36 +193,16 @@ export async function POST(request: NextRequest) {
     )
   }
 
-  const sample = pickRandomSubset(parsed.entries, MAX_STREAMS_TO_CHECK)
-  const limit = pLimit(PARALLELISM)
-  const results: StreamResult[] = await Promise.all(
-    sample.map((s) =>
-      limit(async () => {
-        const probe = await probeStream(s.url)
-        return {
-          name: s.name,
-          url: s.url,
-          group: s.group,
-          status: probe.status,
-          responseMs: probe.responseMs,
-          errorReason: probe.errorReason,
-        }
-      }),
-    ),
-  )
+  const analysis = analyze(parsed.entries)
 
-  const totals = {
-    working: results.filter((r) => r.status === 'working').length,
-    slow: results.filter((r) => r.status === 'slow').length,
-    dead: results.filter((r) => r.status === 'dead').length,
+  const response: CheckResponse = {
+    ok: true,
+    analysis,
+    partial: fetched.truncated,
+    partialReason: fetched.truncatedReason,
+    bytesRead: fetched.bytesRead,
+    rateLimit: { remaining: rl.remaining },
   }
 
-  return NextResponse.json({
-    ok: true,
-    totalStreams: parsed.entries.length,
-    sampled: results.length,
-    totals,
-    results,
-    rateLimit: { remaining: rl.remaining },
-  })
+  return NextResponse.json(response)
 }

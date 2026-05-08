@@ -16,12 +16,12 @@ export const TOOL_CATALOG: ToolCatalogEntry[] = [
   {
     slug: 'm3u-checker',
     href: '/iptv-tools/m3u-checker',
-    title: 'M3U Playlist Checker',
-    shortTitle: 'M3U Checker',
-    tagline: 'Test which channels in your playlist are alive.',
+    title: 'M3U Playlist Analyzer',
+    shortTitle: 'M3U Analyzer',
+    tagline: 'Count live channels, movies, series, categories, and countries.',
     description:
-      'Paste any M3U URL or upload a playlist file. We probe a sample of streams and report which are working, dead, or slow - without storing your playlist.',
-    icon: 'fa-circle-check',
+      'Paste any M3U URL or upload a playlist file. We parse it and report how many live channels, movies and series it contains, plus the top categories and countries detected.',
+    icon: 'fa-chart-pie',
     status: 'live',
   },
   {

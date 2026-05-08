@@ -3,72 +3,77 @@ import ToolLayout from '@/components/tools/ToolLayout'
 import M3UCheckerClient from '@/components/tools/M3UCheckerClient'
 
 export const metadata: Metadata = {
-  title: 'M3U Playlist Checker - Test if your IPTV streams are alive | ORCA 4K TV',
+  title: 'M3U Playlist Analyzer - Channels, Movies, Series, Categories & Countries | ORCA 4K TV',
   description:
-    'Free M3U checker: paste your IPTV M3U URL or upload an .m3u file and see which channels are working, slow, or dead. No signup, no playlist storage.',
+    'Free M3U analyzer: paste your IPTV M3U URL or upload a playlist file and instantly see how many live channels, movies, and series your subscription includes, plus the top categories and countries.',
   keywords:
-    'm3u checker, iptv playlist checker, m3u tester, check m3u online, iptv stream tester, m3u url checker, iptv playlist tester, dead channel checker, iptv link tester',
+    'm3u checker, m3u analyzer, iptv playlist analyzer, count m3u channels, m3u categories, m3u countries, iptv playlist breakdown, vod movies series count, xtream playlist composition',
   alternates: { canonical: 'https://orca4ktv.com/iptv-tools/m3u-checker' },
   openGraph: {
-    title: 'Free M3U Playlist Checker | ORCA 4K TV',
+    title: 'Free M3U Playlist Analyzer | ORCA 4K TV',
     description:
-      'Test which channels in your IPTV M3U playlist are working - fast, free, and no signup. Probes a random sample of streams and shows you the dead ones.',
+      'See exactly what is in your IPTV playlist: live channels, movies, series, top categories, and countries. Free, no signup, no playlist storage.',
     url: 'https://orca4ktv.com/iptv-tools/m3u-checker',
     siteName: 'ORCA 4K TV',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'M3U Playlist Checker - Free',
-    description: 'Spot dead channels in your IPTV M3U playlist before they ruin movie night.',
+    title: 'M3U Playlist Analyzer - Free',
+    description: 'Count live channels, movies, series, categories and countries in your IPTV M3U playlist.',
   },
 }
 
 const HOW_TO = [
   {
     name: 'Paste your M3U URL or upload the playlist file',
-    text: 'Most IPTV providers give you a get.php URL. You can also paste the contents of an .m3u / .m3u8 file. Files are read in your browser before being checked.',
+    text: 'Most IPTV providers give you a get.php URL. You can also paste the raw contents of an .m3u / .m3u8 file. Uploaded files are read in your browser before being analyzed.',
   },
   {
-    name: 'We probe up to 50 random streams',
-    text: 'A small sample is enough to tell you if the playlist is healthy overall. Each stream gets a short HEAD or partial GET request with a 4-second timeout.',
+    name: 'We download and parse the playlist',
+    text: 'Your playlist is fetched once, parsed, and classified into live channels, movie VOD, and TV series. Group titles and country tags are extracted at the same time.',
   },
   {
-    name: 'Review the results',
-    text: 'Each stream is labelled Working, Slow, or Dead. Filter the table to see only the dead channels and decide whether to ask your provider for a fix.',
+    name: 'Review the breakdown',
+    text: 'See live / movie / series counts, the top 15 categories with percentages, and the top 15 countries detected from tvg-id codes and group title prefixes.',
   },
 ]
 
 const FAQ = [
   {
-    question: 'Is this M3U checker really free?',
+    question: 'What does this tool actually tell me?',
     answer:
-      'Yes. There is no signup, no email gate, and no payment. We rate-limit checks per IP to keep the service usable for everyone, but it is otherwise unrestricted.',
+      'It reads your M3U playlist and tells you how many live channels, movies, and series it contains, the top categories (group titles) by size, and the top countries detected. It does not test individual streams - that requires a real IPTV player on your network.',
   },
   {
-    question: 'Does it check every channel in my playlist?',
+    question: 'Why do you not ping individual streams anymore?',
     answer:
-      'No - it samples up to 50 random streams. That is enough to tell you whether the playlist is broadly working without hammering your provider with thousands of requests, which could itself trip rate limits.',
+      'Most IPTV servers block server-to-server requests (they only accept connections from real players in real users\' homes). Pinging from our server returned mostly false negatives, which was misleading. The composition view is far more useful for deciding whether a playlist suits your needs.',
   },
   {
-    question: 'Why does a stream show as Working but still buffer in my player?',
+    question: 'How does the tool know what is a movie vs a live channel?',
     answer:
-      'A "working" status only confirms the stream URL is reachable from our servers. Real playback also depends on your bandwidth, your player, and CDN routing in your region. Run our IPTV Speed Test to rule out a connection problem.',
+      'Live channels, movies, and TV series are classified using the URL path (Xtream Codes uses /live/, /movie/, /series/), the file extension on the URL, the group title (movie / series / VOD keywords), and episode markers like S01E02 in the channel name.',
   },
   {
-    question: 'Will this get my IPTV subscription banned?',
+    question: 'How are countries detected?',
     answer:
-      'It is unlikely. The checker uses normal HEAD/GET requests, the same kind your player makes when opening a channel. We probe up to 50 streams per check and rate-limit each visitor, so usage stays modest.',
+      'We check the tvg-id suffix first (e.g. bbcone.uk -> UK), then the group-title prefix (e.g. "US | Sports"), then the channel-name prefix (e.g. "DE: Sport1"), and finally fall back to country names mentioned anywhere in the group or name.',
+  },
+  {
+    question: 'My playlist has a million channels and I see a "partial analysis" warning. Why?',
+    answer:
+      'When a playlist would take too long to download in full (some Xtream providers serve 300+ MB playlists with every VOD title as a separate entry), we stop reading after a sample large enough for an accurate breakdown of the early portion. Use the Paste tab to upload a smaller file for a complete count.',
   },
   {
     question: 'Do you store my M3U URL or credentials?',
     answer:
-      'No. Your URL is fetched once on the server to read the playlist, then discarded. We only persist a hashed IP address (with a server-side salt) for rate limiting - never the URL or your credentials.',
+      'No. Your URL is fetched once on our server to read the playlist, then discarded. We persist only a hashed IP address (with a server-side salt) for rate limiting - never the URL, your credentials, or any of the channel data.',
   },
   {
-    question: 'My whole playlist shows as dead. What now?',
+    question: 'My playlist analyzes fine here but channels still buffer in my player. Why?',
     answer:
-      'Try opening the M3U URL directly in your browser - if it 404s or asks for a login, your subscription has expired or the host has changed. Contact your provider, or start a free trial with ORCA 4K TV for a stable replacement.',
+      'Buffering is almost never a playlist issue - it is bandwidth, Wi-Fi quality, or your provider\'s CDN. Run our IPTV Speed Test to confirm your connection can handle the resolution you are streaming, and try a wired Ethernet connection instead of Wi-Fi.',
   },
 ]
 
@@ -79,7 +84,7 @@ export default function M3UCheckerPage() {
       category="Free IPTV tool"
       description={
         <>
-          Paste any M3U URL or upload an .m3u file and we will probe a random sample of your channels to tell you which are working, which are slow, and which are dead. No account, no signup, no storage of your playlist.
+          Paste any M3U URL or upload an .m3u file. We instantly count the live channels, movies, and TV series in your playlist, and break down the top categories and countries so you know exactly what your IPTV subscription gives you.
         </>
       }
       howToSteps={HOW_TO}
