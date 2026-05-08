@@ -98,7 +98,7 @@ export default function IptvToolsHubPage() {
       />
 
       <main className="min-h-screen bg-[#001f3f] text-white">
-        <section className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <section className="max-w-6xl mx-auto px-6 pt-28 pb-16 md:pt-32 md:pb-24">
           <nav className="text-sm text-gray-400 mb-6" aria-label="Breadcrumb">
             <ol className="flex flex-wrap gap-2">
               <li>
