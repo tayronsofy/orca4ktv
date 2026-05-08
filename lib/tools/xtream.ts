@@ -26,9 +26,15 @@ function normalizeHost(input: string): string {
   return h
 }
 
+// If the user pasted a host that starts with https://, honor that. Otherwise
+// default to http:// — this matches how almost all IPTV panels are addressed.
+function detectProtocol(input: string): 'http' | 'https' {
+  return /^https:\/\//i.test(input.trim()) ? 'https' : 'http'
+}
+
 export function buildXtreamUrls(creds: XtreamCreds): XtreamUrls {
   const host = normalizeHost(creds.host)
-  const protocol = creds.protocol ?? 'http'
+  const protocol = creds.protocol ?? detectProtocol(creds.host)
   if (!ALLOWED_PROTOCOLS.has(protocol)) {
     throw new Error('Protocol must be http or https')
   }

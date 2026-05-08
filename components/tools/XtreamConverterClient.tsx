@@ -41,7 +41,6 @@ function CredsToUrls() {
   const [host, setHost] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [protocol, setProtocol] = useState<'http' | 'https'>('http')
   const [error, setError] = useState<string | null>(null)
   const [urls, setUrls] = useState<ReturnType<typeof buildXtreamUrls> | null>(null)
 
@@ -49,7 +48,7 @@ function CredsToUrls() {
     setError(null)
     setUrls(null)
     try {
-      const out = buildXtreamUrls({ host, username, password, protocol })
+      const out = buildXtreamUrls({ host, username, password })
       setUrls(out)
     } catch (e) {
       setError((e as Error).message || 'Could not generate URLs.')
@@ -59,7 +58,7 @@ function CredsToUrls() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-4">
-        <Field label="Host (with port)" hint="e.g. line.example.com:8080">
+        <Field label="Host (with port)" hint="Defaults to http://. Paste with https:// if your panel uses TLS.">
           <input
             value={host}
             onChange={(e) => setHost(e.target.value)}
@@ -69,16 +68,6 @@ function CredsToUrls() {
             autoCorrect="off"
             spellCheck={false}
           />
-        </Field>
-        <Field label="Protocol">
-          <select
-            value={protocol}
-            onChange={(e) => setProtocol(e.target.value as 'http' | 'https')}
-            className="w-full bg-[#001a36] border border-white/15 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00E5FF]/60"
-          >
-            <option value="http">HTTP</option>
-            <option value="https">HTTPS</option>
-          </select>
         </Field>
         <Field label="Username">
           <input
