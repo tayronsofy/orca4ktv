@@ -62,10 +62,10 @@ export const TOOL_CATALOG: ToolCatalogEntry[] = [
     href: '/iptv-tools/m3u-editor',
     title: 'M3U Editor & Sorter',
     shortTitle: 'M3U Editor',
-    tagline: 'Clean up, sort, and re-export your M3U playlist.',
+    tagline: 'Reorder or remove whole countries in your M3U playlist.',
     description:
-      'A privacy-first browser editor: open your M3U, sort by country or category, remove channels you do not need, rename groups, then download the cleaned file.',
-    icon: 'fa-list-ul',
+      'A privacy-first browser editor: open your M3U, move your home country to the top, drop regions you do not watch, then download the rebuilt .m3u file.',
+    icon: 'fa-earth-americas',
     status: 'live',
   },
 ]
