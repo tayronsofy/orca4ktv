@@ -55,7 +55,7 @@ export const TOOL_CATALOG: ToolCatalogEntry[] = [
     description:
       'Paste an XMLTV / EPG URL and we will fetch it, validate the XML, count channels and programmes, and show the date range so you can spot a stale or broken guide instantly.',
     icon: 'fa-calendar-check',
-    status: 'soon',
+    status: 'live',
   },
   {
     slug: 'm3u-editor',
@@ -66,7 +66,7 @@ export const TOOL_CATALOG: ToolCatalogEntry[] = [
     description:
       'A privacy-first browser editor: open your M3U, sort by country or category, remove channels you do not need, rename groups, then download the cleaned file.',
     icon: 'fa-list-ul',
-    status: 'soon',
+    status: 'live',
   },
 ]
 

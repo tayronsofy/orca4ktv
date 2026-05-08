@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/iptv-tools/m3u-checker`,           priority: 0.8 },
     { url: `${base}/iptv-tools/xtream-converter`,      priority: 0.8 },
     { url: `${base}/iptv-tools/iptv-speed-test`,       priority: 0.8 },
+    { url: `${base}/iptv-tools/epg-validator`,         priority: 0.8 },
+    { url: `${base}/iptv-tools/m3u-editor`,            priority: 0.8 },
     { url: `${base}/glossary`,          priority: 0.7 },
     { url: `${base}/security`,          priority: 0.7 },
     { url: `${base}/resellers`,         priority: 0.7 },
