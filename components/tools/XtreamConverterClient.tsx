@@ -58,16 +58,21 @@ function CredsToUrls() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-4">
-        <Field label="Host (with port)" hint="Defaults to http://. Paste with https:// if your panel uses TLS.">
-          <input
-            value={host}
-            onChange={(e) => setHost(e.target.value)}
-            placeholder="line.example.com:8080"
-            className="w-full bg-[#001a36] border border-white/15 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-[#00E5FF]/60 font-mono text-sm"
-            autoCapitalize="off"
-            autoCorrect="off"
-            spellCheck={false}
-          />
+        <Field label="Host (with port)" hint="Just the hostname and port. We add http:// for you.">
+          <div className="flex bg-[#001a36] border border-white/15 rounded-lg overflow-hidden focus-within:border-[#00E5FF]/60 transition-colors">
+            <span className="px-3 py-3 bg-white/5 text-[#00E5FF] font-mono text-sm font-bold border-r border-white/10 select-none">
+              http://
+            </span>
+            <input
+              value={host}
+              onChange={(e) => setHost(e.target.value.replace(/^https?:\/\//i, ''))}
+              placeholder="line.example.com:8080"
+              className="flex-1 min-w-0 bg-transparent px-4 py-3 text-white placeholder-gray-500 focus:outline-none font-mono text-sm"
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck={false}
+            />
+          </div>
         </Field>
         <Field label="Username">
           <input
