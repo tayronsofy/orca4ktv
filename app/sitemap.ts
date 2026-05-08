@@ -1,12 +1,5 @@
 import type { MetadataRoute } from 'next'
 import { getPublishedPosts } from '@/lib/posts'
-import matchesData from '@/data/matches.json'
-
-interface MatchEntry {
-  slug: string
-  kickoff?: string
-  status?: string
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://orca4ktv.com'
@@ -52,19 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  // Top 50 most relevant match pages - favor upcoming/live, exclude finished matches
-  // (FT = full time, AET = after extra time, PEN = penalties - already over)
-  const FINISHED_STATUSES = new Set(['FT', 'AET', 'PEN', 'ABD', 'AWD', 'WO', 'CANC'])
-  const matchRoutes: MetadataRoute.Sitemap = (matchesData.matches as MatchEntry[])
-    .filter(m => m.slug && m.kickoff && !FINISHED_STATUSES.has(m.status ?? ''))
-    .sort((a, b) => new Date(a.kickoff!).getTime() - new Date(b.kickoff!).getTime())
-    .slice(0, 50)
-    .map(m => ({
-      url: `${base}/watch/${m.slug}`,
-      lastModified: new Date(m.kickoff!),
-      changeFrequency: 'daily' as const,
-      priority: 0.5,
-    }))
-
-  return [...staticRoutes, ...blogRoutes, ...matchRoutes]
+  return [...staticRoutes, ...blogRoutes]
 }

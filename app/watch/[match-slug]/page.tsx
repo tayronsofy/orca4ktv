@@ -42,6 +42,7 @@ export async function generateMetadata({
     title,
     description,
     keywords: match.tags?.join(', ') ?? '',
+    robots: { index: false, follow: true },
     alternates: { canonical: `https://orca4ktv.com/watch/${slug}` },
     openGraph: {
       title,
