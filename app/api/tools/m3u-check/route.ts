@@ -6,10 +6,11 @@ import { checkAndRecord } from '@/lib/tools/rate-limit'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
-export const maxDuration = 60
+export const maxDuration = 90
 
-const PLAYLIST_FETCH_TIMEOUT_MS = 30_000
-const PLAYLIST_SIZE_CAP = 10 * 1024 * 1024 // 10 MB
+const PLAYLIST_FETCH_TIMEOUT_MS = 60_000
+const PLAYLIST_SIZE_CAP = 10 * 1024 * 1024 // 10 MB hard ceiling
+const PLAYLIST_EARLY_EXIT_ENTRIES = 500 // enough to randomly sample 50 from
 const STREAM_PROBE_TIMEOUT_MS = 4_000
 const STREAM_PROBE_BYTES = 64 * 1024
 const SLOW_THRESHOLD_MS = 2_500
@@ -89,29 +90,50 @@ async function fetchPlaylistFromUrl(url: string): Promise<string> {
     const decoder = new TextDecoder('utf-8')
     let received = 0
     let text = ''
+    let entryCount = 0
+
     while (true) {
       let chunk: ReadableStreamReadResult<Uint8Array>
       try {
         chunk = await reader.read()
       } catch (err) {
         const e = err as Error
+        // If we collected anything before the connection died, salvage it instead of erroring.
+        if (text.length > 256 && entryCount > 0) break
         if (e.name === 'AbortError') {
           throw new FriendlyError(
-            `The playlist download stalled after ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds. Try a smaller M3U or use the Paste tab to upload the file directly.`,
+            `Your playlist host is too slow (no response in ${PLAYLIST_FETCH_TIMEOUT_MS / 1000} seconds). For huge playlists with hundreds of thousands of channels, use the Paste tab and upload a smaller .m3u file.`,
           )
         }
         throw new FriendlyError(`Lost connection while downloading the playlist: ${e.message || 'unknown error'}.`)
       }
       const { value, done } = chunk
       if (done) break
+
       received += value.byteLength
-      if (received > PLAYLIST_SIZE_CAP) {
-        await reader.cancel()
-        throw new FriendlyError(
-          `Playlist too large (over ${PLAYLIST_SIZE_CAP / 1024 / 1024} MB). Use the Paste tab to upload a trimmed file.`,
-        )
-      }
       text += decoder.decode(value, { stream: true })
+
+      // Track #EXTINF directives we have so far. Once we have enough entries
+      // for a comfortable random sample, stop reading even if the server has
+      // millions more lines to send. Saves us from 363 MB VOD-laden playlists.
+      const newEntries = (text.match(/#EXTINF/g) ?? []).length
+      if (newEntries > entryCount) entryCount = newEntries
+
+      if (entryCount >= PLAYLIST_EARLY_EXIT_ENTRIES) {
+        await reader.cancel().catch(() => {})
+        break
+      }
+
+      if (received > PLAYLIST_SIZE_CAP) {
+        await reader.cancel().catch(() => {})
+        // If we still got nothing parseable, that's an error. Otherwise let it through.
+        if (entryCount === 0) {
+          throw new FriendlyError(
+            `Playlist too large (over ${PLAYLIST_SIZE_CAP / 1024 / 1024} MB) and no channels parsed. Use the Paste tab to upload a trimmed file.`,
+          )
+        }
+        break
+      }
     }
     text += decoder.decode()
     return text
