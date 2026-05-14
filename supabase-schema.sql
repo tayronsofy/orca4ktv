@@ -155,10 +155,13 @@ CREATE OR REPLACE TRIGGER subscriptions_updated_at
 -- ============================================================
 ALTER TABLE trials
   ADD COLUMN IF NOT EXISTS auth_user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
-  ADD COLUMN IF NOT EXISTS signup_token TEXT UNIQUE;
+  ADD COLUMN IF NOT EXISTS signup_token TEXT UNIQUE,
+  ADD COLUMN IF NOT EXISTS customer_ip TEXT;
 
 CREATE INDEX IF NOT EXISTS idx_trials_signup_token ON trials(signup_token);
 CREATE INDEX IF NOT EXISTS idx_trials_auth_user_id ON trials(auth_user_id);
+CREATE INDEX IF NOT EXISTS idx_trials_customer_ip_created_at ON trials(customer_ip, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_trials_email_created_at ON trials(email, created_at DESC);
 
 -- ============================================================
 -- ORDERS — customer IP for fraud / geolocation lookup in admin
