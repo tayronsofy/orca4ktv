@@ -84,6 +84,29 @@ export default function M3UEditorPage() {
       }
       howToSteps={HOW_TO}
       faq={FAQ}
+      learnMore={
+        <>
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">Why people edit their IPTV playlist</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              Most subscriptions ship with channels from every country the provider sources content from - often 30+ regions in a single M3U file. If you only watch English-language sports, the 4,000 Turkish, Brazilian, and Indian channels you will never open are still loaded by your IPTV player every time it starts. They make searches slower, the channel grid harder to navigate, and category browsing cluttered.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              The editor lets you trim the playlist down to the regions you actually use, then export a clean .m3u file you can re-import into TiviMate, IPTV Smarters, OTT Navigator, VLC, or any other compliant player. Your home country at the top, the regions you occasionally watch in the middle, and everything else removed entirely - that is usually all the cleanup most users need.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">Reorder vs remove - which to use</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              <strong className="text-white">Reorder</strong> when you want to keep a region accessible but not have it dominate the channel list. Move your primary country (e.g. USA) to the top so it appears first in your player&apos;s grid, push secondary regions (UK, Canada) below it, and demote regions you only occasionally browse to the bottom. The channels are still all there - the order just makes the player feel custom-built for you.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              <strong className="text-white">Remove</strong> when you genuinely never watch a region and the noise outweighs any benefit. Removing 5,000 channels you never open speeds up channel changes, EPG refresh, and search across the board. The export only writes the kept regions, so your IPTV player loads a leaner playlist and feels noticeably faster on slower devices like Firestick or older Smart TVs. The original playlist URL is unchanged - this is purely a local cleanup.
+            </p>
+          </div>
+        </>
+      }
     >
       <M3UEditorClient />
     </ToolLayout>

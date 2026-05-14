@@ -84,6 +84,32 @@ export default function EpgValidatorPage() {
       }
       howToSteps={HOW_TO}
       faq={FAQ}
+      learnMore={
+        <>
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">What an EPG is and why yours might be broken</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              The EPG (Electronic Program Guide) is the schedule grid that lets you see what is on every channel right now and several days ahead. It is delivered as an XML file in the XMLTV format - a flat list of <code>&lt;channel&gt;</code> entries (one per channel, each with a unique <code>id</code>) followed by <code>&lt;programme&gt;</code> entries (one per scheduled show, referencing a channel id and a start / stop time). Your IPTV player downloads the XMLTV file, matches each <code>&lt;channel id&gt;</code> against the <code>tvg-id</code> attribute on entries in your M3U playlist, and shows the matching programmes under that channel.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              The whole system depends on those IDs lining up exactly. If your playlist channel says <code>tvg-id=&quot;skysports1.uk&quot;</code> and your EPG says <code>id=&quot;Sky.Sports.1.UK&quot;</code>, the player has no way to connect them - and you get a beautifully formatted but completely empty guide. That is the single most common cause of &quot;the EPG is not loading&quot; complaints.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">Common XMLTV problems this validator catches</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              <strong className="text-white">Stale guides.</strong> If the latest <code>&lt;programme&gt;</code> entry ends before today, the EPG has not been refreshed and your player will show empty schedules from now onwards. The date-range badge tells you immediately whether the file is current or stuck several days in the past.
+            </p>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              <strong className="text-white">Sparse channel coverage.</strong> A subscription with 5,000 live channels but an EPG that lists only 200 channels means most of your guide will be empty regardless of ID matching. Compare the channel-count number here against your playlist channel count from the M3U Checker.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              <strong className="text-white">Encoding or parser errors.</strong> Some providers serve malformed XML (unescaped ampersands, broken UTF-8) or a gzipped file with the wrong content-type. The validator surfaces these as parse errors so you can ask your provider to fix the source instead of fighting your player&apos;s settings.
+            </p>
+          </div>
+        </>
+      }
     >
       <EpgValidatorClient />
     </ToolLayout>

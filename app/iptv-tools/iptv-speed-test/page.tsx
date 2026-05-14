@@ -83,6 +83,29 @@ export default function IptvSpeedTestPage() {
       }
       howToSteps={HOW_TO}
       faq={FAQ}
+      learnMore={
+        <>
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">How much speed you actually need for IPTV</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              IPTV bandwidth requirements depend on the resolution and bitrate of the source stream, not just the &quot;quality&quot; label your provider puts on it. As a working baseline: <strong className="text-white">3 Mbps</strong> handles SD, <strong className="text-white">6-8 Mbps</strong> handles 720p HD, <strong className="text-white">10-15 Mbps</strong> handles 1080p Full-HD, and <strong className="text-white">25 Mbps+</strong> is needed for true 4K HDR streams. Sports channels run at the high end of each tier because of the constant motion - a 1080p football match needs closer to 12-15 Mbps where a 1080p talk show is fine on 8.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              These numbers are <em>per simultaneous stream</em>. A four-person household watching different channels on four TVs needs roughly four times the per-stream bandwidth, plus headroom for everything else on the network (cloud backups, video calls, smart-home traffic). If your line is right at the minimum, you will see buffering during peak evening hours when local ISP congestion is at its worst.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">What to do if your connection is too slow</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              First, retest on Ethernet. Wi-Fi - especially 2.4 GHz or distance from the router - frequently halves real throughput. If wired speed is also low, the issue is upstream of your home: contact your ISP about plan upgrades, or check whether you are subject to nighttime throttling (some ISPs deprioritize streaming traffic). A wired connection on a modern Wi-Fi 6 router with the streaming device close to the AP is the gold standard for IPTV.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              If the line genuinely cannot do 4K, switch to a 1080p or 720p variant of the same channel - most quality IPTV providers carry multiple bitrates of premium channels. Buffering on a fast line usually points elsewhere: a saturated CDN at the provider, a Wi-Fi conflict, an overloaded router, or a player with too small a buffer. Run our M3U Checker to confirm the playlist itself is healthy before blaming the connection.
+            </p>
+          </div>
+        </>
+      }
     >
       <SpeedTestClient />
     </ToolLayout>

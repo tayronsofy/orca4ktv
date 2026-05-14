@@ -89,6 +89,29 @@ export default function M3UCheckerPage() {
       }
       howToSteps={HOW_TO}
       faq={FAQ}
+      learnMore={
+        <>
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">What an M3U playlist actually contains</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              An M3U file is a plain-text index of every channel and on-demand title your IPTV provider gives you access to. Each entry includes a stream URL, a display name, a logo URL, and metadata tags like <code>group-title</code> (the category) and <code>tvg-id</code> (the EPG identifier). Live TV channels, movies, and TV series all live in the same file - which is why a fresh subscription can come with anywhere from a few hundred to a few hundred thousand entries depending on how the provider structures their catalog.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              Most users never open an M3U file directly. Their IPTV player (TiviMate, IPTV Smarters, OTT Navigator, IPTV+) pulls it down on first launch and presents the channels through its own UI. That hides what is actually inside - so when something goes wrong, or when you are deciding between providers, it helps to look at the raw breakdown. That is what this tool does.
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-[#0a2547] border border-white/10 p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black mb-4">How to read your playlist breakdown</h2>
+            <p className="text-gray-300 leading-relaxed mb-3">
+              The first number to look at is the live-channel count. A subscription advertised as &quot;15,000+ live channels&quot; should land in that range; if the analyzer shows 200 live channels and 14,800 movies, the marketing was misleading. Next look at the country distribution: if you bought a UK-focused playlist and the top three countries are Brazil, Turkey, and India, the catalog is not what you expected.
+            </p>
+            <p className="text-gray-300 leading-relaxed">
+              The category breakdown is the third signal. Healthy playlists have clear groupings (Sports, News, Entertainment, by country). A playlist where 90% of channels live in a single &quot;General&quot; or &quot;Mixed&quot; bucket usually means the provider scraped their catalog from a reseller dump and never organized it - that almost always correlates with worse uptime and broken EPG mappings. If you see that pattern, expect headaches.
+            </p>
+          </div>
+        </>
+      }
     >
       <M3UCheckerClient />
     </ToolLayout>

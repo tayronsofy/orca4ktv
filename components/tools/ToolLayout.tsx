@@ -14,9 +14,10 @@ interface Props {
   howToSteps?: HowToStep[]
   faq?: FaqEntry[]
   faqId?: string
+  learnMore?: ReactNode // long-form explanatory content rendered after the tool widget
 }
 
-export default function ToolLayout({ slug, category, description, children, howToSteps, faq, faqId }: Props) {
+export default function ToolLayout({ slug, category, description, children, howToSteps, faq, faqId, learnMore }: Props) {
   const tool = getTool(slug)
   if (!tool) {
     throw new Error(`ToolLayout: unknown tool slug "${slug}"`)
@@ -63,6 +64,12 @@ export default function ToolLayout({ slug, category, description, children, howT
           <div className="bg-[#0a2547] border border-white/10 rounded-2xl p-6 md:p-8 mb-10 shadow-2xl">
             {children}
           </div>
+
+          {learnMore && (
+            <section className="mb-12 space-y-6">
+              {learnMore}
+            </section>
+          )}
 
           <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 mb-12 text-sm text-amber-100/90">
             <p className="leading-relaxed">
