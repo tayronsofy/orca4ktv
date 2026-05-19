@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Live Football Matches in 4K HDR - Buffer-Free | ORCA 4K TV',
   description: 'Watch every major football league live in 4K HDR - buffer-free Anti Freeze CDN. Top-tier UK, Spanish, Italian, German and Dutch football, plus top European club football midweek. Multi-device.',
   keywords: 'live football iptv, watch football 4k, iptv sports, football streaming, live sports iptv 2026, live TV streaming, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, Anti Freeze technology, IPTV subscription, IPTV streaming service, premium IPTV channels, multi-device compatibility, IPTV multi-device',
+  robots: { index: false, follow: true },
   alternates: { canonical: 'https://orca4ktv.com/live-matches' },
   openGraph: {
     title: 'Live Football Matches in 4K HDR | ORCA 4K TV',

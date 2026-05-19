@@ -18,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/iptv-shop/3-months`, priority: 0.9 },
     { url: `${base}/iptv-shop/6-months`, priority: 0.9 },
     { url: `${base}/iptv-shop/12-months`,priority: 0.9 },
-    { url: `${base}/live-matches`,      priority: 0.8 },
     { url: `${base}/channels`,          priority: 0.8 },
     { url: `${base}/setup-guide`,       priority: 0.8 },
     { url: `${base}/iptv-tools`,                       priority: 0.85 },
