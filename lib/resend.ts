@@ -367,3 +367,47 @@ export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
     `,
   })
 }
+
+interface AdminNewContactAlertProps {
+  name: string
+  email: string
+  subject: string
+  message: string
+}
+
+export async function sendAdminNewContactAlert(props: AdminNewContactAlertProps) {
+  const { name, email, subject, message } = props
+  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
+  return getResend().emails.send({
+    from: FROM,
+    to: adminEmail,
+    replyTo: email,
+    subject: `New Contact Inquiry: ${subject}`,
+    text: `New contact inquiry received\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+    html: `
+      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
+          <h1 style="margin:0;font-size:22px;font-weight:900;">New Contact Inquiry</h1>
+          <p style="margin:6px 0 0;opacity:.85;font-size:14px;">from ${name}</p>
+        </div>
+        <div style="padding:32px;">
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;width:80px;">Name</td><td style="color:#fff;font-weight:700;">${name}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;width:80px;">Email</td><td style="color:#a855f7;">${email}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;width:80px;">Subject</td><td style="color:#fff;">${subject}</td></tr>
+            </table>
+          </div>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;">
+            <p style="margin:0 0 8px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Message</p>
+            <p style="margin:0;white-space:pre-wrap;color:#fff;line-height:1.6;">${message}</p>
+          </div>
+        </div>
+        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
+          Orca 4K TV Support &middot; Reply directly to this email to contact the customer.
+        </div>
+      </div>
+    `,
+  })
+}
+

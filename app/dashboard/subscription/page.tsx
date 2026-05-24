@@ -71,19 +71,14 @@ export default async function SubscriptionPage() {
               </p>
             )}
             {daysLeft !== null && daysLeft <= 14 && daysLeft > 0 && (
-              <p className="text-orange-400 text-xs mt-1">{daysLeft} days remaining — consider renewing</p>
+              <p className="text-orange-400 text-xs mt-1">{daysLeft} days remaining - consider renewing</p>
             )}
           </div>
         </div>
       </div>
 
-      {/* Credentials — one card per connection slot */}
-      {sub.status === 'pending' ? (
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-6 text-blue-300">
-          <i className="fas fa-hourglass-half mr-2"></i>
-          Your credentials are being prepared. You&apos;ll receive an email once your subscription is activated.
-        </div>
-      ) : (() => {
+      {/* Credentials - one card per connection slot */}
+      {(() => {
           const slotRows: Array<{
             slot: number
             iptv_username: string | null
