@@ -2262,8 +2262,39 @@
         "summer international football 2026",
         "international football live"
       ]
+    },
+    {
+      "fixtureId": 12813000,
+      "slug": "2a-vs-2b-live-4k-stream-2026-06-28",
+      "homeTeam": "2A",
+      "awayTeam": "2B",
+      "homeLogo": "https://img.sofascore.com/api/v1/team/503080/image",
+      "awayLogo": "https://img.sofascore.com/api/v1/team/476396/image",
+      "homeScore": null,
+      "awayScore": null,
+      "kickoff": "2026-06-28T19:00:00.000Z",
+      "league": "International football tournament, Knockout",
+      "leagueId": 3948,
+      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/3948/image",
+      "venue": "",
+      "city": "",
+      "round": "Round of 32",
+      "status": "NS",
+      "elapsed": null,
+      "description": "2A host 2B in a must-watch International football tournament, Knockout Round of 32 clash. The match is scheduled for Sunday, June 28, 2026 at 07:00 PM UTC. Watch 2A vs 2B live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
+      "tags": [
+        "International football tournament, Knockout",
+        "Round of 32",
+        "2A",
+        "2B",
+        "live stream",
+        "4K IPTV",
+        "watch online",
+        "summer international football 2026",
+        "international football live"
+      ]
     }
   ],
-  "generatedAt": "2026-05-29T06:54:46.052Z",
-  "count": 73
+  "generatedAt": "2026-05-30T06:22:46.262Z",
+  "count": 74
 }
