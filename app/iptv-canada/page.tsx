@@ -5,7 +5,7 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
   title: 'Best IPTV Canada 2026 - Hockey, Live Sports & CA Networks | ORCA 4K TV',
-  description: 'Best IPTV Canada 2026: every North American pro hockey playoff, Canadian football, US pro baseball and the 2026 Winter Games in 4K HDR. 22,000+ channels, all major Canadian sports and free-to-air networks. Bilingual EN/FR.',
+  description: 'Best IPTV Canada 2026: every pro hockey playoff, Canadian football & the 2026 Winter Games in 4K HDR. 22,000+ channels, all CA networks. Bilingual EN/FR.',
   keywords: 'best iptv canada 2026, iptv canada, canadian iptv subscription, hockey iptv canada, canadian football iptv, french canadian iptv channels, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, multi-device compatibility, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, cord cutting canada 2026',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-canada',
@@ -50,6 +50,7 @@ export default function CanadaPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-canada#product",
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://orca4ktv.com/iptv-canada" },
                 "name": "Best IPTV Canada 2026 - ORCA 4K TV",
                 "description": "Premium IPTV subscription for Canada - 22,000+ live channels covering every North American pro hockey game, Canadian football, the 2026 Winter Games, summer international football matches in Toronto and Vancouver, plus all major Canadian English and French free-to-air networks and premium sports tier - bilingual EN/FR coverage in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/canada-coverage.jpg",

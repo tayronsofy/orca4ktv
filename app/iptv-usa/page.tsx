@@ -43,6 +43,7 @@ export default function USAPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-usa#product",
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://orca4ktv.com/iptv-usa" },
                 "name": "Best IPTV USA 2026 - ORCA 4K TV",
                 "description": "Premium IPTV subscription for the United States - 22,000+ live channels covering American football, US pro basketball, US pro baseball, North American pro hockey, all major US sports and free-to-air networks, plus USA local channels by ZIP code, in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/usa-coverage.jpg",

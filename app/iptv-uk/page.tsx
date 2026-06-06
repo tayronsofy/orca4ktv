@@ -5,7 +5,7 @@ import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
 export const metadata: Metadata = {
   title: 'Best IPTV UK 2026 - Live Sports & UK Networks | ORCA 4K TV',
-  description: 'Best IPTV UK 2026: every UK football matchday, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. 22,000+ channels, all major UK free-to-air networks. Multi-device, instant.',
+  description: 'Best IPTV UK 2026: every UK football matchday, top European football, motorsport & Grand Slam tennis in 4K HDR. 22,000+ channels, all UK free-to-air networks.',
   keywords: 'best iptv uk 2026, iptv uk, uk iptv subscription, uk live tv channels iptv hd, iptv uk no buffering, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, satellite TV alternative UK, cord cutting uk',
   alternates: {
     canonical: 'https://orca4ktv.com/iptv-uk',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Best IPTV UK 2026 - Live Sports & UK Networks | ORCA 4K TV',
-    description: 'Best IPTV UK 2026: every UK football matchday, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. 22,000+ channels, all major UK free-to-air networks. Multi-device, instant.',
+    description: 'Best IPTV UK 2026: every UK football matchday, top European football, motorsport & Grand Slam tennis in 4K HDR. 22,000+ channels, all UK free-to-air networks.',
     type: 'website',
     url: 'https://orca4ktv.com/iptv-uk',
     images: [{ url: 'https://orca4ktv.com/images/uk-coverage.jpg', width: 1200, height: 630 }],
@@ -49,6 +49,7 @@ export default function UKPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-uk#product",
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://orca4ktv.com/iptv-uk" },
                 "name": "Best IPTV UK 2026 - ORCA 4K TV",
                 "description": "Premium IPTV subscription for the United Kingdom - 22,000+ live channels covering UK football, top European football midweek, premium UK sports tier, all major UK free-to-air networks, motorsport, Grand Slam tennis, cricket and rugby - in 4K HDR with HDR10+ and Dolby Vision.",
                 "image": "https://orca4ktv.com/images/uk-coverage.jpg",

@@ -50,6 +50,7 @@ export default function GermanyPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-germany#product",
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://orca4ktv.com/iptv-germany" },
                 "name": "Bestes IPTV Deutschland 2026 - ORCA 4K TV",
                 "description": "Premium IPTV-Abonnement für Deutschland - 22.000+ Live-Sender mit deutschem Spitzenfußball, top europäischem Klubfußball, Motorsport, Sommer-Internationalturnier 2026, Winterspielen 2026 sowie allen wichtigen deutschen Free-TV-Sendern und der Premium-Sportstufe - in 4K HDR mit HDR10+ und Dolby Vision.",
                 "image": "https://orca4ktv.com/images/germany-coverage.jpg",

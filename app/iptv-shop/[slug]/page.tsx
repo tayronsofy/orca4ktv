@@ -71,6 +71,7 @@ export default async function PlanPage({ params }: { params: Promise<{ slug: str
         brand: { '@type': 'Brand', name: 'ORCA 4K TV' },
         image: 'https://orca4ktv.com/og-image.jpg',
         url: `https://orca4ktv.com/iptv-shop/${plan.slug}`,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `https://orca4ktv.com/iptv-shop/${plan.slug}` },
         category: 'IPTV Subscription / Streaming Service',
         offers: plan.deviceTiers.map(tier => ({
           '@type': 'Offer',

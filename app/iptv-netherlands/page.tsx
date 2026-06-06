@@ -51,6 +51,7 @@ export default function NetherlandsPage() {
               {
                 "@type": "Product",
                 "@id": "https://orca4ktv.com/iptv-netherlands#product",
+                "mainEntityOfPage": { "@type": "WebPage", "@id": "https://orca4ktv.com/iptv-netherlands" },
                 "name": "Beste IPTV Nederland 2026 - ORCA 4K TV",
                 "description": "Premium IPTV-abonnement voor Nederland - 22.000+ live zenders met Nederlands topvoetbal, top Europees clubvoetbal, motorsport, het zomerse internationale voetbaltoernooi 2026, de Olympische Winterspelen 2026, plus alle belangrijke Nederlandse publieke en commerciële free-to-air zenders en de premium sportlaag - in 4K HDR met HDR10+ en Dolby Vision.",
                 "image": "https://orca4ktv.com/images/netherlands-coverage.jpg",

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -26,6 +26,13 @@ export const metadata: Metadata = {
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
+  manifest: '/manifest.json',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#001f3f',
 }
 
 export default function RootLayout({
@@ -80,6 +87,11 @@ export default function RootLayout({
                 "height": 399
               },
               "image": "https://orca4ktv.com/logo.png",
+              "sameAs": [
+                "https://www.facebook.com/people/Orca-4K-TV/61562824543929/",
+                "https://x.com/orca4ktv",
+                "https://www.youtube.com/@orca4ktv"
+              ],
               "description": "Premium IPTV streaming service offering 22,000+ live channels, on-demand movies, 4K HDR streaming, AES-256 encrypted secure streaming, smart EPG guide, catch up TV, and 24/7 customer support across Smart TV, Firestick, Android, iOS, Apple TV and MAG devices.",
               "slogan": "Your Universe of Limitless Entertainment",
               "foundingDate": "2026",
