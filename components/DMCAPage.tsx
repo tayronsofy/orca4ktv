@@ -68,7 +68,7 @@ const DMCAPage: React.FC<DMCAPageProps> = ({ onBackToHome }) => {
         <div className="bg-[#001f3f]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md">
           <h2 className="text-3xl font-black text-white mb-6">2. Educational and Commercial Nature</h2>
           <p className="mb-4">
-            All information on SMART4K.io is provided strictly for:
+            All information on orca4ktv.com is provided strictly for:
           </p>
           <ul className="list-disc list-inside space-y-2 mb-4 pl-4 text-gray-400">
             <li><strong>🧠 Educational purposes</strong> (installation guides, device compatibility, technical setup);</li>
@@ -101,7 +101,7 @@ const DMCAPage: React.FC<DMCAPageProps> = ({ onBackToHome }) => {
         <div className="bg-[#001f3f]/60 border border-white/5 rounded-3xl p-8 md:p-10 shadow-xl backdrop-blur-md">
           <h2 className="text-3xl font-black text-white mb-6">4. Notification of Claimed Infringement (DMCA Notices)</h2>
           <p className="mb-4">
-            If you are a copyright owner (or an authorized representative) and believe that any material accessible via iptvsmart.io infringes your rights, please send a formal DMCA notice containing the following information:
+            If you are a copyright owner (or an authorized representative) and believe that any material accessible via orca4ktv.com infringes your rights, please send a formal DMCA notice containing the following information:
           </p>
           <ul className="list-disc list-inside space-y-2 mb-4 pl-4 text-gray-400">
             <li>Your full legal name and organization (if applicable);</li>
@@ -153,7 +153,7 @@ const DMCAPage: React.FC<DMCAPageProps> = ({ onBackToHome }) => {
             All users are responsible for understanding and complying with the laws of their jurisdiction before accessing or purchasing IPTV services.
           </p>
           <p className="mt-4">
-            By using iptvsmart.io, you acknowledge and agree to this policy.
+            By using orca4ktv.com, you acknowledge and agree to this policy.
             For any questions or clarifications, please contact us at <a href="mailto:support@orca4ktv.com" className="text-[#00E5FF] hover:underline">support@orca4ktv.com</a>.
           </p>
         </div>

@@ -19,7 +19,7 @@ const VideoBanner: React.FC = () => {
             className="w-full h-full object-cover"
           >
             <source
-              src="/images/vid.webm"
+              src="https://ciwzqofczjlsfkiylpti.supabase.co/storage/v1/object/public/videos/orca%204k%20tv%20best%20iptv.webm"
               type="video/webm"
             />
             Your browser does not support the video tag.

@@ -4,8 +4,8 @@
 set -e
 
 VPS_HOST="smart4k-vps"               # SSH alias from ~/.ssh/config — points at srv1622309
-VPS_PATH="/var/www/smart4k"
-PM2_APP="smart4k"
+VPS_PATH="/var/www/orca4ktv"
+PM2_APP="orca4ktv"
 
 MSG="${1:-deploy: $(date '+%Y-%m-%d %H:%M')}"
 
