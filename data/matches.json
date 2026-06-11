@@ -3006,8 +3006,39 @@
         "summer international football 2026",
         "international football live"
       ]
+    },
+    {
+      "fixtureId": 12812994,
+      "slug": "w93-vs-w94-live-4k-stream-2026-07-10",
+      "homeTeam": "W93",
+      "awayTeam": "W94",
+      "homeLogo": "https://img.sofascore.com/api/v1/team/865205/image",
+      "awayLogo": "https://img.sofascore.com/api/v1/team/865206/image",
+      "homeScore": null,
+      "awayScore": null,
+      "kickoff": "2026-07-10T19:00:00.000Z",
+      "league": "International football tournament, Knockout",
+      "leagueId": 3948,
+      "leagueLogo": "https://img.sofascore.com/api/v1/unique-tournament/3948/image",
+      "venue": "",
+      "city": "",
+      "round": "Quarterfinals",
+      "status": "NS",
+      "elapsed": null,
+      "description": "All eyes are on this International football tournament, Knockout fixture as W93 meet W94. The match is scheduled for Friday, July 10, 2026 at 07:00 PM UTC. Watch W93 vs W94 live in 4K Ultra-HD on Orca 4K TV — our servers are optimized for match-day traffic, so you get a buffer-free stream from the first whistle to the last. Available on Smart TV, Amazon Firestick, Android, iPhone, and PC. No contracts, instant activation.",
+      "tags": [
+        "International football tournament, Knockout",
+        "Quarterfinals",
+        "W93",
+        "W94",
+        "live stream",
+        "4K IPTV",
+        "watch online",
+        "summer international football 2026",
+        "international football live"
+      ]
     }
   ],
-  "generatedAt": "2026-06-10T07:10:42.561Z",
-  "count": 97
+  "generatedAt": "2026-06-11T07:29:01.195Z",
+  "count": 98
 }
