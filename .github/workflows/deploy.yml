@@ -28,13 +28,3 @@ jobs:
             npm run build
             pm2 restart orca4ktv || pm2 start npm --name "orca4ktv" -- start
             curl -s https://orca4ktv.com/api/indexnow || true
-            set +e
-            echo "===== DIAG2 ====="
-            echo "--- this box public IPv4 ---"; curl -s -4 ifconfig.me; echo
-            echo "--- listening ports 80/443/3000-3003/8080 ---"; (ss -ltnp 2>/dev/null || netstat -ltnp 2>/dev/null) | grep -E ":(80|443|3000|3001|3002|3003|8080)\b"
-            echo "--- all node/next processes ---"; ps aux | grep -iE "next|node" | grep -v grep
-            echo "--- box nginx: Host orca4ktv.com :80 ---"; curl -s -o /dev/null -w "code=%{http_code} loc=%{redirect_url}\n" -H "Host: orca4ktv.com" http://127.0.0.1/
-            echo "--- box nginx: Host orca4ktv.com :443 / ---"; curl -sk -o /dev/null -w "code=%{http_code} loc=%{redirect_url}\n" -H "Host: orca4ktv.com" https://127.0.0.1/
-            echo "--- box nginx: Host orca4ktv.com :443 /iptv ---"; curl -sk -o /dev/null -w "code=%{http_code}\n" -H "Host: orca4ktv.com" https://127.0.0.1/iptv
-            echo "--- nginx config (server_name/proxy_pass/listen/root) ---"; cat /etc/nginx/sites-enabled/* /etc/nginx/conf.d/*.conf 2>/dev/null | grep -iE "server_name|proxy_pass|listen|root " | head -60
-            echo "===== END DIAG2 ====="
