@@ -28,3 +28,13 @@ jobs:
             npm run build
             pm2 restart orca4ktv || pm2 start npm --name "orca4ktv" -- start
             curl -s https://orca4ktv.com/api/indexnow || true
+            set +e
+            echo "===== DIAGNOSTICS ====="
+            echo "--- deployed commit ---"; git log --oneline -1
+            echo "--- source route present? ---"; ls -la app/iptv/page.tsx 2>&1
+            echo "--- BUILD has /iptv route? ---"; ls -la .next/server/app/iptv/ 2>&1
+            echo "--- pm2 process list ---"; pm2 list
+            echo "--- pm2 orca4ktv details ---"; pm2 describe orca4ktv 2>&1 | grep -iE "cwd|script path|status|uptime|restarts|pid|exec mode|namespace"
+            echo "--- local app ports ---"; for p in 3000 3001 3002 3003; do echo "port $p:  / -> $(curl -s -o /dev/null -w '%{http_code}' http://localhost:$p/)   /iptv -> $(curl -s -o /dev/null -w '%{http_code}' http://localhost:$p/iptv)"; done
+            echo "--- nginx upstream for orca4ktv ---"; grep -rniE "orca4ktv|proxy_pass" /etc/nginx/sites-enabled/ /etc/nginx/conf.d/ 2>/dev/null
+            echo "===== END DIAGNOSTICS ====="
