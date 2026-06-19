@@ -31,7 +31,7 @@ export default function SecurityPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'Security & Encryption', url: 'https://orca4ktv.com/security' },
         ]}
       />

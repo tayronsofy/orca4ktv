@@ -47,7 +47,7 @@ const Header: React.FC = () => {
   }, [mobileOpen])
 
   const navLinks = [
-    { href: '/#pricing', label: 'Pricing' },
+    { href: '/iptv#pricing', label: 'Pricing' },
     { href: '/iptv-shop', label: 'Shop' },
     { href: '/channels', label: 'Channels' },
     { href: '/iptv-tools', label: 'Tools' },
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
       >
         {/* Logo */}
         <Link
-          href="/"
+          href="/iptv"
           className="hover:opacity-80 transition-opacity flex items-center shrink-0"
           aria-label="Orca 4K TV Home"
         >

@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'Blog', url: 'https://orca4ktv.com/blog' },
           { name: post.title, url },
         ]}

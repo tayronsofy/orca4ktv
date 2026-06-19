@@ -146,7 +146,7 @@ export default function HomePage() {
                 "category": "Best IPTV · Smart TV · Watch TV online",
                 "offers": {
                   "@type": "Offer",
-                  "url": "https://orca4ktv.com/#pricing",
+                  "url": "https://orca4ktv.com/iptv#pricing",
                   "priceCurrency": "USD",
                   "price": "14.99",
                   "availability": "https://schema.org/InStock"

@@ -37,7 +37,7 @@ export default function GermanyPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Startseite', url: 'https://orca4ktv.com/' },
+          { name: 'Startseite', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Deutschland', url: 'https://orca4ktv.com/iptv-germany' },
         ]}
       />

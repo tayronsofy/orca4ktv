@@ -69,7 +69,7 @@ export default function ChannelsListPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Channel List', url: 'https://orca4ktv.com/channels' },
         ]}
       />

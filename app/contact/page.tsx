@@ -26,7 +26,7 @@ export default function Contact() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'Contact', url: 'https://orca4ktv.com/contact' },
         ]}
       />

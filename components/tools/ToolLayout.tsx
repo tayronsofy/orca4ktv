@@ -29,7 +29,7 @@ export default function ToolLayout({ slug, category, description, children, howT
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Tools', url: 'https://orca4ktv.com/iptv-tools' },
           { name: tool.shortTitle, url: baseUrl },
         ]}

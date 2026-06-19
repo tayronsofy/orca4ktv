@@ -124,7 +124,7 @@ export default function GlossaryPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Glossary', url: 'https://orca4ktv.com/glossary' },
         ]}
       />

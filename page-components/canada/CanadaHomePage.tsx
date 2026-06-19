@@ -22,7 +22,7 @@ const Loader = () => (
 const scrollToPricing = () => {
   const el = document.getElementById('pricing')
   if (el) el.scrollIntoView({ behavior: 'smooth' })
-  else window.location.href = '/#pricing'
+  else window.location.href = '/iptv#pricing'
 }
 
 interface CanadaHomePageProps {

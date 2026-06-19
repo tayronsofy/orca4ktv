@@ -254,7 +254,7 @@ const ChannelsPage: React.FC<ChannelsPageProps> = ({ seoContent }) => {
                                         Close
                                     </button>
                                     <a
-                                        href="/#pricing"
+                                        href="/iptv#pricing"
                                         className="px-6 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold shadow-lg shadow-purple-900/30 transition-all hover:scale-105"
                                     >
                                         Get Access Now

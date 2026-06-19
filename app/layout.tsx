@@ -149,7 +149,7 @@ export default function RootLayout({
               "@id": "https://orca4ktv.com/#website",
               "name": "ORCA 4K TV IPTV",
               "alternateName": "Orca 4K TV",
-              "url": "https://orca4ktv.com/",
+              "url": "https://orca4ktv.com/iptv",
               "description": "Premium IPTV streaming service - 22,000+ live channels, 4K HDR streaming, secure AES-256 access, multi-device compatibility, 24/7 customer support.",
               "publisher": { "@id": "https://orca4ktv.com/#organization" },
               "inLanguage": ["en", "de", "nl"],

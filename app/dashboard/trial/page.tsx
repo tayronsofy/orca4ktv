@@ -118,7 +118,7 @@ export default async function TrialPage() {
           <i className="fas fa-clock mr-2"></i>
           Your trial has ended. Upgrade for full access to all channels and 4K content.
           <div className="mt-4">
-            <Link href="/#pricing" className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity text-sm">
+            <Link href="/iptv#pricing" className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity text-sm">
               See plans
             </Link>
           </div>
@@ -168,7 +168,7 @@ export default async function TrialPage() {
           <h2 className="text-white font-bold mb-2">Liking it so far?</h2>
           <p className="text-gray-400 text-sm mb-4">Upgrade to a full subscription for permanent access, more connections, and priority support.</p>
           <Link
-            href="/#pricing"
+            href="/iptv#pricing"
             className="inline-block bg-white/5 hover:bg-white/10 text-purple-300 font-bold px-5 py-2.5 rounded-xl transition-colors text-sm border border-purple-500/30"
           >
             See plans →

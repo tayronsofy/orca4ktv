@@ -40,7 +40,7 @@ export default function SetupGuidePage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Setup Guide', url: 'https://orca4ktv.com/setup-guide' },
         ]}
       />

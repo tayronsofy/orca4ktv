@@ -38,7 +38,7 @@ export default function NetherlandsPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Nederland', url: 'https://orca4ktv.com/iptv-netherlands' },
         ]}
       />

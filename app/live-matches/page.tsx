@@ -55,7 +55,7 @@ export default function LiveMatchesPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'Live Matches', url: 'https://orca4ktv.com/live-matches' },
         ]}
       />

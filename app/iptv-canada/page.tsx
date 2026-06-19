@@ -37,7 +37,7 @@ export default function CanadaPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV Canada', url: 'https://orca4ktv.com/iptv-canada' },
         ]}
       />

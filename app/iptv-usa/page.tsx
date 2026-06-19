@@ -30,7 +30,7 @@ export default function USAPage() {
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: 'Home', url: 'https://orca4ktv.com/' },
+          { name: 'Home', url: 'https://orca4ktv.com/iptv' },
           { name: 'IPTV USA', url: 'https://orca4ktv.com/iptv-usa' },
         ]}
       />
