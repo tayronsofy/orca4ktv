@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Script from 'next/script';
 
 interface VideoSectionProps {
   onScrollToPricing: () => void;
@@ -66,25 +67,16 @@ const VideoSection: React.FC<VideoSectionProps> = ({ onScrollToPricing }) => {
           */}
           <div className="aspect-video bg-[#000a1c] rounded-xl overflow-hidden border-[12px] border-[#222] shadow-[0_0_100px_rgba(168,85,247,0.25)] relative group will-change-transform">
 
-            {/* Optimized Video Component */}
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata" // 🚀 Speed Win: Only load metadata first
-              // We reuse one of your movie images as a "Poster" so it doesn't show a black box while loading
-              poster="/images/IMG_8189-1-1.webp"
-              className="w-full h-full object-cover"
-              width="640"
-              height="360"
-            >
-              <source
-                src="/images/Dreifaltigkeitsmotiv-Animation-5er-l.webm"
-                type="video/webm"
-              />
-              Your browser does not support the video tag.
-            </video>
+            {/* Vimeo Embed Video */}
+            <iframe
+              src="https://player.vimeo.com/video/1203214324?badge=0&autopause=0&player_id=0&app_id=58479"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              className="w-full h-full absolute top-0 left-0 border-0"
+              title="Orca4ktv"
+            ></iframe>
+            <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
 
             {/* Subtle Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
