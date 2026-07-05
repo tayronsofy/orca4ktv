@@ -47,6 +47,7 @@ interface OrderData {
       m3u_url: string | null
       portal_url: string | null
       host_url_backups: string[] | null
+      playlist_url: string | null
       mac_addresses: string[] | null
     }> | null
   }>
@@ -58,6 +59,7 @@ interface CredFormState {
   m3u_url: string
   portal_url: string
   host_url_backups: [string, string, string]
+  playlist_url: string
   mac_addresses: string
 }
 
@@ -67,6 +69,7 @@ const emptyCredForm: CredFormState = {
   m3u_url: '',
   portal_url: '',
   host_url_backups: ['', '', ''],
+  playlist_url: '',
   mac_addresses: '',
 }
 
@@ -129,6 +132,7 @@ export default function OrderDetailPage() {
               m3u_url: row.m3u_url || '',
               portal_url: row.portal_url || '',
               host_url_backups: padBackups(row.host_url_backups),
+              playlist_url: row.playlist_url || '',
               mac_addresses: (row.mac_addresses || []).join('\n'),
             }
           } else if (i === 1 && sub?.iptv_username) {
@@ -139,6 +143,7 @@ export default function OrderDetailPage() {
               m3u_url: sub.m3u_url || '',
               portal_url: sub.portal_url || '',
               host_url_backups: ['', '', ''],
+              playlist_url: '',
               mac_addresses: (sub.mac_addresses || []).join('\n'),
             }
           } else {
@@ -196,6 +201,7 @@ export default function OrderDetailPage() {
         m3u_url: c.m3u_url,
         portal_url: c.portal_url,
         host_url_backups: backups,
+        playlist_url: c.playlist_url,
         mac_addresses: macs,
       }),
     })
@@ -449,6 +455,18 @@ export default function OrderDetailPage() {
                           />
                         ))}
                       </div>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">
+                        Customize Playlist URL <span className="text-gray-600 normal-case">- shown as a button to the client</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={c.playlist_url}
+                        onChange={e => updateSlotField(slot, 'playlist_url', e.target.value)}
+                        placeholder="https://… (optional)"
+                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                      />
                     </div>
                     <div>
                       <label className="block text-[10px] text-gray-500 mb-1 uppercase tracking-wider">MAC Addresses (optional)</label>

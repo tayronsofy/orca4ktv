@@ -19,7 +19,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { id } = await params
   const body = await request.json()
-  const { slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backups, mac_addresses } = body
+  const { slot, iptv_username, iptv_password, m3u_url, portal_url, host_url_backups, playlist_url, mac_addresses } = body
 
   const slotNum = Number(slot)
   if (!Number.isInteger(slotNum) || slotNum < 1 || slotNum > 4) {
@@ -100,6 +100,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         m3u_url,
         portal_url: portal_url || null,
         host_url_backups: cleanBackups.length ? cleanBackups : null,
+        playlist_url: (typeof playlist_url === 'string' && playlist_url.trim()) ? playlist_url.trim() : null,
         mac_addresses: mac_addresses?.length ? mac_addresses : null,
       },
       { onConflict: 'subscription_id,slot' }

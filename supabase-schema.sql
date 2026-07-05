@@ -183,6 +183,7 @@ CREATE TABLE IF NOT EXISTS subscription_credentials (
   m3u_url          TEXT,
   portal_url       TEXT,
   host_url_backups TEXT[],
+  playlist_url     TEXT,
   mac_addresses    TEXT[],
   created_at       TIMESTAMPTZ DEFAULT NOW(),
   updated_at       TIMESTAMPTZ DEFAULT NOW(),
@@ -190,6 +191,7 @@ CREATE TABLE IF NOT EXISTS subscription_credentials (
 );
 
 ALTER TABLE subscription_credentials ADD COLUMN IF NOT EXISTS host_url_backups TEXT[];
+ALTER TABLE subscription_credentials ADD COLUMN IF NOT EXISTS playlist_url TEXT;
 
 -- Backfill from the old single-value column if it exists and has data
 DO $$

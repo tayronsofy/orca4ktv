@@ -86,6 +86,7 @@ export default async function SubscriptionPage() {
             m3u_url: string | null
             portal_url: string | null
             host_url_backups: string[] | null
+            playlist_url: string | null
           }> = ((sub as any).subscription_credentials || [])
             .slice()
             .sort((a: { slot: number }, b: { slot: number }) => a.slot - b.slot)
@@ -94,7 +95,7 @@ export default async function SubscriptionPage() {
           const credSlots = slotRows.length > 0
             ? slotRows
             : sub.iptv_username
-              ? [{ slot: 1, iptv_username: sub.iptv_username, iptv_password: sub.iptv_password, m3u_url: sub.m3u_url, portal_url: sub.portal_url, host_url_backups: null }]
+              ? [{ slot: 1, iptv_username: sub.iptv_username, iptv_password: sub.iptv_password, m3u_url: sub.m3u_url, portal_url: sub.portal_url, host_url_backups: null, playlist_url: null }]
               : []
 
           if (credSlots.length === 0) {
@@ -136,6 +137,16 @@ export default async function SubscriptionPage() {
                         <RevealCredential key={i} label={`Host URL (Backup ${i + 1})`} value={b} isUrl />
                       ))}
                   </div>
+                  {c.playlist_url && c.playlist_url.trim() && (
+                    <a
+                      href={c.playlist_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
+                    >
+                      <i className="fas fa-sliders-h"></i> Customize Your Playlist
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
