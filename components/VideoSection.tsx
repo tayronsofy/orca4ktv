@@ -11,7 +11,8 @@ interface VideoSectionProps {
 const FEATURES = [
   "22,500+ Live Channels",
   "Crystal Clear 4K Quality",
-  "Instant Activation"
+  "Instant Activation",
+  "Customize Your Playlist Anytime"
 ];
 
 const VideoSection: React.FC<VideoSectionProps> = ({ onScrollToPricing }) => {

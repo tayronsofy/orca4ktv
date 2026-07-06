@@ -14,6 +14,7 @@ const Pricing = () => {
     "Native 4K & Ultra-HD Resolution",
     "Over 22,000 Unrestricted Networks",
     "Massive VOD Library (Movies/Series)",
+    "Customize Your Playlist - Add or Remove Channels & VOD",
     "Seamless Buffer-Free Streaming",
     "Guaranteed 99.9% Uptime SLA",
     "Dedicated Round-the-Clock Support",
