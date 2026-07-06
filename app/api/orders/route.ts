@@ -34,8 +34,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 })
   }
 
-  const { planSlug, connections: rawConnections, couponCode, phone, country } = body ?? {}
+  const { planSlug, connections: rawConnections, couponCode, phone, country, renewal } = body ?? {}
   const connections = Number(rawConnections)
+
+  // Optional renewal context (client renewing an existing playlist from the dashboard)
+  const renewalInfo = renewal && typeof renewal === 'object'
+    ? {
+        username: renewal.username ? String(renewal.username) : null,
+        playlistUrl: renewal.playlistUrl ? String(renewal.playlistUrl) : null,
+        slot: Number.isFinite(Number(renewal.slot)) ? Number(renewal.slot) : null,
+      }
+    : null
 
   if (!isValidPlanSlug(planSlug)) {
     return NextResponse.json({ error: 'Invalid plan' }, { status: 400 })
@@ -101,6 +110,9 @@ export async function POST(request: NextRequest) {
       coupon_code: appliedCouponCode,
       status: 'pending_payment',
       customer_ip: ip,
+      notes: renewalInfo
+        ? `Playlist renewal — user ${renewalInfo.username ?? '?'} (slot ${renewalInfo.slot ?? '?'})${renewalInfo.playlistUrl ? ' — ' + renewalInfo.playlistUrl : ''}`
+        : null,
     })
     .select()
     .single()
@@ -174,6 +186,7 @@ export async function POST(request: NextRequest) {
     connections,
     amount: finalAmount.toFixed(2),
     orderId: order.id,
+    ...(renewalInfo ? { renewal: renewalInfo } : {}),
   }).catch(console.error)
 
   return NextResponse.json(

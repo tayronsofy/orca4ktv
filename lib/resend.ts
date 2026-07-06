@@ -60,24 +60,43 @@ interface AdminNewOrderAlertProps {
   connections: number
   amount: string
   orderId: string
+  renewal?: { username?: string | null; playlistUrl?: string | null; slot?: number | null }
 }
 
 export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
-  const { customerEmail, customerName, orderNumber, planName, connections, amount, orderId } = props
+  const { customerEmail, customerName, orderNumber, planName, connections, amount, orderId, renewal } = props
   const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
+
+  const renewalText = renewal
+    ? `\n\n--- Playlist Renewal ---\nUsername: ${renewal.username || '?'}\nSlot: ${renewal.slot ?? '?'}${renewal.playlistUrl ? `\nPlaylist URL: ${renewal.playlistUrl}` : ''}`
+    : ''
+
+  const renewalHtml = renewal
+    ? `
+          <div style="background:#2c3034;border:1px solid #a855f7;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#a855f7;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;">&#128257; Playlist Renewal</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">Username</td><td style="color:#fff;text-align:right;font-weight:700;font-family:monospace;">${renewal.username || '?'}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Slot</td><td style="color:#fff;text-align:right;">${renewal.slot ?? '?'}</td></tr>
+              ${renewal.playlistUrl ? `<tr><td style="color:#9ca3af;padding:6px 0;">Playlist URL</td><td style="color:#60a5fa;text-align:right;word-break:break-all;font-size:12px;">${renewal.playlistUrl}</td></tr>` : ''}
+            </table>
+          </div>`
+    : ''
+
   return getResend().emails.send({
     from: FROM,
     to: adminEmail,
     replyTo: REPLY_TO,
-    subject: `New order received: ${orderNumber}`,
-    text: `New order received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}\n\nManage: https://orca4ktv.com/admin/orders/${orderId}`,
+    subject: `${renewal ? 'Playlist renewal' : 'New order'} received: ${orderNumber}`,
+    text: `${renewal ? 'Playlist renewal' : 'New order'} received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}${renewalText}\n\nManage: https://orca4ktv.com/admin/orders/${orderId}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
         <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
-          <h1 style="margin:0;font-size:22px;font-weight:900;">New Order Received</h1>
+          <h1 style="margin:0;font-size:22px;font-weight:900;">${renewal ? 'Playlist Renewal Request' : 'New Order Received'}</h1>
           <p style="margin:6px 0 0;opacity:.85;font-size:14px;">${orderNumber}</p>
         </div>
         <div style="padding:32px;">
+          ${renewalHtml}
           <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
             <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Customer</p>
             <p style="margin:0 0 4px;color:#fff;font-size:16px;font-weight:700;">${customerName}</p>

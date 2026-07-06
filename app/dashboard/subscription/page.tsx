@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import RevealCredential from '@/components/dashboard/RevealCredential'
+import RenewPlaylistButton from '@/components/dashboard/RenewPlaylistButton'
 
 export const metadata = {
   title: 'My Subscription - ORCA 4K TV IPTV',
@@ -137,16 +138,25 @@ export default async function SubscriptionPage() {
                         <RevealCredential key={i} label={`Host URL (Backup ${i + 1})`} value={b} isUrl />
                       ))}
                   </div>
-                  {c.playlist_url && c.playlist_url.trim() && (
-                    <a
-                      href={c.playlist_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
-                    >
-                      <i className="fas fa-sliders-h"></i> Customize Your Playlist
-                    </a>
-                  )}
+                  <div className="mt-5 flex flex-col items-start gap-0">
+                    {c.playlist_url && c.playlist_url.trim() && (
+                      <a
+                        href={c.playlist_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:opacity-90 transition-opacity"
+                      >
+                        <i className="fas fa-sliders-h"></i> Customize Your Playlist
+                      </a>
+                    )}
+                    <RenewPlaylistButton
+                      currentConnections={sub.connections}
+                      currentPlanSlug={(sub as any).orders?.plan_slug}
+                      username={c.iptv_username}
+                      playlistUrl={c.playlist_url}
+                      slot={c.slot}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
