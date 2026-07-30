@@ -65,7 +65,7 @@ const Header: React.FC = () => {
       >
         {/* Logo */}
         <Link
-          href="/iptv"
+          href="/"
           className="hover:opacity-80 transition-opacity flex items-center shrink-0"
           aria-label="Orca 4K TV Home"
         >

@@ -2,7 +2,21 @@
 
 import React, { useState, useEffect } from 'react';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  eyebrow?: string;
+  titleTop?: string;
+  titleBottom?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({
+  eyebrow = 'The Best IPTV Subscription for 2026 · AI-Powered IPTV',
+  titleTop = 'ORCA 4K TV',
+  titleBottom = 'PREMIUM 4K IPTV',
+  subtitle = '22,000+ Live Channels, 4K HDR Sports & On-Demand Movies - Buffer-Free, Worldwide',
+  description = 'Stream the biggest international football tournament of 2026, the championship game in February, top European club football finals and every premium IPTV channel in 4K Ultra-HD with HDR10+ and Dolby Vision support. Powered by Anti Freeze CDN, AES-256 encrypted, multi-device ready, and backed by an AI concierge that finds your show in seconds.',
+}) => {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [aiResponse, setAiResponse] = useState<string | null>(null);
@@ -73,24 +87,24 @@ const Hero: React.FC = () => {
       <div className="relative z-10 max-w-4xl w-full px-4">
         <div className="inline-block px-5 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-[#00E5FF] text-[10px] font-black uppercase tracking-[0.3em] animate-fade-in">
           <span className="mr-2 inline-block w-2 h-2 bg-[#00E5FF] rounded-full animate-pulse"></span>
-          The Best IPTV Subscription for 2026 · AI-Powered IPTV
+          {eyebrow}
         </div>
 
         {/* 🚀 SEO UPGRADE: Keyword-Rich H1 Tag */}
         <h1 className="text-5xl md:text-8xl lg:text-9xl font-black mb-4 leading-[0.9] tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-          ORCA 4K TV<br />
+          {titleTop}<br />
           <span className="hero-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] via-white to-[#00E5FF] bg-[length:200%_auto] animate-shimmer">
-            PREMIUM 4K IPTV
+            {titleBottom}
           </span>
         </h1>
 
         {/* 🚀 SEO UPGRADE: Descriptive H2 Tag */}
         <h2 className="text-xl md:text-2xl text-gray-300 mb-8 font-bold max-w-2xl mx-auto drop-shadow-lg">
-          22,000+ Live Channels, 4K HDR Sports & On-Demand Movies - Buffer-Free, Worldwide
+          {subtitle}
         </h2>
 
         <p className="text-lg md:text-xl text-gray-400 mb-12 font-medium max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-          Stream the biggest international football tournament of 2026, the championship game in February, top European club football finals and every premium IPTV channel in 4K Ultra-HD with HDR10+ and Dolby Vision support. Powered by Anti Freeze CDN, AES-256 encrypted, multi-device ready, and backed by an AI concierge that finds your show in seconds.
+          {description}
         </p>
 
         {/* AI Search Bar Area */}

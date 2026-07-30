@@ -34,9 +34,6 @@ const nextConfig: NextConfig = {
         destination: 'https://orca4ktv.com/:path*',
         permanent: true,
       },
-      // Homepage moved to /iptv (root URL deindexed by DMCA) — 301 the apex root onward.
-      // Must stay after the www→apex rule so www.orca4ktv.com/ normalizes host first.
-      { source: '/', destination: '/iptv', permanent: true },
       // Legacy blog slug redirects — old slugs contained third-party trademarks
       { source: '/blog/stream-bundesliga-live-iptv-4k-no-blackouts',     destination: '/blog/stream-german-football-live-iptv-4k',                  permanent: true },
       { source: '/blog/stream-serie-a-live-iptv-4k-no-blackouts',        destination: '/blog/stream-italian-football-live-iptv-4k',                 permanent: true },

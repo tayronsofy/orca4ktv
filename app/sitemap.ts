@@ -6,7 +6,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date().toISOString().split('T')[0]
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${base}/iptv`,              priority: 1.0 },
+    { url: `${base}/`,                  priority: 1.0 },
+    { url: `${base}/iptv`,              priority: 0.9 },
     { url: `${base}/iptv-usa`,          priority: 0.9 },
     { url: `${base}/iptv-uk`,           priority: 0.9 },
     { url: `${base}/iptv-canada`,       priority: 0.9 },
