@@ -1,21 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdminRequest as checkAdminAuth } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { sendPaymentLink, sendCredentialsReady } from '@/lib/resend'
-
-function checkAdminAuth(request: NextRequest): boolean {
-  const token = request.cookies.get('admin_token')?.value
-  const expected = process.env.ADMIN_SECRET
-  return !!(token && expected && token === expected)
-}
+import { sendPaymentLink, sendCredentialsReady } from '@/lib/email'
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
 
   const { id } = await params
   const { type } = await request.json()
 
   if (!['payment-link', 'credentials'].includes(type)) {
-    return NextResponse.json({ error: 'Invalid email type' }, { status: 400 })
+    return NextResponse.json({ error: 'bad_request', detail: 'Invalid email type' }, { status: 400 })
   }
 
   const admin = createAdminClient()
@@ -27,20 +22,20 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     .eq('id', id)
     .single()
 
-  if (!order) return NextResponse.json({ error: 'Order not found' }, { status: 404 })
+  if (!order) return NextResponse.json({ error: 'not_found' }, { status: 404 })
 
   const profile = (order as any).profiles
   const invoice = (order as any).invoices?.[0]
   const subscription = (order as any).subscriptions?.[0]
 
-  if (!profile?.email) return NextResponse.json({ error: 'Customer email not found' }, { status: 400 })
+  if (!profile?.email) return NextResponse.json({ error: 'no_customer_email' }, { status: 400 })
 
   if (type === 'payment-link') {
     if (!invoice?.payment_link) {
-      return NextResponse.json({ error: 'No payment link set on invoice. Save it first.' }, { status: 400 })
+      return NextResponse.json({ error: 'no_payment_link', detail: 'No payment link set on invoice. Save it first.' }, { status: 400 })
     }
 
-    await sendPaymentLink({
+    const res = await sendPaymentLink({
       to: profile.email,
       customerName: profile.full_name || 'Valued Customer',
       orderNumber: invoice.invoice_number,
@@ -48,11 +43,12 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       amount: `$${Number(order.amount).toFixed(2)}`,
       paymentLink: invoice.payment_link,
     })
+    if (!res.ok) return NextResponse.json({ error: 'email_failed', detail: res.error }, { status: 502 })
   }
 
   if (type === 'credentials') {
     if (!subscription?.id) {
-      return NextResponse.json({ error: 'No subscription created for this order yet.' }, { status: 400 })
+      return NextResponse.json({ error: 'no_credentials', detail: 'No subscription created for this order yet.' }, { status: 400 })
     }
 
     const { data: credRows } = await admin
@@ -73,10 +69,10 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       }))
 
     if (credentials.length === 0) {
-      return NextResponse.json({ error: 'No credentials saved for this order yet.' }, { status: 400 })
+      return NextResponse.json({ error: 'no_credentials', detail: 'No credentials saved for this order yet.' }, { status: 400 })
     }
 
-    await sendCredentialsReady({
+    const res = await sendCredentialsReady({
       to: profile.email,
       customerName: profile.full_name || 'Valued Customer',
       planName: order.plan_name,
@@ -85,6 +81,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         : 'N/A',
       credentials,
     })
+    if (!res.ok) return NextResponse.json({ error: 'email_failed', detail: res.error }, { status: 502 })
   }
 
   return NextResponse.json({ success: true })

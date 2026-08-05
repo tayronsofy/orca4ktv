@@ -1,24 +1,28 @@
 import { NextResponse } from 'next/server'
+import { ADMIN_COOKIE, constantTimeCompare, hashSecret, jsonError } from '@/lib/admin/auth'
 
 export async function POST(request: Request) {
-  const { password } = await request.json()
+  let password = ''
+  try {
+    const body = await request.json()
+    password = typeof body?.password === 'string' ? body.password : ''
+  } catch {
+    return jsonError('bad_request', 400)
+  }
 
   const adminPassword = process.env.ADMIN_PASSWORD
   const adminSecret = process.env.ADMIN_SECRET
 
   if (!adminPassword || !adminSecret) {
-    return NextResponse.json(
-      { error: 'Admin credentials not configured in .env.local' },
-      { status: 500 }
-    )
+    return jsonError('panel_not_configured', 500, 'ADMIN_PASSWORD / ADMIN_SECRET missing')
   }
 
-  if (password !== adminPassword) {
-    return NextResponse.json({ error: 'Invalid password' }, { status: 401 })
+  if (!constantTimeCompare(password, adminPassword)) {
+    return jsonError('unauthorized', 401)
   }
 
   const response = NextResponse.json({ success: true })
-  response.cookies.set('admin_token', adminSecret, {
+  response.cookies.set(ADMIN_COOKIE, hashSecret(adminSecret), {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',

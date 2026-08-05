@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import { Suspense } from 'react'
 import Link from 'next/link'
 import Hero from '@/components/Hero'
@@ -6,7 +7,7 @@ import HomePageClient from '../HomePageClient'
 import { getPublishedPosts } from '@/lib/posts'
 import TrustFacts from '@/components/seo/TrustFacts'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'IPTV Subscription Plans - 22,000+ Channels From $7.92/mo | ORCA 4K TV',
   description: 'Buy an ORCA 4K TV IPTV subscription: 1, 3, 6 or 12-month plans from $7.92/mo. 22,000+ live channels, 100,000+ movies in 4K HDR, up to 4 connections, instant activation and a money-back guarantee.',
   keywords: 'IPTV subscription, IPTV plans, buy IPTV, IPTV subscription plans, IPTV pricing, 4K IPTV subscription, IPTV 12 month plan, cheap IPTV subscription, IPTV connections, IPTV instant activation, IPTV money back guarantee, best IPTV service, premium IPTV channels, IPTV multi-device, IPTV Firestick, IPTV Smart TV',
@@ -26,8 +27,21 @@ export const metadata: Metadata = {
   },
 }
 
-export default function IptvPlansPage() {
-  const latestPosts = getPublishedPosts().slice(0, 6)
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
+}
+
+export const revalidate = 300
+
+export default async function IptvPlansPage() {
+  const latestPosts = (await getPublishedPosts()).slice(0, 6)
 
   const belowDevices = (
     <>

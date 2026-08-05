@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import GermanyHero from '@/components/germany/GermanyHero'
 import GermanyHomePage from '@/page-components/germany/GermanyHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Bestes IPTV Deutschland 2026 - Live-Sport & DE-Sender | ORCA 4K TV',
   description: 'Bestes IPTV Deutschland 2026: deutscher Spitzenfußball, top europäischer Klubfußball, Motorsport, Olympia 2026 in 4K HDR. 22.000+ Sender, alle wichtigen deutschen Free-TV-Sender. Sofort aktiviert.',
   keywords: 'bestes iptv deutschland 2026, iptv deutschland, iptv abonnement, iptv anbieter deutschland, iptv streamingdienst, premium iptv sender, 4K Streaming, HDR Streaming, pufferungsfreies Streaming, multi-device, sicheres Streaming, AES-256 Verschlüsselung, 24/7 Kundenservice, EPG Programm, Catch-Up Funktion, sofortige Aktivierung, iptv mit vpn, kabelfernsehen alternative, sport iptv deutschland, fussball iptv deutschland',
@@ -30,6 +31,17 @@ export const metadata: Metadata = {
     title: 'Bestes IPTV Deutschland 2026 - Live-Sport & DE-Sender | ORCA 4K TV',
     description: 'Jeder deutsche Spitzenfußball-Anstoß, Pokalfinale, Motorsport-Runde 2026 in 4K HDR. Anti Freeze CDN. Ab €/Monat.',
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv-germany', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function GermanyPage() {

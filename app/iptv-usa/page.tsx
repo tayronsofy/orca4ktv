@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import USAHero from '@/components/usa/USAHero'
 import USAHomePage from '@/page-components/usa/USAHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Best IPTV USA 2026 - Live Sports & US Networks | ORCA 4K TV',
   description: 'Best IPTV USA 2026: live US sports + every major free-to-air network in 4K HDR. 22,000+ channels, multi-device, no contract. From $7.92/mo.',
   keywords: 'best iptv usa 2026, usa local channels iptv, american sports iptv hd, iptv service for firestick usa, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, cord cutting usa',
@@ -23,6 +24,17 @@ export const metadata: Metadata = {
     url: 'https://orca4ktv.com/iptv-usa',
     images: [{ url: 'https://orca4ktv.com/images/usa-coverage.jpg', width: 1200, height: 630 }],
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv-usa', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function USAPage() {

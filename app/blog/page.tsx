@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogListPage() {
-  const posts = getPublishedPosts()
+export default async function BlogListPage() {
+  const posts = await getPublishedPosts()
   return (
     <>
       <BreadcrumbJsonLd

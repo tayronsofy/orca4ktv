@@ -22,18 +22,27 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = await getPost(slug)
   if (!post) return {}
-  const imageUrl = post.imageUrl ? `https://orca4ktv.com${post.imageUrl}` : 'https://orca4ktv.com/og-default.jpg'
+  const coverUrl = post.imageUrl
+    ? (post.imageUrl.startsWith('http') ? post.imageUrl : `https://orca4ktv.com${post.imageUrl}`)
+    : 'https://orca4ktv.com/og-default.jpg'
+  // Per-post SEO overrides: meta_title ?? title, meta_description ?? excerpt, og ?? cover
+  const resolvedTitle = post.metaTitle || post.title
+  const resolvedDescription = post.metaDescription || post.excerpt
+  const imageUrl = post.ogImageUrl || coverUrl
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: resolvedTitle,
+    description: resolvedDescription,
     keywords: post.seoKeywords,
-    alternates: { canonical: `https://orca4ktv.com/blog/${post.slug}` },
+    // noindex posts drop the canonical entirely
+    ...(post.noindex
+      ? { robots: { index: false, follow: false } }
+      : { alternates: { canonical: post.canonicalUrl || `https://orca4ktv.com/blog/${post.slug}` } }),
     openGraph: {
       type: 'article',
-      title: post.title,
-      description: post.excerpt,
+      title: resolvedTitle,
+      description: resolvedDescription,
       url: `https://orca4ktv.com/blog/${post.slug}`,
       publishedTime: new Date(post.date).toISOString(),
       authors: [post.author],
@@ -41,8 +50,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title: resolvedTitle,
+      description: resolvedDescription,
       images: [imageUrl],
     },
   }
@@ -50,18 +59,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = await getPost(slug)
   if (!post || post.status === 'draft') notFound()
 
   const url = `https://orca4ktv.com/blog/${post.slug}`
-  const imageUrl = post.imageUrl ? `https://orca4ktv.com${post.imageUrl}` : 'https://orca4ktv.com/og-default.jpg'
+  const imageUrl = post.imageUrl
+    ? (post.imageUrl.startsWith('http') ? post.imageUrl : `https://orca4ktv.com${post.imageUrl}`)
+    : 'https://orca4ktv.com/og-default.jpg'
   const datePublished = new Date(post.date).toISOString()
   const dateModified = post.dateModified
     ? new Date(post.dateModified).toISOString()
     : datePublished
 
   // Pick 3 related posts (same category, excluding self), fall back to most recent
-  const allPublished = getPublishedPosts().filter((p) => p.slug !== post.slug)
+  const allPublished = (await getPublishedPosts()).filter((p) => p.slug !== post.slug)
   const sameCategory = allPublished.filter((p) => p.category === post.category)
   const relatedPosts = (sameCategory.length >= 3 ? sameCategory : [...sameCategory, ...allPublished])
     .filter((p, idx, arr) => arr.findIndex((x) => x.slug === p.slug) === idx)
@@ -69,7 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': post.schemaType || 'Article',
     headline: post.title,
     description: post.summary || post.excerpt,
     image: [imageUrl],

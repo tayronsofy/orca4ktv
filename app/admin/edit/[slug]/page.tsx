@@ -10,7 +10,7 @@ interface Props {
 
 export default async function EditPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPost(slug)
+  const post = await getPost(slug)
   if (!post) notFound()
   return (
     <div className="min-h-screen">

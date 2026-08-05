@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Free IPTV Trial 2026 - Instant Activation | ORCA 4K TV',
   description: 'Free IPTV trial with instant activation. Test ORCA 4K TV - 22,000+ channels in 4K HDR, smart EPG, multi-device. No credit card. Stream in 5 minutes.',
   keywords: 'free iptv trial, iptv test, iptv free trial 2026, IPTV instant start, instant activation, rapid setup, fast IPTV setup, IPTV subscription plans, IPTV subscription, multi-device compatibility, IPTV multi-device, buffer-free streaming, zero buffering, premium IPTV channels, 4K streaming, HDR streaming',
@@ -20,6 +21,17 @@ export const metadata: Metadata = {
     description: 'No credit card. 22,000+ channels in 4K HDR. Smart EPG, multi-device.',
     images: ['https://orca4ktv.com/og-image.jpg'],
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('trial', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function TrialPage() {

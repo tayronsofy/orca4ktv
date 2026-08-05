@@ -1,21 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdminRequest as checkAdminAuth } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
-
-function checkAdminAuth(request: NextRequest): boolean {
-  const token = request.cookies.get('admin_token')?.value
-  const expected = process.env.ADMIN_SECRET
-  return !!(token && expected && token === expected)
-}
-
-const PLAN_MONTHS: Record<string, number> = {
-  '1-month':   1,
-  '3-months':  3,
-  '6-months':  6,
-  '12-months': 12,
-}
+import { PLAN_MONTHS } from '@/lib/iptv-panel'
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
-  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
 
   const { id } = await params
   const body = await request.json()

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { sendAdminNewTrialAlert } from '@/lib/resend'
+import { sendAdminNewTrialAlert } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
   try {

@@ -74,3 +74,62 @@ export interface OrderWithSubscription extends Order {
   invoices: Invoice[]
   subscriptions: Subscription[]
 }
+
+// ── Admin rebuild tables ─────────────────────────────────────
+
+export interface SmtpSettings {
+  id: number
+  host: string | null
+  port: number | null
+  secure: boolean | null
+  smtp_user: string | null
+  smtp_pass: string | null
+  from_name: string | null
+  from_email: string | null
+  reply_to: string | null
+  admin_email: string | null
+  updated_at: string
+}
+
+export interface SeoMeta {
+  page_key: string
+  meta_title: string | null
+  meta_description: string | null
+  canonical_url: string | null
+  noindex: boolean | null
+  nofollow: boolean | null
+  og_title: string | null
+  og_description: string | null
+  og_image_url: string | null
+  twitter_title: string | null
+  twitter_description: string | null
+  twitter_image_url: string | null
+  focus_keyword: string | null
+  schema_breadcrumb: boolean | null
+  schema_faq: boolean | null
+  updated_at: string
+}
+
+export interface SeoSettings {
+  id: number
+  title_template: string | null
+  default_og_image: string | null
+  social_same_as: string[] | null
+  google_verification: string | null
+  bing_verification: string | null
+  robots_extra_lines: string | null
+  sitemap_exclusions: string[] | null
+  default_blog_schema_type: string | null
+  updated_at: string
+}
+
+export interface SeoRedirect {
+  id: string
+  from_path: string
+  to_path: string | null
+  status_code: 301 | 302 | 410
+  enabled: boolean
+  note: string | null
+  created_at: string
+  updated_at: string
+}

@@ -2,16 +2,11 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import AdminShell from '@/components/admin/AdminShell'
+import StatusBadge from '@/components/admin/StatusBadge'
+import { inputCls, primaryBtnCls } from '@/components/admin/ui'
 
 const STATUS_OPTIONS = ['all', 'pending_payment', 'paid', 'active', 'expired', 'cancelled']
-
-const statusStyle: Record<string, string> = {
-  pending_payment: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  paid:            'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  active:          'bg-green-500/20 text-green-400 border-green-500/30',
-  expired:         'bg-gray-500/20 text-gray-400 border-gray-500/30',
-  cancelled:       'bg-red-500/20 text-red-400 border-red-500/30',
-}
 
 const statusLabel: Record<string, string> = {
   pending_payment: 'Pending',
@@ -63,17 +58,7 @@ export default function AdminOrdersPage() {
   const totalPages = Math.ceil(total / 50)
 
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-black text-white">Orders</h1>
-          <p className="text-gray-400 text-sm mt-1">{total} total orders</p>
-        </div>
-        <Link href="/admin/dashboard" className="text-sm text-gray-400 hover:text-white transition-colors">
-          ← Back to dashboard
-        </Link>
-      </div>
-
+    <AdminShell title={`Orders (${total})`}>
       {/* Filters */}
       <div className="flex flex-wrap gap-3 mb-6">
         <form onSubmit={handleSearch} className="flex gap-2">
@@ -82,9 +67,9 @@ export default function AdminOrdersPage() {
             value={searchInput}
             onChange={e => setSearchInput(e.target.value)}
             placeholder="Search by email…"
-            className="bg-[#002952] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-64"
+            className={`${inputCls} w-64`}
           />
-          <button type="submit" className="bg-purple-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-purple-500 transition-colors">
+          <button type="submit" className={primaryBtnCls}>
             Search
           </button>
           {search && (
@@ -100,7 +85,7 @@ export default function AdminOrdersPage() {
               key={s}
               onClick={() => { setStatus(s); setPage(1) }}
               className={`px-3 py-2 rounded-xl text-xs font-bold uppercase tracking-wide transition-all ${
-                status === s ? 'bg-purple-600 text-white' : 'bg-[#002952] text-gray-400 hover:text-white border border-white/5'
+                status === s ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-[#1a1200]' : 'bg-[#002952] text-gray-400 hover:text-white border border-white/5'
               }`}
             >
               {s === 'all' ? 'All' : statusLabel[s]}
@@ -139,9 +124,7 @@ export default function AdminOrdersPage() {
                 <p className="text-gray-600 text-xs">{order.connections} connection{order.connections > 1 ? 's' : ''}</p>
               </div>
               <span className="text-white font-bold text-sm">${order.amount}</span>
-              <span className={`inline-flex items-center self-start px-2.5 py-0.5 rounded-full text-xs font-medium border ${statusStyle[order.status] || statusStyle.cancelled}`}>
-                {statusLabel[order.status] || order.status}
-              </span>
+              <span className="self-start"><StatusBadge status={order.status} /></span>
               <span className="text-gray-500 text-xs">
                 {new Date(order.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
               </span>
@@ -170,6 +153,6 @@ export default function AdminOrdersPage() {
           </button>
         </div>
       )}
-    </div>
+    </AdminShell>
   )
 }

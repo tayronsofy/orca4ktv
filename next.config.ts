@@ -53,6 +53,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'flagcdn.com' },
       { protocol: 'https', hostname: 'orca4ktv.com' },
       { protocol: 'https', hostname: 'img.sofascore.com' },
+      { protocol: 'https', hostname: 'ciwzqofczjlsfkiylpti.supabase.co' },
     ],
   },
 }

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import UKHero from '@/components/uk/UKHero'
 import UKHomePage from '@/page-components/uk/UKHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Best IPTV UK 2026 - Live Sports & UK Networks | ORCA 4K TV',
   description: 'Best IPTV UK 2026: every UK football matchday, top European football, motorsport & Grand Slam tennis in 4K HDR. 22,000+ channels, all UK free-to-air networks.',
   keywords: 'best iptv uk 2026, iptv uk, uk iptv subscription, uk live tv channels iptv hd, iptv uk no buffering, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, zero buffering, multi-device compatibility, IPTV multi-device, smart EPG guide, electronic program guide, catch up feature, IPTV catch up TV, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, satellite TV alternative UK, cord cutting uk',
@@ -29,6 +30,17 @@ export const metadata: Metadata = {
     title: 'Best IPTV UK 2026 - Live Sports & UK Networks | ORCA 4K TV',
     description: 'UK football, top European football midweek, motorsport, Grand Slam tennis in 4K HDR. Anti Freeze CDN. AES-256 encrypted. £/mo plans.',
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv-uk', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function UKPage() {

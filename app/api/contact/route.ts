@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendAdminNewContactAlert } from '@/lib/resend'
+import { sendAdminNewContactAlert } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,12 +24,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Send the contact email alert to admin
-    await sendAdminNewContactAlert({
+    const res = await sendAdminNewContactAlert({
       name: name.trim(),
       email: email.trim(),
       subject: subject.trim(),
       message: message.trim(),
     })
+    if (!res.ok) {
+      return NextResponse.json({ error: 'email_failed' }, { status: 502 })
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {

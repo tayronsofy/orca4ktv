@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import type { BlogPost } from '@/lib/posts'
+import { analyzeSeo } from '@/lib/seo/analyzer'
+import SeoScorePanel from './SeoScorePanel'
 
 // Lazy-load the editor (it's heavy and needs the browser)
 const RichTextEditor = dynamic(() => import('./RichTextEditor'), { ssr: false, loading: () => (
@@ -53,6 +55,79 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
   const [uploading, setUploading] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
+  // Per-post SEO overrides
+  const [metaTitle, setMetaTitle] = useState(post?.metaTitle ?? '')
+  const [metaDescription, setMetaDescription] = useState(post?.metaDescription ?? '')
+  const [canonicalUrl, setCanonicalUrl] = useState(post?.canonicalUrl ?? '')
+  const [ogImageUrl, setOgImageUrl] = useState(post?.ogImageUrl ?? '')
+  const [noindex, setNoindex] = useState(post?.noindex ?? false)
+  const [focusKeyword, setFocusKeyword] = useState(post?.focusKeyword ?? '')
+  const [schemaType, setSchemaType] = useState(post?.schemaType ?? 'Article')
+
+  // Tiptap seeds content once at mount — bump this key after every
+  // PROGRAMMATIC content change (AI insertions) to force a remount,
+  // otherwise the change is silently lost.
+  const [editorKey, setEditorKey] = useState(0)
+  const setContentProgrammatic = (html: string) => {
+    setContent(html)
+    setEditorKey(k => k + 1)
+  }
+
+  // AI assistant state
+  const [aiBusy, setAiBusy] = useState<string | null>(null)
+  const [aiError, setAiError] = useState('')
+  const [aiKeywords, setAiKeywords] = useState<{ keyword: string; intent: string; rationale: string }[]>([])
+  const [aiTips, setAiTips] = useState<string[]>([])
+
+  const analysis = analyzeSeo({
+    title: metaTitle || title,
+    description: metaDescription || excerpt,
+    slug,
+    focusKeyword,
+    contentHtml: content,
+    hasCoverImage: !!imageUrl,
+  })
+
+  async function runAiTask(task: string) {
+    setAiBusy(task)
+    setAiError('')
+    try {
+      const res = await fetch('/api/admin/blog/ai-assist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          task,
+          title: metaTitle || title,
+          description: metaDescription || excerpt,
+          slug,
+          focusKeyword,
+          contentHtml: content,
+          failingChecks: analysis.checks.filter(c => !c.pass).map(c => c.label),
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) { setAiError(data.detail || data.error || 'AI request failed'); return }
+      if (task === 'fix-score') {
+        if (data.metaTitle) setMetaTitle(data.metaTitle)
+        if (data.metaDescription) setMetaDescription(data.metaDescription)
+      } else if (task === 'keywords') {
+        setAiKeywords(data.keywords || [])
+      } else if (task === 'improve') {
+        setAiTips(data.tips || [])
+      } else if (task === 'faqs') {
+        if (data.faqsHtml) setContentProgrammatic(content + data.faqsHtml)
+      } else if (task === 'image-alts') {
+        if (data.contentHtml) setContentProgrammatic(data.contentHtml)
+      }
+    } catch {
+      setAiError('Network error')
+    } finally {
+      setAiBusy(null)
+    }
+  }
+
+  const contentHasImgMissingAlt = /<img(?![^>]*alt\s*=\s*["'][^"']+["'])[^>]*>/i.test(content)
+
   async function handleImageUpload(file: File) {
     setUploading(true)
     const formData = new FormData()
@@ -99,6 +174,13 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
       category: category.trim(),
       seoKeywords: seoKeywords.trim(),
       status: publishStatus,
+      metaTitle: metaTitle.trim() || undefined,
+      metaDescription: metaDescription.trim() || undefined,
+      canonicalUrl: canonicalUrl.trim() || undefined,
+      ogImageUrl: ogImageUrl.trim() || undefined,
+      noindex,
+      focusKeyword: focusKeyword.trim() || undefined,
+      schemaType,
     }
 
     try {
@@ -113,7 +195,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
       if (!res.ok) {
         setError(data.error || 'Save failed.')
       } else {
-        router.push('/admin/dashboard')
+        router.push('/admin/blog')
         router.refresh()
       }
     } catch {
@@ -128,7 +210,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
       {/* Header */}
       <div className="border-b border-white/5 px-6 py-4 flex items-center justify-between sticky top-0 bg-[#000a1c] z-10">
         <div className="flex items-center gap-3">
-          <Link href="/admin/dashboard" className="text-gray-500 hover:text-white transition-colors">← Back</Link>
+          <Link href="/admin/blog" className="text-gray-500 hover:text-white transition-colors">← Back</Link>
           <span className="text-gray-600">/</span>
           <span className="text-white font-bold text-sm">{mode === 'new' ? 'New Post' : 'Edit Post'}</span>
         </div>
@@ -144,7 +226,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
           <button
             onClick={() => handleSave('published')}
             disabled={saving}
-            className="bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white text-sm font-black px-5 py-2 rounded-xl uppercase tracking-wider transition-colors"
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 disabled:opacity-50 text-[#1a1200] text-sm font-black px-5 py-2 rounded-xl uppercase tracking-wider transition-opacity"
           >
             {saving ? 'Publishing…' : 'Publish'}
           </button>
@@ -180,6 +262,7 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
           <div>
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Content</label>
             <RichTextEditor
+              key={editorKey}
               content={content}
               onChange={setContent}
               placeholder="Start writing your article here…"
@@ -333,6 +416,123 @@ export default function AdminPostForm({ mode, post }: AdminPostFormProps) {
                 className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
               />
             </div>
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Focus Keyword</label>
+              <input
+                type="text"
+                value={focusKeyword}
+                onChange={(e) => setFocusKeyword(e.target.value)}
+                placeholder="main target phrase"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+              />
+            </div>
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Meta Title <span className="text-gray-600">({(metaTitle || title).length}/60 — blank = post title)</span></label>
+              <input
+                type="text"
+                value={metaTitle}
+                onChange={(e) => setMetaTitle(e.target.value)}
+                placeholder={title || 'Custom meta title'}
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+              />
+            </div>
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Meta Description <span className="text-gray-600">({(metaDescription || excerpt).length}/160 — blank = excerpt)</span></label>
+              <textarea
+                value={metaDescription}
+                onChange={(e) => setMetaDescription(e.target.value)}
+                rows={2}
+                placeholder={excerpt || 'Custom meta description'}
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30 resize-none"
+              />
+            </div>
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">Canonical URL <span className="text-gray-600">(optional)</span></label>
+              <input
+                type="text"
+                value={canonicalUrl}
+                onChange={(e) => setCanonicalUrl(e.target.value)}
+                placeholder="https://orca4ktv.com/blog/…"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+              />
+            </div>
+            <div>
+              <label className="block text-xs text-gray-500 mb-1">OG Image URL <span className="text-gray-600">(blank = cover image)</span></label>
+              <input
+                type="text"
+                value={ogImageUrl}
+                onChange={(e) => setOgImageUrl(e.target.value)}
+                placeholder="https://…"
+                className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-white/30"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex-1">
+                <label className="block text-xs text-gray-500 mb-1">Schema Type</label>
+                <select
+                  value={schemaType}
+                  onChange={(e) => setSchemaType(e.target.value)}
+                  className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-white/30"
+                >
+                  <option value="Article">Article</option>
+                  <option value="NewsArticle">NewsArticle</option>
+                  <option value="BlogPosting">BlogPosting</option>
+                </select>
+              </div>
+              <label className="flex items-center gap-2 text-xs text-gray-400 mt-4 cursor-pointer">
+                <input type="checkbox" checked={noindex} onChange={(e) => setNoindex(e.target.checked)} className="accent-amber-500" />
+                noindex
+              </label>
+            </div>
+          </div>
+
+          {/* SEO Score */}
+          <SeoScorePanel analysis={analysis} />
+
+          {/* AI Assistant */}
+          <div className="bg-[#001a36] rounded-2xl border border-white/5 p-5 space-y-2">
+            <h3 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-1">
+              <i className="fas fa-wand-magic-sparkles text-amber-400 mr-1"></i> AI Assistant
+            </h3>
+            <button onClick={() => runAiTask('fix-score')} disabled={!!aiBusy}
+              className="w-full text-left text-sm text-gray-300 hover:text-white bg-[#000a1c] hover:bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors disabled:opacity-50">
+              {aiBusy === 'fix-score' ? 'Rewriting meta…' : 'Fix my score (rewrite meta)'}
+            </button>
+            <button onClick={() => runAiTask('keywords')} disabled={!!aiBusy}
+              className="w-full text-left text-sm text-gray-300 hover:text-white bg-[#000a1c] hover:bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors disabled:opacity-50">
+              {aiBusy === 'keywords' ? 'Finding keywords…' : 'Suggest keywords'}
+            </button>
+            <button onClick={() => runAiTask('improve')} disabled={!!aiBusy}
+              className="w-full text-left text-sm text-gray-300 hover:text-white bg-[#000a1c] hover:bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors disabled:opacity-50">
+              {aiBusy === 'improve' ? 'Analyzing content…' : 'Improve content (5 tips)'}
+            </button>
+            <button onClick={() => runAiTask('faqs')} disabled={!!aiBusy}
+              className="w-full text-left text-sm text-gray-300 hover:text-white bg-[#000a1c] hover:bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors disabled:opacity-50">
+              {aiBusy === 'faqs' ? 'Writing FAQs…' : 'Generate FAQs (appends blocks)'}
+            </button>
+            {contentHasImgMissingAlt && (
+              <button onClick={() => runAiTask('image-alts')} disabled={!!aiBusy}
+                className="w-full text-left text-sm text-gray-300 hover:text-white bg-[#000a1c] hover:bg-white/5 border border-white/10 rounded-lg px-3 py-2 transition-colors disabled:opacity-50">
+                {aiBusy === 'image-alts' ? 'Writing alt text…' : 'Fix image alts'}
+              </button>
+            )}
+            {aiError && <p className="text-red-400 text-xs">{aiError}</p>}
+            {aiKeywords.length > 0 && (
+              <div className="space-y-1 pt-1">
+                {aiKeywords.map((k, i) => (
+                  <button key={i} onClick={() => { setFocusKeyword(k.keyword); setAiKeywords([]) }}
+                    title={k.rationale}
+                    className="w-full text-left text-xs bg-amber-500/10 hover:bg-amber-500/20 text-amber-200 border border-amber-500/20 rounded-lg px-3 py-1.5 transition-colors">
+                    {k.keyword} <span className="text-amber-400/60">· {k.intent}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+            {aiTips.length > 0 && (
+              <ul className="space-y-1 pt-1 text-xs text-gray-300 list-disc list-inside">
+                {aiTips.map((t, i) => <li key={i}>{t}</li>)}
+              </ul>
+            )}
           </div>
 
           {/* Preview link */}

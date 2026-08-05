@@ -4,6 +4,11 @@
  * All requests are GET with api_key query param.
  */
 
+/** True when the panel env vars are set — never throws. */
+export function isPanelConfigured(): boolean {
+  return !!(process.env.IPTV_PANEL_URL && process.env.IPTV_API_KEY)
+}
+
 function getPanelBase(): string {
   const base = process.env.IPTV_PANEL_URL
   const apiKey = process.env.IPTV_API_KEY
@@ -11,7 +16,7 @@ function getPanelBase(): string {
   return base
 }
 
-const STREAMING_SERVER = 'http://line.trxdnscloud.ru'
+const STREAMING_SERVER = process.env.IPTV_SERVER_URL || 'http://line.trxdnscloud.ru'
 
 function panelUrl(params: Record<string, string>): string {
   const base = getPanelBase()
@@ -178,4 +183,54 @@ export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount
     m3uUrl,
     userId: String(data.user_id || ''),
   }
+}
+
+export interface ResellerInfo {
+  username: string
+  credits: string
+  raw: Record<string, unknown>
+}
+
+export interface PanelPackage {
+  id: string
+  name: string
+}
+
+/**
+ * Reseller account info (credits/username). Best-effort against the
+ * ActivationPanel API — response field names vary between panel versions.
+ */
+export async function getResellerInfo(): Promise<ResellerInfo> {
+  const url = panelUrl({ action: 'user_info' })
+  const res = await fetch(url, { cache: 'no-store' })
+  if (!res.ok) throw new Error(`Panel user_info failed: ${res.status}`)
+  const data = await res.json()
+  if (data.status === 'false' || data.status === false) {
+    throw new Error(data.message || 'Panel rejected the user_info request')
+  }
+  const src = (data.data && typeof data.data === 'object' ? data.data : data) as Record<string, unknown>
+  return {
+    username: String(src.username ?? src.user ?? src.name ?? ''),
+    credits: String(src.credits ?? src.credit ?? src.balance ?? '?'),
+    raw: src,
+  }
+}
+
+/** Package/bouquet list from the panel. Best-effort; returns [] when the endpoint is unsupported. */
+export async function getPackages(): Promise<PanelPackage[]> {
+  const url = panelUrl({ action: 'packages' })
+  const res = await fetch(url, { cache: 'no-store' })
+  if (!res.ok) throw new Error(`Panel packages failed: ${res.status}`)
+  const data = await res.json()
+  if (data.status === 'false' || data.status === false) {
+    throw new Error(data.message || 'Panel rejected the packages request')
+  }
+  const list = Array.isArray(data) ? data : (data.packages ?? data.data ?? [])
+  if (!Array.isArray(list)) return []
+  return list
+    .map((p: Record<string, unknown>) => ({
+      id: String(p.id ?? p.package_id ?? p.pack_id ?? ''),
+      name: String(p.name ?? p.package_name ?? p.title ?? ''),
+    }))
+    .filter((p: PanelPackage) => p.id)
 }

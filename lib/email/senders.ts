@@ -1,21 +1,14 @@
-import { Resend } from 'resend'
+import 'server-only'
+import { getEmailConfig, sendMail, type EmailResult } from './transport'
+import { customerHeaders, customerFooter, emailLayout } from './render'
 
-function getResend() {
-  return new Resend(process.env.RESEND_API_KEY || 'placeholder')
-}
+export type { EmailResult }
 
-// "Orca 4K TV" - no "IPTV" in sender name (spam trigger)
-const FROM = process.env.RESEND_FROM_EMAIL || 'Orca 4K TV <hello@orca4ktv.com>'
-const REPLY_TO = process.env.RESEND_REPLY_TO || 'support@orca4ktv.com'
+const STREAM_HOST = process.env.IPTV_SERVER_URL || 'http://line.trxdnscloud.ru'
 
-// Shared headers for all customer-facing emails
-const CUSTOMER_HEADERS = {
-  'List-Unsubscribe': `<mailto:${REPLY_TO}>`,
-  'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
-  'X-Entity-Ref-ID': 'orca4ktv-transactional',
-}
-
-export type EmailType = 'order-confirmation' | 'payment-link' | 'credentials-ready'
+// ─────────────────────────────────────────────────────────────
+// Customer: order confirmation
+// ─────────────────────────────────────────────────────────────
 
 interface SendOrderConfirmationProps {
   to: string
@@ -26,6 +19,42 @@ interface SendOrderConfirmationProps {
   amount: string
 }
 
+export async function sendOrderConfirmation(props: SendOrderConfirmationProps): Promise<EmailResult> {
+  const { to, customerName, orderNumber, planName, connections, amount } = props
+  const config = await getEmailConfig()
+
+  return sendMail({
+    to,
+    subject: `We received your order - ${orderNumber}`,
+    headers: customerHeaders(config.replyTo),
+    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://orca4ktv.com/dashboard\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    html: emailLayout({
+      headerTitle: 'Order Received',
+      headerSubtitle: 'Thank you for choosing Orca 4K TV',
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
+          <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
+          <p style="color:#d1d5db;">We received your order and are currently reviewing it. You will receive your payment details within <strong style="color:#fff;">1 hour</strong>.</p>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
+            <p style="margin:0 0 8px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Order Summary</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">Order #</td><td style="color:#fff;text-align:right;">${orderNumber}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Plan</td><td style="color:#fff;text-align:right;">${planName}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Connections</td><td style="color:#fff;text-align:right;">${connections}</td></tr>
+              <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:12px 0 6px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:20px;text-align:right;">${amount}</td></tr>
+            </table>
+          </div>
+          <div style="text-align:center;margin-top:32px;">
+            <a href="https://orca4ktv.com/dashboard" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
+          </div>`,
+    }),
+  })
+}
+
+// ─────────────────────────────────────────────────────────────
+// Customer: payment link
+// ─────────────────────────────────────────────────────────────
+
 interface SendPaymentLinkProps {
   to: string
   customerName: string
@@ -34,6 +63,40 @@ interface SendPaymentLinkProps {
   amount: string
   paymentLink: string
 }
+
+export async function sendPaymentLink(props: SendPaymentLinkProps): Promise<EmailResult> {
+  const { to, customerName, orderNumber, planName, amount, paymentLink } = props
+  const config = await getEmailConfig()
+
+  return sendMail({
+    to,
+    subject: `Next step for your order - ${orderNumber}`,
+    headers: customerHeaders(config.replyTo),
+    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    html: emailLayout({
+      headerTitle: 'Complete Your Order',
+      headerSubtitle: 'One step left to activate your Orca 4K TV plan',
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
+          <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
+          <p style="color:#d1d5db;">Your order <strong style="color:#fff;">${orderNumber}</strong> for <strong style="color:#fff;">${planName}</strong> is ready to complete.</p>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;text-align:center;">
+            <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;text-transform:uppercase;">Amount Due</p>
+            <p style="margin:0;color:#a855f7;font-size:36px;font-weight:900;">${amount}</p>
+          </div>
+          <p style="color:#d1d5db;">Use the link below to complete your order:</p>
+          <div style="text-align:center;margin:32px 0;">
+            <a href="${paymentLink}" style="background:#7c3aed;color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-weight:900;font-size:16px;display:inline-block;">Complete Order</a>
+          </div>
+          <p style="color:#6b7280;font-size:13px;">Once payment is confirmed, your subscription will be activated and setup details sent to this email address.</p>
+          <p style="color:#6b7280;font-size:13px;">Have questions? Simply reply to this email and we will help you right away.</p>`,
+    }),
+  })
+}
+
+// ─────────────────────────────────────────────────────────────
+// Customer: credentials ready (one box per connection slot)
+// ─────────────────────────────────────────────────────────────
 
 interface CredentialSlot {
   slot: number
@@ -52,160 +115,11 @@ interface SendCredentialsProps {
   credentials: CredentialSlot[]
 }
 
-interface AdminNewOrderAlertProps {
-  customerEmail: string
-  customerName: string
-  orderNumber: string
-  planName: string
-  connections: number
-  amount: string
-  orderId: string
-  renewal?: { username?: string | null; playlistUrl?: string | null; slot?: number | null }
-}
-
-export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps) {
-  const { customerEmail, customerName, orderNumber, planName, connections, amount, orderId, renewal } = props
-  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
-
-  const renewalText = renewal
-    ? `\n\n--- Playlist Renewal ---\nUsername: ${renewal.username || '?'}\nSlot: ${renewal.slot ?? '?'}${renewal.playlistUrl ? `\nPlaylist URL: ${renewal.playlistUrl}` : ''}`
-    : ''
-
-  const renewalHtml = renewal
-    ? `
-          <div style="background:#2c3034;border:1px solid #a855f7;border-radius:12px;padding:20px;margin-bottom:24px;">
-            <p style="margin:0 0 12px;color:#a855f7;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;">&#128257; Playlist Renewal</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:6px 0;">Username</td><td style="color:#fff;text-align:right;font-weight:700;font-family:monospace;">${renewal.username || '?'}</td></tr>
-              <tr><td style="color:#9ca3af;padding:6px 0;">Slot</td><td style="color:#fff;text-align:right;">${renewal.slot ?? '?'}</td></tr>
-              ${renewal.playlistUrl ? `<tr><td style="color:#9ca3af;padding:6px 0;">Playlist URL</td><td style="color:#60a5fa;text-align:right;word-break:break-all;font-size:12px;">${renewal.playlistUrl}</td></tr>` : ''}
-            </table>
-          </div>`
-    : ''
-
-  return getResend().emails.send({
-    from: FROM,
-    to: adminEmail,
-    replyTo: REPLY_TO,
-    subject: `${renewal ? 'Playlist renewal' : 'New order'} received: ${orderNumber}`,
-    text: `${renewal ? 'Playlist renewal' : 'New order'} received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}${renewalText}\n\nManage: https://orca4ktv.com/admin/orders/${orderId}`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
-          <h1 style="margin:0;font-size:22px;font-weight:900;">${renewal ? 'Playlist Renewal Request' : 'New Order Received'}</h1>
-          <p style="margin:6px 0 0;opacity:.85;font-size:14px;">${orderNumber}</p>
-        </div>
-        <div style="padding:32px;">
-          ${renewalHtml}
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
-            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Customer</p>
-            <p style="margin:0 0 4px;color:#fff;font-size:16px;font-weight:700;">${customerName}</p>
-            <p style="margin:0;color:#a855f7;">${customerEmail}</p>
-          </div>
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
-            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Order Details</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:6px 0;">Plan</td><td style="color:#fff;text-align:right;font-weight:700;">${planName}</td></tr>
-              <tr><td style="color:#9ca3af;padding:6px 0;">Connections</td><td style="color:#fff;text-align:right;">${connections}</td></tr>
-              <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:10px 0 4px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:22px;text-align:right;">$${amount}</td></tr>
-            </table>
-          </div>
-          <div style="text-align:center;">
-            <a href="https://orca4ktv.com/admin/orders/${orderId}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Manage Order</a>
-          </div>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/orders" style="color:#a855f7;">View all orders</a>
-        </div>
-      </div>
-    `,
-  })
-}
-
-export async function sendOrderConfirmation(props: SendOrderConfirmationProps) {
-  const { to, customerName, orderNumber, planName, connections, amount } = props
-  return getResend().emails.send({
-    from: FROM,
-    to,
-    replyTo: REPLY_TO,
-    // Clean subject - no "IPTV", no exclamation spam
-    subject: `We received your order - ${orderNumber}`,
-    headers: CUSTOMER_HEADERS,
-    // Plain text version (critical for inbox delivery)
-    text: `Hi ${customerName},\n\nWe received your order and are processing it now.\n\nOrder summary:\n- Order #: ${orderNumber}\n- Plan: ${planName}\n- Connections: ${connections}\n- Total: ${amount}\n\nWe will send you payment details within 1 hour.\n\nView your dashboard: https://orca4ktv.com/dashboard\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
-          <h1 style="margin:0;font-size:24px;font-weight:900;">Order Received</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Thank you for choosing Orca 4K TV</p>
-        </div>
-        <div style="padding:32px;">
-          <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
-          <p style="color:#d1d5db;">We received your order and are currently reviewing it. You will receive your payment details within <strong style="color:#fff;">1 hour</strong>.</p>
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
-            <p style="margin:0 0 8px;color:#9ca3af;font-size:12px;text-transform:uppercase;letter-spacing:.1em;">Order Summary</p>
-            <table style="width:100%;border-collapse:collapse;">
-              <tr><td style="color:#9ca3af;padding:6px 0;">Order #</td><td style="color:#fff;text-align:right;">${orderNumber}</td></tr>
-              <tr><td style="color:#9ca3af;padding:6px 0;">Plan</td><td style="color:#fff;text-align:right;">${planName}</td></tr>
-              <tr><td style="color:#9ca3af;padding:6px 0;">Connections</td><td style="color:#fff;text-align:right;">${connections}</td></tr>
-              <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:12px 0 6px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:20px;text-align:right;">${amount}</td></tr>
-            </table>
-          </div>
-          <div style="text-align:center;margin-top:32px;">
-            <a href="https://orca4ktv.com/dashboard" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
-          </div>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
-        </div>
-      </div>
-    `,
-  })
-}
-
-export async function sendPaymentLink(props: SendPaymentLinkProps) {
-  const { to, customerName, orderNumber, planName, amount, paymentLink } = props
-  return getResend().emails.send({
-    from: FROM,
-    to,
-    replyTo: REPLY_TO,
-    // No "Pay Now" in subject - reads like a scam email
-    subject: `Next step for your order - ${orderNumber}`,
-    headers: CUSTOMER_HEADERS,
-    text: `Hi ${customerName},\n\nYour order ${orderNumber} for ${planName} is ready.\n\nAmount due: ${amount}\n\nComplete your order here: ${paymentLink}\n\nOnce confirmed, your subscription will be activated and we will send your setup details.\n\nQuestions? Reply to this email.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
-          <h1 style="margin:0;font-size:24px;font-weight:900;">Complete Your Order</h1>
-          <p style="margin:8px 0 0;opacity:.85;">One step left to activate your Orca 4K TV plan</p>
-        </div>
-        <div style="padding:32px;">
-          <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
-          <p style="color:#d1d5db;">Your order <strong style="color:#fff;">${orderNumber}</strong> for <strong style="color:#fff;">${planName}</strong> is ready to complete.</p>
-          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;text-align:center;">
-            <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;text-transform:uppercase;">Amount Due</p>
-            <p style="margin:0;color:#a855f7;font-size:36px;font-weight:900;">${amount}</p>
-          </div>
-          <p style="color:#d1d5db;">Use the link below to complete your order:</p>
-          <div style="text-align:center;margin:32px 0;">
-            <a href="${paymentLink}" style="background:#7c3aed;color:#fff;text-decoration:none;padding:16px 40px;border-radius:50px;font-weight:900;font-size:16px;display:inline-block;">Complete Order</a>
-          </div>
-          <p style="color:#6b7280;font-size:13px;">Once payment is confirmed, your subscription will be activated and setup details sent to this email address.</p>
-          <p style="color:#6b7280;font-size:13px;">Have questions? Simply reply to this email and we will help you right away.</p>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
-        </div>
-      </div>
-    `,
-  })
-}
-
-export async function sendCredentialsReady(props: SendCredentialsProps) {
+export async function sendCredentialsReady(props: SendCredentialsProps): Promise<EmailResult> {
   const { to, customerName, planName, endDate, credentials } = props
+  const config = await getEmailConfig()
 
-  const normalizeM3u = (url: string) =>
-    url.replace(/^https?:\/\/[^/]*/i, 'http://line.trxdnscloud.ru')
+  const normalizeM3u = (url: string) => url.replace(/^https?:\/\/[^/]*/i, STREAM_HOST)
 
   const total = credentials.length
   const showSlotLabel = total > 1
@@ -254,20 +168,16 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
     ? `Your subscription is now active. You have ${total} independent connections - each with its own login. Use a different one on each device or share with family.`
     : `Your subscription is now active. Below are your setup details - keep them somewhere safe.`
 
-  return getResend().emails.send({
-    from: FROM,
+  return sendMail({
     to,
-    replyTo: REPLY_TO,
     subject: `Your Orca 4K TV subscription is now active`,
-    headers: CUSTOMER_HEADERS,
+    headers: customerHeaders(config.replyTo),
     text: `Hi ${customerName},\n\nYour ${planName} subscription is now active until ${endDate}.\n\n${textBlocks}\n\nYou can also find this information anytime in your dashboard:\nhttps://orca4ktv.com/dashboard/subscription\n\nNeed help setting up? Watch our video tutorials:\nhttps://orca4ktv.com/setup-guide\n\nOr reply to this email - we are happy to help.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
-          <h1 style="margin:0;font-size:24px;font-weight:900;">Your Subscription is Active</h1>
-          <p style="margin:8px 0 0;opacity:.85;">${planName} - Active until ${endDate}</p>
-        </div>
-        <div style="padding:32px;">
+    html: emailLayout({
+      headerTitle: 'Your Subscription is Active',
+      headerSubtitle: `${planName} - Active until ${endDate}`,
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${customerName}</strong>,</p>
           <p style="color:#d1d5db;">${introLine}</p>
           ${htmlBlocks}
@@ -276,17 +186,16 @@ export async function sendCredentialsReady(props: SendCredentialsProps) {
             <a href="https://orca4ktv.com/dashboard/subscription" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;">View My Dashboard</a>
           </div>
           <div style="text-align:center;margin:20px 0 8px;">
-            <a href="https://orca4ktv.com/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">📺 Setup Guide &amp; Video Tutorials</a>
+            <a href="https://orca4ktv.com/setup-guide" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">&#128250; Setup Guide &amp; Video Tutorials</a>
           </div>
-          <p style="color:#6b7280;font-size:12px;text-align:center;">Need help setting up? Our guide has video tutorials for every device.</p>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
-        </div>
-      </div>
-    `,
+          <p style="color:#6b7280;font-size:12px;text-align:center;">Need help setting up? Our guide has video tutorials for every device.</p>`,
+    }),
   })
 }
+
+// ─────────────────────────────────────────────────────────────
+// Customer: trial activation (link only — never raw credentials)
+// ─────────────────────────────────────────────────────────────
 
 interface SendTrialCredentialsProps {
   to: string
@@ -296,27 +205,24 @@ interface SendTrialCredentialsProps {
   duration_hours: number
 }
 
-export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
+export async function sendTrialCredentials(props: SendTrialCredentialsProps): Promise<EmailResult> {
   const { to, name, activation_url, expires_at, duration_hours } = props
+  const config = await getEmailConfig()
 
   const expiryFormatted = new Date(expires_at).toLocaleDateString('en-US', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short',
   })
 
-  return getResend().emails.send({
-    from: FROM,
+  return sendMail({
     to,
-    replyTo: REPLY_TO,
     subject: `Your Orca 4K TV access details`,
-    headers: CUSTOMER_HEADERS,
+    headers: customerHeaders(config.replyTo),
     text: `Hi ${name},\n\nYour Orca 4K TV access is ready.\n\nThis is a ${duration_hours}-hour trial - expires ${expiryFormatted}.\n\nActivate your access here:\n${activation_url}\n\nAfter activation, your login details will be available on your dashboard at https://orca4ktv.com/dashboard/trial\n\nNeed help getting set up?\nhttps://orca4ktv.com/setup-guide\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:32px;text-align:center;">
-          <h1 style="margin:0;font-size:24px;font-weight:900;">Your access is ready</h1>
-          <p style="margin:8px 0 0;opacity:.85;">Orca 4K TV</p>
-        </div>
-        <div style="padding:32px;">
+    html: emailLayout({
+      headerTitle: 'Your access is ready',
+      headerSubtitle: 'Orca 4K TV',
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
           <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${name}</strong>,</p>
           <p style="color:#d1d5db;">Your Orca 4K TV access is ready. Click below to activate your account and view your login details on your dashboard.</p>
 
@@ -333,13 +239,83 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps) {
           <div style="text-align:center;margin:0 0 8px;">
             <a href="https://orca4ktv.com/setup-guide" style="background:#2c3034;color:#a855f7;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:700;font-size:13px;display:inline-block;">Setup guide</a>
           </div>
-          <p style="color:#6b7280;font-size:12px;text-align:center;margin:8px 0 0;">Step-by-step instructions for every device.</p>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          &copy; 2026 Orca 4K TV &middot; <a href="https://orca4ktv.com" style="color:#a855f7;">orca4ktv.com</a> &middot; <a href="mailto:${REPLY_TO}" style="color:#6b7280;">Contact support</a>
-        </div>
-      </div>
-    `,
+          <p style="color:#6b7280;font-size:12px;text-align:center;margin:8px 0 0;">Step-by-step instructions for every device.</p>`,
+    }),
+  })
+}
+
+// ─────────────────────────────────────────────────────────────
+// Admin alerts — go to the configured admin notification email.
+// No hardcoded fallback: unset → skipped.
+// ─────────────────────────────────────────────────────────────
+
+async function adminRecipient(): Promise<string | null> {
+  const config = await getEmailConfig()
+  return config.adminEmail || null
+}
+
+interface AdminNewOrderAlertProps {
+  customerEmail: string
+  customerName: string
+  orderNumber: string
+  planName: string
+  connections: number
+  amount: string
+  orderId: string
+  renewal?: { username?: string | null; playlistUrl?: string | null; slot?: number | null }
+}
+
+export async function sendAdminNewOrderAlert(props: AdminNewOrderAlertProps): Promise<EmailResult> {
+  const { customerEmail, customerName, orderNumber, planName, connections, amount, orderId, renewal } = props
+  const adminEmail = await adminRecipient()
+  if (!adminEmail) {
+    console.log('[email] admin order alert skipped: no admin notification email configured')
+    return { ok: true, skipped: true }
+  }
+
+  const renewalText = renewal
+    ? `\n\n--- Playlist Renewal ---\nUsername: ${renewal.username || '?'}\nSlot: ${renewal.slot ?? '?'}${renewal.playlistUrl ? `\nPlaylist URL: ${renewal.playlistUrl}` : ''}`
+    : ''
+
+  const renewalHtml = renewal
+    ? `
+          <div style="background:#2c3034;border:1px solid #a855f7;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#a855f7;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;">&#128257; Playlist Renewal</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">Username</td><td style="color:#fff;text-align:right;font-weight:700;font-family:monospace;">${renewal.username || '?'}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Slot</td><td style="color:#fff;text-align:right;">${renewal.slot ?? '?'}</td></tr>
+              ${renewal.playlistUrl ? `<tr><td style="color:#9ca3af;padding:6px 0;">Playlist URL</td><td style="color:#60a5fa;text-align:right;word-break:break-all;font-size:12px;">${renewal.playlistUrl}</td></tr>` : ''}
+            </table>
+          </div>`
+    : ''
+
+  return sendMail({
+    to: adminEmail,
+    subject: `${renewal ? 'Playlist renewal' : 'New order'} received: ${orderNumber}`,
+    text: `${renewal ? 'Playlist renewal' : 'New order'} received\n\nOrder: ${orderNumber}\nCustomer: ${customerName} (${customerEmail})\nPlan: ${planName}\nConnections: ${connections}\nTotal: $${amount}${renewalText}\n\nManage: https://orca4ktv.com/admin/orders/${orderId}`,
+    html: emailLayout({
+      headerTitle: renewal ? 'Playlist Renewal Request' : 'New Order Received',
+      headerSubtitle: orderNumber,
+      footerHtml: `Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/orders" style="color:#a855f7;">View all orders</a>`,
+      bodyHtml: `
+          ${renewalHtml}
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Customer</p>
+            <p style="margin:0 0 4px;color:#fff;font-size:16px;font-weight:700;">${customerName}</p>
+            <p style="margin:0;color:#a855f7;">${customerEmail}</p>
+          </div>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
+            <p style="margin:0 0 12px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Order Details</p>
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">Plan</td><td style="color:#fff;text-align:right;font-weight:700;">${planName}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Connections</td><td style="color:#fff;text-align:right;">${connections}</td></tr>
+              <tr style="border-top:1px solid #374151;"><td style="color:#fff;font-weight:700;padding:10px 0 4px;">Total</td><td style="color:#a855f7;font-weight:900;font-size:22px;text-align:right;">$${amount}</td></tr>
+            </table>
+          </div>
+          <div style="text-align:center;">
+            <a href="https://orca4ktv.com/admin/orders/${orderId}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Manage Order</a>
+          </div>`,
+    }),
   })
 }
 
@@ -351,22 +327,23 @@ interface AdminNewTrialAlertProps {
   trialId: string
 }
 
-export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
+export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps): Promise<EmailResult> {
   const { name, email, device, country } = props
-  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
-  return getResend().emails.send({
-    from: FROM,
+  const adminEmail = await adminRecipient()
+  if (!adminEmail) {
+    console.log('[email] admin trial alert skipped: no admin notification email configured')
+    return { ok: true, skipped: true }
+  }
+
+  return sendMail({
     to: adminEmail,
-    replyTo: REPLY_TO,
     subject: `New Trial Request - ${name}`,
     text: `New trial request received\n\nName: ${name}\nEmail: ${email}\nDevice: ${device}\nCountry: ${country}\n\nReview: https://orca4ktv.com/admin/trials`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
-          <h1 style="margin:0;font-size:22px;font-weight:900;">New Trial Request</h1>
-          <p style="margin:6px 0 0;opacity:.85;font-size:14px;">${name}</p>
-        </div>
-        <div style="padding:32px;">
+    html: emailLayout({
+      headerTitle: 'New Trial Request',
+      headerSubtitle: name,
+      footerHtml: `Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/trials" style="color:#a855f7;">View all trials</a>`,
+      bodyHtml: `
           <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
             <table style="width:100%;border-collapse:collapse;">
               <tr><td style="color:#9ca3af;padding:6px 0;">Name</td><td style="color:#fff;text-align:right;font-weight:700;">${name}</td></tr>
@@ -377,13 +354,8 @@ export async function sendAdminNewTrialAlert(props: AdminNewTrialAlertProps) {
           </div>
           <div style="text-align:center;">
             <a href="https://orca4ktv.com/admin/trials" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-weight:700;display:inline-block;font-size:15px;">Review in Admin</a>
-          </div>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          Orca 4K TV Admin Alert &middot; <a href="https://orca4ktv.com/admin/trials" style="color:#a855f7;">View all trials</a>
-        </div>
-      </div>
-    `,
+          </div>`,
+    }),
   })
 }
 
@@ -394,22 +366,24 @@ interface AdminNewContactAlertProps {
   message: string
 }
 
-export async function sendAdminNewContactAlert(props: AdminNewContactAlertProps) {
+export async function sendAdminNewContactAlert(props: AdminNewContactAlertProps): Promise<EmailResult> {
   const { name, email, subject, message } = props
-  const adminEmail = process.env.ADMIN_NOTIFICATION_EMAIL || 'tayron.sof@gmail.com'
-  return getResend().emails.send({
-    from: FROM,
+  const adminEmail = await adminRecipient()
+  if (!adminEmail) {
+    console.log('[email] admin contact alert skipped: no admin notification email configured')
+    return { ok: true, skipped: true }
+  }
+
+  return sendMail({
     to: adminEmail,
-    replyTo: email,
+    replyTo: email, // reply goes straight to the customer
     subject: `New Contact Inquiry: ${subject}`,
     text: `New contact inquiry received\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
-    html: `
-      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#1f2326;color:#fff;border-radius:16px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#7c3aed,#3b82f6);padding:24px 32px;">
-          <h1 style="margin:0;font-size:22px;font-weight:900;">New Contact Inquiry</h1>
-          <p style="margin:6px 0 0;opacity:.85;font-size:14px;">from ${name}</p>
-        </div>
-        <div style="padding:32px;">
+    html: emailLayout({
+      headerTitle: 'New Contact Inquiry',
+      headerSubtitle: `from ${name}`,
+      footerHtml: `Orca 4K TV Support &middot; Reply directly to this email to contact the customer.`,
+      bodyHtml: `
           <div style="background:#2c3034;border-radius:12px;padding:20px;margin-bottom:24px;">
             <table style="width:100%;border-collapse:collapse;">
               <tr><td style="color:#9ca3af;padding:6px 0;width:80px;">Name</td><td style="color:#fff;font-weight:700;">${name}</td></tr>
@@ -420,13 +394,35 @@ export async function sendAdminNewContactAlert(props: AdminNewContactAlertProps)
           <div style="background:#2c3034;border-radius:12px;padding:20px;">
             <p style="margin:0 0 8px;color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:.1em;">Message</p>
             <p style="margin:0;white-space:pre-wrap;color:#fff;line-height:1.6;">${message}</p>
-          </div>
-        </div>
-        <div style="padding:16px 32px;border-top:1px solid #2c3034;text-align:center;color:#6b7280;font-size:12px;">
-          Orca 4K TV Support &middot; Reply directly to this email to contact the customer.
-        </div>
-      </div>
-    `,
+          </div>`,
+    }),
   })
 }
 
+// ─────────────────────────────────────────────────────────────
+// Settings page: test email
+// ─────────────────────────────────────────────────────────────
+
+export async function sendTestEmail(to: string): Promise<EmailResult> {
+  const config = await getEmailConfig()
+  return sendMail({
+    to,
+    subject: 'Orca 4K TV - SMTP test email',
+    text: `This is a test email from the Orca 4K TV admin panel.\n\nSMTP host: ${config.host}:${config.port} (secure: ${config.secure})\nFrom: ${config.fromName} <${config.fromEmail}>\n\nIf you received this, your SMTP settings are working.`,
+    html: emailLayout({
+      headerTitle: 'SMTP Test Successful',
+      headerSubtitle: 'Orca 4K TV admin panel',
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
+          <p style="color:#d1d5db;">This is a test email from the Orca 4K TV admin panel.</p>
+          <div style="background:#2c3034;border-radius:12px;padding:20px;margin:24px 0;">
+            <table style="width:100%;border-collapse:collapse;">
+              <tr><td style="color:#9ca3af;padding:6px 0;">SMTP host</td><td style="color:#fff;text-align:right;font-family:monospace;">${config.host}:${config.port}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">Secure (SSL)</td><td style="color:#fff;text-align:right;">${config.secure ? 'yes' : 'no'}</td></tr>
+              <tr><td style="color:#9ca3af;padding:6px 0;">From</td><td style="color:#fff;text-align:right;">${config.fromName} &lt;${config.fromEmail}&gt;</td></tr>
+            </table>
+          </div>
+          <p style="color:#6b7280;font-size:13px;">If you received this, your SMTP settings are working.</p>`,
+    }),
+  })
+}

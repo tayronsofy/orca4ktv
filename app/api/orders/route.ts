@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { sendOrderConfirmation, sendAdminNewOrderAlert } from '@/lib/resend'
+import { sendOrderConfirmation, sendAdminNewOrderAlert } from '@/lib/email'
 import { getPlanPrice, getPlanName, isValidPlanSlug, isValidConnections } from '@/lib/pricing'
 import { validateCoupon } from '@/lib/coupons'
 

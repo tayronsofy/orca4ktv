@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import AdminShell from '@/components/admin/AdminShell'
+import StatusBadge from '@/components/admin/StatusBadge'
 
 interface Profile {
   id: string
@@ -24,14 +26,6 @@ interface Order {
   subscriptions: Array<{ status: string; end_date: string | null; iptv_username: string | null }>
 }
 
-const statusStyle: Record<string, string> = {
-  pending_payment: 'bg-yellow-500/20 text-yellow-400',
-  paid:            'bg-blue-500/20 text-blue-400',
-  active:          'bg-green-500/20 text-green-400',
-  expired:         'bg-gray-500/20 text-gray-400',
-  cancelled:       'bg-red-500/20 text-red-400',
-}
-
 export default function ClientDetailPage() {
   const params = useParams()
   const id = params.id as string
@@ -51,22 +45,16 @@ export default function ClientDetailPage() {
       .catch(() => setLoading(false))
   }, [id])
 
-  if (loading) return <div className="p-8 text-gray-400">Loading…</div>
-  if (!profile) return <div className="p-8 text-red-400">Client not found</div>
+  if (loading) return <AdminShell title="Client"><div className="text-gray-400">Loading…</div></AdminShell>
+  if (!profile) return <AdminShell title="Client"><div className="text-red-400">Client not found</div></AdminShell>
 
   const activeSub = orders.flatMap(o => o.subscriptions).find(s => s.status === 'active')
 
   return (
-    <div className="p-6 md:p-8 max-w-5xl">
-      <div className="flex items-start justify-between mb-8">
-        <div>
-          <Link href="/admin/clients" className="text-sm text-gray-400 hover:text-white mb-2 inline-block">
-            ← Back to clients
-          </Link>
-          <h1 className="text-2xl font-black text-white">{profile.full_name || 'Unknown'}</h1>
-          <p className="text-gray-400 text-sm">{profile.email}</p>
-        </div>
-        {activeSub ? (
+    <AdminShell
+      title={profile.full_name || 'Unknown'}
+      actions={
+        activeSub ? (
           <span className="bg-green-500/20 text-green-400 border border-green-500/30 text-xs font-bold px-3 py-1 rounded-full">
             Active Subscription
           </span>
@@ -74,8 +62,13 @@ export default function ClientDetailPage() {
           <span className="bg-gray-500/20 text-gray-400 border border-gray-500/20 text-xs font-bold px-3 py-1 rounded-full">
             No active sub
           </span>
-        )}
-      </div>
+        )
+      }
+    >
+      <div className="max-w-5xl">
+      <Link href="/admin/clients" className="text-sm text-gray-400 hover:text-white mb-6 inline-block">
+        ← Back to clients
+      </Link>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Profile info */}
@@ -125,13 +118,11 @@ export default function ClientDetailPage() {
                     )}
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-purple-400 font-bold">${order.amount}</span>
-                    <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${statusStyle[order.status] || ''}`}>
-                      {order.status.replace('_', ' ')}
-                    </span>
+                    <span className="text-amber-400 font-bold">${order.amount}</span>
+                    <StatusBadge status={order.status} />
                     <Link
                       href={`/admin/orders/${order.id}`}
-                      className="text-xs text-purple-400 hover:text-purple-300 bg-purple-500/10 px-3 py-1 rounded-lg border border-purple-500/20"
+                      className="text-xs text-amber-300 hover:text-amber-200 bg-amber-500/10 px-3 py-1 rounded-lg border border-amber-500/20"
                     >
                       Manage →
                     </Link>
@@ -152,6 +143,7 @@ export default function ClientDetailPage() {
           })}
         </div>
       )}
-    </div>
+      </div>
+    </AdminShell>
   )
 }

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { createSubscriptionM3U, CreatedTrialAccount, PLAN_MONTHS } from '@/lib/iptv-panel'
-import { sendCredentialsReady } from '@/lib/resend'
+import { sendCredentialsReady } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
   // 1. Verify webhook signature

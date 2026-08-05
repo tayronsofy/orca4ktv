@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import NetherlandsHero from '@/components/netherlands/NetherlandsHero'
 import NetherlandsHomePage from '@/page-components/netherlands/NetherlandsHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Beste IPTV Nederland 2026 - Live-Sport & NL-Zenders | ORCA 4K TV',
   description: 'Beste IPTV Nederland 2026: Nederlands topvoetbal, top Europees clubvoetbal, motorsport, Olympische Spelen 2026 in 4K HDR. 22.000+ zenders, alle belangrijke Nederlandse free-to-air zenders. Direct actief.',
   keywords: 'beste iptv nederland 2026, iptv nederland, iptv abonnement nederland, iptv aanbieder nederland, iptv streamingdienst, premium iptv zenders, 4K streamen, HDR streamen, buffervrij streamen, multi-device, veilig streamen, AES-256 versleuteling, 24/7 klantenservice, EPG gids, catch-up tv, snelle activatie, iptv met vpn, kabel tv alternatief, sport iptv nederland, voetbal iptv nederland',
@@ -31,6 +32,17 @@ export const metadata: Metadata = {
     title: 'Beste IPTV Nederland 2026 - Live-Sport & NL-Zenders | ORCA 4K TV',
     description: 'Elke topvoetbal-aftrap, bekerfinale, motorsport-race in 4K HDR. Anti Freeze CDN. Vanaf €/maand.',
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv-netherlands', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function NetherlandsPage() {

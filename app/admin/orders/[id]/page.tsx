@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import AdminShell from '@/components/admin/AdminShell'
+import StatusBadge from '@/components/admin/StatusBadge'
 
 interface OrderData {
   id: string
@@ -13,6 +15,9 @@ interface OrderData {
   status: string
   notes: string | null
   customer_ip: string | null
+  coupon_code: string | null
+  discount_amount: number | null
+  original_amount: number | null
   created_at: string
   profiles: {
     id: string
@@ -212,7 +217,7 @@ export default function OrderDetailPage() {
       const fresh = await fetch(`/api/admin/orders/${id}`).then(r => r.json())
       setOrder(fresh)
     } else {
-      notify(data.error || `Failed to save connection ${slot}`, 'error')
+      notify(data.detail || data.error || `Failed to save connection ${slot}`, 'error')
     }
   }
 
@@ -251,7 +256,24 @@ export default function OrderDetailPage() {
     setSaving(false)
     const data = await res.json()
     if (res.ok) notify(`Email sent: ${type === 'payment-link' ? 'payment link' : 'credentials'}`)
-    else notify(data.error || 'Failed to send email', 'error')
+    else notify(data.detail || data.error || 'Failed to send email', 'error')
+  }
+
+  const autoProvision = async () => {
+    if (!confirm(`Auto-provision ${order?.connections} connection(s) on the IPTV panel? This creates real lines and uses panel credits.`)) return
+    setSaving(true)
+    const res = await fetch(`/api/admin/orders/${id}/provision`, { method: 'POST' })
+    setSaving(false)
+    const data = await res.json()
+    if (res.ok) {
+      notify(`Auto-provision: done (${data.createdSlots?.length || 0} slot(s) created)`)
+      const fresh = await fetch(`/api/admin/orders/${id}`).then(r => r.json())
+      setOrder(fresh)
+      window.location.reload()
+    } else {
+      const partial = data.createdSlots?.length ? ` (slots created before failure: ${data.createdSlots.join(', ')})` : ''
+      notify(`Auto-provision: failed (${data.detail || data.error})${partial}`, 'error')
+    }
   }
 
   const markStatus = async (newStatus: string) => {
@@ -264,33 +286,22 @@ export default function OrderDetailPage() {
     notify(`Order marked as ${newStatus}`)
   }
 
-  if (loading) return <div className="p-8 text-gray-400">Loading…</div>
-  if (!order) return <div className="p-8 text-red-400">Order not found</div>
+  if (loading) return <AdminShell title="Order Detail"><div className="text-gray-400">Loading…</div></AdminShell>
+  if (!order) return <AdminShell title="Order Detail"><div className="text-red-400">Order not found</div></AdminShell>
 
   const invoice = order.invoices?.[0]
   const sub = order.subscriptions?.[0]
 
   return (
-    <div className="p-6 md:p-8 max-w-5xl">
-      {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-        <div>
-          <Link href="/admin/orders" className="text-sm text-gray-400 hover:text-white mb-2 inline-block">
-            ← Back to orders
-          </Link>
-          <h1 className="text-2xl font-black text-white">Order Detail</h1>
-          {invoice && (
-            <p className="text-gray-400 text-sm mt-1 font-mono">{invoice.invoice_number}</p>
-          )}
-        </div>
-        <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-bold border ${
-          order.status === 'active' ? 'bg-green-500/20 text-green-400 border-green-500/30' :
-          order.status === 'pending_payment' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' :
-          order.status === 'paid' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' :
-          'bg-gray-500/20 text-gray-400 border-gray-500/30'
-        }`}>
-          {statusLabel[order.status] || order.status}
-        </span>
+    <AdminShell title="Order Detail" actions={<StatusBadge status={order.status} />}>
+      <div className="max-w-5xl">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-6">
+        <Link href="/admin/orders" className="text-sm text-gray-400 hover:text-white inline-block">
+          ← Back to orders
+        </Link>
+        {invoice && (
+          <p className="text-gray-400 text-sm font-mono">{invoice.invoice_number}</p>
+        )}
       </div>
 
       {/* Toast */}
@@ -307,7 +318,7 @@ export default function OrderDetailPage() {
 
         {/* Customer info */}
         <div className="bg-[#002952] rounded-2xl p-6 border border-white/5">
-          <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-user text-purple-400"></i> Customer</h2>
+          <h2 className="text-white font-bold mb-4 flex items-center gap-2"><i className="fas fa-user text-amber-400"></i> Customer</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between"><dt className="text-gray-500">Name</dt><dd className="text-white">{order.profiles?.full_name || '-'}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Email</dt><dd className="text-blue-400">{order.profiles?.email}</dd></div>
@@ -318,12 +329,12 @@ export default function OrderDetailPage() {
               <dd className="flex items-center gap-2">
                 <span className="text-white font-mono text-xs">{order.customer_ip || '-'}</span>
                 {order.customer_ip && order.customer_ip !== 'unknown' && (
-                  <a href={`https://whatismyipaddress.com/ip/${order.customer_ip}`} target="_blank" rel="noopener noreferrer" className="text-purple-400 text-xs hover:underline">Lookup →</a>
+                  <a href={`https://whatismyipaddress.com/ip/${order.customer_ip}`} target="_blank" rel="noopener noreferrer" className="text-amber-300 text-xs hover:underline">Lookup →</a>
                 )}
               </dd>
             </div>
           </dl>
-          <Link href={`/admin/clients/${order.profiles?.id}`} className="mt-4 inline-block text-xs text-purple-400 hover:text-purple-300">
+          <Link href={`/admin/clients/${order.profiles?.id}`} className="mt-4 inline-block text-xs text-amber-300 hover:text-amber-200">
             View client profile →
           </Link>
         </div>
@@ -334,7 +345,10 @@ export default function OrderDetailPage() {
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between"><dt className="text-gray-500">Plan</dt><dd className="text-white">{order.plan_name}</dd></div>
             <div className="flex justify-between"><dt className="text-gray-500">Connections</dt><dd className="text-white">{order.connections}</dd></div>
-            <div className="flex justify-between"><dt className="text-gray-500">Amount</dt><dd className="text-purple-400 font-bold text-lg">${order.amount}</dd></div>
+            <div className="flex justify-between"><dt className="text-gray-500">Amount</dt><dd className="text-amber-400 font-bold text-lg">${order.amount}</dd></div>
+            {order.coupon_code && (
+              <div className="flex justify-between"><dt className="text-gray-500">Coupon</dt><dd className="text-green-400 font-mono text-xs">{order.coupon_code} (−${Number(order.discount_amount || 0).toFixed(2)}{order.original_amount ? `, was $${Number(order.original_amount).toFixed(2)}` : ''})</dd></div>
+            )}
             <div className="flex justify-between"><dt className="text-gray-500">Placed</dt><dd className="text-white">{new Date(order.created_at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</dd></div>
           </dl>
           {/* Quick status actions */}
@@ -366,7 +380,7 @@ export default function OrderDetailPage() {
                 value={paymentLink}
                 onChange={e => setPaymentLink(e.target.value)}
                 placeholder="https://paypal.me/... or payment URL"
-                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500"
+                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-500"
               />
             </div>
             <div>
@@ -374,7 +388,7 @@ export default function OrderDetailPage() {
               <select
                 value={invoiceStatus}
                 onChange={e => setInvoiceStatus(e.target.value)}
-                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-purple-500"
+                className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-3 py-2.5 text-white text-sm focus:outline-none focus:border-amber-500"
               >
                 <option value="pending">Pending</option>
                 <option value="paid">Paid</option>
@@ -435,7 +449,7 @@ export default function OrderDetailPage() {
                             : field === 'portal_url' ? 'http://server.com (optional)'
                             : ''
                           }
-                          className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                          className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-amber-500"
                         />
                       </div>
                     ))}
@@ -451,7 +465,7 @@ export default function OrderDetailPage() {
                             value={c.host_url_backups[idx]}
                             onChange={e => updateSlotBackup(slot, idx, e.target.value)}
                             placeholder={`Backup ${idx + 1} (optional)`}
-                            className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                            className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-amber-500"
                           />
                         ))}
                       </div>
@@ -465,7 +479,7 @@ export default function OrderDetailPage() {
                         value={c.playlist_url}
                         onChange={e => updateSlotField(slot, 'playlist_url', e.target.value)}
                         placeholder="https://… (optional)"
-                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500"
+                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-amber-500"
                       />
                     </div>
                     <div>
@@ -475,7 +489,7 @@ export default function OrderDetailPage() {
                         onChange={e => updateSlotField(slot, 'mac_addresses', e.target.value)}
                         placeholder={'00:1A:79:XX:XX:XX'}
                         rows={2}
-                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-purple-500 resize-none"
+                        className="w-full bg-[#000a1c] border border-white/10 rounded-lg px-2.5 py-1.5 text-white text-xs font-mono placeholder-gray-700 focus:outline-none focus:border-amber-500 resize-none"
                       />
                     </div>
                     <button
@@ -491,11 +505,18 @@ export default function OrderDetailPage() {
             })}
           </div>
 
-          <div className="mt-4 pt-4 border-t border-white/5">
+          <div className="mt-4 pt-4 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-2">
+            <button
+              onClick={autoProvision}
+              disabled={saving}
+              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-[#1a1200] text-sm font-bold py-2.5 rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+            >
+              <i className="fas fa-bolt mr-1"></i> Auto-provision on Panel
+            </button>
             <button
               onClick={() => sendEmail('credentials')}
               disabled={saving || !Object.values(credsBySlot).some(c => c.iptv_username)}
-              className="w-full bg-purple-600 text-white text-sm font-bold py-2.5 rounded-xl hover:bg-purple-500 transition-colors disabled:opacity-50"
+              className="w-full bg-white/10 text-white text-sm font-bold py-2.5 rounded-xl hover:bg-white/15 transition-colors border border-white/10 disabled:opacity-50"
             >
               <i className="fas fa-paper-plane mr-1"></i> Send All Credentials to Customer
             </button>
@@ -510,13 +531,14 @@ export default function OrderDetailPage() {
             onChange={e => setNotes(e.target.value)}
             placeholder="Internal notes about this order…"
             rows={3}
-            className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 resize-none"
+            className="w-full bg-[#001f3f] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-amber-500 resize-none"
           />
           <button onClick={saveNotes} className="mt-3 bg-white/10 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-white/15 transition-colors">
             Save Notes
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    </AdminShell>
   )
 }

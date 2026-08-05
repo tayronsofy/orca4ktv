@@ -1,14 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { isAdminRequest as checkAdminAuth } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 
-function checkAdminAuth(request: NextRequest): boolean {
-  const token = request.cookies.get('admin_token')?.value
-  const expected = process.env.ADMIN_SECRET
-  return !!(token && expected && token === expected)
-}
-
 export async function GET(request: NextRequest) {
-  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
 
   const admin = createAdminClient()
   const { data, error } = await admin
@@ -22,7 +17,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!checkAdminAuth(request)) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
 
   const body = await request.json()
   const { label, iptv_username, iptv_password, m3u_url, portal_url } = body

@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import AdminShell from '@/components/admin/AdminShell'
+import { inputCls, primaryBtnCls } from '@/components/admin/ui'
 
 interface Client {
   id: string
@@ -50,26 +52,16 @@ export default function AdminClientsPage() {
   }
 
   return (
-    <div className="p-8">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-black text-white">Clients</h1>
-          <p className="text-gray-400 text-sm mt-1">{total} registered accounts</p>
-        </div>
-        <Link href="/admin/dashboard" className="text-sm text-gray-400 hover:text-white transition-colors">
-          ← Back to dashboard
-        </Link>
-      </div>
-
+    <AdminShell title={`Clients (${total})`}>
       <form onSubmit={handleSearch} className="flex gap-2 mb-6">
         <input
           type="text"
           value={searchInput}
           onChange={e => setSearchInput(e.target.value)}
           placeholder="Search by email or name…"
-          className="bg-[#002952] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-500 w-72"
+          className={`${inputCls} w-72`}
         />
-        <button type="submit" className="bg-purple-600 text-white text-sm font-bold px-4 py-2 rounded-xl hover:bg-purple-500 transition-colors">
+        <button type="submit" className={primaryBtnCls}>
           Search
         </button>
         {search && (
@@ -136,6 +128,6 @@ export default function AdminClientsPage() {
           </button>
         </div>
       )}
-    </div>
+    </AdminShell>
   )
 }

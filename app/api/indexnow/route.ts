@@ -27,26 +27,26 @@ const STATIC_URLS = [
   '/refund-policy',
 ].map(path => `https://${HOST}${path}`)
 
-// Blog post pages
-const BLOG_URLS = getPublishedPosts().map(
-  p => `https://${HOST}/blog/${p.slug}`
-)
-
 // Match pages
 const MATCH_URLS = matchesData.matches.map(
   m => `https://${HOST}/watch/${m.slug}`
 )
 
-const ALL_URLS = [...STATIC_URLS, ...BLOG_URLS, ...MATCH_URLS]
+// Blog URLs come from the DB — build the list per request, not at module scope
+async function getAllUrls(): Promise<string[]> {
+  const blogUrls = (await getPublishedPosts()).map(p => `https://${HOST}/blog/${p.slug}`)
+  return [...STATIC_URLS, ...blogUrls, ...MATCH_URLS]
+}
 
 // IndexNow supports max 10,000 URLs per request
 const BATCH_SIZE = 500
 
 export async function POST() {
   try {
+    const allUrls = await getAllUrls()
     const batches: string[][] = []
-    for (let i = 0; i < ALL_URLS.length; i += BATCH_SIZE) {
-      batches.push(ALL_URLS.slice(i, i + BATCH_SIZE))
+    for (let i = 0; i < allUrls.length; i += BATCH_SIZE) {
+      batches.push(allUrls.slice(i, i + BATCH_SIZE))
     }
 
     const results = await Promise.all(
@@ -62,7 +62,7 @@ export async function POST() {
     const allOk = results.every(r => r.ok || r.status === 202)
     return NextResponse.json({
       success: allOk,
-      urlsSubmitted: ALL_URLS.length,
+      urlsSubmitted: allUrls.length,
       batches: results,
     })
   } catch (error) {

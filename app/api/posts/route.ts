@@ -1,37 +1,42 @@
 import { NextResponse } from 'next/server'
+import { isAdminToken } from '@/lib/admin/auth'
 import { cookies } from 'next/headers'
 import { getPosts, createPost } from '@/lib/posts'
 import type { BlogPost } from '@/lib/posts'
 
-function isAuthenticated(token: string | undefined): boolean {
-  return !!token && !!process.env.ADMIN_SECRET && token === process.env.ADMIN_SECRET
+async function isAuthed(): Promise<boolean> {
+  const cookieStore = await cookies()
+  return isAdminToken(cookieStore.get('admin_token')?.value)
 }
 
+/** Admin-only list feed (includes drafts) — used by the admin blog list. */
 export async function GET() {
-  const posts = getPosts()
+  if (!(await isAuthed())) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
+  }
+  const posts = await getPosts()
   return NextResponse.json(posts)
 }
 
 export async function POST(request: Request) {
-  const cookieStore = await cookies()
-  const token = cookieStore.get('admin_token')?.value
-  if (!isAuthenticated(token)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  if (!(await isAuthed())) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
   }
 
   const post: BlogPost = await request.json()
 
-  // Validate required fields
   if (!post.slug || !post.title || !post.content) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    return NextResponse.json({ error: 'missing_fields' }, { status: 400 })
   }
 
-  // Check slug uniqueness
-  const existing = getPosts().find((p) => p.slug === post.slug)
-  if (existing) {
-    return NextResponse.json({ error: 'Slug already exists' }, { status: 409 })
+  try {
+    await createPost(post)
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
+    if (message.includes('duplicate') || message.includes('unique')) {
+      return NextResponse.json({ error: 'slug_exists' }, { status: 409 })
+    }
+    return NextResponse.json({ error: 'insert_failed', detail: message }, { status: 500 })
   }
-
-  createPost(post)
   return NextResponse.json({ success: true, slug: post.slug }, { status: 201 })
 }

@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo/metadata'
 import CanadaHero from '@/components/canada/CanadaHero'
 import CanadaHomePage from '@/page-components/canada/CanadaHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
 
-export const metadata: Metadata = {
+const codeMetadata: Metadata = {
   title: 'Best IPTV Canada 2026 - Hockey, Live Sports & CA Networks | ORCA 4K TV',
   description: 'Best IPTV Canada 2026: every pro hockey playoff, Canadian football & the 2026 Winter Games in 4K HDR. 22,000+ channels, all CA networks. Bilingual EN/FR.',
   keywords: 'best iptv canada 2026, iptv canada, canadian iptv subscription, hockey iptv canada, canadian football iptv, french canadian iptv channels, IPTV subscription, IPTV plans, IPTV streaming service, premium IPTV channels, live channels, on-demand movies, 4K streaming, HDR streaming, buffer-free streaming, multi-device compatibility, smart EPG guide, instant activation, secure streaming, AES-256 encryption, 24/7 customer support, IPTV with VPN, cord cutting canada 2026',
@@ -30,6 +31,17 @@ export const metadata: Metadata = {
     title: 'Best IPTV Canada 2026 - Hockey, Live Sports & CA Networks | ORCA 4K TV',
     description: 'Every hockey playoff, 2026 Winter Games, summer international football. Bilingual EN/FR. From $/mo in CAD.',
   },
+}
+
+// SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
+export async function generateMetadata(): Promise<Metadata> {
+  const base = await buildPageMetadata('iptv-canada', {
+    title: codeMetadata.title as string,
+    description: codeMetadata.description as string,
+    keywords: codeMetadata.keywords as string | undefined,
+    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
+  })
+  return { ...codeMetadata, ...base }
 }
 
 export default function CanadaPage() {

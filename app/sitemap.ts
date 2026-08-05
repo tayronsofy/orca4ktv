@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { getPublishedPosts } from '@/lib/posts'
+import { getSeoSettings } from '@/lib/seo/metadata'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = 'https://orca4ktv.com'
   const today = new Date().toISOString().split('T')[0]
 
@@ -38,12 +39,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/refund-policy`,     priority: 0.3 },
   ].map(r => ({ ...r, lastModified: today, changeFrequency: 'weekly' as const }))
 
-  const blogRoutes: MetadataRoute.Sitemap = getPublishedPosts().map(post => ({
+  const blogRoutes: MetadataRoute.Sitemap = (await getPublishedPosts()).filter(post => !post.noindex).map(post => ({
     url: `${base}/blog/${post.slug}`,
     lastModified: new Date(post.dateModified || post.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }))
 
-  return [...staticRoutes, ...blogRoutes]
+  // Admin-configured exclusions (paths) — static fallback when unavailable
+  let exclusions: string[] = []
+  try {
+    const settings = await getSeoSettings()
+    exclusions = Array.isArray(settings?.sitemap_exclusions) ? settings.sitemap_exclusions : []
+  } catch { /* keep everything */ }
+
+  const all = [...staticRoutes, ...blogRoutes]
+  if (exclusions.length === 0) return all
+  return all.filter(r => {
+    const path = r.url.replace(base, '') || '/'
+    return !exclusions.includes(path)
+  })
 }
