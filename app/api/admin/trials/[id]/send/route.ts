@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { sendTrialCredentials } from '@/lib/email'
-import { createTrialM3U } from '@/lib/iptv-panel'
+import { createTrialM3U, PanelError } from '@/lib/iptv-panel'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://orca4ktv.com'
 const STREAM_HOST = process.env.IPTV_SERVER_URL || 'http://line.trxdnscloud.ru'
@@ -52,10 +52,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       }
     } catch (err) {
       console.error('Panel create trial error:', err)
-      return NextResponse.json(
-        { error: 'panel_error', message: 'Failed to create trial on IPTV panel. Check your panel connection and try again.' },
-        { status: 502 }
-      )
+      const detail = err instanceof PanelError ? err.panelMessage : err instanceof Error ? err.message : String(err)
+      let message = `IPTV panel refused the trial: "${detail}".`
+      if (/credit|ticket/i.test(detail)) {
+        message += ' Demo trials consume Demo Tickets (not credits) - top up demo tickets in ActivationPanel, or send this trial via Pool or Manual.'
+      } else if (!(err instanceof PanelError)) {
+        message += ' Check the panel connection (IPTV_PANEL_URL / IPTV_API_KEY) and try again.'
+      }
+      return NextResponse.json({ error: 'panel_error', message, detail }, { status: 502 })
     }
   } else if (mode === 'pool') {
     // Assign the requested pool account, or fall back to the oldest available one

@@ -25,6 +25,41 @@ function panelUrl(params: Record<string, string>): string {
   return `${base}/api/api.php?${qs.toString()}`
 }
 
+/** Error raised when the panel answers with a failure. `panelMessage` is the panel's own text. */
+export class PanelError extends Error {
+  panelMessage: string
+  constructor(panelMessage: string) {
+    super(`Panel: ${panelMessage}`)
+    this.name = 'PanelError'
+    this.panelMessage = panelMessage
+  }
+}
+
+/**
+ * GET the panel and normalise its two failure shapes:
+ *   { status: "false", message: "Not enough credits" }
+ *   { status: "error", result: "No Subscription time selected." }
+ * Any HTTP or JSON problem is also surfaced with the panel's text when available.
+ */
+async function panelRequest(params: Record<string, string>): Promise<any> {
+  const res = await fetch(panelUrl(params), { cache: 'no-store' })
+  const text = await res.text()
+  let data: any
+  try {
+    data = JSON.parse(text)
+  } catch {
+    throw new PanelError(`HTTP ${res.status}, non-JSON response: ${text.slice(0, 200)}`)
+  }
+  if (!res.ok) throw new PanelError(data?.message || data?.result || `HTTP ${res.status}`)
+  if (data && !Array.isArray(data)) {
+    const status = String(data.status ?? '').toLowerCase()
+    if (status === 'false' || status === 'error') {
+      throw new PanelError(String(data.message || data.result || 'request rejected'))
+    }
+  }
+  return data
+}
+
 /**
  * Rewrite the M3U URL returned by the panel so its host is always the
  * streaming server (IPTV_SERVER_URL). The panel API lives on a different
@@ -86,15 +121,7 @@ export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): P
   }
   if (opts.note) params.note = opts.note
 
-  const url = panelUrl(params)
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Panel create subscription failed: ${res.status}`)
-
-  const data = await res.json()
-
-  if (data.status === 'false' || data.status === false) {
-    throw new Error(data.message || 'Panel rejected the subscription creation request')
-  }
+  const data = await panelRequest(params)
 
   let username = data.username || ''
   let password = data.password || ''
@@ -129,27 +156,20 @@ export async function createSubscriptionM3U(opts: SubscriptionAccountOptions): P
 
 /**
  * Create a demo/trial M3U account on the panel.
- * sub=99 = demo mode (12h trial, set by the panel).
- * Uses pack=all since no custom bouquets are configured.
+ * sub=99 = demo mode (12h trial, set by the panel). Consumes one Demo Ticket,
+ * NOT credits - the panel answers "Not enough credits" when no tickets are left.
+ * pack=35647 is the "all" bouquet.
  */
 export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount> {
   const params: Record<string, string> = {
     action: 'new',
     type: 'm3u',
-    sub: '99',     // 99 = demo/trial (12h, fixed by panel)
-    pack: '35647',   // give access to all packages
+    sub: '99',     // 99 = demo/trial (12h, fixed by panel, uses 1 Demo Ticket)
+    pack: '35647', // "all" bouquet
   }
   if (note) params.note = note
 
-  const url = panelUrl(params)
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Panel create trial failed: ${res.status}`)
-
-  const data = await res.json()
-
-  if (data.status === 'false' || data.status === false) {
-    throw new Error(data.message || 'Panel rejected the trial creation request')
-  }
+  const data = await panelRequest(params)
 
   // Support both formats: data.url or data.username+data.password
   let username = data.username || ''
@@ -197,17 +217,11 @@ export interface PanelPackage {
 }
 
 /**
- * Reseller account info (credits/username). Best-effort against the
- * ActivationPanel API — response field names vary between panel versions.
+ * Reseller account info (credits/username) via action=reseller_info.
+ * Note: the panel does not expose the Demo Ticket balance through the API.
  */
 export async function getResellerInfo(): Promise<ResellerInfo> {
-  const url = panelUrl({ action: 'user_info' })
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Panel user_info failed: ${res.status}`)
-  const data = await res.json()
-  if (data.status === 'false' || data.status === false) {
-    throw new Error(data.message || 'Panel rejected the user_info request')
-  }
+  const data = await panelRequest({ action: 'reseller_info' })
   const src = (data.data && typeof data.data === 'object' ? data.data : data) as Record<string, unknown>
   return {
     username: String(src.username ?? src.user ?? src.name ?? ''),
@@ -216,15 +230,9 @@ export async function getResellerInfo(): Promise<ResellerInfo> {
   }
 }
 
-/** Package/bouquet list from the panel. Best-effort; returns [] when the endpoint is unsupported. */
+/** Bouquet list via action=bouquet. The panel returns a bare JSON array. */
 export async function getPackages(): Promise<PanelPackage[]> {
-  const url = panelUrl({ action: 'packages' })
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Panel packages failed: ${res.status}`)
-  const data = await res.json()
-  if (data.status === 'false' || data.status === false) {
-    throw new Error(data.message || 'Panel rejected the packages request')
-  }
+  const data = await panelRequest({ action: 'bouquet' })
   const list = Array.isArray(data) ? data : (data.packages ?? data.data ?? [])
   if (!Array.isArray(list)) return []
   return list

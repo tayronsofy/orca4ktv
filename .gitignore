@@ -28,3 +28,9 @@ scripts/regenerate/.manifest.json
 *.njsproj
 *.sln
 *.sw?
+
+# Customer PII exports - never commit
+exports/
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo

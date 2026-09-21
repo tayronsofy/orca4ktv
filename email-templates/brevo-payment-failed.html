@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="x-apple-disable-message-reformatting">
+  <title>There was a problem with your payment — ORCA 4K TV</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
+    .ReadMsgBody { width: 100%; }
+    .ExternalClass { width: 100%; }
+    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+    a { color: #00E5FF; }
+
+    @media only screen and (max-width: 620px) {
+      .email-container { width: 100% !important; }
+      .hero-title  { font-size: 24px !important; line-height: 1.3 !important; }
+      .section-pad { padding: 32px 22px !important; }
+      .amount      { font-size: 32px !important; }
+      .btn-a       { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+      .kv-label, .kv-value { display: block !important; width: 100% !important; text-align: left !important; }
+      .kv-value    { padding: 2px 0 10px !important; }
+    }
+  </style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#000a1c;font-family:'Inter',Arial,Helvetica,sans-serif;">
+
+  <!-- Preheader (hidden inbox preview text) -->
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#000a1c;">
+    Your card was declined and your order is still on hold. Finish your payment in one click, nothing has been charged.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#000a1c;">
+    <tr>
+      <td align="center" style="padding:24px 12px 40px;">
+
+        <table class="email-container" role="presentation" cellpadding="0" cellspacing="0" border="0" width="600"
+               style="max-width:600px;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.7);">
+
+          <!-- ============================================ -->
+          <!-- 1. HEADER                                    -->
+          <!-- ============================================ -->
+          <tr>
+            <td style="background-color:#001a36;padding:26px 40px;text-align:center;border-bottom:2px solid #00E5FF;">
+              <img src="https://orca4ktv.com/logo.png" alt="ORCA 4K TV" width="170" style="max-width:170px;height:auto;margin:0 auto;">
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 2. WARNING ICON + HEADLINE                   -->
+          <!-- ============================================ -->
+          <tr>
+            <td class="section-pad" style="background-color:#001f3f;padding:44px 40px 8px;text-align:center;">
+
+              <!-- Amber warning badge -->
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 26px;">
+                <tr>
+                  <td width="72" height="72" align="center" valign="middle"
+                      style="width:72px;height:72px;background-color:#f59e0b;border-radius:36px;
+                             font-size:38px;line-height:72px;font-weight:900;color:#1a1200;
+                             font-family:'Inter',Arial,Helvetica,sans-serif;">
+                    !
+                  </td>
+                </tr>
+              </table>
+
+              <h1 class="hero-title" style="margin:0 0 14px;font-size:29px;line-height:1.28;font-weight:900;color:#ffffff;letter-spacing:-0.5px;">
+                We couldn&rsquo;t process your payment
+              </h1>
+
+              <p style="margin:0 0 6px;font-size:16px;line-height:1.65;color:#9fb3c8;">
+                Hi {{ contact.FIRSTNAME | default: "there" }}, your bank declined the transaction for order
+                <strong style="color:#ffffff;">{{ params.ORDER_NUMBER }}</strong>.
+                Nothing has been charged and your subscription is still on hold.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 3. AMOUNT DUE + ORDER SUMMARY                -->
+          <!-- ============================================ -->
+          <tr>
+            <td class="section-pad" style="background-color:#001f3f;padding:22px 40px 8px;">
+
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                     style="background-color:#001a36;border:1px solid rgba(0,229,255,0.18);border-radius:14px;">
+                <tr>
+                  <td style="padding:24px 26px 18px;text-align:center;">
+                    <p style="margin:0 0 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7f97ad;font-weight:700;">
+                      Amount due
+                    </p>
+                    <p class="amount" style="margin:0;font-size:38px;line-height:1.1;font-weight:900;color:#00E5FF;">
+                      {{ params.AMOUNT }}
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:0 26px 22px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                           style="border-top:1px solid rgba(255,255,255,0.08);">
+                      <tr>
+                        <td class="kv-label" style="padding:12px 0 4px;font-size:14px;color:#7f97ad;">Plan</td>
+                        <td class="kv-value" align="right" style="padding:12px 0 4px;font-size:14px;color:#ffffff;font-weight:700;">{{ params.PLAN_NAME }}</td>
+                      </tr>
+                      <tr>
+                        <td class="kv-label" style="padding:4px 0;font-size:14px;color:#7f97ad;">Connections</td>
+                        <td class="kv-value" align="right" style="padding:4px 0;font-size:14px;color:#ffffff;">{{ params.CONNECTIONS }}</td>
+                      </tr>
+                      <tr>
+                        <td class="kv-label" style="padding:4px 0;font-size:14px;color:#7f97ad;">Order</td>
+                        <td class="kv-value" align="right" style="padding:4px 0;font-size:14px;color:#ffffff;font-family:monospace;">{{ params.ORDER_NUMBER }}</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 4. PRIMARY CTA                               -->
+          <!-- ============================================ -->
+          <tr>
+            <td class="section-pad" style="background-color:#001f3f;padding:26px 40px 10px;text-align:center;">
+
+              <!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                           href="{{ params.PAYMENT_LINK }}" style="height:54px;v-text-anchor:middle;width:320px;"
+                           arcsize="50%" stroke="f" fillcolor="#003580">
+                <w:anchorlock/>
+                <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">
+                  Try another card
+                </center>
+              </v:roundrect>
+              <![endif]-->
+              <!--[if !mso]><!-- -->
+              <a class="btn-a" href="{{ params.PAYMENT_LINK }}"
+                 style="display:inline-block;background-color:#003580;background-image:linear-gradient(135deg,#003580,#00a5cc);
+                        color:#ffffff;text-decoration:none;font-size:16px;font-weight:800;letter-spacing:0.4px;
+                        padding:17px 46px;border-radius:50px;box-shadow:0 8px 24px rgba(0,229,255,0.22);">
+                Try another card
+              </a>
+              <!--<![endif]-->
+
+              <p style="margin:16px 0 0;font-size:13px;line-height:1.6;color:#7f97ad;">
+                Or
+                <a href="{{ params.PAYMENT_LINK }}" style="color:#00E5FF;text-decoration:underline;font-weight:600;">start over with the same card</a>
+                &mdash; declines are often temporary.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 5. WHY THIS HAPPENS                          -->
+          <!-- ============================================ -->
+          <tr>
+            <td class="section-pad" style="background-color:#001f3f;padding:26px 40px 8px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+                     style="background-color:rgba(245,158,11,0.08);border-left:4px solid #f59e0b;border-radius:10px;">
+                <tr>
+                  <td style="padding:18px 22px;">
+                    <p style="margin:0 0 10px;font-size:13px;font-weight:800;color:#fbbf24;text-transform:uppercase;letter-spacing:1px;">
+                      Common reasons for a decline
+                    </p>
+                    <p style="margin:0 0 6px;font-size:14px;line-height:1.7;color:#c9d8e5;">
+                      &bull;&nbsp; Your bank blocked an international or online transaction
+                    </p>
+                    <p style="margin:0 0 6px;font-size:14px;line-height:1.7;color:#c9d8e5;">
+                      &bull;&nbsp; Insufficient funds or a daily spending limit was reached
+                    </p>
+                    <p style="margin:0 0 6px;font-size:14px;line-height:1.7;color:#c9d8e5;">
+                      &bull;&nbsp; A typo in the card number, expiry date or CVV
+                    </p>
+                    <p style="margin:0;font-size:14px;line-height:1.7;color:#c9d8e5;">
+                      &bull;&nbsp; The card does not support recurring or foreign payments
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 6. SUPPORT                                   -->
+          <!-- ============================================ -->
+          <tr>
+            <td class="section-pad" style="background-color:#001f3f;padding:26px 40px 40px;text-align:center;">
+              <p style="margin:0 0 8px;font-size:15px;line-height:1.7;color:#9fb3c8;">
+                Still stuck? Just reply to this email and a real person will sort it out with you,
+                usually in under 5 minutes.
+              </p>
+              <p style="margin:0;font-size:14px;color:#7f97ad;">
+                Or email
+                <a href="mailto:support@orca4ktv.com" style="color:#00E5FF;text-decoration:none;font-weight:600;">support@orca4ktv.com</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 7. TRUST STRIP                               -->
+          <!-- ============================================ -->
+          <tr>
+            <td style="background-color:#001a36;padding:20px 30px;border-top:1px solid rgba(255,255,255,0.06);">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td align="center" style="font-size:12px;line-height:1.8;color:#7f97ad;">
+                    &#128274;&nbsp; Secure checkout &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    &#9989;&nbsp; 30-day money-back guarantee &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    &#9889;&nbsp; Instant activation
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ============================================ -->
+          <!-- 8. FOOTER                                    -->
+          <!-- ============================================ -->
+          <tr>
+            <td style="background-color:#000a1c;padding:26px 40px 30px;text-align:center;">
+              <p style="margin:0 0 10px;font-size:12px;line-height:1.7;color:#5f7788;">
+                You received this email because an order was placed on
+                <a href="https://orca4ktv.com" style="color:#00E5FF;text-decoration:none;">orca4ktv.com</a>.
+              </p>
+              <p style="margin:0 0 10px;font-size:12px;color:#5f7788;">
+                <a href="{{ mirror }}" style="color:#7f97ad;text-decoration:underline;">View in browser</a>
+                &nbsp;&bull;&nbsp;
+                <a href="https://orca4ktv.com/refund-policy" style="color:#7f97ad;text-decoration:underline;">Refund policy</a>
+                &nbsp;&bull;&nbsp;
+                <a href="https://orca4ktv.com/terms" style="color:#7f97ad;text-decoration:underline;">Terms</a>
+              </p>
+              <p style="margin:0;font-size:11px;color:#44586b;">
+                &copy; 2026 ORCA 4K TV &middot; All rights reserved
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
