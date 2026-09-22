@@ -21,7 +21,7 @@ jobs:
             export GIT_SSH_COMMAND="ssh -i ~/.ssh/github_deploy -o StrictHostKeyChecking=no"
             cd /home/deploy/orca4ktv
             git config --global --add safe.directory /home/deploy/orca4ktv
-            git remote set-url origin git@github.com:yenesim/orca4ktv.git
+            git remote set-url origin git@github.com:tayronsofy/orca4ktv.git
             git fetch origin main
             git reset --hard origin/main
             npm install

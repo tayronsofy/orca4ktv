@@ -83,5 +83,5 @@ if command -v gh >/dev/null 2>&1; then
     echo "   Could not find the run yet. Check: gh run list --workflow=deploy.yml"
   fi
 else
-  echo "   Watch it at: https://github.com/yenesim/orca4ktv/actions/workflows/deploy.yml"
+  echo "   Watch it at: https://github.com/tayronsofy/orca4ktv/actions/workflows/deploy.yml"
 fi
