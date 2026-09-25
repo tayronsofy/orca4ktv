@@ -14,6 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/iptv-canada`,       priority: 0.9 },
     { url: `${base}/iptv-germany`,      priority: 0.9 },
     { url: `${base}/iptv-netherlands`,  priority: 0.9 },
+    { url: `${base}/iptv-sweden`,       priority: 0.9 },
     { url: `${base}/trial`,             priority: 0.9 },
     { url: `${base}/iptv-shop`,          priority: 0.9 },
     { url: `${base}/iptv-shop/1-month`,  priority: 0.9 },

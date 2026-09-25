@@ -20,7 +20,7 @@ export const SEO_PAGES: SeoRegistryEntry[] = [
     label: 'Homepage',
     defaultTitle: 'ORCA 4K TV - Premium 4K IPTV Streaming Service',
     defaultDescription:
-      'ORCA 4K TV is a premium 4K IPTV streaming brand: 22,000+ live channels, 100,000+ movies, Anti Freeze CDN and AES-256 security across USA, UK, Canada, Germany & Netherlands. Explore plans, regions, tools and a free trial.',
+      'ORCA 4K TV is a premium 4K IPTV streaming brand: 22,000+ live channels, 100,000+ movies, Anti Freeze CDN and AES-256 security across USA, UK, Canada, Germany, Netherlands & Sweden. Explore plans, regions, tools and a free trial.',
   },
   {
     key: 'iptv',
@@ -69,6 +69,14 @@ export const SEO_PAGES: SeoRegistryEntry[] = [
     defaultTitle: 'Beste IPTV Nederland 2026 - Live-Sport & NL-Zenders | ORCA 4K TV',
     defaultDescription:
       'Beste IPTV Nederland 2026: Nederlands topvoetbal, top Europees clubvoetbal, motorsport, Olympische Spelen 2026 in 4K HDR. 22.000+ zenders, alle belangrijke Nederlandse free-to-air zenders. Direct actief.',
+  },
+  {
+    key: 'iptv-sweden',
+    path: '/iptv-sweden',
+    label: 'IPTV Sverige',
+    defaultTitle: 'Bästa IPTV Sverige 2026 - Svensk sport och alla kanaler i 4K | ORCA 4K TV',
+    defaultDescription:
+      'Bästa IPTV Sverige 2026: svensk elitfotboll, elithockey, skidskytte och vinterspelen 2026 i 4K HDR. 22 000+ kanaler, alla viktiga svenska kanaler. Priser i kronor, ingen bindningstid.',
   },
   {
     key: 'trial',

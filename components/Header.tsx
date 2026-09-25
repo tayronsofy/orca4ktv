@@ -100,6 +100,9 @@ const Header: React.FC = () => {
             <Link href="/iptv-netherlands" title="Netherlands IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-netherlands' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
               <img src="https://flagcdn.com/w40/nl.png" alt="Netherlands" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
             </Link>
+            <Link href="/iptv-sweden" title="Sweden IPTV" className={`transition-transform hover:scale-110 block ${pathname === '/iptv-sweden' ? 'ring-2 ring-purple-500 rounded-sm scale-110' : 'opacity-60 hover:opacity-100'}`}>
+              <img src="https://flagcdn.com/w40/se.png" alt="Sweden" width={24} height={16} loading="lazy" className="w-5 h-[14px] md:w-6 md:h-4 object-cover rounded-[2px] shadow-sm" />
+            </Link>
           </div>
 
           {/* My Account / Login - desktop only */}
@@ -209,6 +212,10 @@ const Header: React.FC = () => {
                 <Link href="/iptv-netherlands" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
                   <img src="https://flagcdn.com/w40/nl.png" alt="Netherlands" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
                   IPTV Nederland
+                </Link>
+                <Link href="/iptv-sweden" className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 font-bold text-sm hover:text-white hover:bg-white/5 transition-all">
+                  <img src="https://flagcdn.com/w40/se.png" alt="Sweden" width={24} height={16} loading="lazy" className="w-6 h-4 object-cover rounded-[2px]" />
+                  IPTV Sverige
                 </Link>
               </div>
             </div>

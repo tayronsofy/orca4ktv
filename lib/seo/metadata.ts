@@ -50,6 +50,35 @@ export interface CodeDefaults {
   keywords?: string
   canonical?: string
   ogImage?: string
+  /** hreflang map, e.g. { 'de-DE': 'https://orca4ktv.com/iptv-germany' } */
+  languages?: Record<string, string>
+  /** OpenGraph locale, e.g. 'de_DE' */
+  ogLocale?: string
+}
+
+/**
+ * Derive CodeDefaults from a page's hardcoded `Metadata` object so nothing the
+ * page declares (hreflang, og:locale, OG image) is lost when the DB overrides
+ * are merged on top.
+ */
+export function codeDefaultsFrom(code: Metadata): CodeDefaults {
+  const alternates = code.alternates as { canonical?: string; languages?: Record<string, string> } | undefined
+  const og = code.openGraph as { images?: unknown; locale?: string } | undefined
+  const firstImage = Array.isArray(og?.images) ? og?.images[0] : og?.images
+  const ogImage =
+    typeof firstImage === 'string' ? firstImage
+    : firstImage instanceof URL ? firstImage.toString()
+    : firstImage && typeof firstImage === 'object' && 'url' in firstImage ? String((firstImage as { url: unknown }).url)
+    : undefined
+  return {
+    title: code.title as string,
+    description: code.description as string,
+    keywords: typeof code.keywords === 'string' ? code.keywords : undefined,
+    canonical: alternates?.canonical,
+    ogImage,
+    languages: alternates?.languages,
+    ogLocale: og?.locale,
+  }
 }
 
 /**
@@ -78,7 +107,9 @@ export async function buildPageMetadata(pageKey: string, defaults: CodeDefaults)
   const twitterImage = meta?.twitter_image_url || ogImage
 
   const result: Metadata = {
-    title,
+    // Absolute: every page using this builder already carries the brand in its
+    // title, and the root layout's "%s - ORCA 4K TV" template would append it twice.
+    title: { absolute: title },
     description,
     ...(defaults.keywords ? { keywords: defaults.keywords } : {}),
     openGraph: {
@@ -86,6 +117,7 @@ export async function buildPageMetadata(pageKey: string, defaults: CodeDefaults)
       description: ogDescription,
       type: 'website',
       ...(canonical && !noindex ? { url: canonical } : {}),
+      ...(defaults.ogLocale ? { locale: defaults.ogLocale } : {}),
       images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
@@ -101,7 +133,10 @@ export async function buildPageMetadata(pageKey: string, defaults: CodeDefaults)
   }
   // canonical/alternates omitted entirely when noindexed
   if (canonical && !noindex) {
-    result.alternates = { canonical }
+    result.alternates = {
+      canonical,
+      ...(defaults.languages ? { languages: defaults.languages } : {}),
+    }
   }
 
   const verification: Record<string, string> = {}

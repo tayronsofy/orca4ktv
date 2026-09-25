@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo/metadata'
+import { buildPageMetadata, codeDefaultsFrom } from '@/lib/seo/metadata'
 import TrialPageContent from '@/page-components/TrialPageContent'
 
 const codeMetadata: Metadata = {
@@ -25,12 +25,7 @@ const codeMetadata: Metadata = {
 
 // SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
 export async function generateMetadata(): Promise<Metadata> {
-  const base = await buildPageMetadata('trial', {
-    title: codeMetadata.title as string,
-    description: codeMetadata.description as string,
-    keywords: codeMetadata.keywords as string | undefined,
-    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
-  })
+  const base = await buildPageMetadata('trial', codeDefaultsFrom(codeMetadata))
   return { ...codeMetadata, ...base }
 }
 

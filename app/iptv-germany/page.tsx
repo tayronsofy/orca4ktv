@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo/metadata'
+import { buildPageMetadata, codeDefaultsFrom } from '@/lib/seo/metadata'
 import GermanyHero from '@/components/germany/GermanyHero'
 import GermanyHomePage from '@/page-components/germany/GermanyHomePage'
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd'
@@ -15,6 +15,7 @@ const codeMetadata: Metadata = {
       'en-US': 'https://orca4ktv.com/iptv-usa',
       'en-GB': 'https://orca4ktv.com/iptv-uk',
       'en-CA': 'https://orca4ktv.com/iptv-canada',
+      'sv-SE': 'https://orca4ktv.com/iptv-sweden',
       'x-default': 'https://orca4ktv.com/',
     },
   },
@@ -35,12 +36,7 @@ const codeMetadata: Metadata = {
 
 // SEO overrides from /admin/seo — null DB fields fall back to codeMetadata
 export async function generateMetadata(): Promise<Metadata> {
-  const base = await buildPageMetadata('iptv-germany', {
-    title: codeMetadata.title as string,
-    description: codeMetadata.description as string,
-    keywords: codeMetadata.keywords as string | undefined,
-    canonical: (codeMetadata.alternates as { canonical?: string } | undefined)?.canonical,
-  })
+  const base = await buildPageMetadata('iptv-germany', codeDefaultsFrom(codeMetadata))
   return { ...codeMetadata, ...base }
 }
 

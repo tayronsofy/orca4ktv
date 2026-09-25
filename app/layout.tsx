@@ -101,6 +101,7 @@ export default function RootLayout({
                 { "@type": "Country", "name": "Canada" },
                 { "@type": "Country", "name": "Germany" },
                 { "@type": "Country", "name": "Netherlands" },
+                { "@type": "Country", "name": "Sweden" },
                 "Worldwide"
               ],
               "knowsAbout": [
