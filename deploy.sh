@@ -48,9 +48,12 @@ echo "▶  Syncing with origin/main..."
 git fetch origin main
 if [ -n "$(git log --oneline HEAD..origin/main)" ]; then
   echo "   Remote has new commits (fixture updates, etc). Rebasing on top..."
-  git stash push -q --include-untracked -m "deploy.sh autostash" && STASHED=1 || STASHED=0
+  STASHED=0
+  if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+    git stash push -q --include-untracked -m "deploy.sh autostash" && STASHED=1
+  fi
   git rebase origin/main
-  [ "$STASHED" = 1 ] && git stash pop -q
+  if [ "$STASHED" = 1 ]; then git stash pop -q; fi
 fi
 
 echo "▶  Committing..."
