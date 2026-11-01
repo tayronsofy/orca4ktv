@@ -205,6 +205,37 @@ export async function createTrialM3U(note?: string): Promise<CreatedTrialAccount
   }
 }
 
+/**
+ * Renew an existing M3U line by `sub` months (1, 3, 6 or 12).
+ * ActivationPanel adds the time to the line's current expiry.
+ */
+export async function renewM3U(username: string, password: string, sub: 1 | 3 | 6 | 12): Promise<void> {
+  await panelRequest({ action: 'renew', type: 'm3u', username, password, sub: String(sub) })
+}
+
+/**
+ * Add an arbitrary number of months to a line by chaining renewals
+ * (the panel only accepts 1/3/6/12). 2 months = two 1-month renewals.
+ * Each renewal spends panel credits. Throws on the first failed call,
+ * reporting how many months were already added.
+ */
+export async function extendM3U(username: string, password: string, months: number): Promise<void> {
+  let remaining = Math.max(0, Math.floor(months))
+  let added = 0
+  for (const step of [12, 6, 3, 1] as const) {
+    while (remaining >= step) {
+      try {
+        await renewM3U(username, password, step)
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err)
+        throw new Error(`extend stopped after ${added} of ${months} month(s): ${msg}`)
+      }
+      remaining -= step
+      added += step
+    }
+  }
+}
+
 export interface ResellerInfo {
   username: string
   credits: string

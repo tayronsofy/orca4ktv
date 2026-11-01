@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { sendOrderConfirmation, sendAdminNewOrderAlert } from '@/lib/email'
 import { getPlanPrice, getPlanName, isValidPlanSlug, isValidConnections } from '@/lib/pricing'
-import { validateCoupon } from '@/lib/coupons'
+import { validateCoupon, bonusLabel } from '@/lib/coupons'
 
 function generateInvoiceNumber(): string {
   const now = new Date()
@@ -55,11 +55,12 @@ export async function POST(request: NextRequest) {
 
   // Server-side amount calculation - never trust client-sent prices.
   const originalAmount = getPlanPrice(planSlug, connections)!
-  const planName = getPlanName(planSlug)!
+  const basePlanName = getPlanName(planSlug)!
 
   let discountAmount = 0
   let finalAmount = originalAmount
   let appliedCouponCode: string | null = null
+  let bonusMonths = 0
 
   if (couponCode) {
     const couponResult = await validateCoupon({
@@ -77,7 +78,11 @@ export async function POST(request: NextRequest) {
     discountAmount = couponResult.discountAmount
     finalAmount = couponResult.finalAmount
     appliedCouponCode = couponResult.code
+    bonusMonths = couponResult.bonusMonths
   }
+
+  // Name shown to the customer and admin includes any coupon bonus
+  const planName = bonusMonths > 0 ? `${basePlanName} (${bonusLabel(bonusMonths)})` : basePlanName
 
   const admin = createAdminClient()
 
@@ -102,7 +107,7 @@ export async function POST(request: NextRequest) {
     .insert({
       user_id: user.id,
       plan_slug: planSlug,
-      plan_name: planName,
+      plan_name: basePlanName,
       connections,
       amount: finalAmount,
       original_amount: originalAmount,
@@ -110,9 +115,12 @@ export async function POST(request: NextRequest) {
       coupon_code: appliedCouponCode,
       status: 'pending_payment',
       customer_ip: ip,
-      notes: renewalInfo
-        ? `Playlist renewal — user ${renewalInfo.username ?? '?'} (slot ${renewalInfo.slot ?? '?'})${renewalInfo.playlistUrl ? ' — ' + renewalInfo.playlistUrl : ''}`
-        : null,
+      notes: [
+        renewalInfo
+          ? `Playlist renewal — user ${renewalInfo.username ?? '?'} (slot ${renewalInfo.slot ?? '?'})${renewalInfo.playlistUrl ? ' — ' + renewalInfo.playlistUrl : ''}`
+          : null,
+        bonusMonths > 0 ? `${appliedCouponCode}: ${bonusLabel(bonusMonths)} included${renewalInfo ? ' (add them when renewing)' : ''}` : null,
+      ].filter(Boolean).join('\n') || null,
     })
     .select()
     .single()
@@ -197,6 +205,7 @@ export async function POST(request: NextRequest) {
       originalAmount,
       discountAmount,
       couponCode: appliedCouponCode,
+      bonusMonths,
     },
     { status: 201 }
   )

@@ -57,6 +57,7 @@ function OrderForm() {
     discountPercent: number
     discountAmount: number
     finalAmount: number
+    bonusMonths: number
   } | null>(null)
   const [couponError, setCouponError] = useState('')
   const [couponLoading, setCouponLoading] = useState(false)
@@ -209,6 +210,7 @@ function OrderForm() {
           discountPercent: data.discountPercent,
           discountAmount: data.discountAmount,
           finalAmount: data.finalAmount,
+          bonusMonths: Number(data.bonusMonths) || 0,
         })
         setCouponError('')
       } else {
@@ -348,7 +350,7 @@ function OrderForm() {
                     <i className="fas fa-check-circle text-[#00E5FF]"></i>
                     <div>
                       <p className="text-white font-bold text-sm">{appliedCoupon.code}</p>
-                      <p className="text-[#00E5FF] text-xs">{appliedCoupon.discountPercent}% off - saved ${appliedCoupon.discountAmount.toFixed(2)}</p>
+                      <p className="text-[#00E5FF] text-xs">{appliedCoupon.discountPercent}% off - saved ${appliedCoupon.discountAmount.toFixed(2)}{appliedCoupon.bonusMonths > 0 ? ` + ${appliedCoupon.bonusMonths} free months` : ''}</p>
                     </div>
                   </div>
                   <button
@@ -401,6 +403,12 @@ function OrderForm() {
                     <span>Coupon ({appliedCoupon.code})</span>
                     <span>-${appliedCoupon.discountAmount.toFixed(2)}</span>
                   </div>
+                  {appliedCoupon.bonusMonths > 0 && (
+                    <div className="flex items-center justify-between text-sm text-orange-400 font-bold mb-2">
+                      <span>Bonus</span>
+                      <span>+{appliedCoupon.bonusMonths} free months</span>
+                    </div>
+                  )}
                   <div className="flex items-end justify-between gap-2 pt-2 border-t border-white/10">
                     <span className="text-white text-sm font-bold">Total</span>
                     <div>

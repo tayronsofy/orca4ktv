@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { requireAdmin } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { createSubscriptionM3U, isPanelConfigured, PLAN_MONTHS } from '@/lib/iptv-panel'
+import { createSubscriptionM3U, extendM3U, isPanelConfigured, PLAN_MONTHS } from '@/lib/iptv-panel'
+import { getCouponBonusMonths, bonusLabel } from '@/lib/coupons'
 
 /**
  * Auto-provision: create one panel line per ordered connection and upsert
@@ -32,11 +33,13 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const profile = (order as any).profiles
   const connections = Math.min(4, Math.max(1, Number(order.connections) || 1))
+  const bonusMonths = getCouponBonusMonths(order.coupon_code, order.plan_slug)
+  const bonusErrors: string[] = []
 
   // Find-or-create the subscription (end date = start + plan months)
   let subscription = (order as any).subscriptions?.[0]
   if (!subscription) {
-    const months = PLAN_MONTHS[order.plan_slug] ?? 1
+    const months = (PLAN_MONTHS[order.plan_slug] ?? 1) + bonusMonths
     const start = new Date()
     const end = new Date(start)
     end.setMonth(end.getMonth() + months)
@@ -68,6 +71,14 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
         note: `Order ${order.id} slot ${slot} - ${profile?.email || ''}`,
       })
 
+      if (bonusMonths > 0) {
+        try {
+          await extendM3U(line.username, line.password, bonusMonths)
+        } catch (err) {
+          bonusErrors.push(`slot ${slot} (${line.username}): ${err instanceof Error ? err.message : String(err)}`)
+        }
+      }
+
       const { error: upsertError } = await admin
         .from('subscription_credentials')
         .upsert(
@@ -95,7 +106,12 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     }
   }
 
-  await admin.from('orders').update({ status: 'active' }).eq('id', id)
+  const orderUpdate: Record<string, unknown> = { status: 'active' }
+  if (bonusErrors.length) {
+    const flag = `⚠ ${order.coupon_code} bonus NOT applied on panel (${bonusLabel(bonusMonths)}), extend manually: ${bonusErrors.join('; ')}`
+    orderUpdate.notes = order.notes ? `${order.notes}\n${flag}` : flag
+  }
+  await admin.from('orders').update(orderUpdate).eq('id', id)
 
-  return NextResponse.json({ success: true, createdSlots, end_date: subscription.end_date })
+  return NextResponse.json({ success: true, createdSlots, end_date: subscription.end_date, bonusMonths, bonusErrors })
 }

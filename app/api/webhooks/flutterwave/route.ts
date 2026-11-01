@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { createSubscriptionM3U, CreatedTrialAccount, PLAN_MONTHS } from '@/lib/iptv-panel'
+import { createSubscriptionM3U, extendM3U, CreatedTrialAccount, PLAN_MONTHS } from '@/lib/iptv-panel'
+import { getCouponBonusMonths, bonusLabel } from '@/lib/coupons'
 import { sendCredentialsReady } from '@/lib/email'
 
 export async function POST(request: NextRequest) {
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
   // 3. Find order by tx_ref (= orderId set when opening the Flutterwave modal)
   const { data: order } = await admin
     .from('orders')
-    .select('id, user_id, plan_slug, plan_name, connections, amount, status')
+    .select('id, user_id, plan_slug, plan_name, connections, amount, status, coupon_code, notes')
     .eq('id', tx_ref)
     .single()
 
@@ -76,8 +77,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Panel error' }, { status: 500 })
   }
 
+  // 7b. Coupon bonus months (e.g. HALLOWEEN2026: +2 on 6/12-month plans).
+  // A failed extension never fails the payment: the order is flagged for the admin.
+  const bonusMonths = getCouponBonusMonths(order.coupon_code, order.plan_slug)
+  if (bonusMonths > 0) {
+    try {
+      await extendM3U(account.username, account.password, bonusMonths)
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      console.error('Flutterwave webhook: bonus extension failed for order', order.id, msg)
+      const flag = `⚠ ${order.coupon_code} bonus NOT applied on panel (${bonusLabel(bonusMonths)}): extend ${account.username} manually. ${msg}`
+      await admin.from('orders').update({ notes: order.notes ? `${order.notes}\n${flag}` : flag }).eq('id', order.id)
+    }
+  }
+
   // 8. Calculate subscription dates
-  const months = PLAN_MONTHS[order.plan_slug] ?? 1
+  const months = (PLAN_MONTHS[order.plan_slug] ?? 1) + bonusMonths
   const startDate = new Date()
   const endDate = new Date(startDate)
   endDate.setMonth(endDate.getMonth() + months)
@@ -149,7 +164,7 @@ export async function POST(request: NextRequest) {
     sendCredentialsReady({
       to: profile.email,
       customerName: profile.full_name || 'Valued Customer',
-      planName: order.plan_name,
+      planName: bonusMonths > 0 ? `${order.plan_name} (${bonusLabel(bonusMonths)})` : order.plan_name,
       endDate: endDate.toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric',
       }),

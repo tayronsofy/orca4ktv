@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { isAdminRequest as checkAdminAuth } from '@/lib/admin/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { PLAN_MONTHS } from '@/lib/iptv-panel'
+import { getCouponBonusMonths } from '@/lib/coupons'
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!checkAdminAuth(request)) return NextResponse.json({ error: 'unauthorized' }, { status: 401 })
@@ -22,14 +23,15 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
 
   const { data: order, error: orderErr } = await admin
     .from('orders')
-    .select('user_id, plan_slug, connections')
+    .select('user_id, plan_slug, connections, coupon_code')
     .eq('id', id)
     .single()
 
   if (orderErr || !order) return NextResponse.json({ error: 'Order not found' }, { status: 404 })
 
   const startDate = new Date()
-  const months = PLAN_MONTHS[order.plan_slug] || 1
+  // Manually entered lines must already include any coupon bonus on the panel side.
+  const months = (PLAN_MONTHS[order.plan_slug] || 1) + getCouponBonusMonths(order.coupon_code, order.plan_slug)
   const endDate = new Date(startDate)
   endDate.setMonth(endDate.getMonth() + months)
 

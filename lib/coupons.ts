@@ -2,7 +2,29 @@
 // (the `coupons` and `coupon_redemptions` tables have no public RLS policies).
 
 import { createAdminClient } from '@/lib/supabase/admin'
-import { applyDiscountPercent, getPlanPrice } from '@/lib/pricing'
+import { applyDiscountPercent, getPlanPrice, type PlanSlug } from '@/lib/pricing'
+
+/**
+ * Free months granted on top of the plan length when a coupon is used.
+ * Kept in code (not the coupons table) so no DB migration is needed.
+ * Add a code here and every fulfilment path picks it up: the Flutterwave
+ * webhook, admin auto-provision and manual credential entry.
+ */
+export const COUPON_BONUS_MONTHS: Record<string, Partial<Record<PlanSlug, number>>> = {
+  HALLOWEEN2026: { '6-months': 2, '12-months': 2 },
+}
+
+/** Bonus months for a coupon + plan, 0 when none apply. Case-insensitive. */
+export function getCouponBonusMonths(code: string | null | undefined, planSlug: string): number {
+  if (!code) return 0
+  const table = COUPON_BONUS_MONTHS[code.trim().toUpperCase()]
+  return table?.[planSlug as PlanSlug] ?? 0
+}
+
+/** "+2 free months" style label, or '' when none. */
+export function bonusLabel(months: number): string {
+  return months > 0 ? `+${months} free month${months === 1 ? '' : 's'}` : ''
+}
 
 export type CouponInvalidReason =
   | 'invalid_code'
@@ -22,6 +44,8 @@ export interface CouponValidResult {
   originalAmount: number
   discountAmount: number
   finalAmount: number
+  /** Free months added on top of the plan (0 when none). */
+  bonusMonths: number
 }
 
 export interface CouponInvalidResult {
@@ -111,5 +135,6 @@ export async function validateCoupon(opts: {
     originalAmount,
     discountAmount,
     finalAmount,
+    bonusMonths: getCouponBonusMonths(coupon.code, opts.planSlug),
   }
 }
