@@ -3,6 +3,7 @@ export {
   sendPaymentLink,
   sendCredentialsReady,
   sendTrialCredentials,
+  sendPasswordReset,
   sendAdminNewOrderAlert,
   sendAdminNewTrialAlert,
   sendAdminNewContactAlert,

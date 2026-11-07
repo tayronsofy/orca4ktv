@@ -9,11 +9,31 @@ function LoginForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const next = searchParams.get('next') || '/dashboard'
+  const message = searchParams.get('message')
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [error, setError] = useState<React.ReactNode>('')
   const [loading, setLoading] = useState(false)
+
+  const forgotHref = `/auth/forgot-password${email.trim() ? `?email=${encodeURIComponent(email.trim())}` : ''}`
+
+  // Banners for messages other pages redirect here with
+  const notices: Record<string, { tone: 'info' | 'warn'; text: React.ReactNode }> = {
+    'existing-account': {
+      tone: 'info',
+      text: <>You already have an account with this email, so your trial is ready on your dashboard. Sign in below, or <Link href={forgotHref} className="underline font-semibold">reset your password</Link> if you don&apos;t remember it.</>,
+    },
+    'check-email': {
+      tone: 'info',
+      text: 'Check your inbox to confirm your email, then sign in here.',
+    },
+    'password-updated': {
+      tone: 'info',
+      text: 'Your password was changed. Sign in with the new one.',
+    },
+  }
+  const notice = message ? notices[message] : undefined
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,7 +44,14 @@ function LoginForm() {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
-      setError(error.message)
+      const msg = error.message.toLowerCase()
+      if (msg.includes('invalid login credentials')) {
+        setError(<>That email and password don&apos;t match. <Link href={forgotHref} className="underline font-semibold text-red-300">Forgot your password?</Link></>)
+      } else if (msg.includes('email not confirmed')) {
+        setError(<>Your email isn&apos;t confirmed yet. <Link href={forgotHref} className="underline font-semibold text-red-300">Reset your password</Link> to confirm it and sign in.</>)
+      } else {
+        setError(error.message)
+      }
       setLoading(false)
       return
     }
@@ -46,10 +73,17 @@ function LoginForm() {
         </div>
 
         <div className="bg-[#002952] rounded-2xl p-8 border border-white/5">
+          {notice && (
+            <div className={`mb-6 rounded-xl px-4 py-3 text-sm border ${notice.tone === 'warn' ? 'bg-yellow-500/10 border-yellow-500/30 text-yellow-200' : 'bg-purple-500/10 border-purple-500/30 text-purple-200'}`}>
+              {notice.text}
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Email address</label>
+              <label htmlFor="email" className="block text-sm text-gray-400 mb-2">Email address</label>
               <input
+                id="email"
+                autoComplete="email"
                 type="email"
                 required
                 value={email}
@@ -59,8 +93,15 @@ function LoginForm() {
               />
             </div>
             <div>
-              <label className="block text-sm text-gray-400 mb-2">Password</label>
+              <div className="flex items-center justify-between mb-2">
+                <label htmlFor="password" className="block text-sm text-gray-400">Password</label>
+                <Link href={forgotHref} className="text-sm text-purple-400 hover:text-purple-300 font-semibold">
+                  Forgot password?
+                </Link>
+              </div>
               <input
+                id="password"
+                autoComplete="current-password"
                 type="password"
                 required
                 value={password}

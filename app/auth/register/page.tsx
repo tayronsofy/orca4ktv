@@ -15,7 +15,7 @@ function RegisterForm() {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [error, setError] = useState<React.ReactNode>('')
   const [loading, setLoading] = useState(false)
   const [trialContext, setTrialContext] = useState<{ valid: boolean; loading: boolean }>({
     valid: false,
@@ -99,7 +99,11 @@ function RegisterForm() {
     })
 
     if (error) {
-      setError(error.message)
+      if (/already (registered|exists)/i.test(error.message)) {
+        setError(<>An account with this email already exists. <Link href="/auth/login" className="underline font-semibold text-red-300">Sign in</Link> or <Link href={`/auth/forgot-password?email=${encodeURIComponent(email)}`} className="underline font-semibold text-red-300">reset your password</Link>.</>)
+      } else {
+        setError(error.message)
+      }
       setLoading(false)
       return
     }
@@ -141,7 +145,7 @@ function RegisterForm() {
           {trialToken && !trialContext.valid && !trialContext.loading && (
             <div className="mb-6 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-4 py-3 text-yellow-200 text-sm">
               <i className="fas fa-exclamation-triangle mr-2"></i>
-              This activation link is invalid or already used. You can still create an account below.
+              This activation link was already used. If you activated your trial before, <Link href="/auth/login" className="underline font-semibold">sign in</Link> or <Link href="/auth/forgot-password" className="underline font-semibold">reset your password</Link>. Otherwise you can create an account below.
             </div>
           )}
           <form onSubmit={handleSubmit} className="space-y-5">

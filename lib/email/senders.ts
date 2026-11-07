@@ -245,6 +245,48 @@ export async function sendTrialCredentials(props: SendTrialCredentialsProps): Pr
 }
 
 // ─────────────────────────────────────────────────────────────
+// Customer: password reset
+// ─────────────────────────────────────────────────────────────
+
+interface SendPasswordResetProps {
+  to: string
+  name?: string | null
+  resetUrl: string
+}
+
+function escapeHtml(v: string): string {
+  return v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+}
+
+export async function sendPasswordReset(props: SendPasswordResetProps): Promise<EmailResult> {
+  const { to, resetUrl } = props
+  const name = props.name?.trim() || 'there'
+  const config = await getEmailConfig()
+
+  return sendMail({
+    to,
+    subject: 'Reset your Orca 4K TV password',
+    headers: customerHeaders(config.replyTo),
+    text: `Hi ${name},\n\nWe got a request to reset the password for your Orca 4K TV account.\n\nChoose a new password here (the link works for 1 hour):\n${resetUrl}\n\nIf you didn't ask for this, you can ignore this email. Your password stays the same.\n\n- The Orca 4K TV Team\nhttps://orca4ktv.com`,
+    html: emailLayout({
+      headerTitle: 'Reset your password',
+      headerSubtitle: 'Orca 4K TV',
+      footerHtml: customerFooter(config.replyTo),
+      bodyHtml: `
+          <p style="color:#d1d5db;">Hi <strong style="color:#fff;">${escapeHtml(name)}</strong>,</p>
+          <p style="color:#d1d5db;">We got a request to reset the password for your Orca 4K TV account. Click below to choose a new one.</p>
+
+          <div style="text-align:center;margin:28px 0 12px;">
+            <a href="${resetUrl}" style="background:linear-gradient(135deg,#7c3aed,#3b82f6);color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-weight:900;font-size:15px;display:inline-block;">Choose a new password</a>
+          </div>
+          <p style="color:#9ca3af;font-size:13px;text-align:center;margin:0 0 28px;">The link works for 1 hour and can be used once.</p>
+
+          <p style="color:#6b7280;font-size:13px;margin:0;">If you didn't ask for this, you can ignore this email. Your password stays the same.</p>`,
+    }),
+  })
+}
+
+// ─────────────────────────────────────────────────────────────
 // Admin alerts — go to the configured admin notification email.
 // No hardcoded fallback: unset → skipped.
 // ─────────────────────────────────────────────────────────────
