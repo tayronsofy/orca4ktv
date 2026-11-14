@@ -12,6 +12,7 @@ import { applyDiscountPercent, getPlanPrice, type PlanSlug } from '@/lib/pricing
  */
 export const COUPON_BONUS_MONTHS: Record<string, Partial<Record<PlanSlug, number>>> = {
   HALLOWEEN2026: { '6-months': 2, '12-months': 2 },
+  BLACKFRIDAY26: { '3-months': 1, '6-months': 2, '12-months': 3 },
 }
 
 /** Bonus months for a coupon + plan, 0 when none apply. Case-insensitive. */
